@@ -13,6 +13,8 @@ namespace BasicFacebookFeatures
 {
     public partial class FormMain : Form
     {
+        public LoginResult LoginResult { get; set; }
+
         public FormMain()
         {
             InitializeComponent();
@@ -31,7 +33,7 @@ namespace BasicFacebookFeatures
                     "public_profile"
                     /// add any relevant permissions
                     );
-
+            LoginResult = loginResult;
             buttonLogin.Text = $"Logged in as {loginResult.LoggedInUser.Name}";
         }
 
@@ -40,5 +42,11 @@ namespace BasicFacebookFeatures
 			FacebookService.LogoutWithUI();
 			buttonLogin.Text = "Login";
 		}
+
+        private void buttonFavoriteTeams_Click(object sender, EventArgs e)
+        {
+            FormFavoriteTeams favoriteTeamsForm = new FormFavoriteTeams(LoginResult);
+            favoriteTeamsForm.ShowDialog();
+        }
     }
 }
