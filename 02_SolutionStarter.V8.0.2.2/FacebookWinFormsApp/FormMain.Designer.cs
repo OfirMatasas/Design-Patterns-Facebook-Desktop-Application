@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.buttonLogin = new System.Windows.Forms.Button();
             this.buttonLogout = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -36,12 +37,12 @@
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.buttonLikedPages = new System.Windows.Forms.Button();
             this.buttonFavoriteTeams = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonGroups = new System.Windows.Forms.Button();
+            this.buttonEvents = new System.Windows.Forms.Button();
+            this.buttonAlbums = new System.Windows.Forms.Button();
+            this.buttonPosts = new System.Windows.Forms.Button();
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -77,12 +78,12 @@
             this.panel1.Controls.Add(this.button9);
             this.panel1.Controls.Add(this.button8);
             this.panel1.Controls.Add(this.button7);
-            this.panel1.Controls.Add(this.button6);
+            this.panel1.Controls.Add(this.buttonLikedPages);
             this.panel1.Controls.Add(this.buttonFavoriteTeams);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.buttonGroups);
+            this.panel1.Controls.Add(this.buttonEvents);
+            this.panel1.Controls.Add(this.buttonAlbums);
+            this.panel1.Controls.Add(this.buttonPosts);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
@@ -150,17 +151,18 @@
             this.button7.Text = "Feature1";
             this.button7.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // buttonLikedPages
             // 
-            this.button6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button6.Location = new System.Drawing.Point(0, 170);
-            this.button6.Margin = new System.Windows.Forms.Padding(2);
-            this.button6.Name = "button6";
-            this.button6.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.button6.Size = new System.Drawing.Size(150, 34);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "Liked Pages";
-            this.button6.UseVisualStyleBackColor = true;
+            this.buttonLikedPages.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonLikedPages.Location = new System.Drawing.Point(0, 170);
+            this.buttonLikedPages.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonLikedPages.Name = "buttonLikedPages";
+            this.buttonLikedPages.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.buttonLikedPages.Size = new System.Drawing.Size(150, 34);
+            this.buttonLikedPages.TabIndex = 5;
+            this.buttonLikedPages.Text = "Liked Pages";
+            this.buttonLikedPages.UseVisualStyleBackColor = true;
+            this.buttonLikedPages.Click += new System.EventHandler(this.button6_Click);
             // 
             // buttonFavoriteTeams
             // 
@@ -175,53 +177,53 @@
             this.buttonFavoriteTeams.UseVisualStyleBackColor = true;
             this.buttonFavoriteTeams.Click += new System.EventHandler(this.buttonFavoriteTeams_Click);
             // 
-            // button4
+            // buttonGroups
             // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button4.Location = new System.Drawing.Point(0, 102);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
-            this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.button4.Size = new System.Drawing.Size(150, 34);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Groups";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonGroups.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonGroups.Location = new System.Drawing.Point(0, 102);
+            this.buttonGroups.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonGroups.Name = "buttonGroups";
+            this.buttonGroups.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.buttonGroups.Size = new System.Drawing.Size(150, 34);
+            this.buttonGroups.TabIndex = 3;
+            this.buttonGroups.Text = "Groups";
+            this.buttonGroups.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // buttonEvents
             // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.Location = new System.Drawing.Point(0, 68);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.button3.Size = new System.Drawing.Size(150, 34);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Events";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonEvents.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonEvents.Location = new System.Drawing.Point(0, 68);
+            this.buttonEvents.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonEvents.Name = "buttonEvents";
+            this.buttonEvents.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.buttonEvents.Size = new System.Drawing.Size(150, 34);
+            this.buttonEvents.TabIndex = 2;
+            this.buttonEvents.Text = "Events";
+            this.buttonEvents.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // buttonAlbums
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.Location = new System.Drawing.Point(0, 34);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.button2.Size = new System.Drawing.Size(150, 34);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Albums";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonAlbums.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonAlbums.Location = new System.Drawing.Point(0, 34);
+            this.buttonAlbums.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonAlbums.Name = "buttonAlbums";
+            this.buttonAlbums.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.buttonAlbums.Size = new System.Drawing.Size(150, 34);
+            this.buttonAlbums.TabIndex = 1;
+            this.buttonAlbums.Text = "Albums";
+            this.buttonAlbums.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // buttonPosts
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.button1.Size = new System.Drawing.Size(150, 34);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Posts";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonPosts.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonPosts.Location = new System.Drawing.Point(0, 0);
+            this.buttonPosts.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonPosts.Name = "buttonPosts";
+            this.buttonPosts.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.buttonPosts.Size = new System.Drawing.Size(150, 34);
+            this.buttonPosts.TabIndex = 0;
+            this.buttonPosts.Text = "Posts";
+            this.buttonPosts.UseVisualStyleBackColor = true;
             // 
             // panelDesktop
             // 
@@ -247,9 +249,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(842, 552);
             this.Controls.Add(this.panelDesktop);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Facebook";
             this.panel1.ResumeLayout(false);
             this.panelDesktop.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -266,12 +269,12 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button buttonLikedPages;
         private System.Windows.Forms.Button buttonFavoriteTeams;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonGroups;
+        private System.Windows.Forms.Button buttonEvents;
+        private System.Windows.Forms.Button buttonAlbums;
+        private System.Windows.Forms.Button buttonPosts;
         private System.Windows.Forms.Panel panelDesktop;
         private System.Windows.Forms.Panel panel2;
     }

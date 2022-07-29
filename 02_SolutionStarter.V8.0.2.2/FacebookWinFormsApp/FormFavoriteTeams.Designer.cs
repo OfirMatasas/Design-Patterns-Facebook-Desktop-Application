@@ -38,19 +38,18 @@
             // listBoxFavoriteTeams
             // 
             this.listBoxFavoriteTeams.FormattingEnabled = true;
-            this.listBoxFavoriteTeams.Location = new System.Drawing.Point(30, 50);
-            this.listBoxFavoriteTeams.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBoxFavoriteTeams.ItemHeight = 21;
+            this.listBoxFavoriteTeams.Location = new System.Drawing.Point(50, 48);
             this.listBoxFavoriteTeams.Name = "listBoxFavoriteTeams";
-            this.listBoxFavoriteTeams.Size = new System.Drawing.Size(260, 290);
+            this.listBoxFavoriteTeams.Size = new System.Drawing.Size(431, 445);
             this.listBoxFavoriteTeams.TabIndex = 0;
             this.listBoxFavoriteTeams.SelectedIndexChanged += new System.EventHandler(this.listBoxFavoriteTeams_SelectedIndexChanged);
             // 
             // pictureBoxFavoriteTeam
             // 
-            this.pictureBoxFavoriteTeam.Location = new System.Drawing.Point(200, 250);
-            this.pictureBoxFavoriteTeam.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxFavoriteTeam.Location = new System.Drawing.Point(371, 383);
             this.pictureBoxFavoriteTeam.Name = "pictureBoxFavoriteTeam";
-            this.pictureBoxFavoriteTeam.Size = new System.Drawing.Size(90, 90);
+            this.pictureBoxFavoriteTeam.Size = new System.Drawing.Size(110, 110);
             this.pictureBoxFavoriteTeam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBoxFavoriteTeam.TabIndex = 1;
             this.pictureBoxFavoriteTeam.TabStop = false;
@@ -58,11 +57,10 @@
             // buttonFetchFavoriteTeams
             // 
             this.buttonFetchFavoriteTeams.AutoSize = true;
-            this.buttonFetchFavoriteTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonFetchFavoriteTeams.Location = new System.Drawing.Point(30, 10);
-            this.buttonFetchFavoriteTeams.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonFetchFavoriteTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFetchFavoriteTeams.Location = new System.Drawing.Point(50, 12);
             this.buttonFetchFavoriteTeams.Name = "buttonFetchFavoriteTeams";
-            this.buttonFetchFavoriteTeams.Size = new System.Drawing.Size(175, 30);
+            this.buttonFetchFavoriteTeams.Size = new System.Drawing.Size(193, 30);
             this.buttonFetchFavoriteTeams.TabIndex = 2;
             this.buttonFetchFavoriteTeams.Text = "Fetch Favorite Teams";
             this.buttonFetchFavoriteTeams.UseVisualStyleBackColor = true;
@@ -71,23 +69,26 @@
             // chromiumWebBrowser1
             // 
             this.chromiumWebBrowser1.ActivateBrowserOnCreation = false;
-            this.chromiumWebBrowser1.Location = new System.Drawing.Point(392, 263);
+            this.chromiumWebBrowser1.Location = new System.Drawing.Point(653, 424);
+            this.chromiumWebBrowser1.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.chromiumWebBrowser1.Name = "chromiumWebBrowser1";
-            this.chromiumWebBrowser1.Size = new System.Drawing.Size(8, 8);
+            this.chromiumWebBrowser1.Size = new System.Drawing.Size(13, 13);
             this.chromiumWebBrowser1.TabIndex = 3;
             // 
             // FormFavoriteTeams
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(324, 351);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(527, 513);
             this.Controls.Add(this.chromiumWebBrowser1);
             this.Controls.Add(this.buttonFetchFavoriteTeams);
             this.Controls.Add(this.pictureBoxFavoriteTeam);
             this.Controls.Add(this.listBoxFavoriteTeams);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)), true);
             this.Name = "FormFavoriteTeams";
-            this.Text = "FormFavoriteTeams";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Favorite Teams";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFavoriteTeam)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -17,7 +17,8 @@ namespace BasicFacebookFeatures
         private FacebookAccountManager m_AccountManager = new FacebookAccountManager();
         public Form ActiveForm { get; set; }
         public FormFavoriteTeams FavoriteTeamsForm { get; set; }
-        
+        public FormLikedPages LikedPagesForm { get; set; }
+
 
         public FormMain()
         {
@@ -59,6 +60,12 @@ namespace BasicFacebookFeatures
             i_ChildForm.BringToFront();
             i_ChildForm.Show();
             //labelTitleBar.Text = i_ChildForm.Text;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            LikedPagesForm = new FormLikedPages(m_AccountManager.LoggedInUser);
+            openChildForm(LikedPagesForm, sender);
         }
 
         //private void buttonEvents_Click(object i_Sender, EventArgs e)
