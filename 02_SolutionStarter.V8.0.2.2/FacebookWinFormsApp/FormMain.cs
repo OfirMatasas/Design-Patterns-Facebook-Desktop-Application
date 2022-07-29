@@ -14,11 +14,15 @@ namespace BasicFacebookFeatures
     public partial class FormMain : Form
     {
         public LoginResult LoginResult { get; set; }
+        public Form ActiveForm { get; set; }
+
+        public FormFavoriteTeams FavoriteTeamsForm { get; set; }
 
         public FormMain()
         {
             InitializeComponent();
             FacebookWrapper.FacebookService.s_CollectionLimit = 100;
+
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
@@ -35,6 +39,8 @@ namespace BasicFacebookFeatures
                     );
             LoginResult = loginResult;
             buttonLogin.Text = $"Logged in as {loginResult.LoggedInUser.Name}";
+            
+            FavoriteTeamsForm = new FormFavoriteTeams(LoginResult);
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
@@ -45,8 +51,35 @@ namespace BasicFacebookFeatures
 
         private void buttonFavoriteTeams_Click(object sender, EventArgs e)
         {
-            FormFavoriteTeams favoriteTeamsForm = new FormFavoriteTeams(LoginResult);
-            favoriteTeamsForm.ShowDialog();
+            openChildForm(FavoriteTeamsForm, sender);
+            //FavoriteTeamsForm.ShowDialog();
         }
+
+        private void openChildForm(Form i_ChildForm, object i_Sender)
+        {
+            ActiveForm?.Close();
+            //selectButton(i_Sender);
+            ActiveForm = i_ChildForm;
+            i_ChildForm.TopLevel = false;
+            i_ChildForm.FormBorderStyle = FormBorderStyle.None;
+            i_ChildForm.Dock = DockStyle.Fill;
+            panel2.Controls.Add(i_ChildForm);
+            panel2.Tag = i_ChildForm;
+            i_ChildForm.BringToFront();
+            i_ChildForm.Show();
+            //labelTitleBar.Text = i_ChildForm.Text;
+        }
+
+        //private void buttonEvents_Click(object i_Sender, EventArgs e)
+        //{
+        //    openChildForm(new Forms.FormPosts(r_FacebookUserManager), i_Sender);
+        //}
+
+        //private void buttonFeature1_Click(object i_Sender, EventArgs e)
+        //{
+        //    openChildForm(new Forms.FormCollage(r_FacebookUserManager), i_Sender);
+        //}
+
+
     }
 }
