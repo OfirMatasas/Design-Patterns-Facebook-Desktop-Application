@@ -95,6 +95,12 @@
     <Compile Include="FormFavoriteTeams.Designer.cs">
       <DependentUpon>FormFavoriteTeams.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormGroups.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGroups.Designer.cs">
+      <DependentUpon>FormGroups.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLikedPages.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormFavoriteTeams.resx">
       <DependentUpon>FormFavoriteTeams.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGroups.resx">
+      <DependentUpon>FormGroups.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLikedPages.resx">
       <DependentUpon>FormLikedPages.cs</DependentUpon>

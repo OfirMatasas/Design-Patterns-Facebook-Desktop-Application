@@ -18,6 +18,7 @@ namespace BasicFacebookFeatures
         public Form ActiveForm { get; set; }
         public FormFavoriteTeams FavoriteTeamsForm { get; set; }
         public FormLikedPages LikedPagesForm { get; set; }
+        public FormGroups GroupsForm { get; set; }
 
 
         public FormMain()
@@ -62,10 +63,17 @@ namespace BasicFacebookFeatures
             //labelTitleBar.Text = i_ChildForm.Text;
         }
 
-        private void button6_Click(object sender, EventArgs e)
+
+        private void buttonLikedPages_Click(object sender, EventArgs e)
         {
             LikedPagesForm = new FormLikedPages(m_AccountManager.LoggedInUser);
             openChildForm(LikedPagesForm, sender);
+        }
+
+        private void buttonGroups_Click(object sender, EventArgs e)
+        {
+            GroupsForm = new FormGroups(m_AccountManager.LoggedInUser);
+            openChildForm(GroupsForm, sender);
         }
 
         //private void buttonEvents_Click(object i_Sender, EventArgs e)

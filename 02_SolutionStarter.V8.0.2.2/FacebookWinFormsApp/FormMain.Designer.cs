@@ -162,7 +162,7 @@
             this.buttonLikedPages.TabIndex = 5;
             this.buttonLikedPages.Text = "Liked Pages";
             this.buttonLikedPages.UseVisualStyleBackColor = true;
-            this.buttonLikedPages.Click += new System.EventHandler(this.button6_Click);
+            this.buttonLikedPages.Click += new System.EventHandler(this.buttonLikedPages_Click);
             // 
             // buttonFavoriteTeams
             // 
@@ -188,6 +188,7 @@
             this.buttonGroups.TabIndex = 3;
             this.buttonGroups.Text = "Groups";
             this.buttonGroups.UseVisualStyleBackColor = true;
+            this.buttonGroups.Click += new System.EventHandler(this.buttonGroups_Click);
             // 
             // buttonEvents
             // 

@@ -49,7 +49,7 @@ namespace BasicFacebookFeatures
             if (listBoxLikedPages.SelectedItems.Count == 1)
             {
                 Page selectedPage = listBoxLikedPages.SelectedItem as Page;
-                pictureBoxLikedPage.LoadAsync(selectedPage.PictureNormalURL);
+                pictureBoxSelectedLikedPage.LoadAsync(selectedPage.PictureNormalURL);
             }
         }
     }

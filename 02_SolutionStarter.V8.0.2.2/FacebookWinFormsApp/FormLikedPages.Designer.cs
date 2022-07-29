@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.buttonFetchLikedPages = new System.Windows.Forms.Button();
-            this.pictureBoxLikedPage = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSelectedLikedPage = new System.Windows.Forms.PictureBox();
             this.listBoxLikedPages = new System.Windows.Forms.ListBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLikedPage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedLikedPage)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonFetchLikedPages
@@ -46,14 +46,14 @@
             this.buttonFetchLikedPages.UseVisualStyleBackColor = true;
             this.buttonFetchLikedPages.Click += new System.EventHandler(this.buttonFetchLikedPages_Click_1);
             // 
-            // pictureBoxLikedPage
+            // pictureBoxSelectedLikedPage
             // 
-            this.pictureBoxLikedPage.Location = new System.Drawing.Point(369, 387);
-            this.pictureBoxLikedPage.Name = "pictureBoxLikedPage";
-            this.pictureBoxLikedPage.Size = new System.Drawing.Size(110, 110);
-            this.pictureBoxLikedPage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBoxLikedPage.TabIndex = 4;
-            this.pictureBoxLikedPage.TabStop = false;
+            this.pictureBoxSelectedLikedPage.Location = new System.Drawing.Point(369, 387);
+            this.pictureBoxSelectedLikedPage.Name = "pictureBoxSelectedLikedPage";
+            this.pictureBoxSelectedLikedPage.Size = new System.Drawing.Size(110, 110);
+            this.pictureBoxSelectedLikedPage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxSelectedLikedPage.TabIndex = 4;
+            this.pictureBoxSelectedLikedPage.TabStop = false;
             // 
             // listBoxLikedPages
             // 
@@ -72,14 +72,14 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(527, 513);
             this.Controls.Add(this.buttonFetchLikedPages);
-            this.Controls.Add(this.pictureBoxLikedPage);
+            this.Controls.Add(this.pictureBoxSelectedLikedPage);
             this.Controls.Add(this.listBoxLikedPages);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)), true);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormLikedPages";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Liked Pages";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLikedPage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedLikedPage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -88,7 +88,7 @@
         #endregion
 
         private System.Windows.Forms.Button buttonFetchLikedPages;
-        private System.Windows.Forms.PictureBox pictureBoxLikedPage;
+        private System.Windows.Forms.PictureBox pictureBoxSelectedLikedPage;
         private System.Windows.Forms.ListBox listBoxLikedPages;
     }
 }

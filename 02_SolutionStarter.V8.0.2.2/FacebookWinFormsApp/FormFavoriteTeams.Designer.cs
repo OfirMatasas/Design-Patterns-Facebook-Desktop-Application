@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.listBoxFavoriteTeams = new System.Windows.Forms.ListBox();
-            this.pictureBoxFavoriteTeam = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSelectedFavoriteTeam = new System.Windows.Forms.PictureBox();
             this.buttonFetchFavoriteTeams = new System.Windows.Forms.Button();
             this.chromiumWebBrowser1 = new CefSharp.WinForms.ChromiumWebBrowser();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFavoriteTeam)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedFavoriteTeam)).BeginInit();
             this.SuspendLayout();
             // 
             // listBoxFavoriteTeams
@@ -45,14 +45,14 @@
             this.listBoxFavoriteTeams.TabIndex = 0;
             this.listBoxFavoriteTeams.SelectedIndexChanged += new System.EventHandler(this.listBoxFavoriteTeams_SelectedIndexChanged);
             // 
-            // pictureBoxFavoriteTeam
+            // pictureBoxSelectedFavoriteTeam
             // 
-            this.pictureBoxFavoriteTeam.Location = new System.Drawing.Point(371, 383);
-            this.pictureBoxFavoriteTeam.Name = "pictureBoxFavoriteTeam";
-            this.pictureBoxFavoriteTeam.Size = new System.Drawing.Size(110, 110);
-            this.pictureBoxFavoriteTeam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBoxFavoriteTeam.TabIndex = 1;
-            this.pictureBoxFavoriteTeam.TabStop = false;
+            this.pictureBoxSelectedFavoriteTeam.Location = new System.Drawing.Point(371, 383);
+            this.pictureBoxSelectedFavoriteTeam.Name = "pictureBoxSelectedFavoriteTeam";
+            this.pictureBoxSelectedFavoriteTeam.Size = new System.Drawing.Size(110, 110);
+            this.pictureBoxSelectedFavoriteTeam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxSelectedFavoriteTeam.TabIndex = 1;
+            this.pictureBoxSelectedFavoriteTeam.TabStop = false;
             // 
             // buttonFetchFavoriteTeams
             // 
@@ -83,13 +83,13 @@
             this.ClientSize = new System.Drawing.Size(527, 513);
             this.Controls.Add(this.chromiumWebBrowser1);
             this.Controls.Add(this.buttonFetchFavoriteTeams);
-            this.Controls.Add(this.pictureBoxFavoriteTeam);
+            this.Controls.Add(this.pictureBoxSelectedFavoriteTeam);
             this.Controls.Add(this.listBoxFavoriteTeams);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)), true);
             this.Name = "FormFavoriteTeams";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Favorite Teams";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFavoriteTeam)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedFavoriteTeam)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -98,7 +98,7 @@
         #endregion
 
         private System.Windows.Forms.ListBox listBoxFavoriteTeams;
-        private System.Windows.Forms.PictureBox pictureBoxFavoriteTeam;
+        private System.Windows.Forms.PictureBox pictureBoxSelectedFavoriteTeam;
         private System.Windows.Forms.Button buttonFetchFavoriteTeams;
         private CefSharp.WinForms.ChromiumWebBrowser chromiumWebBrowser1;
     }

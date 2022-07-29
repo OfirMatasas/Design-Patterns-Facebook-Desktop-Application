@@ -27,7 +27,7 @@ namespace BasicFacebookFeatures
             if (listBoxFavoriteTeams.SelectedItems.Count == 1)
             {
                 Page selectedTeam = listBoxFavoriteTeams.SelectedItem as Page;
-                pictureBoxFavoriteTeam.LoadAsync(selectedTeam.PictureNormalURL);
+                pictureBoxSelectedFavoriteTeam.LoadAsync(selectedTeam.PictureNormalURL);
             }
         }
 
