@@ -1,10 +1,5 @@
 ﻿using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FacebookWinFormsLogic
 {
@@ -33,6 +28,7 @@ namespace FacebookWinFormsLogic
                 "groups_access_member_info",
                 "publish_to_groups",
                 "pages_manage_posts");
+
             LoggedInUser = string.IsNullOrEmpty(loginResult.AccessToken) ? null : loginResult.LoggedInUser;
 
             return LoggedInUser != null;

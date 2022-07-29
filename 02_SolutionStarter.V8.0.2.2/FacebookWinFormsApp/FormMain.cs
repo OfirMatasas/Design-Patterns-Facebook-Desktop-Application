@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using FacebookWrapper.ObjectModel;
 using FacebookWrapper;
 using FacebookWinFormsLogic;
 
@@ -19,7 +12,7 @@ namespace BasicFacebookFeatures
         public FormFavoriteTeams FavoriteTeamsForm { get; set; }
         public FormLikedPages LikedPagesForm { get; set; }
         public FormGroups GroupsForm { get; set; }
-
+        public FormPosts PostsForm { get; set; }
 
         public FormMain()
         {
@@ -32,7 +25,19 @@ namespace BasicFacebookFeatures
             if(m_AccountManager.Login())
             {
                 buttonLogin.Text = $"Logged in as {m_AccountManager.LoggedInUser.Name}";
+                EnableAllSidebarButtons();
+                InitializeAllSubForms();
             }  
+        }
+
+        private void EnableAllSidebarButtons()
+        {
+            buttonPosts.Enabled = true;
+        }
+
+        private void InitializeAllSubForms()
+        {
+            PostsForm = new FormPosts(m_AccountManager.LoggedInUser.Posts);
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
@@ -74,6 +79,11 @@ namespace BasicFacebookFeatures
         {
             GroupsForm = new FormGroups(m_AccountManager.LoggedInUser);
             openChildForm(GroupsForm, sender);
+        }
+
+        private void buttonPosts_Click(object sender, EventArgs e)
+        {
+            openChildForm(PostsForm, sender);
         }
 
         //private void buttonEvents_Click(object i_Sender, EventArgs e)

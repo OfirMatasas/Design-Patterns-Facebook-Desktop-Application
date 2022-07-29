@@ -1,30 +1,44 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using FacebookWrapper.ObjectModel;
 
 namespace BasicFacebookFeatures
 {
     public partial class FormPosts : Form
     {
-        public FormPosts()
+        public FormPosts(FacebookObjectCollection<Post> i_Posts)
         {
             InitializeComponent();
+            InitializePostsView(i_Posts);
+        } 
+
+        private void InitializePostsView(FacebookObjectCollection<Post> i_Posts)
+        {
+            foreach (Post post in i_Posts)
+            {
+                listBoxPosts.Items.Add(post);
+            }
+
+            listBoxPosts.Show();
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void buttonClearNewPostText_Click(object i_Sender, EventArgs i_E)
         {
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void listBoxPosts_SelectedIndexChanged(object i_Sender, EventArgs i_E)
         {
+            Post selectedPost = listBoxPosts.SelectedItem as Post;
+            StringBuilder postInformation = new StringBuilder();
 
+            postInformation.Append(selectedPost.Name).Append(Environment.NewLine).Append(Environment.NewLine);
+            postInformation.Append(selectedPost.Description).Append(Environment.NewLine).Append(Environment.NewLine);
+            postInformation.Append(selectedPost.CreatedTime);
+
+            richTextBoxSelectedPost.Text = postInformation.ToString();
         }
     }
 }
