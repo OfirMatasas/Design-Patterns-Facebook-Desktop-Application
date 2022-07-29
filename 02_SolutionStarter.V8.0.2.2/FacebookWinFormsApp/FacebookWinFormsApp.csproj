@@ -142,6 +142,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FacebookWinFormsLogic\FacebookWinFormsLogic.csproj">
+      <Project>{ea1de595-8230-423f-b2f4-b90fbc3c4382}</Project>
+      <Name>FacebookWinFormsLogic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -14,12 +14,12 @@ namespace BasicFacebookFeatures
 {
     public partial class FormFavoriteTeams : Form
     {
-        public LoginResult LoginResult { get; set; }
+        public User User { get; set; }
 
-        public FormFavoriteTeams(LoginResult i_LoginResult)
+        public FormFavoriteTeams(User i_User)
         {
             InitializeComponent();
-            LoginResult = i_LoginResult;
+            User = i_User;
         }
 
         private void listBoxFavoriteTeams_SelectedIndexChanged(object sender, EventArgs e)
@@ -35,7 +35,7 @@ namespace BasicFacebookFeatures
         {
             listBoxFavoriteTeams.Items.Clear();
             listBoxFavoriteTeams.DisplayMember = "Name";
-            foreach (Page team in LoginResult.LoggedInUser.FavofriteTeams)
+            foreach (Page team in User.FavofriteTeams)
             {
                 listBoxFavoriteTeams.Items.Add(team);
             }

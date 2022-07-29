@@ -8,39 +8,29 @@ using System.Text;
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 using FacebookWrapper;
+using FacebookWinFormsLogic;
 
 namespace BasicFacebookFeatures
 {
     public partial class FormMain : Form
     {
-        public LoginResult LoginResult { get; set; }
+        private FacebookAccountManager m_AccountManager = new FacebookAccountManager();
         public Form ActiveForm { get; set; }
-
         public FormFavoriteTeams FavoriteTeamsForm { get; set; }
+        
 
         public FormMain()
         {
             InitializeComponent();
             FacebookWrapper.FacebookService.s_CollectionLimit = 100;
-
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText("design.patterns20cc"); /// the current password for Desig Patter
-
-            FacebookWrapper.LoginResult loginResult = FacebookService.Login(
-                    /// (This is Desig Patter's App ID. replace it with your own)
-                    "473768324575372", 
-                    /// requested permissions:
-					"email",
-                    "public_profile"
-                    /// add any relevant permissions
-                    );
-            LoginResult = loginResult;
-            buttonLogin.Text = $"Logged in as {loginResult.LoggedInUser.Name}";
-            
-            FavoriteTeamsForm = new FormFavoriteTeams(LoginResult);
+            if(m_AccountManager.Login())
+            {
+                buttonLogin.Text = $"Logged in as {m_AccountManager.LoggedInUser.Name}";
+            }  
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
@@ -51,6 +41,7 @@ namespace BasicFacebookFeatures
 
         private void buttonFavoriteTeams_Click(object sender, EventArgs e)
         {
+            FavoriteTeamsForm = new FormFavoriteTeams(m_AccountManager.LoggedInUser);
             openChildForm(FavoriteTeamsForm, sender);
             //FavoriteTeamsForm.ShowDialog();
         }
