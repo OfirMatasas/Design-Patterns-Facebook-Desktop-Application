@@ -89,22 +89,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormFavoriteTeams.cs">
+    <Compile Include="Forms\FormFavoriteTeams.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormFavoriteTeams.Designer.cs">
+    <Compile Include="Forms\FormFavoriteTeams.Designer.cs">
       <DependentUpon>FormFavoriteTeams.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormGroups.cs">
+    <Compile Include="Forms\FormGroups.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormGroups.Designer.cs">
+    <Compile Include="Forms\FormGroups.Designer.cs">
       <DependentUpon>FormGroups.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormLikedPages.cs">
+    <Compile Include="Forms\FormLikedPages.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLikedPages.Designer.cs">
+    <Compile Include="Forms\FormLikedPages.Designer.cs">
       <DependentUpon>FormLikedPages.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMain.cs">
@@ -113,27 +113,27 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPosts.cs">
+    <Compile Include="Forms\FormPosts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPosts.Designer.cs">
+    <Compile Include="Forms\FormPosts.Designer.cs">
       <DependentUpon>FormPosts.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormFavoriteTeams.resx">
+    <EmbeddedResource Include="Forms\FormFavoriteTeams.resx">
       <DependentUpon>FormFavoriteTeams.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormGroups.resx">
+    <EmbeddedResource Include="Forms\FormGroups.resx">
       <DependentUpon>FormGroups.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormLikedPages.resx">
+    <EmbeddedResource Include="Forms\FormLikedPages.resx">
       <DependentUpon>FormLikedPages.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPosts.resx">
+    <EmbeddedResource Include="Forms\FormPosts.resx">
       <DependentUpon>FormPosts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
