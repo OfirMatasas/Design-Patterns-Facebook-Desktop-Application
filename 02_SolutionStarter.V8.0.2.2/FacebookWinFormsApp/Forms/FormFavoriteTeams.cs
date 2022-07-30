@@ -31,7 +31,7 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void buttonFetchFavoriteTeams_Click(object sender, EventArgs e)
+        private void fetchFavoriteTeams()
         {
             listBoxFavoriteTeams.Items.Clear();
             listBoxFavoriteTeams.DisplayMember = "Name";
@@ -44,6 +44,11 @@ namespace BasicFacebookFeatures
             {
                 MessageBox.Show("No teams to retrieve :(");
             }
+        }
+
+        private void buttonFetchFavoriteTeams_Click(object sender, EventArgs e)
+        {
+            fetchFavoriteTeams();
         }
     }
 }

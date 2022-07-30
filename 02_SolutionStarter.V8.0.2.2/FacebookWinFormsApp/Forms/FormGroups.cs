@@ -46,6 +46,7 @@ namespace BasicFacebookFeatures
         {
             if (listBoxGroups.SelectedItems.Count == 1)
             {
+                richTextBoxGroupSelectedDescription.Visible = true;
                 Group selectedGroup = listBoxGroups.SelectedItem as Group;
                 pictureBoxSelectedGroup.LoadAsync(selectedGroup.PictureNormalURL);
                 richTextBoxGroupSelectedDescription.Text = selectedGroup.Description;

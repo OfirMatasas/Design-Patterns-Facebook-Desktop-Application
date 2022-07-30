@@ -56,7 +56,7 @@
             this.pictureBoxSelectedGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxSelectedGroup.Location = new System.Drawing.Point(454, 87);
+            this.pictureBoxSelectedGroup.Location = new System.Drawing.Point(420, 75);
             this.pictureBoxSelectedGroup.Name = "pictureBoxSelectedGroup";
             this.pictureBoxSelectedGroup.Size = new System.Drawing.Size(130, 130);
             this.pictureBoxSelectedGroup.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -71,7 +71,7 @@
             this.listBoxGroups.ItemHeight = 21;
             this.listBoxGroups.Location = new System.Drawing.Point(48, 52);
             this.listBoxGroups.Name = "listBoxGroups";
-            this.listBoxGroups.Size = new System.Drawing.Size(328, 445);
+            this.listBoxGroups.Size = new System.Drawing.Size(328, 382);
             this.listBoxGroups.TabIndex = 6;
             this.listBoxGroups.SelectedIndexChanged += new System.EventHandler(this.listBoxGroups_SelectedIndexChanged);
             // 
@@ -80,16 +80,17 @@
             this.richTextBoxGroupSelectedDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBoxGroupSelectedDescription.Location = new System.Drawing.Point(420, 281);
+            this.richTextBoxGroupSelectedDescription.Location = new System.Drawing.Point(396, 258);
             this.richTextBoxGroupSelectedDescription.Name = "richTextBoxGroupSelectedDescription";
-            this.richTextBoxGroupSelectedDescription.Size = new System.Drawing.Size(215, 216);
+            this.richTextBoxGroupSelectedDescription.Size = new System.Drawing.Size(215, 177);
             this.richTextBoxGroupSelectedDescription.TabIndex = 9;
             this.richTextBoxGroupSelectedDescription.Text = "";
+            this.richTextBoxGroupSelectedDescription.Visible = false;
             // 
             // labelGroupSelectedPicture
             // 
             this.labelGroupSelectedPicture.AutoSize = true;
-            this.labelGroupSelectedPicture.Location = new System.Drawing.Point(464, 52);
+            this.labelGroupSelectedPicture.Location = new System.Drawing.Point(426, 52);
             this.labelGroupSelectedPicture.Name = "labelGroupSelectedPicture";
             this.labelGroupSelectedPicture.Size = new System.Drawing.Size(120, 20);
             this.labelGroupSelectedPicture.TabIndex = 10;
@@ -98,7 +99,7 @@
             // labelGroupDescription
             // 
             this.labelGroupDescription.AutoSize = true;
-            this.labelGroupDescription.Location = new System.Drawing.Point(450, 248);
+            this.labelGroupDescription.Location = new System.Drawing.Point(426, 225);
             this.labelGroupDescription.Name = "labelGroupDescription";
             this.labelGroupDescription.Size = new System.Drawing.Size(155, 20);
             this.labelGroupDescription.TabIndex = 11;
@@ -109,7 +110,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(681, 513);
+            this.ClientSize = new System.Drawing.Size(681, 495);
             this.Controls.Add(this.labelGroupDescription);
             this.Controls.Add(this.labelGroupSelectedPicture);
             this.Controls.Add(this.richTextBoxGroupSelectedDescription);

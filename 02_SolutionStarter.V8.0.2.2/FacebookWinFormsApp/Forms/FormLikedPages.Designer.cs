@@ -54,7 +54,7 @@
             this.pictureBoxSelectedLikedPage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxSelectedLikedPage.Location = new System.Drawing.Point(512, 89);
+            this.pictureBoxSelectedLikedPage.Location = new System.Drawing.Point(483, 87);
             this.pictureBoxSelectedLikedPage.Name = "pictureBoxSelectedLikedPage";
             this.pictureBoxSelectedLikedPage.Size = new System.Drawing.Size(130, 130);
             this.pictureBoxSelectedLikedPage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -69,14 +69,14 @@
             this.listBoxLikedPages.ItemHeight = 21;
             this.listBoxLikedPages.Location = new System.Drawing.Point(48, 52);
             this.listBoxLikedPages.Name = "listBoxLikedPages";
-            this.listBoxLikedPages.Size = new System.Drawing.Size(402, 445);
+            this.listBoxLikedPages.Size = new System.Drawing.Size(370, 424);
             this.listBoxLikedPages.TabIndex = 3;
             this.listBoxLikedPages.SelectedIndexChanged += new System.EventHandler(this.listBoxLikedPages_SelectedIndexChanged);
             // 
             // labelPageSelectedPicture
             // 
             this.labelPageSelectedPicture.AutoSize = true;
-            this.labelPageSelectedPicture.Location = new System.Drawing.Point(518, 54);
+            this.labelPageSelectedPicture.Location = new System.Drawing.Point(489, 52);
             this.labelPageSelectedPicture.Name = "labelPageSelectedPicture";
             this.labelPageSelectedPicture.Size = new System.Drawing.Size(111, 20);
             this.labelPageSelectedPicture.TabIndex = 11;
