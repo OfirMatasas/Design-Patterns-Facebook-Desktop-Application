@@ -14,7 +14,7 @@ namespace BasicFacebookFeatures
             User = i_User;
         }
 
-        private void buttonFetchGroups_Click(object sender, EventArgs e)
+        private void fetchGroups()
         {
             listBoxGroups.Items.Clear();
             listBoxGroups.DisplayMember = "Name";
@@ -37,12 +37,18 @@ namespace BasicFacebookFeatures
             }
         }
 
+        private void buttonFetchGroups_Click(object sender, EventArgs e)
+        {
+            fetchGroups();
+        }
+
         private void listBoxGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listBoxGroups.SelectedItems.Count == 1)
             {
                 Group selectedGroup = listBoxGroups.SelectedItem as Group;
                 pictureBoxSelectedGroup.LoadAsync(selectedGroup.PictureNormalURL);
+                richTextBoxGroupSelectedDescription.Text = selectedGroup.Description;
             }
         }
     }
