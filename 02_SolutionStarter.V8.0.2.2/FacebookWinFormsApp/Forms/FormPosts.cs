@@ -8,19 +8,18 @@ namespace BasicFacebookFeatures
 {
     public partial class FormPosts : Form
     {
-        private FacebookAccountManager m_LoggedInUser;
+        private FacebookAccountManager LoggedInUser { get; }
 
         public FormPosts(FacebookAccountManager i_LoggedInUser)
         {
+            LoggedInUser = i_LoggedInUser;
             InitializeComponent();
-            initializePostsView(i_LoggedInUser.LoggedInUser.Posts);
-
-            m_LoggedInUser = i_LoggedInUser;
+            fetchPosts();
         } 
 
-        private void initializePostsView(FacebookObjectCollection<Post> i_Posts)
+        private void fetchPosts()
         {
-            foreach (Post post in i_Posts)
+            foreach (Post post in LoggedInUser.LoggedInUser.Posts)
             {
                 listBoxPosts.Items.Add(post);
             }
@@ -63,8 +62,16 @@ namespace BasicFacebookFeatures
             }
             else
             {
-                postedStatus = m_LoggedInUser.Post(richTextBoxNewPost.Text);
-                MessageBox.Show(postedStatus.Message);
+                try
+                {
+                    postedStatus = LoggedInUser.Post(richTextBoxNewPost.Text);
+                    MessageBox.Show(postedStatus.Message);
+                }
+                catch
+                {
+                    MessageBox.Show("Posting action failed.");
+                }
+
             }
         }
     }

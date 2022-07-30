@@ -37,12 +37,12 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void buttonFetchGroups_Click(object sender, EventArgs e)
+        private void buttonFetchGroups_Click(object i_Sender, EventArgs i_E)
         {
             fetchGroups();
         }
 
-        private void listBoxGroups_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBoxGroups_SelectedIndexChanged(object i_Sender, EventArgs i_E)
         {
             if (listBoxGroups.SelectedItems.Count == 1)
             {
