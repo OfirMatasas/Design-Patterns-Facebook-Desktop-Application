@@ -39,6 +39,8 @@
             // 
             // buttonFetchGroups
             // 
+            this.buttonFetchGroups.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonFetchGroups.AutoSize = true;
             this.buttonFetchGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonFetchGroups.Location = new System.Drawing.Point(48, 16);
@@ -51,6 +53,9 @@
             // 
             // pictureBoxSelectedGroup
             // 
+            this.pictureBoxSelectedGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxSelectedGroup.Location = new System.Drawing.Point(454, 87);
             this.pictureBoxSelectedGroup.Name = "pictureBoxSelectedGroup";
             this.pictureBoxSelectedGroup.Size = new System.Drawing.Size(130, 130);
@@ -60,6 +65,8 @@
             // 
             // listBoxGroups
             // 
+            this.listBoxGroups.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.listBoxGroups.FormattingEnabled = true;
             this.listBoxGroups.ItemHeight = 21;
             this.listBoxGroups.Location = new System.Drawing.Point(48, 52);
@@ -70,6 +77,9 @@
             // 
             // richTextBoxGroupSelectedDescription
             // 
+            this.richTextBoxGroupSelectedDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBoxGroupSelectedDescription.Location = new System.Drawing.Point(420, 281);
             this.richTextBoxGroupSelectedDescription.Name = "richTextBoxGroupSelectedDescription";
             this.richTextBoxGroupSelectedDescription.Size = new System.Drawing.Size(215, 216);

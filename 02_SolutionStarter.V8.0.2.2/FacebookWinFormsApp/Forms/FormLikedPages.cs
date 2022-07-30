@@ -21,7 +21,7 @@ namespace BasicFacebookFeatures
             User = i_User;
         }
 
-        private void buttonFetchLikedPages_Click_1(object sender, EventArgs e)
+        private void fetchLikedPages()
         {
             listBoxLikedPages.Items.Clear();
             listBoxLikedPages.DisplayMember = "Name";
@@ -44,7 +44,12 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void listBoxLikedPages_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void buttonFetchLikedPages_Click(object sender, EventArgs e)
+        {
+            fetchLikedPages();
+        }
+
+        private void listBoxLikedPages_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listBoxLikedPages.SelectedItems.Count == 1)
             {
