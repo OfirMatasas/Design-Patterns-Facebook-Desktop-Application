@@ -33,11 +33,19 @@ namespace BasicFacebookFeatures
         private void EnableAllSidebarButtons()
         {
             buttonPosts.Enabled = true;
+            buttonAlbums.Enabled = true;
+            buttonEvents.Enabled = true;
+            buttonGroups.Enabled = true;
+            buttonFavoriteTeams.Enabled = true;
+            buttonLikedPages.Enabled = true;
         }
 
         private void InitializeAllSubForms()
         {
             PostsForm = new FormPosts(m_AccountManager.LoggedInUser.Posts);
+            GroupsForm = new FormGroups(m_AccountManager.LoggedInUser);
+            FavoriteTeamsForm = new FormFavoriteTeams(m_AccountManager.LoggedInUser);
+            LikedPagesForm = new FormLikedPages(m_AccountManager.LoggedInUser);
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
@@ -48,9 +56,7 @@ namespace BasicFacebookFeatures
 
         private void buttonFavoriteTeams_Click(object sender, EventArgs e)
         {
-            FavoriteTeamsForm = new FormFavoriteTeams(m_AccountManager.LoggedInUser);
             openChildForm(FavoriteTeamsForm, sender);
-            //FavoriteTeamsForm.ShowDialog();
         }
 
         private void openChildForm(Form i_ChildForm, object i_Sender)
@@ -71,13 +77,12 @@ namespace BasicFacebookFeatures
 
         private void buttonLikedPages_Click(object sender, EventArgs e)
         {
-            LikedPagesForm = new FormLikedPages(m_AccountManager.LoggedInUser);
             openChildForm(LikedPagesForm, sender);
         }
 
         private void buttonGroups_Click(object sender, EventArgs e)
         {
-            GroupsForm = new FormGroups(m_AccountManager.LoggedInUser);
+            
             openChildForm(GroupsForm, sender);
         }
 
@@ -85,17 +90,5 @@ namespace BasicFacebookFeatures
         {
             openChildForm(PostsForm, sender);
         }
-
-        //private void buttonEvents_Click(object i_Sender, EventArgs e)
-        //{
-        //    openChildForm(new Forms.FormPosts(r_FacebookUserManager), i_Sender);
-        //}
-
-        //private void buttonFeature1_Click(object i_Sender, EventArgs e)
-        //{
-        //    openChildForm(new Forms.FormCollage(r_FacebookUserManager), i_Sender);
-        //}
-
-
     }
 }
