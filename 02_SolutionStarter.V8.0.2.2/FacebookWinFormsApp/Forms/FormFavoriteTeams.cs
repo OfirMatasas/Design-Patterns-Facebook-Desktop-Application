@@ -1,14 +1,6 @@
 ﻿using FacebookWrapper.ObjectModel;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using FacebookWrapper;
 
 namespace BasicFacebookFeatures
 {
@@ -22,7 +14,7 @@ namespace BasicFacebookFeatures
             User = i_User;
         }
 
-        private void listBoxFavoriteTeams_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBoxFavoriteTeams_SelectedIndexChanged(object i_Sender, EventArgs i_E)
         {
             if (listBoxFavoriteTeams.SelectedItems.Count == 1)
             {
@@ -31,7 +23,7 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void buttonFetchFavoriteTeams_Click(object sender, EventArgs e)
+        private void buttonFetchFavoriteTeams_Click(object i_Sender, EventArgs i_E)
         {
             listBoxFavoriteTeams.Items.Clear();
             listBoxFavoriteTeams.DisplayMember = "Name";
