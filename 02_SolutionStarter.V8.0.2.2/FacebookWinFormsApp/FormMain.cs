@@ -17,7 +17,7 @@ namespace BasicFacebookFeatures
         public FormMain()
         {
             InitializeComponent();
-            FacebookWrapper.FacebookService.s_CollectionLimit = 100;
+            FacebookService.s_CollectionLimit = 100;
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
@@ -32,12 +32,10 @@ namespace BasicFacebookFeatures
 
         private void EnableAllSidebarButtons()
         {
-            buttonPosts.Enabled = true;
-            buttonAlbums.Enabled = true;
-            buttonEvents.Enabled = true;
-            buttonGroups.Enabled = true;
-            buttonFavoriteTeams.Enabled = true;
-            buttonLikedPages.Enabled = true;
+            foreach(Control control in panelSidebar.Controls)
+            {
+                control.Enabled = true;
+            }
         }
 
         private void InitializeAllSubForms()

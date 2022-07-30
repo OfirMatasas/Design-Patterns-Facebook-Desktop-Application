@@ -55,16 +55,15 @@ namespace BasicFacebookFeatures
 
         private void buttonPost_Click(object i_Sender, EventArgs i_E)
         {
-            RichTextBox newPost = i_Sender as RichTextBox;
             Status postedStatus;
 
-            if(string.IsNullOrEmpty(newPost?.Text))
+            if(string.IsNullOrEmpty(richTextBoxNewPost?.Text))
             {
                 MessageBox.Show("Cannot post an empty post!");
             }
             else
             {
-                postedStatus = m_LoggedInUser.Post(newPost.Text);
+                postedStatus = m_LoggedInUser.Post(richTextBoxNewPost.Text);
                 MessageBox.Show(postedStatus.Message);
             }
         }
