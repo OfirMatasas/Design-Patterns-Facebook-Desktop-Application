@@ -39,5 +39,9 @@ namespace FacebookWinFormsLogic
             FacebookService.Logout();
         }
 
+        public Status Post(string i_NewPost)
+        {
+            return LoggedInUser.PostStatus(i_NewPost);
+        }
     }
 }

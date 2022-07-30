@@ -1,20 +1,24 @@
 ﻿using System;
 using System.Text;
 using System.Windows.Forms;
-using System.Xml;
+using FacebookWinFormsLogic;
 using FacebookWrapper.ObjectModel;
 
 namespace BasicFacebookFeatures
 {
     public partial class FormPosts : Form
     {
-        public FormPosts(FacebookObjectCollection<Post> i_Posts)
+        private FacebookAccountManager m_LoggedInUser;
+
+        public FormPosts(FacebookAccountManager i_LoggedInUser)
         {
             InitializeComponent();
-            InitializePostsView(i_Posts);
+            initializePostsView(i_LoggedInUser.LoggedInUser.Posts);
+
+            m_LoggedInUser = i_LoggedInUser;
         } 
 
-        private void InitializePostsView(FacebookObjectCollection<Post> i_Posts)
+        private void initializePostsView(FacebookObjectCollection<Post> i_Posts)
         {
             foreach (Post post in i_Posts)
             {
@@ -26,7 +30,7 @@ namespace BasicFacebookFeatures
 
         private void buttonClearNewPostText_Click(object i_Sender, EventArgs i_E)
         {
-
+            richTextBoxNewPost.Text = string.Empty;
         }
 
         private void listBoxPosts_SelectedIndexChanged(object i_Sender, EventArgs i_E)
@@ -34,11 +38,35 @@ namespace BasicFacebookFeatures
             Post selectedPost = listBoxPosts.SelectedItem as Post;
             StringBuilder postInformation = new StringBuilder();
 
-            postInformation.Append(selectedPost.Name).Append(Environment.NewLine).Append(Environment.NewLine);
-            postInformation.Append(selectedPost.Description).Append(Environment.NewLine).Append(Environment.NewLine);
-            postInformation.Append(selectedPost.CreatedTime);
-
+            postInformation.Append(selectedPost?.Message).Append(Environment.NewLine).Append(Environment.NewLine);
+            postInformation.Append(selectedPost?.CreatedTime);
             richTextBoxSelectedPost.Text = postInformation.ToString();
+            pictureBoxSelectedPostPicture.ImageLocation = selectedPost?.PictureURL;
+        }
+
+        private void richTextBoxNewPost_TextChanged(object i_Sender, EventArgs i_E)
+        {
+            RichTextBox newPost = i_Sender as RichTextBox;
+            bool newPostIsEmpty = string.IsNullOrEmpty(newPost?.Text);
+
+            buttonClearNewPostText.Enabled = !newPostIsEmpty;
+            buttonPost.Enabled = !newPostIsEmpty;
+        }
+
+        private void buttonPost_Click(object i_Sender, EventArgs i_E)
+        {
+            RichTextBox newPost = i_Sender as RichTextBox;
+            Status postedStatus;
+
+            if(string.IsNullOrEmpty(newPost?.Text))
+            {
+                MessageBox.Show("Cannot post an empty post!");
+            }
+            else
+            {
+                postedStatus = m_LoggedInUser.Post(newPost.Text);
+                MessageBox.Show(postedStatus.Message);
+            }
         }
     }
 }

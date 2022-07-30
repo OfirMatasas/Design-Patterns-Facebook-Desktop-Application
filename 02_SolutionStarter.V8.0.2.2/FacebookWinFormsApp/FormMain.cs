@@ -42,7 +42,6 @@ namespace BasicFacebookFeatures
 
         private void InitializeAllSubForms()
         {
-            PostsForm = new FormPosts(m_AccountManager.LoggedInUser.Posts);
             GroupsForm = new FormGroups(m_AccountManager.LoggedInUser);
             FavoriteTeamsForm = new FormFavoriteTeams(m_AccountManager.LoggedInUser);
             LikedPagesForm = new FormLikedPages(m_AccountManager.LoggedInUser);
@@ -82,12 +81,16 @@ namespace BasicFacebookFeatures
 
         private void buttonGroups_Click(object sender, EventArgs e)
         {
-            
             openChildForm(GroupsForm, sender);
         }
 
         private void buttonPosts_Click(object sender, EventArgs e)
         {
+            if(PostsForm == null)
+            {
+                PostsForm = new FormPosts(m_AccountManager);
+            }
+
             openChildForm(PostsForm, sender);
         }
     }
