@@ -15,6 +15,7 @@ namespace BasicFacebookFeatures
         private FormGroups GroupsForm { get; set; }
         private FormPosts PostsForm { get; set; }
         private FormEvents EventsForm { get; set; }
+        private FormAlbums AlbumsForm { get; set; }
 
         public FormMain()
         {
@@ -109,6 +110,16 @@ namespace BasicFacebookFeatures
             }
 
             openChildForm(EventsForm, i_Sender);
+        }
+
+        private void buttonAlbums_Click(object i_Sender, EventArgs i_E)
+        {
+            if (AlbumsForm == null)
+            {
+                AlbumsForm = new FormAlbums(m_AccountManager.LoggedInUser);
+            }
+
+            openChildForm(AlbumsForm, i_Sender);
         }
     }
 }
