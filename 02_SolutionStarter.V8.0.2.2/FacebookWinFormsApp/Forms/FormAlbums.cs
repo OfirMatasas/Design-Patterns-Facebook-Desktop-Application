@@ -26,28 +26,41 @@ namespace BasicFacebookFeatures.Forms
             listBoxAlbums.Show();
         }
 
-        private void listBoxAlbums_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBoxAlbums_SelectedIndexChanged(object i_Sender, EventArgs i_E)
         {
             Album album = listBoxAlbums.SelectedItem as Album;
+
+            ShowSelectedAlbumsPhotos(album);
+            ShowSelectedAlbumsName(album);
+        }
+
+        private void ShowSelectedAlbumsPhotos(Album album)
+        {
             PictureBox pictureBox;
             Size pictureBoxSize = new Size(200, 200);
             Padding pictureBoxPadding = new Padding(10);
 
-            if(listBoxAlbums.SelectedItems.Count == 1)
+            flowLayoutPanelSelectedAlbumPhotos.Controls.Clear();
+            foreach (Photo photo in album.Photos)
             {
-                flowLayoutPanelSelectedAlbumPhotos.Controls.Clear();
-                foreach(Photo photo in album.Photos)
+                pictureBox = new PictureBox()
                 {
-                    pictureBox = new PictureBox() { 
-                        Image = photo.ImageNormal, 
-                        Padding = pictureBoxPadding, 
-                        Size = pictureBoxSize, 
-                        SizeMode = PictureBoxSizeMode.StretchImage};
-                    flowLayoutPanelSelectedAlbumPhotos.Controls.Add(pictureBox);
-                }
-
-                flowLayoutPanelSelectedAlbumPhotos.Show();
+                    Image = photo.ImageNormal,
+                    Padding = pictureBoxPadding,
+                    Size = pictureBoxSize,
+                    SizeMode = PictureBoxSizeMode.StretchImage
+                };
+                flowLayoutPanelSelectedAlbumPhotos.Controls.Add(pictureBox);
             }
+
+            flowLayoutPanelSelectedAlbumPhotos.Show();
+        }
+
+
+        private void ShowSelectedAlbumsName(Album album)
+        {
+            labelSelectedAlbumName.Text = album.Name;
+            labelSelectedAlbumName.Visible = true;
         }
     }
 }
