@@ -6,49 +6,38 @@ namespace BasicFacebookFeatures
 {
     public partial class FormLikedPages : Form
     {
-        public User User { get; set; }
+        public FacebookObjectCollection<Page> LikedPages { get; }
 
-        public FormLikedPages(User i_User)
+        public FormLikedPages(FacebookObjectCollection<Page> i_LikedPages)
         {
             InitializeComponent();
-            User = i_User;
+            LikedPages = i_LikedPages;
+            fetchLikedPages();
         }
 
         private void fetchLikedPages()
         {
-            listBoxLikedPages.Items.Clear();
             listBoxLikedPages.DisplayMember = "Name";
-
-            try
+            foreach (Page page in LikedPages)
             {
-                foreach (Page page in User.LikedPages)
-                {
-                    listBoxLikedPages.Items.Add(page);
-                }
+                listBoxLikedPages.Items.Add(page);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+        }
 
+        protected override void OnShown(EventArgs i_E)
+        {
+            base.OnShown(i_E);
             if (listBoxLikedPages.Items.Count == 0)
             {
-                MessageBox.Show("No liked pages to retrieve :(");
+                MessageBox.Show("No pages to retrieve :(");
             }
         }
 
-        private void buttonFetchLikedPages_Click(object sender, EventArgs e)
+        private void listBoxLikedPages_SelectedIndexChanged(object i_Sender, EventArgs i_E)
         {
-            fetchLikedPages();
-        }
+            Page selectedPage = listBoxLikedPages.SelectedItem as Page;
 
-        private void listBoxLikedPages_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (listBoxLikedPages.SelectedItems.Count == 1)
-            {
-                Page selectedPage = listBoxLikedPages.SelectedItem as Page;
-                pictureBoxSelectedLikedPage.LoadAsync(selectedPage.PictureNormalURL);
-            }
+            pictureBoxSelectedLikedPage.LoadAsync(selectedPage.PictureNormalURL);
         }
     }
 }

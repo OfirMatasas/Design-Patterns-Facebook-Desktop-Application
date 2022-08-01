@@ -40,22 +40,6 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void buttonLogout_Click(object i_Sender, EventArgs i_E)
-        {
-			FacebookService.LogoutWithUI();
-			buttonLogin.Text = "Login";
-		}
-
-        private void buttonFavoriteTeams_Click(object i_Sender, EventArgs i_E)
-        {
-            if (FavoriteTeamsForm == null)
-            {
-                FavoriteTeamsForm = new FormFavoriteTeams(m_AccountManager.LoggedInUser);
-            }
-
-            openChildForm(FavoriteTeamsForm, i_Sender);
-        }
-
         private void openChildForm(Form i_ChildForm, object i_Sender)
         {
             ActiveForm?.Hide();
@@ -71,12 +55,21 @@ namespace BasicFacebookFeatures
             //labelTitleBar.Text = i_ChildForm.Text;
         }
 
+        private void buttonFavoriteTeams_Click(object i_Sender, EventArgs i_E)
+        {
+            if (FavoriteTeamsForm == null)
+            {
+                FavoriteTeamsForm = new FormFavoriteTeams(m_AccountManager.LoggedInUser.FavofriteTeams);
+            }
+
+            openChildForm(FavoriteTeamsForm, i_Sender);
+        }
 
         private void buttonLikedPages_Click(object i_Sender, EventArgs i_E)
         {
             if (LikedPagesForm == null)
             {
-                LikedPagesForm = new FormLikedPages(m_AccountManager.LoggedInUser);
+                LikedPagesForm = new FormLikedPages(m_AccountManager.LoggedInUser.LikedPages);
             }
 
             openChildForm(LikedPagesForm, i_Sender);
@@ -86,7 +79,7 @@ namespace BasicFacebookFeatures
         {
             if (GroupsForm == null)
             {
-                GroupsForm = new FormGroups(m_AccountManager.LoggedInUser);
+                GroupsForm = new FormGroups(m_AccountManager.LoggedInUser.Groups);
             }
 
             openChildForm(GroupsForm, i_Sender);
@@ -106,7 +99,7 @@ namespace BasicFacebookFeatures
         {
             if (EventsForm == null)
             {
-                EventsForm = new FormEvents(m_AccountManager.LoggedInUser);
+                EventsForm = new FormEvents(m_AccountManager.LoggedInUser.Events);
             }
 
             openChildForm(EventsForm, i_Sender);
@@ -116,10 +109,16 @@ namespace BasicFacebookFeatures
         {
             if (AlbumsForm == null)
             {
-                AlbumsForm = new FormAlbums(m_AccountManager.LoggedInUser);
+                AlbumsForm = new FormAlbums(m_AccountManager.LoggedInUser.Albums);
             }
 
             openChildForm(AlbumsForm, i_Sender);
+        }
+
+        private void buttonLogout_Click(object i_Sender, EventArgs i_E)
+        {
+            FacebookService.LogoutWithUI();
+            buttonLogin.Text = "Login";
         }
     }
 }

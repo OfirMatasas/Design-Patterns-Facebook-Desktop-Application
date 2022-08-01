@@ -19,12 +19,11 @@ namespace BasicFacebookFeatures
 
         private void fetchPosts()
         {
+            listBoxPosts.DisplayMember = "Message";
             foreach (Post post in LoggedInUser.LoggedInUser.Posts)
             {
                 listBoxPosts.Items.Add(post);
             }
-
-            listBoxPosts.Show();
         }
 
         private void buttonClearNewPostText_Click(object i_Sender, EventArgs i_E)
@@ -35,12 +34,24 @@ namespace BasicFacebookFeatures
         private void listBoxPosts_SelectedIndexChanged(object i_Sender, EventArgs i_E)
         {
             Post selectedPost = listBoxPosts.SelectedItem as Post;
+
+            displaySelectedPostPicture(selectedPost);
+            displaySelectedPostInformation(selectedPost);
+        }
+
+        private void displaySelectedPostInformation(Post i_SelectedPost)
+        {
             StringBuilder postInformation = new StringBuilder();
 
-            postInformation.Append(selectedPost?.Message).Append(Environment.NewLine).Append(Environment.NewLine);
-            postInformation.Append(selectedPost?.CreatedTime);
+            postInformation.AppendFormat("{0}{1}{1}", i_SelectedPost?.Message, Environment.NewLine);
+            postInformation.Append(i_SelectedPost?.CreatedTime);
             richTextBoxSelectedPost.Text = postInformation.ToString();
-            pictureBoxSelectedPostPicture.ImageLocation = selectedPost?.PictureURL;
+            richTextBoxNewPost.Visible = true;
+        }
+
+        private void displaySelectedPostPicture(Post i_SelectedPost)
+        {
+            pictureBoxSelectedPostPicture.ImageLocation = i_SelectedPost?.PictureURL;
         }
 
         private void richTextBoxNewPost_TextChanged(object i_Sender, EventArgs i_E)
@@ -71,7 +82,6 @@ namespace BasicFacebookFeatures
                 {
                     MessageBox.Show("Posting action failed.");
                 }
-
             }
         }
     }

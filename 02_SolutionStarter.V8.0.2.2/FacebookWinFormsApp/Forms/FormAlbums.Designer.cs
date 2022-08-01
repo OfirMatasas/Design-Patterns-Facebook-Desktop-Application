@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panelChooseAlbum = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.listBoxAlbums = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanelSelectedAlbumPhotos = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.labelSelectedAlbumName = new System.Windows.Forms.Label();
@@ -48,35 +48,34 @@
             this.panelChooseAlbum.Size = new System.Drawing.Size(360, 1079);
             this.panelChooseAlbum.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(105, 46);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 42);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Albums";
-            // 
             // listBoxAlbums
             // 
             this.listBoxAlbums.FormattingEnabled = true;
             this.listBoxAlbums.ItemHeight = 25;
-            this.listBoxAlbums.Location = new System.Drawing.Point(24, 100);
+            this.listBoxAlbums.Location = new System.Drawing.Point(24, 65);
             this.listBoxAlbums.Name = "listBoxAlbums";
-            this.listBoxAlbums.ScrollAlwaysVisible = true;
             this.listBoxAlbums.Size = new System.Drawing.Size(310, 954);
             this.listBoxAlbums.TabIndex = 1;
             this.listBoxAlbums.SelectedIndexChanged += new System.EventHandler(this.listBoxAlbums_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(105, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(142, 42);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Albums";
             // 
             // flowLayoutPanelSelectedAlbumPhotos
             // 
             this.flowLayoutPanelSelectedAlbumPhotos.AutoScroll = true;
             this.flowLayoutPanelSelectedAlbumPhotos.Controls.Add(this.label2);
             this.flowLayoutPanelSelectedAlbumPhotos.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanelSelectedAlbumPhotos.Location = new System.Drawing.Point(360, 100);
+            this.flowLayoutPanelSelectedAlbumPhotos.Location = new System.Drawing.Point(360, 65);
             this.flowLayoutPanelSelectedAlbumPhotos.Name = "flowLayoutPanelSelectedAlbumPhotos";
-            this.flowLayoutPanelSelectedAlbumPhotos.Size = new System.Drawing.Size(914, 979);
+            this.flowLayoutPanelSelectedAlbumPhotos.Size = new System.Drawing.Size(914, 1014);
             this.flowLayoutPanelSelectedAlbumPhotos.TabIndex = 1;
             // 
             // label2
@@ -95,7 +94,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelSelectedAlbumName.AutoSize = true;
             this.labelSelectedAlbumName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSelectedAlbumName.Location = new System.Drawing.Point(633, 46);
+            this.labelSelectedAlbumName.Location = new System.Drawing.Point(635, 20);
             this.labelSelectedAlbumName.Name = "labelSelectedAlbumName";
             this.labelSelectedAlbumName.Size = new System.Drawing.Size(388, 42);
             this.labelSelectedAlbumName.TabIndex = 2;

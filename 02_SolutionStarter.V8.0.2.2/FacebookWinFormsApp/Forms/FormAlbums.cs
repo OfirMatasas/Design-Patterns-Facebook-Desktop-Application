@@ -7,23 +7,29 @@ namespace BasicFacebookFeatures.Forms
 {
     public partial class FormAlbums : Form
     {
+        public FacebookObjectCollection<Album> Albums { get; }
 
-        private User User { get; }
-        public FormAlbums(User i_User)
+        public FormAlbums(FacebookObjectCollection<Album> i_Album)
         {
-            User = i_User;
             InitializeComponent();
+            Albums = i_Album;
             fetchAlbums();
         }
 
         private void fetchAlbums()
         {
-            foreach (Album album in User.Albums)
+            foreach (Album album in Albums)
             {
                 listBoxAlbums.Items.Add(album);
             }
-
-            listBoxAlbums.Show();
+        }
+        protected override void OnShown(EventArgs i_E)
+        {
+            base.OnShown(i_E);
+            if (listBoxAlbums.Items.Count == 0)
+            {
+                MessageBox.Show("No albums to retrieve :(");
+            }
         }
 
         private void listBoxAlbums_SelectedIndexChanged(object i_Sender, EventArgs i_E)
@@ -34,14 +40,14 @@ namespace BasicFacebookFeatures.Forms
             ShowSelectedAlbumsName(album);
         }
 
-        private void ShowSelectedAlbumsPhotos(Album album)
+        private void ShowSelectedAlbumsPhotos(Album i_Album)
         {
             PictureBox pictureBox;
             Size pictureBoxSize = new Size(200, 200);
             Padding pictureBoxPadding = new Padding(10);
 
             flowLayoutPanelSelectedAlbumPhotos.Controls.Clear();
-            foreach (Photo photo in album.Photos)
+            foreach (Photo photo in i_Album.Photos)
             {
                 pictureBox = new PictureBox()
                 {
@@ -56,10 +62,9 @@ namespace BasicFacebookFeatures.Forms
             flowLayoutPanelSelectedAlbumPhotos.Show();
         }
 
-
-        private void ShowSelectedAlbumsName(Album album)
+        private void ShowSelectedAlbumsName(Album i_Album)
         {
-            labelSelectedAlbumName.Text = album.Name;
+            labelSelectedAlbumName.Text = i_Album.Name;
             labelSelectedAlbumName.Visible = true;
         }
     }

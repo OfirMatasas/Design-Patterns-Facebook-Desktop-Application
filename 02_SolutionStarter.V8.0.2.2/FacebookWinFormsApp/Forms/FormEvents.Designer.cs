@@ -39,27 +39,31 @@ namespace BasicFacebookFeatures.Forms
             // 
             // pictureBoxEventPicture
             // 
-            this.pictureBoxEventPicture.Location = new System.Drawing.Point(357, 249);
+            this.pictureBoxEventPicture.Location = new System.Drawing.Point(484, 311);
+            this.pictureBoxEventPicture.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBoxEventPicture.Name = "pictureBoxEventPicture";
-            this.pictureBoxEventPicture.Size = new System.Drawing.Size(231, 208);
+            this.pictureBoxEventPicture.Size = new System.Drawing.Size(308, 260);
             this.pictureBoxEventPicture.TabIndex = 2;
             this.pictureBoxEventPicture.TabStop = false;
             // 
             // richTextBoxEventDescription
             // 
-            this.richTextBoxEventDescription.Location = new System.Drawing.Point(309, 52);
+            this.richTextBoxEventDescription.Location = new System.Drawing.Point(412, 65);
+            this.richTextBoxEventDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.richTextBoxEventDescription.Name = "richTextBoxEventDescription";
-            this.richTextBoxEventDescription.Size = new System.Drawing.Size(333, 191);
+            this.richTextBoxEventDescription.Size = new System.Drawing.Size(443, 238);
             this.richTextBoxEventDescription.TabIndex = 3;
             this.richTextBoxEventDescription.Text = "";
+            this.richTextBoxEventDescription.Visible = false;
             // 
             // listBoxEvents
             // 
             this.listBoxEvents.FormattingEnabled = true;
-            this.listBoxEvents.ItemHeight = 20;
-            this.listBoxEvents.Location = new System.Drawing.Point(29, 52);
+            this.listBoxEvents.ItemHeight = 25;
+            this.listBoxEvents.Location = new System.Drawing.Point(39, 65);
+            this.listBoxEvents.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listBoxEvents.Name = "listBoxEvents";
-            this.listBoxEvents.Size = new System.Drawing.Size(229, 404);
+            this.listBoxEvents.Size = new System.Drawing.Size(304, 504);
             this.listBoxEvents.TabIndex = 4;
             this.listBoxEvents.SelectedIndexChanged += new System.EventHandler(this.listBoxEvents_SelectedIndexChanged);
             // 
@@ -70,16 +74,18 @@ namespace BasicFacebookFeatures.Forms
             this.panelEventsSection.Controls.Add(this.richTextBoxEventDescription);
             this.panelEventsSection.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEventsSection.Location = new System.Drawing.Point(0, 0);
+            this.panelEventsSection.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelEventsSection.Name = "panelEventsSection";
-            this.panelEventsSection.Size = new System.Drawing.Size(1467, 1280);
+            this.panelEventsSection.Size = new System.Drawing.Size(1304, 1066);
             this.panelEventsSection.TabIndex = 5;
             // 
             // FormEvents
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(978, 853);
+            this.ClientSize = new System.Drawing.Size(1304, 1066);
             this.Controls.Add(this.panelEventsSection);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormEvents";
             this.Text = "FormEvents";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEventPicture)).EndInit();

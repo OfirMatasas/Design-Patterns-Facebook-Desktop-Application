@@ -1,46 +1,67 @@
 ﻿using FacebookWrapper.ObjectModel;
 using System;
+using System.Text;
 using System.Windows.Forms;
 
 namespace BasicFacebookFeatures
 {
     public partial class FormFavoriteTeams : Form
     {
-        public User User { get; set; }
+        private Page[] FavoriteTeams { get; }
 
-        public FormFavoriteTeams(User i_User)
+        public FormFavoriteTeams(Page[] i_FavoriteTeams)
         {
             InitializeComponent();
-            User = i_User;
-        }
-
-        private void listBoxFavoriteTeams_SelectedIndexChanged(object sender, EventArgs i_E)
-        {
-            if (listBoxFavoriteTeams.SelectedItems.Count == 1)
-            {
-                Page selectedTeam = listBoxFavoriteTeams.SelectedItem as Page;
-                pictureBoxSelectedFavoriteTeam.LoadAsync(selectedTeam.PictureNormalURL);
-            }
+            FavoriteTeams = i_FavoriteTeams;
+            fetchFavoriteTeams();
         }
 
         private void fetchFavoriteTeams()
         {
-            listBoxFavoriteTeams.Items.Clear();
             listBoxFavoriteTeams.DisplayMember = "Name";
-            foreach (Page team in User.FavofriteTeams)
+            if(FavoriteTeams != null)
             {
-                listBoxFavoriteTeams.Items.Add(team);
-            }
-
-            if (listBoxFavoriteTeams.Items.Count == 0)
-            {
-                MessageBox.Show("No teams to retrieve :(");
+                foreach (Page team in FavoriteTeams)
+                {
+                    listBoxFavoriteTeams.Items.Add(team);
+                }
             }
         }
 
-        private void buttonFetchFavoriteTeams_Click(object sender, EventArgs i_E)
+        protected override void OnShown(EventArgs i_E)
         {
-            fetchFavoriteTeams();
+            base.OnShown(i_E);
+            if (listBoxFavoriteTeams.Items.Count == 0)
+            {
+                MessageBox.Show("No favorite teams to retrieve :(");
+            }
+        }
+
+        private void listBoxFavoriteTeams_SelectedIndexChanged(object i_Sender, EventArgs i_E)
+        {
+            Page selectedTeam = listBoxFavoriteTeams.SelectedItem as Page;
+
+            displaySelectedTeamPicture(selectedTeam);
+            displaySelectedTeamInformation(selectedTeam);
+        }
+
+        private void displaySelectedTeamPicture(Page i_SelectedTeam)
+        {
+            pictureBoxSelectedFavoriteTeam.LoadAsync(i_SelectedTeam.PictureNormalURL);
+        }
+
+        private void displaySelectedTeamInformation(Page i_SelectedTeam)
+        {
+            StringBuilder teamsInfo = new StringBuilder();
+            
+            teamsInfo.AppendFormat("Description: {0}", i_SelectedTeam.Description).Append(Environment.NewLine);
+            teamsInfo.AppendFormat("Category: {0}", i_SelectedTeam.Category).Append(Environment.NewLine);
+            teamsInfo.AppendFormat("Likes: {0}", i_SelectedTeam.LikesCount).Append(Environment.NewLine);
+            teamsInfo.AppendFormat("Phone number: {0}", i_SelectedTeam.Phone).Append(Environment.NewLine);
+            teamsInfo.AppendFormat("Location: {0}", i_SelectedTeam.Location).Append(Environment.NewLine);
+            teamsInfo.AppendFormat("Website: {0}", i_SelectedTeam.Website).Append(Environment.NewLine);
+            richTextBoxSelectedTeamInfo.Text = teamsInfo.ToString();
+            richTextBoxSelectedTeamInfo.Visible = true;
         }
     }
 }

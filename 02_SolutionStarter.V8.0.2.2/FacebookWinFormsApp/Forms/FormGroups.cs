@@ -6,51 +6,50 @@ namespace BasicFacebookFeatures
 {
     public partial class FormGroups : Form
     {
-        public User User { get; set; }
+        public FacebookObjectCollection<Group> Groups { get; }
 
-        public FormGroups(User i_User)
+        public FormGroups(FacebookObjectCollection<Group> i_Groups)
         {
             InitializeComponent();
-            User = i_User;
+            Groups = i_Groups;
+            fetchGroups();
         }
 
         private void fetchGroups()
         {
-            listBoxGroups.Items.Clear();
             listBoxGroups.DisplayMember = "Name";
-
-            try
+            foreach (Group group in Groups)
             {
-                foreach (Group group in User.Groups)
-                {
-                    listBoxGroups.Items.Add(group);
-                }
+                listBoxGroups.Items.Add(group);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+        }
 
+        protected override void OnShown(EventArgs i_E)
+        {
+            base.OnShown(i_E);
             if (listBoxGroups.Items.Count == 0)
             {
                 MessageBox.Show("No groups to retrieve :(");
             }
         }
 
-        private void buttonFetchGroups_Click(object i_Sender, EventArgs i_E)
-        {
-            fetchGroups();
-        }
-
         private void listBoxGroups_SelectedIndexChanged(object i_Sender, EventArgs i_E)
         {
-            if (listBoxGroups.SelectedItems.Count == 1)
-            {
-                richTextBoxGroupSelectedDescription.Visible = true;
-                Group selectedGroup = listBoxGroups.SelectedItem as Group;
-                pictureBoxSelectedGroup.LoadAsync(selectedGroup.PictureNormalURL);
-                richTextBoxGroupSelectedDescription.Text = selectedGroup.Description;
-            }
+            Group selectedGroup = listBoxGroups.SelectedItem as Group;
+
+            displaySelectedGroupPicture(selectedGroup);
+            displaySelectedGroupDescription(selectedGroup);
+        }
+
+        private void displaySelectedGroupDescription(Group i_SelectedGroup)
+        {
+            pictureBoxSelectedGroup.LoadAsync(i_SelectedGroup.PictureNormalURL);
+        }
+
+        private void displaySelectedGroupPicture(Group i_SelectedGroup)
+        {
+            richTextBoxGroupSelectedDescription.Text = i_SelectedGroup.Description;
+            richTextBoxGroupSelectedDescription.Visible = true;
         }
     }
 }
