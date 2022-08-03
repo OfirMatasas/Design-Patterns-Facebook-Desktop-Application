@@ -17,19 +17,22 @@ namespace BasicFacebookFeatures
         private FormEvents EventsForm { get; set; }
         private FormAlbums AlbumsForm { get; set; }
 
+
         public FormMain()
         {
             InitializeComponent();
             FacebookService.s_CollectionLimit = 100;
         }
 
-        private void buttonLogin_Click(object i_Sender, EventArgs i_E)
+        public void IsLoggedIn()
         {
-            if(m_AccountManager.Login())
+
+            if (m_AccountManager.Login())
             {
-                buttonLogin.Text = $"Logged in as {m_AccountManager.LoggedInUser.Name}";
+                //buttonLogin.Text = $"Logged in as {m_AccountManager.LoggedInUser.Name}";
                 enableAllSidebarButtons();
-            }  
+            }
+
         }
 
         private void enableAllSidebarButtons()
@@ -119,6 +122,33 @@ namespace BasicFacebookFeatures
         {
             FacebookService.LogoutWithUI();
             buttonLogin.Text = "Login";
+
+            ActiveForm?.Hide();
+            visibleAllLoginButtons();
+        }
+
+
+
+        private void buttonLogin_Click_1(object sender, EventArgs e)
+        {
+            if (m_AccountManager.Login())
+            {
+                //buttonLogin.Text = $"Logged in as {m_AccountManager.LoggedInUser.Name}";
+                enableAllSidebarButtons();
+                hideAllLoginButtons();
+            }
+        }
+
+        private void visibleAllLoginButtons()
+        {
+            buttonLogin.Visible = true;
+            checkBoxRememberMe.Visible = true;
+        }
+
+        private void hideAllLoginButtons()
+        {
+            buttonLogin.Visible = false;
+            checkBoxRememberMe.Visible = false;
         }
     }
 }

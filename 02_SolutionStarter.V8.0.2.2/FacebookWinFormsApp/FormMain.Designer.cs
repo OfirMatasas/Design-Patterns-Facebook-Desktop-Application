@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            this.buttonLogin = new System.Windows.Forms.Button();
             this.panelSidebar = new System.Windows.Forms.Panel();
             this.button11 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -42,24 +41,17 @@
             this.buttonPosts = new System.Windows.Forms.Button();
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.checkBoxRememberMe = new System.Windows.Forms.CheckBox();
+            this.buttonLogin = new System.Windows.Forms.Button();
+            this.labelLoginMessage = new System.Windows.Forms.Label();
+            this.labelWelcome = new System.Windows.Forms.Label();
             this.panelSidebar.SuspendLayout();
             this.panelDesktop.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // buttonLogin
-            // 
-            this.buttonLogin.Location = new System.Drawing.Point(12, 419);
-            this.buttonLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(174, 28);
-            this.buttonLogin.TabIndex = 36;
-            this.buttonLogin.Text = "Login";
-            this.buttonLogin.UseVisualStyleBackColor = true;
-            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
             // panelSidebar
             // 
-            this.panelSidebar.Controls.Add(this.buttonLogin);
             this.panelSidebar.Controls.Add(this.button11);
             this.panelSidebar.Controls.Add(this.button8);
             this.panelSidebar.Controls.Add(this.button7);
@@ -200,12 +192,58 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.checkBoxRememberMe);
+            this.panel2.Controls.Add(this.buttonLogin);
+            this.panel2.Controls.Add(this.labelLoginMessage);
+            this.panel2.Controls.Add(this.labelWelcome);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(200, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(923, 679);
             this.panel2.TabIndex = 54;
+            // 
+            // checkBoxRememberMe
+            // 
+            this.checkBoxRememberMe.AutoSize = true;
+            this.checkBoxRememberMe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.checkBoxRememberMe.Location = new System.Drawing.Point(264, 331);
+            this.checkBoxRememberMe.Name = "checkBoxRememberMe";
+            this.checkBoxRememberMe.Size = new System.Drawing.Size(133, 24);
+            this.checkBoxRememberMe.TabIndex = 42;
+            this.checkBoxRememberMe.Text = "Remember me";
+            this.checkBoxRememberMe.UseVisualStyleBackColor = true;
+            // 
+            // buttonLogin
+            // 
+            this.buttonLogin.Location = new System.Drawing.Point(264, 270);
+            this.buttonLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonLogin.Name = "buttonLogin";
+            this.buttonLogin.Size = new System.Drawing.Size(217, 41);
+            this.buttonLogin.TabIndex = 41;
+            this.buttonLogin.Text = "Login";
+            this.buttonLogin.UseVisualStyleBackColor = true;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click_1);
+            // 
+            // labelLoginMessage
+            // 
+            this.labelLoginMessage.AutoSize = true;
+            this.labelLoginMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelLoginMessage.Location = new System.Drawing.Point(258, 223);
+            this.labelLoginMessage.Name = "labelLoginMessage";
+            this.labelLoginMessage.Size = new System.Drawing.Size(301, 31);
+            this.labelLoginMessage.TabIndex = 40;
+            this.labelLoginMessage.Text = "Please login to continue";
+            // 
+            // labelWelcome
+            // 
+            this.labelWelcome.AutoSize = true;
+            this.labelWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelWelcome.Location = new System.Drawing.Point(182, 120);
+            this.labelWelcome.Name = "labelWelcome";
+            this.labelWelcome.Size = new System.Drawing.Size(459, 91);
+            this.labelWelcome.TabIndex = 39;
+            this.labelWelcome.Text = "WELCOME";
             // 
             // FormMain
             // 
@@ -220,13 +258,13 @@
             this.Text = "Facebook";
             this.panelSidebar.ResumeLayout(false);
             this.panelDesktop.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
 		#endregion
-
-		private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.Panel panelSidebar;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button8;
@@ -239,6 +277,10 @@
         private System.Windows.Forms.Button buttonPosts;
         private System.Windows.Forms.Panel panelDesktop;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.CheckBox checkBoxRememberMe;
+        private System.Windows.Forms.Button buttonLogin;
+        private System.Windows.Forms.Label labelLoginMessage;
+        private System.Windows.Forms.Label labelWelcome;
     }
 }
 

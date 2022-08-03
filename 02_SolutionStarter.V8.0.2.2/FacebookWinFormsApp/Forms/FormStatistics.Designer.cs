@@ -1,6 +1,6 @@
 ﻿namespace BasicFacebookFeatures.Forms
 {
-    partial class Statistics
+    partial class FormStatistics
     {
         /// <summary>
         /// Required designer variable.

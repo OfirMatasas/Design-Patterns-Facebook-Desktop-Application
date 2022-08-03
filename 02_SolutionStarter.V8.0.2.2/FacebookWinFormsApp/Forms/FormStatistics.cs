@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BasicFacebookFeatures.Forms
 {
-    public partial class Statistics : Form
+    public partial class FormStatistics : Form
     {
-        public Statistics()
+        public FormStatistics()
         {
             InitializeComponent();
         }
