@@ -52,6 +52,7 @@
             // 
             // panelSidebar
             // 
+            this.panelSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
             this.panelSidebar.Controls.Add(this.button11);
             this.panelSidebar.Controls.Add(this.button8);
             this.panelSidebar.Controls.Add(this.button7);
@@ -63,120 +64,175 @@
             this.panelSidebar.Controls.Add(this.buttonPosts);
             this.panelSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSidebar.Location = new System.Drawing.Point(0, 0);
+            this.panelSidebar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelSidebar.Name = "panelSidebar";
-            this.panelSidebar.Size = new System.Drawing.Size(200, 679);
+            this.panelSidebar.Size = new System.Drawing.Size(216, 849);
             this.panelSidebar.TabIndex = 53;
             // 
             // button11
             // 
             this.button11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button11.Location = new System.Drawing.Point(3, 631);
+            this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
+            this.button11.FlatAppearance.BorderSize = 0;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.button11.ForeColor = System.Drawing.Color.White;
+            this.button11.Location = new System.Drawing.Point(3, 789);
+            this.button11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(192, 42);
+            this.button11.Size = new System.Drawing.Size(207, 52);
             this.button11.TabIndex = 10;
             this.button11.Text = "Logout";
-            this.button11.UseVisualStyleBackColor = true;
+            this.button11.UseVisualStyleBackColor = false;
             this.button11.Click += new System.EventHandler(this.buttonLogout_Click);
             // 
             // button8
             // 
+            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
             this.button8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button8.Location = new System.Drawing.Point(0, 294);
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.button8.ForeColor = System.Drawing.Color.White;
+            this.button8.Location = new System.Drawing.Point(0, 364);
+            this.button8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button8.Name = "button8";
-            this.button8.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button8.Size = new System.Drawing.Size(200, 42);
+            this.button8.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.button8.Size = new System.Drawing.Size(216, 52);
             this.button8.TabIndex = 7;
             this.button8.Text = "Feature2";
-            this.button8.UseVisualStyleBackColor = true;
+            this.button8.UseVisualStyleBackColor = false;
             // 
             // button7
             // 
+            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
             this.button7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button7.Location = new System.Drawing.Point(0, 252);
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.button7.ForeColor = System.Drawing.Color.White;
+            this.button7.Location = new System.Drawing.Point(0, 312);
+            this.button7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button7.Name = "button7";
-            this.button7.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button7.Size = new System.Drawing.Size(200, 42);
+            this.button7.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.button7.Size = new System.Drawing.Size(216, 52);
             this.button7.TabIndex = 6;
             this.button7.Text = "Feature1";
-            this.button7.UseVisualStyleBackColor = true;
+            this.button7.UseVisualStyleBackColor = false;
             // 
             // buttonLikedPages
             // 
+            this.buttonLikedPages.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
             this.buttonLikedPages.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonLikedPages.Enabled = false;
-            this.buttonLikedPages.Location = new System.Drawing.Point(0, 210);
+            this.buttonLikedPages.FlatAppearance.BorderSize = 0;
+            this.buttonLikedPages.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLikedPages.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.buttonLikedPages.ForeColor = System.Drawing.Color.White;
+            this.buttonLikedPages.Location = new System.Drawing.Point(0, 260);
+            this.buttonLikedPages.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonLikedPages.Name = "buttonLikedPages";
-            this.buttonLikedPages.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonLikedPages.Size = new System.Drawing.Size(200, 42);
+            this.buttonLikedPages.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.buttonLikedPages.Size = new System.Drawing.Size(216, 52);
             this.buttonLikedPages.TabIndex = 5;
             this.buttonLikedPages.Text = "Liked Pages";
-            this.buttonLikedPages.UseVisualStyleBackColor = true;
+            this.buttonLikedPages.UseVisualStyleBackColor = false;
             this.buttonLikedPages.Click += new System.EventHandler(this.buttonLikedPages_Click);
             // 
             // buttonFavoriteTeams
             // 
+            this.buttonFavoriteTeams.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
             this.buttonFavoriteTeams.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonFavoriteTeams.Enabled = false;
-            this.buttonFavoriteTeams.Location = new System.Drawing.Point(0, 168);
+            this.buttonFavoriteTeams.FlatAppearance.BorderSize = 0;
+            this.buttonFavoriteTeams.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonFavoriteTeams.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.buttonFavoriteTeams.ForeColor = System.Drawing.Color.White;
+            this.buttonFavoriteTeams.Location = new System.Drawing.Point(0, 208);
+            this.buttonFavoriteTeams.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonFavoriteTeams.Name = "buttonFavoriteTeams";
-            this.buttonFavoriteTeams.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonFavoriteTeams.Size = new System.Drawing.Size(200, 42);
+            this.buttonFavoriteTeams.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.buttonFavoriteTeams.Size = new System.Drawing.Size(216, 52);
             this.buttonFavoriteTeams.TabIndex = 4;
             this.buttonFavoriteTeams.Text = "Favorite Teams";
-            this.buttonFavoriteTeams.UseVisualStyleBackColor = true;
+            this.buttonFavoriteTeams.UseVisualStyleBackColor = false;
             this.buttonFavoriteTeams.Click += new System.EventHandler(this.buttonFavoriteTeams_Click);
             // 
             // buttonGroups
             // 
+            this.buttonGroups.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
             this.buttonGroups.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonGroups.Enabled = false;
-            this.buttonGroups.Location = new System.Drawing.Point(0, 126);
+            this.buttonGroups.FlatAppearance.BorderSize = 0;
+            this.buttonGroups.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonGroups.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.buttonGroups.ForeColor = System.Drawing.Color.White;
+            this.buttonGroups.Location = new System.Drawing.Point(0, 156);
+            this.buttonGroups.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonGroups.Name = "buttonGroups";
-            this.buttonGroups.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonGroups.Size = new System.Drawing.Size(200, 42);
+            this.buttonGroups.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.buttonGroups.Size = new System.Drawing.Size(216, 52);
             this.buttonGroups.TabIndex = 3;
             this.buttonGroups.Text = "Groups";
-            this.buttonGroups.UseVisualStyleBackColor = true;
+            this.buttonGroups.UseVisualStyleBackColor = false;
             this.buttonGroups.Click += new System.EventHandler(this.buttonGroups_Click);
             // 
             // buttonEvents
             // 
+            this.buttonEvents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
             this.buttonEvents.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonEvents.Enabled = false;
-            this.buttonEvents.Location = new System.Drawing.Point(0, 84);
+            this.buttonEvents.FlatAppearance.BorderSize = 0;
+            this.buttonEvents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEvents.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.buttonEvents.ForeColor = System.Drawing.Color.White;
+            this.buttonEvents.Location = new System.Drawing.Point(0, 104);
+            this.buttonEvents.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonEvents.Name = "buttonEvents";
-            this.buttonEvents.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonEvents.Size = new System.Drawing.Size(200, 42);
+            this.buttonEvents.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.buttonEvents.Size = new System.Drawing.Size(216, 52);
             this.buttonEvents.TabIndex = 2;
             this.buttonEvents.Text = "Events";
-            this.buttonEvents.UseVisualStyleBackColor = true;
+            this.buttonEvents.UseVisualStyleBackColor = false;
             this.buttonEvents.Click += new System.EventHandler(this.buttonEvents_Click);
             // 
             // buttonAlbums
             // 
+            this.buttonAlbums.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
             this.buttonAlbums.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonAlbums.Enabled = false;
-            this.buttonAlbums.Location = new System.Drawing.Point(0, 42);
+            this.buttonAlbums.FlatAppearance.BorderSize = 0;
+            this.buttonAlbums.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAlbums.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.buttonAlbums.ForeColor = System.Drawing.Color.White;
+            this.buttonAlbums.Location = new System.Drawing.Point(0, 52);
+            this.buttonAlbums.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonAlbums.Name = "buttonAlbums";
-            this.buttonAlbums.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonAlbums.Size = new System.Drawing.Size(200, 42);
+            this.buttonAlbums.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.buttonAlbums.Size = new System.Drawing.Size(216, 52);
             this.buttonAlbums.TabIndex = 1;
             this.buttonAlbums.Text = "Albums";
-            this.buttonAlbums.UseVisualStyleBackColor = true;
+            this.buttonAlbums.UseVisualStyleBackColor = false;
             this.buttonAlbums.Click += new System.EventHandler(this.buttonAlbums_Click);
             // 
             // buttonPosts
             // 
+            this.buttonPosts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
             this.buttonPosts.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonPosts.Enabled = false;
+            this.buttonPosts.FlatAppearance.BorderSize = 0;
+            this.buttonPosts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPosts.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.buttonPosts.ForeColor = System.Drawing.Color.White;
             this.buttonPosts.Location = new System.Drawing.Point(0, 0);
+            this.buttonPosts.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonPosts.Name = "buttonPosts";
-            this.buttonPosts.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonPosts.Size = new System.Drawing.Size(200, 42);
+            this.buttonPosts.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.buttonPosts.Size = new System.Drawing.Size(216, 52);
             this.buttonPosts.TabIndex = 0;
             this.buttonPosts.Text = "Posts";
-            this.buttonPosts.UseVisualStyleBackColor = true;
+            this.buttonPosts.UseVisualStyleBackColor = false;
             this.buttonPosts.Click += new System.EventHandler(this.buttonPosts_Click);
             // 
             // panelDesktop
@@ -185,41 +241,43 @@
             this.panelDesktop.Controls.Add(this.panelSidebar);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(0, 0);
-            this.panelDesktop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panelDesktop.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(1123, 679);
+            this.panelDesktop.Size = new System.Drawing.Size(1263, 849);
             this.panelDesktop.TabIndex = 54;
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.checkBoxRememberMe);
             this.panel2.Controls.Add(this.buttonLogin);
             this.panel2.Controls.Add(this.labelLoginMessage);
             this.panel2.Controls.Add(this.labelWelcome);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(200, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel2.Location = new System.Drawing.Point(216, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(923, 679);
+            this.panel2.Size = new System.Drawing.Size(1047, 849);
             this.panel2.TabIndex = 54;
             // 
             // checkBoxRememberMe
             // 
             this.checkBoxRememberMe.AutoSize = true;
             this.checkBoxRememberMe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.checkBoxRememberMe.Location = new System.Drawing.Point(264, 331);
+            this.checkBoxRememberMe.Location = new System.Drawing.Point(431, 390);
+            this.checkBoxRememberMe.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBoxRememberMe.Name = "checkBoxRememberMe";
-            this.checkBoxRememberMe.Size = new System.Drawing.Size(133, 24);
+            this.checkBoxRememberMe.Size = new System.Drawing.Size(200, 33);
             this.checkBoxRememberMe.TabIndex = 42;
             this.checkBoxRememberMe.Text = "Remember me";
             this.checkBoxRememberMe.UseVisualStyleBackColor = true;
             // 
             // buttonLogin
             // 
-            this.buttonLogin.Location = new System.Drawing.Point(264, 270);
-            this.buttonLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonLogin.Location = new System.Drawing.Point(407, 330);
+            this.buttonLogin.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(217, 41);
+            this.buttonLogin.Size = new System.Drawing.Size(244, 51);
             this.buttonLogin.TabIndex = 41;
             this.buttonLogin.Text = "Login";
             this.buttonLogin.UseVisualStyleBackColor = true;
@@ -229,9 +287,9 @@
             // 
             this.labelLoginMessage.AutoSize = true;
             this.labelLoginMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelLoginMessage.Location = new System.Drawing.Point(258, 223);
+            this.labelLoginMessage.Location = new System.Drawing.Point(337, 279);
             this.labelLoginMessage.Name = "labelLoginMessage";
-            this.labelLoginMessage.Size = new System.Drawing.Size(301, 31);
+            this.labelLoginMessage.Size = new System.Drawing.Size(446, 46);
             this.labelLoginMessage.TabIndex = 40;
             this.labelLoginMessage.Text = "Please login to continue";
             // 
@@ -239,20 +297,20 @@
             // 
             this.labelWelcome.AutoSize = true;
             this.labelWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelWelcome.Location = new System.Drawing.Point(182, 120);
+            this.labelWelcome.Location = new System.Drawing.Point(205, 150);
             this.labelWelcome.Name = "labelWelcome";
-            this.labelWelcome.Size = new System.Drawing.Size(459, 91);
+            this.labelWelcome.Size = new System.Drawing.Size(684, 135);
             this.labelWelcome.TabIndex = 39;
             this.labelWelcome.Text = "WELCOME";
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1123, 679);
+            this.ClientSize = new System.Drawing.Size(1263, 849);
             this.Controls.Add(this.panelDesktop);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Facebook";
