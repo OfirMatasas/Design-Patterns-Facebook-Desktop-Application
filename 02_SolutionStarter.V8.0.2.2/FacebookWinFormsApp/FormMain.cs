@@ -9,6 +9,7 @@ namespace BasicFacebookFeatures
     public partial class FormMain : Form
     {
         private FacebookAccountManager m_AccountManager = new FacebookAccountManager();
+        private AppSetting m_AppSetting;
         private Form ActiveForm { get; set; }
         private FormFavoriteTeams FavoriteTeamsForm { get; set; }
         private FormLikedPages LikedPagesForm { get; set; }
@@ -22,18 +23,32 @@ namespace BasicFacebookFeatures
         {
             InitializeComponent();
             FacebookService.s_CollectionLimit = 100;
+
+            m_AppSetting = AppSetting.LoadFromFile();
         }
 
-        public void IsLoggedIn()
+        protected override void OnShown(EventArgs e)
         {
+            base.OnShown(e);
 
-            if (m_AccountManager.Login())
+            checkBoxRememberMe.Checked = m_AppSetting.RememberUser;
+
+            if (m_AppSetting.RememberUser && !string.IsNullOrEmpty(m_AppSetting.LastAccessToken))
             {
-                //buttonLogin.Text = $"Logged in as {m_AccountManager.LoggedInUser.Name}";
-                enableAllSidebarButtons();
+                m_AccountManager.LoginResult = FacebookService.Connect(m_AppSetting.LastAccessToken);
+                populateUI();
             }
-
         }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+
+            m_AppSetting.RememberUser = checkBoxRememberMe.Checked;
+            m_AppSetting.LastAccessToken = m_AppSetting.RememberUser ? m_AccountManager.LoginResult.AccessToken : null;
+            m_AppSetting.SaveToFile();
+        }
+
 
         private void enableAllSidebarButtons()
         {
@@ -62,7 +77,7 @@ namespace BasicFacebookFeatures
         {
             if (FavoriteTeamsForm == null)
             {
-                FavoriteTeamsForm = new FormFavoriteTeams(m_AccountManager.LoggedInUser.FavofriteTeams);
+                FavoriteTeamsForm = new FormFavoriteTeams(m_AccountManager.LoginResult.LoggedInUser.FavofriteTeams);
             }
 
             openChildForm(FavoriteTeamsForm, i_Sender);
@@ -72,7 +87,7 @@ namespace BasicFacebookFeatures
         {
             if (LikedPagesForm == null)
             {
-                LikedPagesForm = new FormLikedPages(m_AccountManager.LoggedInUser.LikedPages);
+                LikedPagesForm = new FormLikedPages(m_AccountManager.LoginResult.LoggedInUser.LikedPages);
             }
 
             openChildForm(LikedPagesForm, i_Sender);
@@ -82,7 +97,7 @@ namespace BasicFacebookFeatures
         {
             if (GroupsForm == null)
             {
-                GroupsForm = new FormGroups(m_AccountManager.LoggedInUser.Groups);
+                GroupsForm = new FormGroups(m_AccountManager.LoginResult.LoggedInUser.Groups);
             }
 
             openChildForm(GroupsForm, i_Sender);
@@ -102,7 +117,7 @@ namespace BasicFacebookFeatures
         {
             if (EventsForm == null)
             {
-                EventsForm = new FormEvents(m_AccountManager.LoggedInUser.Events);
+                EventsForm = new FormEvents(m_AccountManager.LoginResult.LoggedInUser.Events);
             }
 
             openChildForm(EventsForm, i_Sender);
@@ -112,7 +127,7 @@ namespace BasicFacebookFeatures
         {
             if (AlbumsForm == null)
             {
-                AlbumsForm = new FormAlbums(m_AccountManager.LoggedInUser.Albums);
+                AlbumsForm = new FormAlbums(m_AccountManager.LoginResult.LoggedInUser.Albums);
             }
 
             openChildForm(AlbumsForm, i_Sender);
@@ -121,21 +136,27 @@ namespace BasicFacebookFeatures
         private void buttonLogout_Click(object i_Sender, EventArgs i_E)
         {
             FacebookService.LogoutWithUI();
-            buttonLogin.Text = "Login";
+            //buttonLogin.Text = "Login";
+
+            
 
             ActiveForm?.Hide();
-            visibleAllLoginButtons();
+            //visibleAllLoginButtons();
         }
 
-
+        private void populateUI()
+        {
+            //buttonLogin.Text = $"Logged in as {m_AccountManager.LoggedInUser.Name}";
+            enableAllSidebarButtons();
+            //hideAllLoginButtons();
+            //FormProfile..
+        }
 
         private void buttonLogin_Click_1(object sender, EventArgs e)
         {
             if (m_AccountManager.Login())
             {
-                //buttonLogin.Text = $"Logged in as {m_AccountManager.LoggedInUser.Name}";
-                enableAllSidebarButtons();
-                hideAllLoginButtons();
+                populateUI();
             }
         }
 

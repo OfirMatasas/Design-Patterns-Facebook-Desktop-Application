@@ -5,11 +5,12 @@ namespace FacebookWinFormsLogic
 {
     public class FacebookAccountManager
     {
-        public User LoggedInUser { get; private set; }
+        //public User LoggedInUser { get; set; }
+        public LoginResult LoginResult { get; set; }
 
         public bool Login()
         {
-            LoginResult loginResult = FacebookService.Login(
+            LoginResult = FacebookService.Login(
                 "473768324575372",
                 "email",
                 "public_profile",
@@ -29,9 +30,10 @@ namespace FacebookWinFormsLogic
                 "publish_to_groups",
                 "pages_manage_posts");
 
-            LoggedInUser = string.IsNullOrEmpty(loginResult.AccessToken) ? null : loginResult.LoggedInUser;
+            //LoggedInUser = string.IsNullOrEmpty(LoginResult.AccessToken) ? null : LoginResult.LoggedInUser;
 
-            return LoggedInUser != null;
+            //return LoggedInUser != null;
+            return string.IsNullOrEmpty(LoginResult.AccessToken);
         }
 
         public void Logout()
@@ -41,7 +43,8 @@ namespace FacebookWinFormsLogic
 
         public Status Post(string i_NewPost)
         {
-            return LoggedInUser.PostStatus(i_NewPost);
+            //return LoggedInUser.PostStatus(i_NewPost);
+            return LoginResult.LoggedInUser.PostStatus(i_NewPost);
         }
     }
 }

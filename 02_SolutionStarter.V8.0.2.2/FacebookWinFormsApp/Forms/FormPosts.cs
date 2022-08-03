@@ -20,7 +20,7 @@ namespace BasicFacebookFeatures
         private void fetchPosts()
         {
             listBoxPosts.DisplayMember = "Message";
-            foreach (Post post in LoggedInUser.LoggedInUser.Posts)
+            foreach (Post post in LoggedInUser.LoginResult.LoggedInUser.Posts)
             {
                 listBoxPosts.Items.Add(post);
             }
