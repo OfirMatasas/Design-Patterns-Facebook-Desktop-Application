@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using BasicFacebookFeatures.Forms;
 using FacebookWrapper;
 using FacebookWinFormsLogic;
+using System.ComponentModel;
 
 namespace BasicFacebookFeatures
 {
@@ -18,7 +19,7 @@ namespace BasicFacebookFeatures
         private FormEvents EventsForm { get; set; }
         private FormAlbums AlbumsForm { get; set; }
         private FormStatistics StatisticsForm { get; set; }
-
+        private FormProfile ProfileForm { get; set; }
         public FormMain()
         {
             InitializeComponent();
@@ -34,13 +35,25 @@ namespace BasicFacebookFeatures
             {
                 m_AccountManager.LoginResult = FacebookService.Connect(m_AppSetting.LastAccessToken);
                 populateUI();
+                displayLoginControllers(false);
+            }
+            else
+            {
+                displayLoginControllers(true);
+            }
+        }
+
+        private void displayLoginControllers(bool i_ToDisplay)
+        {
+            foreach(Control control in panelLogin.Controls)
+            {
+                control.Visible = i_ToDisplay;
             }
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
-            m_AppSetting.RememberUser = checkBoxRememberMe.Checked;
             m_AppSetting.LastAccessToken = m_AppSetting.RememberUser ? m_AccountManager.LoginResult.AccessToken : null;
             m_AppSetting.SaveToFile();
         }
@@ -62,8 +75,8 @@ namespace BasicFacebookFeatures
             i_ChildForm.TopLevel = false;
             i_ChildForm.FormBorderStyle = FormBorderStyle.None;
             i_ChildForm.Dock = DockStyle.Fill;
-            panel2.Controls.Add(i_ChildForm);
-            panel2.Tag = i_ChildForm;
+            panelLogin.Controls.Add(i_ChildForm);
+            panelLogin.Tag = i_ChildForm;
             i_ChildForm.BringToFront();
             i_ChildForm.Show();
             //labelTitleBar.Text = i_ChildForm.Text;
@@ -132,31 +145,23 @@ namespace BasicFacebookFeatures
         private void buttonLogout_Click(object i_Sender, EventArgs i_E)
         {
             FacebookService.LogoutWithUI();
-            //buttonLogin.Text = "Login";
-
-            
-
             ActiveForm?.Hide();
-            //visibleAllLoginButtons();
+            displayLoginControllers(true);
+            m_AppSetting.forgetUser();
         }
 
         private void populateUI()
         {
-            //buttonLogin.Text = $"Logged in as {m_AccountManager.LoggedInUser.Name}";
+            displayUsersProfileInfoOnSidebar();
             enableAllSidebarButtons();
-            //hideAllLoginButtons();
-            //FormProfile..
+            showUsersProfileForm(null, null);
+        }
+
+        private void displayUsersProfileInfoOnSidebar()
+        {
             pictureBoxProfilePicture.Image = m_AccountManager.LoginResult.LoggedInUser.ImageSmall;
             labelProfileName.Text = m_AccountManager.LoginResult.LoggedInUser.Name;
             labelProfileName.Visible = true;
-        }
-
-        private void buttonLogin_Click_1(object i_Sender, EventArgs i_E)
-        {
-            if (m_AccountManager.Login())
-            {
-                populateUI();
-            }
         }
 
         private void buttonStatistics_Click(object i_Sender, EventArgs i_E)
@@ -167,6 +172,30 @@ namespace BasicFacebookFeatures
             }
 
             openChildForm(StatisticsForm, i_Sender);
+        }
+
+        private void showUsersProfileForm(object i_Sender, EventArgs i_E)
+        {
+            if (ProfileForm == null)
+            {
+                ProfileForm = new FormProfile(m_AccountManager.LoginResult.LoggedInUser);
+            }
+
+            openChildForm(ProfileForm, i_Sender);
+        }
+
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            if (m_AccountManager.Login())
+            {
+                populateUI();
+                if(checkBoxRememberMe.Checked)
+                {
+                    m_AppSetting.RememberUser = true;
+                    m_AppSetting.LastAccessToken = m_AccountManager.LoginResult.AccessToken;
+                    
+                }
+            }
         }
     }
 }

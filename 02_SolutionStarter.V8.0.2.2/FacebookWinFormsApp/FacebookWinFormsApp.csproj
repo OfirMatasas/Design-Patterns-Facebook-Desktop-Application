@@ -131,6 +131,12 @@
     <Compile Include="Forms\FormPosts.Designer.cs">
       <DependentUpon>FormPosts.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormProfile.Designer.cs">
+      <DependentUpon>FormProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormStatistics.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormPosts.resx">
       <DependentUpon>FormPosts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormProfile.resx">
+      <DependentUpon>FormProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormStatistics.resx">
       <DependentUpon>FormStatistics.cs</DependentUpon>

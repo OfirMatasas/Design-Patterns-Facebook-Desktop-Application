@@ -44,7 +44,7 @@
             this.buttonFavoriteTeams = new System.Windows.Forms.Button();
             this.buttonGroups = new System.Windows.Forms.Button();
             this.panelDesktop = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panelLogin = new System.Windows.Forms.Panel();
             this.checkBoxRememberMe = new System.Windows.Forms.CheckBox();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.labelLoginMessage = new System.Windows.Forms.Label();
@@ -54,7 +54,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfilePicture)).BeginInit();
             this.panelSidebarButtons.SuspendLayout();
             this.panelDesktop.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.panelLogin.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelSidebar
@@ -66,7 +66,7 @@
             this.panelSidebar.Location = new System.Drawing.Point(0, 0);
             this.panelSidebar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelSidebar.Name = "panelSidebar";
-            this.panelSidebar.Size = new System.Drawing.Size(288, 1061);
+            this.panelSidebar.Size = new System.Drawing.Size(330, 1061);
             this.panelSidebar.TabIndex = 53;
             // 
             // panelSidebarProfile
@@ -74,32 +74,38 @@
             this.panelSidebarProfile.Controls.Add(this.labelProfileName);
             this.panelSidebarProfile.Controls.Add(this.pictureBoxProfilePicture);
             this.panelSidebarProfile.Location = new System.Drawing.Point(8, 4);
-            this.panelSidebarProfile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelSidebarProfile.Margin = new System.Windows.Forms.Padding(4);
             this.panelSidebarProfile.Name = "panelSidebarProfile";
-            this.panelSidebarProfile.Size = new System.Drawing.Size(272, 240);
+            this.panelSidebarProfile.Size = new System.Drawing.Size(322, 240);
             this.panelSidebarProfile.TabIndex = 12;
             // 
             // labelProfileName
             // 
+            this.labelProfileName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelProfileName.AutoSize = true;
             this.labelProfileName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelProfileName.ForeColor = System.Drawing.Color.White;
-            this.labelProfileName.Location = new System.Drawing.Point(8, 161);
+            this.labelProfileName.Location = new System.Drawing.Point(1, 159);
             this.labelProfileName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelProfileName.Name = "labelProfileName";
             this.labelProfileName.Size = new System.Drawing.Size(317, 45);
             this.labelProfileName.TabIndex = 1;
             this.labelProfileName.Text = "Firstname Lastname";
+            this.labelProfileName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelProfileName.Visible = false;
+            this.labelProfileName.Click += new System.EventHandler(this.showUsersProfileForm);
             // 
             // pictureBoxProfilePicture
             // 
-            this.pictureBoxProfilePicture.Location = new System.Drawing.Point(71, 4);
-            this.pictureBoxProfilePicture.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBoxProfilePicture.Location = new System.Drawing.Point(91, 27);
+            this.pictureBoxProfilePicture.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxProfilePicture.Name = "pictureBoxProfilePicture";
             this.pictureBoxProfilePicture.Size = new System.Drawing.Size(140, 128);
+            this.pictureBoxProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBoxProfilePicture.TabIndex = 0;
             this.pictureBoxProfilePicture.TabStop = false;
+            this.pictureBoxProfilePicture.Click += new System.EventHandler(this.showUsersProfileForm);
             // 
             // panelSidebarButtons
             // 
@@ -112,8 +118,8 @@
             this.panelSidebarButtons.Controls.Add(this.buttonEvents);
             this.panelSidebarButtons.Controls.Add(this.buttonFavoriteTeams);
             this.panelSidebarButtons.Controls.Add(this.buttonGroups);
-            this.panelSidebarButtons.Location = new System.Drawing.Point(0, 251);
-            this.panelSidebarButtons.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelSidebarButtons.Location = new System.Drawing.Point(18, 251);
+            this.panelSidebarButtons.Margin = new System.Windows.Forms.Padding(4);
             this.panelSidebarButtons.Name = "panelSidebarButtons";
             this.panelSidebarButtons.Size = new System.Drawing.Size(288, 810);
             this.panelSidebarButtons.TabIndex = 11;
@@ -139,6 +145,7 @@
             // button11
             // 
             this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
+            this.button11.Enabled = false;
             this.button11.FlatAppearance.BorderSize = 0;
             this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
@@ -155,6 +162,7 @@
             // button8
             // 
             this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
+            this.button8.Enabled = false;
             this.button8.FlatAppearance.BorderSize = 0;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
@@ -189,6 +197,7 @@
             // buttonStatistics
             // 
             this.buttonStatistics.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
+            this.buttonStatistics.Enabled = false;
             this.buttonStatistics.FlatAppearance.BorderSize = 0;
             this.buttonStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonStatistics.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
@@ -277,7 +286,7 @@
             // 
             // panelDesktop
             // 
-            this.panelDesktop.Controls.Add(this.panel2);
+            this.panelDesktop.Controls.Add(this.panelLogin);
             this.panelDesktop.Controls.Add(this.panelSidebar);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(0, 0);
@@ -286,19 +295,19 @@
             this.panelDesktop.Size = new System.Drawing.Size(1684, 1061);
             this.panelDesktop.TabIndex = 54;
             // 
-            // panel2
+            // panelLogin
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.checkBoxRememberMe);
-            this.panel2.Controls.Add(this.buttonLogin);
-            this.panel2.Controls.Add(this.labelLoginMessage);
-            this.panel2.Controls.Add(this.labelWelcome);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(288, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1396, 1061);
-            this.panel2.TabIndex = 54;
+            this.panelLogin.BackColor = System.Drawing.Color.White;
+            this.panelLogin.Controls.Add(this.checkBoxRememberMe);
+            this.panelLogin.Controls.Add(this.buttonLogin);
+            this.panelLogin.Controls.Add(this.labelLoginMessage);
+            this.panelLogin.Controls.Add(this.labelWelcome);
+            this.panelLogin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelLogin.Location = new System.Drawing.Point(330, 0);
+            this.panelLogin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.panelLogin.Name = "panelLogin";
+            this.panelLogin.Size = new System.Drawing.Size(1354, 1061);
+            this.panelLogin.TabIndex = 54;
             // 
             // checkBoxRememberMe
             // 
@@ -311,6 +320,7 @@
             this.checkBoxRememberMe.TabIndex = 42;
             this.checkBoxRememberMe.Text = "Remember me";
             this.checkBoxRememberMe.UseVisualStyleBackColor = true;
+            this.checkBoxRememberMe.Visible = false;
             // 
             // buttonLogin
             // 
@@ -321,18 +331,20 @@
             this.buttonLogin.TabIndex = 41;
             this.buttonLogin.Text = "Login";
             this.buttonLogin.UseVisualStyleBackColor = true;
-            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click_1);
+            this.buttonLogin.Visible = false;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
             // labelLoginMessage
             // 
             this.labelLoginMessage.AutoSize = true;
             this.labelLoginMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelLoginMessage.Location = new System.Drawing.Point(449, 349);
+            this.labelLoginMessage.Location = new System.Drawing.Point(421, 349);
             this.labelLoginMessage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelLoginMessage.Name = "labelLoginMessage";
             this.labelLoginMessage.Size = new System.Drawing.Size(601, 63);
             this.labelLoginMessage.TabIndex = 40;
             this.labelLoginMessage.Text = "Please login to continue";
+            this.labelLoginMessage.Visible = false;
             // 
             // labelWelcome
             // 
@@ -344,6 +356,7 @@
             this.labelWelcome.Size = new System.Drawing.Size(911, 181);
             this.labelWelcome.TabIndex = 39;
             this.labelWelcome.Text = "WELCOME";
+            this.labelWelcome.Visible = false;
             // 
             // FormMain
             // 
@@ -362,8 +375,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfilePicture)).EndInit();
             this.panelSidebarButtons.ResumeLayout(false);
             this.panelDesktop.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.panelLogin.ResumeLayout(false);
+            this.panelLogin.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -380,7 +393,7 @@
         private System.Windows.Forms.Button buttonAlbums;
         private System.Windows.Forms.Button buttonPosts;
         private System.Windows.Forms.Panel panelDesktop;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelLogin;
         private System.Windows.Forms.CheckBox checkBoxRememberMe;
         private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.Label labelLoginMessage;

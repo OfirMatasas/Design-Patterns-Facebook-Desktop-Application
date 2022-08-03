@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 using System.Xml.Serialization;
 
 namespace FacebookWinFormsLogic
@@ -32,7 +27,7 @@ namespace FacebookWinFormsLogic
         public static AppSetting LoadFromFile()
         {
             AppSetting appSetting = null;
-            if(File.Exists(k_XmlFileName))
+            if (File.Exists(k_XmlFileName))
             {
                 using (Stream stream = new FileStream(k_XmlFileName, FileMode.Open))
                 {
@@ -46,6 +41,12 @@ namespace FacebookWinFormsLogic
             }
 
             return appSetting;
+        }
+
+        public void forgetUser()
+        {
+            RememberUser = false;
+            LastAccessToken = null;
         }
     }
 }
