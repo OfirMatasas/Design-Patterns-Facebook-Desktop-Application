@@ -45,23 +45,23 @@
             this.buttonLogin = new System.Windows.Forms.Button();
             this.labelLoginMessage = new System.Windows.Forms.Label();
             this.labelWelcome = new System.Windows.Forms.Label();
+            this.panelSidebarButtons = new System.Windows.Forms.Panel();
+            this.panelSidebarProfile = new System.Windows.Forms.Panel();
+            this.pictureBoxProfilePicture = new System.Windows.Forms.PictureBox();
+            this.labelProfileName = new System.Windows.Forms.Label();
             this.panelSidebar.SuspendLayout();
             this.panelDesktop.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panelSidebarButtons.SuspendLayout();
+            this.panelSidebarProfile.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfilePicture)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSidebar
             // 
             this.panelSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.panelSidebar.Controls.Add(this.button11);
-            this.panelSidebar.Controls.Add(this.button8);
-            this.panelSidebar.Controls.Add(this.button7);
-            this.panelSidebar.Controls.Add(this.buttonLikedPages);
-            this.panelSidebar.Controls.Add(this.buttonFavoriteTeams);
-            this.panelSidebar.Controls.Add(this.buttonGroups);
-            this.panelSidebar.Controls.Add(this.buttonEvents);
-            this.panelSidebar.Controls.Add(this.buttonAlbums);
-            this.panelSidebar.Controls.Add(this.buttonPosts);
+            this.panelSidebar.Controls.Add(this.panelSidebarProfile);
+            this.panelSidebar.Controls.Add(this.panelSidebarButtons);
             this.panelSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSidebar.Location = new System.Drawing.Point(0, 0);
             this.panelSidebar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -71,14 +71,12 @@
             // 
             // button11
             // 
-            this.button11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
             this.button11.FlatAppearance.BorderSize = 0;
             this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.button11.ForeColor = System.Drawing.Color.White;
-            this.button11.Location = new System.Drawing.Point(3, 789);
+            this.button11.Location = new System.Drawing.Point(6, 592);
             this.button11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(207, 52);
@@ -90,12 +88,11 @@
             // button8
             // 
             this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.button8.Dock = System.Windows.Forms.DockStyle.Top;
             this.button8.FlatAppearance.BorderSize = 0;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(0, 364);
+            this.button8.Location = new System.Drawing.Point(1, 368);
             this.button8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button8.Name = "button8";
             this.button8.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -107,12 +104,11 @@
             // button7
             // 
             this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.button7.Dock = System.Windows.Forms.DockStyle.Top;
             this.button7.FlatAppearance.BorderSize = 0;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(0, 312);
+            this.button7.Location = new System.Drawing.Point(1, 316);
             this.button7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button7.Name = "button7";
             this.button7.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -124,13 +120,12 @@
             // buttonLikedPages
             // 
             this.buttonLikedPages.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.buttonLikedPages.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonLikedPages.Enabled = false;
             this.buttonLikedPages.FlatAppearance.BorderSize = 0;
             this.buttonLikedPages.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLikedPages.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.buttonLikedPages.ForeColor = System.Drawing.Color.White;
-            this.buttonLikedPages.Location = new System.Drawing.Point(0, 260);
+            this.buttonLikedPages.Location = new System.Drawing.Point(1, 264);
             this.buttonLikedPages.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonLikedPages.Name = "buttonLikedPages";
             this.buttonLikedPages.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -143,13 +138,12 @@
             // buttonFavoriteTeams
             // 
             this.buttonFavoriteTeams.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.buttonFavoriteTeams.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonFavoriteTeams.Enabled = false;
             this.buttonFavoriteTeams.FlatAppearance.BorderSize = 0;
             this.buttonFavoriteTeams.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonFavoriteTeams.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.buttonFavoriteTeams.ForeColor = System.Drawing.Color.White;
-            this.buttonFavoriteTeams.Location = new System.Drawing.Point(0, 208);
+            this.buttonFavoriteTeams.Location = new System.Drawing.Point(1, 212);
             this.buttonFavoriteTeams.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonFavoriteTeams.Name = "buttonFavoriteTeams";
             this.buttonFavoriteTeams.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -162,13 +156,12 @@
             // buttonGroups
             // 
             this.buttonGroups.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.buttonGroups.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonGroups.Enabled = false;
             this.buttonGroups.FlatAppearance.BorderSize = 0;
             this.buttonGroups.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonGroups.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.buttonGroups.ForeColor = System.Drawing.Color.White;
-            this.buttonGroups.Location = new System.Drawing.Point(0, 156);
+            this.buttonGroups.Location = new System.Drawing.Point(1, 160);
             this.buttonGroups.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonGroups.Name = "buttonGroups";
             this.buttonGroups.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -181,13 +174,12 @@
             // buttonEvents
             // 
             this.buttonEvents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.buttonEvents.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonEvents.Enabled = false;
             this.buttonEvents.FlatAppearance.BorderSize = 0;
             this.buttonEvents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEvents.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.buttonEvents.ForeColor = System.Drawing.Color.White;
-            this.buttonEvents.Location = new System.Drawing.Point(0, 104);
+            this.buttonEvents.Location = new System.Drawing.Point(1, 108);
             this.buttonEvents.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonEvents.Name = "buttonEvents";
             this.buttonEvents.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -200,13 +192,12 @@
             // buttonAlbums
             // 
             this.buttonAlbums.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.buttonAlbums.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonAlbums.Enabled = false;
             this.buttonAlbums.FlatAppearance.BorderSize = 0;
             this.buttonAlbums.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAlbums.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.buttonAlbums.ForeColor = System.Drawing.Color.White;
-            this.buttonAlbums.Location = new System.Drawing.Point(0, 52);
+            this.buttonAlbums.Location = new System.Drawing.Point(1, 56);
             this.buttonAlbums.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonAlbums.Name = "buttonAlbums";
             this.buttonAlbums.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -219,13 +210,12 @@
             // buttonPosts
             // 
             this.buttonPosts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.buttonPosts.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonPosts.Enabled = false;
             this.buttonPosts.FlatAppearance.BorderSize = 0;
             this.buttonPosts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPosts.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.buttonPosts.ForeColor = System.Drawing.Color.White;
-            this.buttonPosts.Location = new System.Drawing.Point(0, 0);
+            this.buttonPosts.Location = new System.Drawing.Point(1, 4);
             this.buttonPosts.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonPosts.Name = "buttonPosts";
             this.buttonPosts.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -303,6 +293,50 @@
             this.labelWelcome.TabIndex = 39;
             this.labelWelcome.Text = "WELCOME";
             // 
+            // panelSidebarButtons
+            // 
+            this.panelSidebarButtons.Controls.Add(this.buttonLikedPages);
+            this.panelSidebarButtons.Controls.Add(this.button11);
+            this.panelSidebarButtons.Controls.Add(this.button8);
+            this.panelSidebarButtons.Controls.Add(this.buttonPosts);
+            this.panelSidebarButtons.Controls.Add(this.button7);
+            this.panelSidebarButtons.Controls.Add(this.buttonAlbums);
+            this.panelSidebarButtons.Controls.Add(this.buttonEvents);
+            this.panelSidebarButtons.Controls.Add(this.buttonFavoriteTeams);
+            this.panelSidebarButtons.Controls.Add(this.buttonGroups);
+            this.panelSidebarButtons.Location = new System.Drawing.Point(0, 201);
+            this.panelSidebarButtons.Name = "panelSidebarButtons";
+            this.panelSidebarButtons.Size = new System.Drawing.Size(216, 648);
+            this.panelSidebarButtons.TabIndex = 11;
+            // 
+            // panelSidebarProfile
+            // 
+            this.panelSidebarProfile.Controls.Add(this.labelProfileName);
+            this.panelSidebarProfile.Controls.Add(this.pictureBoxProfilePicture);
+            this.panelSidebarProfile.Location = new System.Drawing.Point(6, 3);
+            this.panelSidebarProfile.Name = "panelSidebarProfile";
+            this.panelSidebarProfile.Size = new System.Drawing.Size(204, 192);
+            this.panelSidebarProfile.TabIndex = 12;
+            // 
+            // pictureBoxProfilePicture
+            // 
+            this.pictureBoxProfilePicture.Location = new System.Drawing.Point(53, 3);
+            this.pictureBoxProfilePicture.Name = "pictureBoxProfilePicture";
+            this.pictureBoxProfilePicture.Size = new System.Drawing.Size(105, 102);
+            this.pictureBoxProfilePicture.TabIndex = 0;
+            this.pictureBoxProfilePicture.TabStop = false;
+            // 
+            // labelProfileName
+            // 
+            this.labelProfileName.AutoSize = true;
+            this.labelProfileName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelProfileName.ForeColor = System.Drawing.Color.White;
+            this.labelProfileName.Location = new System.Drawing.Point(6, 129);
+            this.labelProfileName.Name = "labelProfileName";
+            this.labelProfileName.Size = new System.Drawing.Size(126, 48);
+            this.labelProfileName.TabIndex = 1;
+            this.labelProfileName.Text = "label1";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -318,6 +352,10 @@
             this.panelDesktop.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panelSidebarButtons.ResumeLayout(false);
+            this.panelSidebarProfile.ResumeLayout(false);
+            this.panelSidebarProfile.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfilePicture)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -339,6 +377,10 @@
         private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.Label labelLoginMessage;
         private System.Windows.Forms.Label labelWelcome;
+        private System.Windows.Forms.Panel panelSidebarButtons;
+        private System.Windows.Forms.Panel panelSidebarProfile;
+        private System.Windows.Forms.Label labelProfileName;
+        private System.Windows.Forms.PictureBox pictureBoxProfilePicture;
     }
 }
 

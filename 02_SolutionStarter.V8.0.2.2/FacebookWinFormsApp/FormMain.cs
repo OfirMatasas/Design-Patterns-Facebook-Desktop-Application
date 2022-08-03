@@ -150,6 +150,8 @@ namespace BasicFacebookFeatures
             enableAllSidebarButtons();
             //hideAllLoginButtons();
             //FormProfile..
+            pictureBoxProfilePicture.Image = m_AccountManager.LoginResult.LoggedInUser.ImageSmall;
+            labelProfileName.Text = m_AccountManager.LoginResult.LoggedInUser.Name;
         }
 
         private void buttonLogin_Click_1(object sender, EventArgs e)
