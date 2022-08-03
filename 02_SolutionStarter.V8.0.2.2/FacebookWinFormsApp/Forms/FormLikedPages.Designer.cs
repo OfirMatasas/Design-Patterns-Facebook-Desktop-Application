@@ -71,6 +71,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 45F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(695, 513);
             this.Controls.Add(this.labelPageSelectedPicture);
             this.Controls.Add(this.pictureBoxSelectedLikedPage);

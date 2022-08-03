@@ -17,22 +17,19 @@ namespace BasicFacebookFeatures
         private FormPosts PostsForm { get; set; }
         private FormEvents EventsForm { get; set; }
         private FormAlbums AlbumsForm { get; set; }
-
+        private FormStatistics StatisticsForm { get; set; }
 
         public FormMain()
         {
             InitializeComponent();
             FacebookService.s_CollectionLimit = 100;
-
             m_AppSetting = AppSetting.LoadFromFile();
         }
 
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
-
             checkBoxRememberMe.Checked = m_AppSetting.RememberUser;
-
             if (m_AppSetting.RememberUser && !string.IsNullOrEmpty(m_AppSetting.LastAccessToken))
             {
                 m_AccountManager.LoginResult = FacebookService.Connect(m_AppSetting.LastAccessToken);
@@ -43,7 +40,6 @@ namespace BasicFacebookFeatures
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
-
             m_AppSetting.RememberUser = checkBoxRememberMe.Checked;
             m_AppSetting.LastAccessToken = m_AppSetting.RememberUser ? m_AccountManager.LoginResult.AccessToken : null;
             m_AppSetting.SaveToFile();
@@ -52,7 +48,7 @@ namespace BasicFacebookFeatures
 
         private void enableAllSidebarButtons()
         {
-            foreach(Control control in panelSidebar.Controls)
+            foreach(Control control in panelSidebarButtons.Controls)
             {
                 control.Enabled = true;
             }
@@ -152,9 +148,10 @@ namespace BasicFacebookFeatures
             //FormProfile..
             pictureBoxProfilePicture.Image = m_AccountManager.LoginResult.LoggedInUser.ImageSmall;
             labelProfileName.Text = m_AccountManager.LoginResult.LoggedInUser.Name;
+            labelProfileName.Visible = true;
         }
 
-        private void buttonLogin_Click_1(object sender, EventArgs e)
+        private void buttonLogin_Click_1(object i_Sender, EventArgs i_E)
         {
             if (m_AccountManager.Login())
             {
@@ -162,16 +159,14 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void visibleAllLoginButtons()
+        private void buttonStatistics_Click(object i_Sender, EventArgs i_E)
         {
-            buttonLogin.Visible = true;
-            checkBoxRememberMe.Visible = true;
-        }
+            if (StatisticsForm == null)
+            {
+                StatisticsForm = new FormStatistics(m_AccountManager.LoginResult.LoggedInUser);
+            }
 
-        private void hideAllLoginButtons()
-        {
-            buttonLogin.Visible = false;
-            checkBoxRememberMe.Visible = false;
+            openChildForm(StatisticsForm, i_Sender);
         }
     }
 }

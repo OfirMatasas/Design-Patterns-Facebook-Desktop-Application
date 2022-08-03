@@ -40,6 +40,7 @@
             // 
             // panelChooseAlbum
             // 
+            this.panelChooseAlbum.BackColor = System.Drawing.Color.White;
             this.panelChooseAlbum.Controls.Add(this.listBoxAlbums);
             this.panelChooseAlbum.Controls.Add(this.label1);
             this.panelChooseAlbum.Dock = System.Windows.Forms.DockStyle.Left;
@@ -105,6 +106,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1274, 1079);
             this.Controls.Add(this.labelSelectedAlbumName);
             this.Controls.Add(this.flowLayoutPanelSelectedAlbumPhotos);

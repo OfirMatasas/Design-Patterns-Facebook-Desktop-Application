@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FacebookWrapper.ObjectModel;
 using System.Windows.Forms;
 
 namespace BasicFacebookFeatures.Forms
 {
     public partial class FormStatistics : Form
     {
-        public FormStatistics()
+        public User LoggedInUser { get; }
+
+        public FormStatistics(User loggedInUser)
         {
             InitializeComponent();
+            LoggedInUser = loggedInUser;
         }
     }
 }

@@ -75,6 +75,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 45F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(681, 495);
             this.Controls.Add(this.richTextBoxGroupSelectedDescription);
             this.Controls.Add(this.pictureBoxSelectedGroup);
