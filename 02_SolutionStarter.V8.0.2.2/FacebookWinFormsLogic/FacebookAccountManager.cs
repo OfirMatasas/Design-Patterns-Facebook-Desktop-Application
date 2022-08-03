@@ -10,6 +10,7 @@ namespace FacebookWinFormsLogic
 
         public bool Login()
         {
+            User LoggedInUser;
             LoginResult = FacebookService.Login(
                 "473768324575372",
                 "email",
@@ -29,11 +30,9 @@ namespace FacebookWinFormsLogic
                 "groups_access_member_info",
                 "publish_to_groups",
                 "pages_manage_posts");
+            LoggedInUser = string.IsNullOrEmpty(LoginResult.AccessToken) ? null : LoginResult.LoggedInUser;
 
-            //LoggedInUser = string.IsNullOrEmpty(LoginResult.AccessToken) ? null : LoginResult.LoggedInUser;
-
-            //return LoggedInUser != null;
-            return string.IsNullOrEmpty(LoginResult.AccessToken);
+            return LoggedInUser != null;
         }
 
         public void Logout()

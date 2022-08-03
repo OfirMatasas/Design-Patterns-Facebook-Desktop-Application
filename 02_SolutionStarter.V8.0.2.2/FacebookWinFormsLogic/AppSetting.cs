@@ -14,6 +14,12 @@ namespace FacebookWinFormsLogic
         public bool RememberUser { get; set; }
         public string LastAccessToken { get; set; }
 
+        private AppSetting()
+        {
+            RememberUser = false;
+            LastAccessToken = null;
+        }
+
         public void SaveToFile()
         {
             using (Stream stream = new FileStream(k_XmlFileName, File.Exists(k_XmlFileName) ? FileMode.Truncate : FileMode.CreateNew))
@@ -26,10 +32,17 @@ namespace FacebookWinFormsLogic
         public static AppSetting LoadFromFile()
         {
             AppSetting appSetting = null;
-            using (Stream stream = new FileStream(k_XmlFileName, FileMode.Open))
+            if(File.Exists(k_XmlFileName))
             {
-                XmlSerializer deserializer = new XmlSerializer(typeof(AppSetting));
-                appSetting = deserializer.Deserialize(stream) as AppSetting;
+                using (Stream stream = new FileStream(k_XmlFileName, FileMode.Open))
+                {
+                    XmlSerializer deserializer = new XmlSerializer(typeof(AppSetting));
+                    appSetting = deserializer.Deserialize(stream) as AppSetting;
+                }
+            }
+            else
+            {
+                appSetting = new AppSetting();
             }
 
             return appSetting;
