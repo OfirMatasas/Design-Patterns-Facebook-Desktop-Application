@@ -51,22 +51,22 @@ namespace BasicFacebookFeatures.Forms
             label4.Text = numberOfLikesOnPhotos.ToString();
         }
 
-        private void calculateNumberOfNewGroupsInChosenMonth()
-        {
-            int numberOfNewGroups = 0;
+        //private void calculateNumberOfNewGroupsInChosenMonth()
+        //{
+        //    int numberOfNewGroups = 0;
 
-            foreach (Group group in LoggedInUser.Groups)
-            {
-                if (group.UpdateTime.Value.Month == dateTimePickerChoosedMonth.Value.Month
-                    && group.UpdateTime.Value.Year == dateTimePickerChoosedMonth.Value.Year)
-                {
-                    numberOfNewGroups += 1;
-                }
-            }
+        //    foreach (Group group in LoggedInUser.Groups)
+        //    {
+        //        if (group.UpdateTime.Value.Month == dateTimePickerChoosedMonth.Value.Month
+        //            && group.UpdateTime.Value.Year == dateTimePickerChoosedMonth.Value.Year)
+        //        {
+        //            numberOfNewGroups += 1;
+        //        }
+        //    }
 
-            label5.Text = numberOfNewGroups.ToString();
+        //    //label5.Text = numberOfNewGroups.ToString();
 
-        }
+        //}
 
 
         private void dateTimePickerChoosedMonth_ValueChanged(object sender, System.EventArgs e)
