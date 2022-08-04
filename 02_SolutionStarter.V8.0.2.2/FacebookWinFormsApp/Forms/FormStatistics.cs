@@ -7,16 +7,44 @@ namespace BasicFacebookFeatures.Forms
     {
         public User LoggedInUser { get; }
 
-        public FormStatistics(User loggedInUser)
+        public FormStatistics(User i_LoggedInUser)
         {
             InitializeComponent();
-            LoggedInUser = loggedInUser;
+            LoggedInUser = i_LoggedInUser;
         }
 
-        private void calculateNumberOfPostsAndLikesInChosenMonth()
+        private void analyzeDataOnAlbumsAndPhotosInChosenMonth()
+        {
+            int numberOfLikesOnPhotos = 0;
+            int numberOfNewAlbums = 0;
+            int numberOfNewPhotos = 0;
+
+            foreach (Album album in LoggedInUser.Albums)
+            {
+                if (album.CreatedTime.Value.Month == dateTimePickerChoosedMonth.Value.Month
+                    && album.CreatedTime.Value.Year == dateTimePickerChoosedMonth.Value.Year)
+                {
+                    numberOfNewAlbums += 1;
+                }
+                foreach (Photo photo in album.Photos)
+                {
+                    if (photo.CreatedTime.Value.Month == dateTimePickerChoosedMonth.Value.Month
+                    && photo.CreatedTime.Value.Year == dateTimePickerChoosedMonth.Value.Year)
+                    {
+                        numberOfLikesOnPhotos += photo.LikedBy.Count;
+                        numberOfNewPhotos += 1;
+                    }
+                }
+            }
+
+            labelNumberOfLikesOnPhotos.Text = numberOfLikesOnPhotos.ToString() + (numberOfLikesOnPhotos == 1 ? " Like" : " Likes" + "\nOn Photos");
+            labelNumberOfNewAlbums.Text = numberOfNewAlbums.ToString() + " New\n" + (numberOfNewAlbums == 1 ? "Album" : "Albums");
+            labelNumberOfNewPhotos.Text = numberOfNewPhotos.ToString() + " New\n" + (numberOfNewPhotos == 1 ? "Photo" : "Photos");
+        }
+
+        private void calculateNumberOfPostsInChosenMonth()
         {
             int numberOfPosts = 0;
-            //int numberOfLikesOnPosts = 0;
 
             foreach (Post post in LoggedInUser.Posts)
             {
@@ -24,56 +52,49 @@ namespace BasicFacebookFeatures.Forms
                     && post.CreatedTime.Value.Year == dateTimePickerChoosedMonth.Value.Year)
                 {
                     numberOfPosts++;
-                    //numberOfLikesOnPosts += post.LikedBy.Count;
                 }
             }
-            label1.Text = numberOfPosts.ToString();
-            //labelNumberOfPosts.Text += numberOfPosts;
+
+            labelNumberOfPosts.Text = numberOfPosts.ToString() + (numberOfPosts == 1 ? " Post" : "Posts" + "\nPublished");
         }
 
-        private void calculateNumberOfLikesOnPhotosInChosenMonth()
+        private void calculateNumberOfPostsInChosenMonth(FacebookObjectCollection<Post> i_Posts, string i_Message, Label i_Label)
         {
-            int numberOfLikesOnPhotos = 0;
+            int numberOfPosts = 0;
 
-            foreach (Album album in LoggedInUser.Albums)
+            foreach (Post post in i_Posts)
             {
-                foreach (Photo photo in album.Photos)
+                if (post.CreatedTime.Value.Month == dateTimePickerChoosedMonth.Value.Month
+                    && post.CreatedTime.Value.Year == dateTimePickerChoosedMonth.Value.Year)
                 {
-                    if (photo.CreatedTime.Value.Month == dateTimePickerChoosedMonth.Value.Month
-                    && photo.CreatedTime.Value.Year == dateTimePickerChoosedMonth.Value.Year)
-                    {
-                        numberOfLikesOnPhotos += photo.LikedBy.Count;
-                    }
-
+                    numberOfPosts++;
                 }
             }
 
-            label4.Text = numberOfLikesOnPhotos.ToString();
+            i_Label.Text = numberOfPosts.ToString() + (numberOfPosts == 1 ? " Post" : "Posts" + "\n" + i_Message);
         }
 
-        //private void calculateNumberOfNewGroupsInChosenMonth()
-        //{
-        //    int numberOfNewGroups = 0;
 
-        //    foreach (Group group in LoggedInUser.Groups)
-        //    {
-        //        if (group.UpdateTime.Value.Month == dateTimePickerChoosedMonth.Value.Month
-        //            && group.UpdateTime.Value.Year == dateTimePickerChoosedMonth.Value.Year)
-        //        {
-        //            numberOfNewGroups += 1;
-        //        }
-        //    }
+        //posts in groups
+        //posts in favorite teams
+        //posts tagged in
 
-        //    //label5.Text = numberOfNewGroups.ToString();
 
-        //}
 
 
         private void dateTimePickerChoosedMonth_ValueChanged(object sender, System.EventArgs e)
         {
-            calculateNumberOfPostsAndLikesInChosenMonth();
-            calculateNumberOfLikesOnPhotosInChosenMonth();
-            //calculateNumberOfNewGroupsInChosenMonth();
+            //panelsvisible
+
+            //calculateNumberOfPostsInChosenMonth();
+            analyzeDataOnAlbumsAndPhotosInChosenMonth();
+
+            calculateNumberOfPostsInChosenMonth(LoggedInUser.Posts, "Published", labelNumberOfPosts);
+            //calculateNumberOfPostsInChosenMonth(LoggedInUser.PostsTaggedIn, "Tagged In", labelNumberOfPostsTaggedIn);
+
+            //calculateNumberOfPostsInChosenMonth(LoggedInUser.Groups[0].WallPosts, "In Groups", labelNumberOfPostsInGroups);
+            //calculateNumberOfPostsInChosenMonth(LoggedInUser.Posts, "In Teams", labelNumberOfPostsInFavoriteTeams);
+            
         }
     }
 }

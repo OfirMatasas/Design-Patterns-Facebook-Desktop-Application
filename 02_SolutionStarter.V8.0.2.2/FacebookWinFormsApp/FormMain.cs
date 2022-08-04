@@ -35,12 +35,9 @@ namespace BasicFacebookFeatures
             {
                 m_AccountManager.LoginResult = FacebookService.Connect(m_AppSetting.LastAccessToken);
                 populateUI();
-                displayLoginControllers(false);
             }
-            else
-            {
-                displayLoginControllers(true);
-            }
+
+            displayLoginControllers(!m_AppSetting.RememberUser);
         }
 
         private void displayLoginControllers(bool i_ToDisplay)
