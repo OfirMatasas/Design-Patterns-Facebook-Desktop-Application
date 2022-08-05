@@ -18,7 +18,6 @@ namespace BasicFacebookFeatures
 
         private void fetchFavoriteTeams()
         {
-            listBoxFavoriteTeams.DisplayMember = "Name";
             if(FavoriteTeams != null)
             {
                 foreach (Page team in FavoriteTeams)

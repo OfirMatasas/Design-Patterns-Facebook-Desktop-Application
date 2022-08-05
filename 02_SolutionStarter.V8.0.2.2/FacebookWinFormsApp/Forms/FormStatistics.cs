@@ -13,6 +13,21 @@ namespace BasicFacebookFeatures.Forms
         {
             InitializeComponent();
             StatisticsLogic = new StatisticsLogic(i_LoggedInUser);
+            //fetchStatistics();
+        }
+
+        private void fetchStatistics()
+        {
+            try
+            {
+                GetAlbumsAndPhotosDataInChosenMonth();
+                GetNumberOfPostsInChosenMonth();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show($"Invalid date !{Environment.NewLine}Please choose a valid Month", "Invalid Date",
+                    MessageBoxButtons.OK);
+            }
         }
 
         private void GetAlbumsAndPhotosDataInChosenMonth()
@@ -36,16 +51,7 @@ namespace BasicFacebookFeatures.Forms
         {
             panelSummary.Visible = true;
             labelMonthSummary.Visible = true;
-            try
-            {
-                GetAlbumsAndPhotosDataInChosenMonth();
-                GetNumberOfPostsInChosenMonth();
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-                MessageBox.Show($"Invalid date !{Environment.NewLine}Please choose a valid Month", "Invalid Date",
-                    MessageBoxButtons.OK);
-            }
+            fetchStatistics();
         }
     }
 }

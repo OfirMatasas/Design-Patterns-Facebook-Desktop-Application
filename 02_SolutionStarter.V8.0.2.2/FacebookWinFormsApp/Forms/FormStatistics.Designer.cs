@@ -134,7 +134,6 @@
             this.panelStatistics1.Name = "panelStatistics1";
             this.panelStatistics1.Size = new System.Drawing.Size(336, 150);
             this.panelStatistics1.TabIndex = 12;
-            this.panelStatistics1.Visible = false;
             // 
             // labelNumberOfNewPhotos
             // 
@@ -185,7 +184,6 @@
             this.panelStatistics2.Name = "panelStatistics2";
             this.panelStatistics2.Size = new System.Drawing.Size(336, 150);
             this.panelStatistics2.TabIndex = 14;
-            this.panelStatistics2.Visible = false;
             // 
             // buttonShowStatistics
             // 
@@ -206,6 +204,7 @@
             this.panelSummary.Name = "panelSummary";
             this.panelSummary.Size = new System.Drawing.Size(336, 307);
             this.panelSummary.TabIndex = 16;
+            this.panelSummary.Visible = false;
             // 
             // FormStatistics
             // 
