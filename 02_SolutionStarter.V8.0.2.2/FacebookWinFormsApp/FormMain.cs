@@ -9,9 +9,9 @@ namespace BasicFacebookFeatures
 {
     public partial class FormMain : Form
     {
-        private FacebookAccountManager m_AccountManager = new FacebookAccountManager();
         private AppSetting m_AppSetting;
-        private Form ActiveForm { get; set; }
+        private FacebookAccountManager m_AccountManager = new FacebookAccountManager();
+        private Form ActivateForm { get; set; }
         private FormFavoriteTeams FavoriteTeamsForm { get; set; }
         private FormLikedPages LikedPagesForm { get; set; }
         private FormGroups GroupsForm { get; set; }
@@ -20,6 +20,7 @@ namespace BasicFacebookFeatures
         private FormAlbums AlbumsForm { get; set; }
         private FormStatistics StatisticsForm { get; set; }
         private FormProfile ProfileForm { get; set; }
+
         public FormMain()
         {
             InitializeComponent();
@@ -33,7 +34,7 @@ namespace BasicFacebookFeatures
             checkBoxRememberMe.Checked = m_AppSetting.RememberUser;
             if (m_AppSetting.RememberUser && !string.IsNullOrEmpty(m_AppSetting.LastAccessToken))
             {
-                m_AccountManager.LoginResult = FacebookService.Connect(m_AppSetting.LastAccessToken);
+                m_AccountManager.Connect(m_AppSetting.LastAccessToken);
                 populateUI();
             }
 
@@ -42,109 +43,25 @@ namespace BasicFacebookFeatures
 
         private void displayLoginControllers(bool i_ToDisplay)
         {
-            foreach(Control control in panelLogin.Controls)
+            foreach (Control control in panelLogin.Controls)
             {
                 control.Visible = i_ToDisplay;
             }
         }
 
-        protected override void OnFormClosing(FormClosingEventArgs e)
+        private void buttonLogin_Click(object sender, EventArgs e)
         {
-            base.OnFormClosing(e);
-            m_AppSetting.LastAccessToken = m_AppSetting.RememberUser ? m_AccountManager.LoginResult.AccessToken : null;
-            m_AppSetting.SaveToFile();
-        }
-
-
-        private void enableAllSidebarButtons()
-        {
-            foreach(Control control in panelSidebarButtons.Controls)
+            if (m_AccountManager.Login())
             {
-                control.Enabled = true;
+                populateUI();
+
+                if (checkBoxRememberMe.Checked)
+                {
+                    m_AppSetting.RememberUser = true;
+                    m_AppSetting.LastAccessToken = m_AccountManager.LoginResult.AccessToken;
+
+                }
             }
-        }
-
-        private void openChildForm(Form i_ChildForm, object i_Sender)
-        {
-            ActiveForm?.Hide();
-            //selectButton(i_Sender);
-            ActiveForm = i_ChildForm;
-            i_ChildForm.TopLevel = false;
-            i_ChildForm.FormBorderStyle = FormBorderStyle.None;
-            i_ChildForm.Dock = DockStyle.Fill;
-            panelLogin.Controls.Add(i_ChildForm);
-            panelLogin.Tag = i_ChildForm;
-            i_ChildForm.BringToFront();
-            i_ChildForm.Show();
-            //labelTitleBar.Text = i_ChildForm.Text;
-        }
-
-        private void buttonFavoriteTeams_Click(object i_Sender, EventArgs i_E)
-        {
-            if (FavoriteTeamsForm == null)
-            {
-                FavoriteTeamsForm = new FormFavoriteTeams(m_AccountManager.LoginResult.LoggedInUser.FavofriteTeams);
-            }
-
-            openChildForm(FavoriteTeamsForm, i_Sender);
-        }
-
-        private void buttonLikedPages_Click(object i_Sender, EventArgs i_E)
-        {
-            if (LikedPagesForm == null)
-            {
-                LikedPagesForm = new FormLikedPages(m_AccountManager.LoginResult.LoggedInUser.LikedPages);
-            }
-
-            openChildForm(LikedPagesForm, i_Sender);
-        }
-
-        private void buttonGroups_Click(object i_Sender, EventArgs i_E)
-        {
-            if (GroupsForm == null)
-            {
-                GroupsForm = new FormGroups(m_AccountManager.LoginResult.LoggedInUser.Groups);
-            }
-
-            openChildForm(GroupsForm, i_Sender);
-        }
-
-        private void buttonPosts_Click(object i_Sender, EventArgs i_E)
-        {
-            if(PostsForm == null)
-            {
-                PostsForm = new FormPosts(m_AccountManager);
-            }
-
-            openChildForm(PostsForm, i_Sender);
-        }
-
-        private void buttonEvents_Click(object i_Sender, EventArgs i_E)
-        {
-            if (EventsForm == null)
-            {
-                EventsForm = new FormEvents(m_AccountManager.LoginResult.LoggedInUser.Events);
-            }
-
-            openChildForm(EventsForm, i_Sender);
-        }
-
-        private void buttonAlbums_Click(object i_Sender, EventArgs i_E)
-        {
-            if (AlbumsForm == null)
-            {
-                AlbumsForm = new FormAlbums(m_AccountManager.LoginResult.LoggedInUser.Albums);
-            }
-
-            openChildForm(AlbumsForm, i_Sender);
-        }
-
-        private void buttonLogout_Click(object i_Sender, EventArgs i_E)
-        {
-            FacebookService.LogoutWithUI();
-            ActiveForm?.Hide();
-            displayLoginControllers(true);
-            m_AppSetting.forgetUser();
         }
 
         private void populateUI()
@@ -161,14 +78,12 @@ namespace BasicFacebookFeatures
             labelProfileName.Visible = true;
         }
 
-        private void buttonStatistics_Click(object i_Sender, EventArgs i_E)
+        private void enableAllSidebarButtons()
         {
-            if (StatisticsForm == null)
+            foreach (Control control in panelSidebarButtons.Controls)
             {
-                StatisticsForm = new FormStatistics(m_AccountManager.LoginResult.LoggedInUser);
+                control.Enabled = true;
             }
-
-            openChildForm(StatisticsForm, i_Sender);
         }
 
         private void showUsersProfileForm(object i_Sender, EventArgs i_E)
@@ -178,21 +93,104 @@ namespace BasicFacebookFeatures
                 ProfileForm = new FormProfile(m_AccountManager.LoginResult.LoggedInUser);
             }
 
-            openChildForm(ProfileForm, i_Sender);
+            openSubForm(ProfileForm);
         }
 
-        private void buttonLogin_Click(object sender, EventArgs e)
+        private void openSubForm(Form i_SubForm)
         {
-            if (m_AccountManager.Login())
-            {
-                populateUI();
-                if(checkBoxRememberMe.Checked)
-                {
-                    m_AppSetting.RememberUser = true;
-                    m_AppSetting.LastAccessToken = m_AccountManager.LoginResult.AccessToken;
-                    
-                }
-            }
+            ActivateForm?.Hide();
+            ActivateForm = i_SubForm;
+            i_SubForm.TopLevel = false;
+            i_SubForm.FormBorderStyle = FormBorderStyle.None;
+            i_SubForm.Dock = DockStyle.Fill;
+            panelLogin.Controls.Add(i_SubForm);
+            i_SubForm.BringToFront();
+            i_SubForm.Show();
         }
+
+        private void buttonPosts_Click(object i_Sender, EventArgs i_E)
+        {
+            if (PostsForm == null)
+            {
+                PostsForm = new FormPosts(m_AccountManager);
+            }
+
+            openSubForm(PostsForm);
+        }
+
+        private void buttonAlbums_Click(object i_Sender, EventArgs i_E)
+        {
+            if (AlbumsForm == null)
+            {
+                AlbumsForm = new FormAlbums(m_AccountManager.LoginResult.LoggedInUser.Albums);
+            }
+
+            openSubForm(AlbumsForm);
+        }
+
+        private void buttonEvents_Click(object i_Sender, EventArgs i_E)
+        {
+            if (EventsForm == null)
+            {
+                EventsForm = new FormEvents(m_AccountManager.LoginResult.LoggedInUser.Events);
+            }
+
+            openSubForm(EventsForm);
+        }
+
+        private void buttonGroups_Click(object i_Sender, EventArgs i_E)
+        {
+            if (GroupsForm == null)
+            {
+                GroupsForm = new FormGroups(m_AccountManager.LoginResult.LoggedInUser.Groups);
+            }
+
+            openSubForm(GroupsForm);
+        }
+
+        private void buttonFavoriteTeams_Click(object i_Sender, EventArgs i_E)
+        {
+            if (FavoriteTeamsForm == null)
+            {
+                FavoriteTeamsForm = new FormFavoriteTeams(m_AccountManager.LoginResult.LoggedInUser.FavofriteTeams);
+            }
+
+            openSubForm(FavoriteTeamsForm);
+        }
+
+        private void buttonLikedPages_Click(object i_Sender, EventArgs i_E)
+        {
+            if (LikedPagesForm == null)
+            {
+                LikedPagesForm = new FormLikedPages(m_AccountManager.LoginResult.LoggedInUser.LikedPages);
+            }
+
+            openSubForm(LikedPagesForm);
+        }
+
+        private void buttonStatistics_Click(object i_Sender, EventArgs i_E)
+        {
+            if (StatisticsForm == null)
+            {
+                StatisticsForm = new FormStatistics(m_AccountManager.LoginResult.LoggedInUser);
+            }
+
+            openSubForm(StatisticsForm);
+        }
+
+        private void buttonLogout_Click(object i_Sender, EventArgs i_E)
+        {
+            FacebookService.LogoutWithUI();
+            ActiveForm?.Hide();
+            displayLoginControllers(true);
+            m_AppSetting.forgetUser();
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            m_AppSetting.LastAccessToken = m_AppSetting.RememberUser ? m_AccountManager.LoginResult.AccessToken : null;
+            m_AppSetting.SaveToFile();
+        }   
     }
 }

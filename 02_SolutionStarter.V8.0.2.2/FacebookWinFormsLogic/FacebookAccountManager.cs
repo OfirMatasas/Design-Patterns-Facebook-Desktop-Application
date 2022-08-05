@@ -5,8 +5,12 @@ namespace FacebookWinFormsLogic
 {
     public class FacebookAccountManager
     {
-        //public User LoggedInUser { get; set; }
-        public LoginResult LoginResult { get; set; }
+        public LoginResult LoginResult { get; private set; }
+
+        public void Connect(string i_AccessToken)
+        {
+            LoginResult = FacebookService.Connect(i_AccessToken);
+        }
 
         public bool Login()
         {
@@ -42,7 +46,6 @@ namespace FacebookWinFormsLogic
 
         public Status Post(string i_NewPost)
         {
-            //return LoggedInUser.PostStatus(i_NewPost);
             return LoginResult.LoggedInUser.PostStatus(i_NewPost);
         }
     }

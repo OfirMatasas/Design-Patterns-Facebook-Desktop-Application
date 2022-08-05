@@ -34,8 +34,7 @@ namespace BasicFacebookFeatures.Forms
 
         private void buttonShowStatistics_Click(object sender, System.EventArgs e)
         {
-            panelStatistics1.Visible = true;
-            panelStatistics2.Visible = true;
+            panelSummary.Visible = true;
             labelMonthSummary.Visible = true;
             try
             {

@@ -43,12 +43,14 @@
             this.pictureBoxNewAlbums = new System.Windows.Forms.PictureBox();
             this.panelStatistics2 = new System.Windows.Forms.Panel();
             this.buttonShowStatistics = new System.Windows.Forms.Button();
+            this.panelSummary = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLikesOnPhotos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPosts)).BeginInit();
             this.panelStatistics1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNewPhotos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNewAlbums)).BeginInit();
             this.panelStatistics2.SuspendLayout();
+            this.panelSummary.SuspendLayout();
             this.SuspendLayout();
             // 
             // dateTimePickerChoosedMonth
@@ -127,7 +129,8 @@
             this.panelStatistics1.Controls.Add(this.labelNumberOfLikesOnPhotos);
             this.panelStatistics1.Controls.Add(this.pictureBoxLikesOnPhotos);
             this.panelStatistics1.Controls.Add(this.pictureBoxPosts);
-            this.panelStatistics1.Location = new System.Drawing.Point(223, 225);
+            this.panelStatistics1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelStatistics1.Location = new System.Drawing.Point(0, 0);
             this.panelStatistics1.Name = "panelStatistics1";
             this.panelStatistics1.Size = new System.Drawing.Size(336, 150);
             this.panelStatistics1.TabIndex = 12;
@@ -177,7 +180,8 @@
             this.panelStatistics2.Controls.Add(this.pictureBoxNewAlbums);
             this.panelStatistics2.Controls.Add(this.labelNumberOfNewAlbums);
             this.panelStatistics2.Controls.Add(this.pictureBoxNewPhotos);
-            this.panelStatistics2.Location = new System.Drawing.Point(223, 382);
+            this.panelStatistics2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelStatistics2.Location = new System.Drawing.Point(0, 157);
             this.panelStatistics2.Name = "panelStatistics2";
             this.panelStatistics2.Size = new System.Drawing.Size(336, 150);
             this.panelStatistics2.TabIndex = 14;
@@ -194,15 +198,23 @@
             this.buttonShowStatistics.UseVisualStyleBackColor = true;
             this.buttonShowStatistics.Click += new System.EventHandler(this.buttonShowStatistics_Click);
             // 
+            // panelSummary
+            // 
+            this.panelSummary.Controls.Add(this.panelStatistics2);
+            this.panelSummary.Controls.Add(this.panelStatistics1);
+            this.panelSummary.Location = new System.Drawing.Point(223, 225);
+            this.panelSummary.Name = "panelSummary";
+            this.panelSummary.Size = new System.Drawing.Size(336, 307);
+            this.panelSummary.TabIndex = 16;
+            // 
             // FormStatistics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(697, 589);
+            this.Controls.Add(this.panelSummary);
             this.Controls.Add(this.buttonShowStatistics);
-            this.Controls.Add(this.panelStatistics2);
-            this.Controls.Add(this.panelStatistics1);
             this.Controls.Add(this.labelMonthSummary);
             this.Controls.Add(this.labelChooseMonth);
             this.Controls.Add(this.dateTimePickerChoosedMonth);
@@ -216,6 +228,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNewAlbums)).EndInit();
             this.panelStatistics2.ResumeLayout(false);
             this.panelStatistics2.PerformLayout();
+            this.panelSummary.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -237,5 +250,6 @@
         private System.Windows.Forms.Label labelNumberOfNewAlbums;
         private System.Windows.Forms.Panel panelStatistics2;
         private System.Windows.Forms.Button buttonShowStatistics;
+        private System.Windows.Forms.Panel panelSummary;
     }
 }
