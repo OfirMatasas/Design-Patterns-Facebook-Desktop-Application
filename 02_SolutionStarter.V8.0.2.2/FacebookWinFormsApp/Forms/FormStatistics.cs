@@ -47,7 +47,7 @@ namespace BasicFacebookFeatures.Forms
             labelNumberOfPosts.Text = $"{numberOfPosts} {(numberOfPosts == 1 ? " Post" : " Posts")}{ Environment.NewLine}Published";
         }
 
-        private void buttonShowStatistics_Click(object sender, System.EventArgs e)
+        private void buttonShowStatistics_Click(object sender, EventArgs i_E)
         {
             panelSummary.Visible = true;
             labelMonthSummary.Visible = true;

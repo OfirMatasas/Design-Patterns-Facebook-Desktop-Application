@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="AppSetting.cs" />
     <Compile Include="FacebookAccountManager.cs" />
+    <Compile Include="MostPopularFeedLogic.cs" />
     <Compile Include="StatisticsLogic.cs" />
   </ItemGroup>
   <ItemGroup>

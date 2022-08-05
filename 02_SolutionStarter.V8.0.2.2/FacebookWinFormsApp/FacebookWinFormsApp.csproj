@@ -125,6 +125,12 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormMostPopularFeed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormMostPopularFeed.Designer.cs">
+      <DependentUpon>FormMostPopularFeed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormPosts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormMostPopularFeed.resx">
+      <DependentUpon>FormMostPopularFeed.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormPosts.resx">
       <DependentUpon>FormPosts.cs</DependentUpon>

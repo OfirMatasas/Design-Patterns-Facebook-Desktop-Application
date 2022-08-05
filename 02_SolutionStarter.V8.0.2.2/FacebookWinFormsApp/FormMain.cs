@@ -12,14 +12,15 @@ namespace BasicFacebookFeatures
         private AppSetting m_AppSetting;
         private FacebookAccountManager m_AccountManager = new FacebookAccountManager();
         private Form ActivateForm { get; set; }
+        private FormProfile ProfileForm { get; set; }
+        private FormPosts PostsForm { get; set; }
+        private FormAlbums AlbumsForm { get; set; }
+        private FormEvents EventsForm { get; set; }
+        private FormGroups GroupsForm { get; set; }
         private FormFavoriteTeams FavoriteTeamsForm { get; set; }
         private FormLikedPages LikedPagesForm { get; set; }
-        private FormGroups GroupsForm { get; set; }
-        private FormPosts PostsForm { get; set; }
-        private FormEvents EventsForm { get; set; }
-        private FormAlbums AlbumsForm { get; set; }
         private FormStatistics StatisticsForm { get; set; }
-        private FormProfile ProfileForm { get; set; }
+        private FormMostPopularFeed MostPopularFeedForm { get; set; }
 
         public FormMain()
         {
@@ -178,6 +179,16 @@ namespace BasicFacebookFeatures
             openSubForm(StatisticsForm);
         }
 
+        private void buttonMostPopularFeed_Click(object sender, EventArgs e)
+        {
+            if (MostPopularFeedForm == null)
+            {
+                MostPopularFeedForm = new FormMostPopularFeed(m_AccountManager.LoginResult.LoggedInUser);
+            }
+
+            openSubForm(MostPopularFeedForm);
+        }
+
         private void buttonLogout_Click(object i_Sender, EventArgs i_E)
         {
             FacebookService.LogoutWithUI();
@@ -191,6 +202,6 @@ namespace BasicFacebookFeatures
             base.OnFormClosing(e);
             m_AppSetting.LastAccessToken = m_AppSetting.RememberUser ? m_AccountManager.LoginResult.AccessToken : null;
             m_AppSetting.SaveToFile();
-        }   
+        }
     }
 }
