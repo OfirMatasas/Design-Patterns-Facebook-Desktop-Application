@@ -33,13 +33,13 @@
             this.dateTimePickerChoosedDate = new System.Windows.Forms.DateTimePicker();
             this.panelMostPopular = new System.Windows.Forms.Panel();
             this.panelPhoto = new System.Windows.Forms.Panel();
+            this.labelMostPopularPhotoDate = new System.Windows.Forms.Label();
             this.pictureBoxMostPopularPhoto = new System.Windows.Forms.PictureBox();
             this.labelMostPopularPhotoCommentsNumber = new System.Windows.Forms.Label();
             this.panelPost = new System.Windows.Forms.Panel();
+            this.labelMostPopularPostDate = new System.Windows.Forms.Label();
             this.labelMostPopularPostCommentsNumber = new System.Windows.Forms.Label();
             this.listBoxMostPopularPost = new System.Windows.Forms.ListBox();
-            this.labelMostPopularPostDate = new System.Windows.Forms.Label();
-            this.labelMostPopularPhotoDate = new System.Windows.Forms.Label();
             this.panelMostPopular.SuspendLayout();
             this.panelPhoto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMostPopularPhoto)).BeginInit();
@@ -99,6 +99,14 @@
             this.panelPhoto.Size = new System.Drawing.Size(378, 150);
             this.panelPhoto.TabIndex = 14;
             // 
+            // labelMostPopularPhotoDate
+            // 
+            this.labelMostPopularPhotoDate.AutoSize = true;
+            this.labelMostPopularPhotoDate.Location = new System.Drawing.Point(8, 120);
+            this.labelMostPopularPhotoDate.Name = "labelMostPopularPhotoDate";
+            this.labelMostPopularPhotoDate.Size = new System.Drawing.Size(0, 16);
+            this.labelMostPopularPhotoDate.TabIndex = 13;
+            // 
             // pictureBoxMostPopularPhoto
             // 
             this.pictureBoxMostPopularPhoto.BackColor = System.Drawing.Color.White;
@@ -129,6 +137,14 @@
             this.panelPost.Size = new System.Drawing.Size(378, 150);
             this.panelPost.TabIndex = 12;
             // 
+            // labelMostPopularPostDate
+            // 
+            this.labelMostPopularPostDate.AutoSize = true;
+            this.labelMostPopularPostDate.Location = new System.Drawing.Point(8, 105);
+            this.labelMostPopularPostDate.Name = "labelMostPopularPostDate";
+            this.labelMostPopularPostDate.Size = new System.Drawing.Size(0, 16);
+            this.labelMostPopularPostDate.TabIndex = 2;
+            // 
             // labelMostPopularPostCommentsNumber
             // 
             this.labelMostPopularPostCommentsNumber.AutoSize = true;
@@ -145,22 +161,6 @@
             this.listBoxMostPopularPost.Name = "listBoxMostPopularPost";
             this.listBoxMostPopularPost.Size = new System.Drawing.Size(336, 68);
             this.listBoxMostPopularPost.TabIndex = 0;
-            // 
-            // labelMostPopularPostDate
-            // 
-            this.labelMostPopularPostDate.AutoSize = true;
-            this.labelMostPopularPostDate.Location = new System.Drawing.Point(8, 105);
-            this.labelMostPopularPostDate.Name = "labelMostPopularPostDate";
-            this.labelMostPopularPostDate.Size = new System.Drawing.Size(0, 16);
-            this.labelMostPopularPostDate.TabIndex = 2;
-            // 
-            // labelMostPopularPhotoDate
-            // 
-            this.labelMostPopularPhotoDate.AutoSize = true;
-            this.labelMostPopularPhotoDate.Location = new System.Drawing.Point(8, 120);
-            this.labelMostPopularPhotoDate.Name = "labelMostPopularPhotoDate";
-            this.labelMostPopularPhotoDate.Size = new System.Drawing.Size(0, 16);
-            this.labelMostPopularPhotoDate.TabIndex = 13;
             // 
             // FormMostPopularFeed
             // 

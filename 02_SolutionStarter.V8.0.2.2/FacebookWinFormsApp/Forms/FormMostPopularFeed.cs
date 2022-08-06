@@ -66,9 +66,7 @@ namespace BasicFacebookFeatures.Forms
             if (mostPopularPhoto != null)
             {
                 numberOfComments = mostPopularPhoto.Comments.Count;
-
-                //pictureBoxMostPopularPhoto.Image = mostPopularPhoto.ImageNormal;
-
+                pictureBoxMostPopularPhoto.Image = new Bitmap(mostPopularPhoto.ImageNormal, pictureBoxMostPopularPhoto.Size);
                 labelMostPopularPhotoCommentsNumber.Text = $"{numberOfComments} {(numberOfComments == 1 ? " Comment" : " Comments")} of you on photo";
                 labelMostPopularPhotoDate.Text = $"Published At: {mostPopularPhoto.CreatedTime}";
             }
