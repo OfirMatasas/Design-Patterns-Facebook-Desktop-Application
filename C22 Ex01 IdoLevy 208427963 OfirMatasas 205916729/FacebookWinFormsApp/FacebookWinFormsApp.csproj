@@ -220,6 +220,48 @@
       <Name>FacebookWinFormsLogic</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Statistics.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Groups.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Most Popular.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Posts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Liked Pages.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Friends.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Events.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Favorite Teams.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Albums.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Statistics-Photos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Statistics-Albums.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Statistics-Posts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Statistics-Likes.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

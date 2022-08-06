@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormStatistics));
             this.dateTimePickerChoosedDate = new System.Windows.Forms.DateTimePicker();
             this.labelChooseDate = new System.Windows.Forms.Label();
             this.pictureBoxLikesOnPhotos = new System.Windows.Forms.PictureBox();
@@ -58,17 +57,19 @@
             this.dateTimePickerChoosedDate.AllowDrop = true;
             this.dateTimePickerChoosedDate.CustomFormat = "MM/yyyy";
             this.dateTimePickerChoosedDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerChoosedDate.Location = new System.Drawing.Point(364, 27);
+            this.dateTimePickerChoosedDate.Location = new System.Drawing.Point(273, 22);
+            this.dateTimePickerChoosedDate.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerChoosedDate.Name = "dateTimePickerChoosedDate";
             this.dateTimePickerChoosedDate.ShowUpDown = true;
-            this.dateTimePickerChoosedDate.Size = new System.Drawing.Size(131, 22);
+            this.dateTimePickerChoosedDate.Size = new System.Drawing.Size(99, 20);
             this.dateTimePickerChoosedDate.TabIndex = 1;
             // 
             // labelChooseDate
             // 
             this.labelChooseDate.AutoSize = true;
             this.labelChooseDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelChooseDate.Location = new System.Drawing.Point(76, 30);
+            this.labelChooseDate.Location = new System.Drawing.Point(57, 24);
+            this.labelChooseDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelChooseDate.Name = "labelChooseDate";
             this.labelChooseDate.Size = new System.Drawing.Size(196, 20);
             this.labelChooseDate.TabIndex = 2;
@@ -77,8 +78,9 @@
             // pictureBoxLikesOnPhotos
             // 
             this.pictureBoxLikesOnPhotos.ErrorImage = null;
-            this.pictureBoxLikesOnPhotos.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLikesOnPhotos.Image")));
+            this.pictureBoxLikesOnPhotos.Image = global::BasicFacebookFeatures.Properties.Resources.Statistics_Likes;
             this.pictureBoxLikesOnPhotos.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxLikesOnPhotos.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxLikesOnPhotos.Name = "pictureBoxLikesOnPhotos";
             this.pictureBoxLikesOnPhotos.Size = new System.Drawing.Size(64, 64);
             this.pictureBoxLikesOnPhotos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -88,16 +90,18 @@
             // labelNumberOfLikesOnPhotos
             // 
             this.labelNumberOfLikesOnPhotos.AutoSize = true;
-            this.labelNumberOfLikesOnPhotos.Location = new System.Drawing.Point(5, 80);
+            this.labelNumberOfLikesOnPhotos.Location = new System.Drawing.Point(4, 65);
+            this.labelNumberOfLikesOnPhotos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelNumberOfLikesOnPhotos.Name = "labelNumberOfLikesOnPhotos";
-            this.labelNumberOfLikesOnPhotos.Size = new System.Drawing.Size(0, 16);
+            this.labelNumberOfLikesOnPhotos.Size = new System.Drawing.Size(0, 13);
             this.labelNumberOfLikesOnPhotos.TabIndex = 8;
             // 
             // pictureBoxPosts
             // 
             this.pictureBoxPosts.ErrorImage = null;
-            this.pictureBoxPosts.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxPosts.Image")));
-            this.pictureBoxPosts.Location = new System.Drawing.Point(250, 0);
+            this.pictureBoxPosts.Image = global::BasicFacebookFeatures.Properties.Resources.Statistics_Posts;
+            this.pictureBoxPosts.Location = new System.Drawing.Point(188, 0);
+            this.pictureBoxPosts.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxPosts.Name = "pictureBoxPosts";
             this.pictureBoxPosts.Size = new System.Drawing.Size(64, 64);
             this.pictureBoxPosts.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -107,16 +111,18 @@
             // labelNumberOfPosts
             // 
             this.labelNumberOfPosts.AutoSize = true;
-            this.labelNumberOfPosts.Location = new System.Drawing.Point(255, 80);
+            this.labelNumberOfPosts.Location = new System.Drawing.Point(191, 65);
+            this.labelNumberOfPosts.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelNumberOfPosts.Name = "labelNumberOfPosts";
-            this.labelNumberOfPosts.Size = new System.Drawing.Size(0, 16);
+            this.labelNumberOfPosts.Size = new System.Drawing.Size(0, 13);
             this.labelNumberOfPosts.TabIndex = 10;
             // 
             // labelMonthSummary
             // 
             this.labelMonthSummary.AutoSize = true;
             this.labelMonthSummary.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelMonthSummary.Location = new System.Drawing.Point(266, 158);
+            this.labelMonthSummary.Location = new System.Drawing.Point(200, 128);
+            this.labelMonthSummary.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelMonthSummary.Name = "labelMonthSummary";
             this.labelMonthSummary.Size = new System.Drawing.Size(246, 31);
             this.labelMonthSummary.TabIndex = 11;
@@ -131,31 +137,35 @@
             this.panelStatistics1.Controls.Add(this.pictureBoxPosts);
             this.panelStatistics1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelStatistics1.Location = new System.Drawing.Point(0, 0);
+            this.panelStatistics1.Margin = new System.Windows.Forms.Padding(2);
             this.panelStatistics1.Name = "panelStatistics1";
-            this.panelStatistics1.Size = new System.Drawing.Size(336, 150);
+            this.panelStatistics1.Size = new System.Drawing.Size(252, 122);
             this.panelStatistics1.TabIndex = 12;
             // 
             // labelNumberOfNewPhotos
             // 
             this.labelNumberOfNewPhotos.AutoSize = true;
-            this.labelNumberOfNewPhotos.Location = new System.Drawing.Point(255, 80);
+            this.labelNumberOfNewPhotos.Location = new System.Drawing.Point(191, 65);
+            this.labelNumberOfNewPhotos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelNumberOfNewPhotos.Name = "labelNumberOfNewPhotos";
-            this.labelNumberOfNewPhotos.Size = new System.Drawing.Size(0, 16);
+            this.labelNumberOfNewPhotos.Size = new System.Drawing.Size(0, 13);
             this.labelNumberOfNewPhotos.TabIndex = 13;
             // 
             // labelNumberOfNewAlbums
             // 
             this.labelNumberOfNewAlbums.AutoSize = true;
-            this.labelNumberOfNewAlbums.Location = new System.Drawing.Point(5, 80);
+            this.labelNumberOfNewAlbums.Location = new System.Drawing.Point(4, 65);
+            this.labelNumberOfNewAlbums.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelNumberOfNewAlbums.Name = "labelNumberOfNewAlbums";
-            this.labelNumberOfNewAlbums.Size = new System.Drawing.Size(0, 16);
+            this.labelNumberOfNewAlbums.Size = new System.Drawing.Size(0, 13);
             this.labelNumberOfNewAlbums.TabIndex = 12;
             // 
             // pictureBoxNewPhotos
             // 
             this.pictureBoxNewPhotos.ErrorImage = null;
-            this.pictureBoxNewPhotos.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxNewPhotos.Image")));
-            this.pictureBoxNewPhotos.Location = new System.Drawing.Point(250, 0);
+            this.pictureBoxNewPhotos.Image = global::BasicFacebookFeatures.Properties.Resources.Statistics_Photos;
+            this.pictureBoxNewPhotos.Location = new System.Drawing.Point(188, 0);
+            this.pictureBoxNewPhotos.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxNewPhotos.Name = "pictureBoxNewPhotos";
             this.pictureBoxNewPhotos.Size = new System.Drawing.Size(64, 64);
             this.pictureBoxNewPhotos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -165,8 +175,9 @@
             // pictureBoxNewAlbums
             // 
             this.pictureBoxNewAlbums.ErrorImage = null;
-            this.pictureBoxNewAlbums.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxNewAlbums.Image")));
+            this.pictureBoxNewAlbums.Image = global::BasicFacebookFeatures.Properties.Resources.Statistics_Albums;
             this.pictureBoxNewAlbums.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxNewAlbums.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxNewAlbums.Name = "pictureBoxNewAlbums";
             this.pictureBoxNewAlbums.Size = new System.Drawing.Size(64, 64);
             this.pictureBoxNewAlbums.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -180,17 +191,19 @@
             this.panelStatistics2.Controls.Add(this.labelNumberOfNewAlbums);
             this.panelStatistics2.Controls.Add(this.pictureBoxNewPhotos);
             this.panelStatistics2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelStatistics2.Location = new System.Drawing.Point(0, 157);
+            this.panelStatistics2.Location = new System.Drawing.Point(0, 127);
+            this.panelStatistics2.Margin = new System.Windows.Forms.Padding(2);
             this.panelStatistics2.Name = "panelStatistics2";
-            this.panelStatistics2.Size = new System.Drawing.Size(336, 150);
+            this.panelStatistics2.Size = new System.Drawing.Size(252, 122);
             this.panelStatistics2.TabIndex = 14;
             // 
             // buttonShowStatistics
             // 
             this.buttonShowStatistics.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.buttonShowStatistics.Location = new System.Drawing.Point(364, 68);
+            this.buttonShowStatistics.Location = new System.Drawing.Point(273, 55);
+            this.buttonShowStatistics.Margin = new System.Windows.Forms.Padding(2);
             this.buttonShowStatistics.Name = "buttonShowStatistics";
-            this.buttonShowStatistics.Size = new System.Drawing.Size(131, 63);
+            this.buttonShowStatistics.Size = new System.Drawing.Size(98, 51);
             this.buttonShowStatistics.TabIndex = 15;
             this.buttonShowStatistics.Text = "Show Statistics";
             this.buttonShowStatistics.UseVisualStyleBackColor = true;
@@ -200,23 +213,25 @@
             // 
             this.panelSummary.Controls.Add(this.panelStatistics2);
             this.panelSummary.Controls.Add(this.panelStatistics1);
-            this.panelSummary.Location = new System.Drawing.Point(223, 225);
+            this.panelSummary.Location = new System.Drawing.Point(167, 183);
+            this.panelSummary.Margin = new System.Windows.Forms.Padding(2);
             this.panelSummary.Name = "panelSummary";
-            this.panelSummary.Size = new System.Drawing.Size(336, 307);
+            this.panelSummary.Size = new System.Drawing.Size(252, 249);
             this.panelSummary.TabIndex = 16;
             this.panelSummary.Visible = false;
             // 
             // FormStatistics
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(697, 589);
+            this.ClientSize = new System.Drawing.Size(523, 479);
             this.Controls.Add(this.panelSummary);
             this.Controls.Add(this.buttonShowStatistics);
             this.Controls.Add(this.labelMonthSummary);
             this.Controls.Add(this.labelChooseDate);
             this.Controls.Add(this.dateTimePickerChoosedDate);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormStatistics";
             this.Text = "Statistics";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLikesOnPhotos)).EndInit();

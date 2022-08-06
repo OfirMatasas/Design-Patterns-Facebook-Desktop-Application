@@ -75,13 +75,14 @@ namespace FaceBookWinFormsApp
 
         private void displayUsersProfileInfoOnSidebar()
         {
-            pictureBoxProfilePicture.Image = m_AccountManager.LoginResult.LoggedInUser.ImageSmall;
+            pictureBoxProfilePicture.Image = m_AccountManager.LoginResult.LoggedInUser.ImageNormal;
             labelProfileName.Text = m_AccountManager.LoginResult.LoggedInUser.Name;
             labelProfileName.Visible = true;
         }
 
         private void enableAllSidebarButtons()
         {
+            buttonProfile.Enabled = true;
             foreach (Control control in panelSidebarButtons.Controls)
             {
                 control.Enabled = true;
@@ -108,7 +109,12 @@ namespace FaceBookWinFormsApp
             }
 
             openSubForm(m_ProfileForm);
-        }       
+        }
+
+        private void buttonProfile_Click(object sender, EventArgs e)
+        {
+            showUsersProfileForm(null, null);
+        }
 
         private void buttonPosts_Click(object i_Sender, EventArgs i_E)
         {
