@@ -63,6 +63,11 @@ namespace BasicFacebookFeatures
                     m_AppSetting.LastAccessToken = m_AccountManager.LoginResult.AccessToken;
                 }
             }
+            else
+            {
+                MessageBox.Show($"You must login to facebook !",
+                   "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void populateUI()
@@ -204,7 +209,7 @@ namespace BasicFacebookFeatures
             FacebookService.LogoutWithUI();
             ActiveForm?.Hide();
             displayLoginControllers(true);
-            m_AppSetting.forgetUser();
+            m_AppSetting.ForgetUser();
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)

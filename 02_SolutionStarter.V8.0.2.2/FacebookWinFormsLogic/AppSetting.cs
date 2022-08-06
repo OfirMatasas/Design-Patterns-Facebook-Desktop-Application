@@ -43,7 +43,7 @@ namespace FacebookWinFormsLogic
             return appSetting;
         }
 
-        public void forgetUser()
+        public void ForgetUser()
         {
             RememberUser = false;
             LastAccessToken = null;

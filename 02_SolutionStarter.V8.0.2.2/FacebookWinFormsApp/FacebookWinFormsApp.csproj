@@ -166,6 +166,9 @@
     <EmbeddedResource Include="Forms\FormFavoriteTeams.resx">
       <DependentUpon>FormFavoriteTeams.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormFriends.resx">
+      <DependentUpon>FormFriends.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormGroups.resx">
       <DependentUpon>FormGroups.cs</DependentUpon>
     </EmbeddedResource>
