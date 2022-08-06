@@ -50,9 +50,10 @@
             // buttonShowMostPopularFeed
             // 
             this.buttonShowMostPopularFeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.buttonShowMostPopularFeed.Location = new System.Drawing.Point(372, 74);
+            this.buttonShowMostPopularFeed.Location = new System.Drawing.Point(279, 60);
+            this.buttonShowMostPopularFeed.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonShowMostPopularFeed.Name = "buttonShowMostPopularFeed";
-            this.buttonShowMostPopularFeed.Size = new System.Drawing.Size(174, 95);
+            this.buttonShowMostPopularFeed.Size = new System.Drawing.Size(130, 77);
             this.buttonShowMostPopularFeed.TabIndex = 18;
             this.buttonShowMostPopularFeed.Text = "Show Most Popular Feed";
             this.buttonShowMostPopularFeed.UseVisualStyleBackColor = true;
@@ -62,7 +63,8 @@
             // 
             this.labelChooseDate.AutoSize = true;
             this.labelChooseDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelChooseDate.Location = new System.Drawing.Point(110, 48);
+            this.labelChooseDate.Location = new System.Drawing.Point(82, 39);
+            this.labelChooseDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelChooseDate.Name = "labelChooseDate";
             this.labelChooseDate.Size = new System.Drawing.Size(180, 20);
             this.labelChooseDate.TabIndex = 17;
@@ -73,19 +75,21 @@
             this.dateTimePickerChoosedDate.AllowDrop = true;
             this.dateTimePickerChoosedDate.CustomFormat = "yyyy";
             this.dateTimePickerChoosedDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerChoosedDate.Location = new System.Drawing.Point(372, 46);
+            this.dateTimePickerChoosedDate.Location = new System.Drawing.Point(279, 37);
+            this.dateTimePickerChoosedDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePickerChoosedDate.Name = "dateTimePickerChoosedDate";
             this.dateTimePickerChoosedDate.ShowUpDown = true;
-            this.dateTimePickerChoosedDate.Size = new System.Drawing.Size(174, 22);
+            this.dateTimePickerChoosedDate.Size = new System.Drawing.Size(132, 20);
             this.dateTimePickerChoosedDate.TabIndex = 16;
             // 
             // panelMostPopular
             // 
             this.panelMostPopular.Controls.Add(this.panelPhoto);
             this.panelMostPopular.Controls.Add(this.panelPost);
-            this.panelMostPopular.Location = new System.Drawing.Point(168, 273);
+            this.panelMostPopular.Location = new System.Drawing.Point(126, 222);
+            this.panelMostPopular.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelMostPopular.Name = "panelMostPopular";
-            this.panelMostPopular.Size = new System.Drawing.Size(378, 307);
+            this.panelMostPopular.Size = new System.Drawing.Size(284, 249);
             this.panelMostPopular.TabIndex = 19;
             this.panelMostPopular.Visible = false;
             // 
@@ -95,17 +99,19 @@
             this.panelPhoto.Controls.Add(this.pictureBoxMostPopularPhoto);
             this.panelPhoto.Controls.Add(this.labelMostPopularPhotoCommentsNumber);
             this.panelPhoto.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelPhoto.Location = new System.Drawing.Point(0, 157);
+            this.panelPhoto.Location = new System.Drawing.Point(0, 127);
+            this.panelPhoto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelPhoto.Name = "panelPhoto";
-            this.panelPhoto.Size = new System.Drawing.Size(378, 150);
+            this.panelPhoto.Size = new System.Drawing.Size(284, 122);
             this.panelPhoto.TabIndex = 14;
             // 
             // labelMostPopularPhotoDate
             // 
             this.labelMostPopularPhotoDate.AutoSize = true;
-            this.labelMostPopularPhotoDate.Location = new System.Drawing.Point(8, 120);
+            this.labelMostPopularPhotoDate.Location = new System.Drawing.Point(6, 98);
+            this.labelMostPopularPhotoDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelMostPopularPhotoDate.Name = "labelMostPopularPhotoDate";
-            this.labelMostPopularPhotoDate.Size = new System.Drawing.Size(0, 16);
+            this.labelMostPopularPhotoDate.Size = new System.Drawing.Size(0, 13);
             this.labelMostPopularPhotoDate.TabIndex = 13;
             // 
             // pictureBoxMostPopularPhoto
@@ -113,6 +119,7 @@
             this.pictureBoxMostPopularPhoto.BackColor = System.Drawing.Color.White;
             this.pictureBoxMostPopularPhoto.ErrorImage = null;
             this.pictureBoxMostPopularPhoto.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxMostPopularPhoto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBoxMostPopularPhoto.Name = "pictureBoxMostPopularPhoto";
             this.pictureBoxMostPopularPhoto.Size = new System.Drawing.Size(70, 70);
             this.pictureBoxMostPopularPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -122,9 +129,10 @@
             // labelMostPopularPhotoCommentsNumber
             // 
             this.labelMostPopularPhotoCommentsNumber.AutoSize = true;
-            this.labelMostPopularPhotoCommentsNumber.Location = new System.Drawing.Point(8, 90);
+            this.labelMostPopularPhotoCommentsNumber.Location = new System.Drawing.Point(6, 73);
+            this.labelMostPopularPhotoCommentsNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelMostPopularPhotoCommentsNumber.Name = "labelMostPopularPhotoCommentsNumber";
-            this.labelMostPopularPhotoCommentsNumber.Size = new System.Drawing.Size(0, 16);
+            this.labelMostPopularPhotoCommentsNumber.Size = new System.Drawing.Size(0, 13);
             this.labelMostPopularPhotoCommentsNumber.TabIndex = 12;
             // 
             // panelPost
@@ -134,40 +142,44 @@
             this.panelPost.Controls.Add(this.listBoxMostPopularPost);
             this.panelPost.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelPost.Location = new System.Drawing.Point(0, 0);
+            this.panelPost.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelPost.Name = "panelPost";
-            this.panelPost.Size = new System.Drawing.Size(378, 150);
+            this.panelPost.Size = new System.Drawing.Size(284, 122);
             this.panelPost.TabIndex = 12;
             // 
             // labelMostPopularPostDate
             // 
             this.labelMostPopularPostDate.AutoSize = true;
-            this.labelMostPopularPostDate.Location = new System.Drawing.Point(8, 105);
+            this.labelMostPopularPostDate.Location = new System.Drawing.Point(6, 85);
+            this.labelMostPopularPostDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelMostPopularPostDate.Name = "labelMostPopularPostDate";
-            this.labelMostPopularPostDate.Size = new System.Drawing.Size(0, 16);
+            this.labelMostPopularPostDate.Size = new System.Drawing.Size(0, 13);
             this.labelMostPopularPostDate.TabIndex = 2;
             // 
             // labelMostPopularPostCommentsNumber
             // 
             this.labelMostPopularPostCommentsNumber.AutoSize = true;
-            this.labelMostPopularPostCommentsNumber.Location = new System.Drawing.Point(8, 75);
+            this.labelMostPopularPostCommentsNumber.Location = new System.Drawing.Point(6, 61);
+            this.labelMostPopularPostCommentsNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelMostPopularPostCommentsNumber.Name = "labelMostPopularPostCommentsNumber";
-            this.labelMostPopularPostCommentsNumber.Size = new System.Drawing.Size(0, 16);
+            this.labelMostPopularPostCommentsNumber.Size = new System.Drawing.Size(0, 13);
             this.labelMostPopularPostCommentsNumber.TabIndex = 1;
             // 
             // listBoxMostPopularPost
             // 
             this.listBoxMostPopularPost.FormattingEnabled = true;
-            this.listBoxMostPopularPost.ItemHeight = 16;
             this.listBoxMostPopularPost.Location = new System.Drawing.Point(0, 0);
+            this.listBoxMostPopularPost.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listBoxMostPopularPost.Name = "listBoxMostPopularPost";
-            this.listBoxMostPopularPost.Size = new System.Drawing.Size(336, 68);
+            this.listBoxMostPopularPost.Size = new System.Drawing.Size(253, 56);
             this.listBoxMostPopularPost.TabIndex = 0;
             // 
             // labelMostPopularFeed
             // 
             this.labelMostPopularFeed.AutoSize = true;
             this.labelMostPopularFeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelMostPopularFeed.Location = new System.Drawing.Point(231, 221);
+            this.labelMostPopularFeed.Location = new System.Drawing.Point(138, 178);
+            this.labelMostPopularFeed.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelMostPopularFeed.Name = "labelMostPopularFeed";
             this.labelMostPopularFeed.Size = new System.Drawing.Size(259, 31);
             this.labelMostPopularFeed.TabIndex = 20;
@@ -176,15 +188,16 @@
             // 
             // FormMostPopularFeed
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 632);
+            this.ClientSize = new System.Drawing.Size(600, 514);
             this.Controls.Add(this.labelMostPopularFeed);
             this.Controls.Add(this.panelMostPopular);
             this.Controls.Add(this.buttonShowMostPopularFeed);
             this.Controls.Add(this.labelChooseDate);
             this.Controls.Add(this.dateTimePickerChoosedDate);
             this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormMostPopularFeed";
             this.Text = "FormMostPopularFeed";
             this.panelMostPopular.ResumeLayout(false);

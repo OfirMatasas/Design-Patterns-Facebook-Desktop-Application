@@ -121,7 +121,7 @@
             // 
             this.labelMonthSummary.AutoSize = true;
             this.labelMonthSummary.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelMonthSummary.Location = new System.Drawing.Point(200, 128);
+            this.labelMonthSummary.Location = new System.Drawing.Point(169, 138);
             this.labelMonthSummary.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelMonthSummary.Name = "labelMonthSummary";
             this.labelMonthSummary.Size = new System.Drawing.Size(246, 31);

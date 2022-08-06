@@ -82,7 +82,6 @@ namespace FaceBookWinFormsApp
 
         private void enableAllSidebarButtons()
         {
-            buttonProfile.Enabled = true;
             foreach (Control control in panelSidebarButtons.Controls)
             {
                 control.Enabled = true;

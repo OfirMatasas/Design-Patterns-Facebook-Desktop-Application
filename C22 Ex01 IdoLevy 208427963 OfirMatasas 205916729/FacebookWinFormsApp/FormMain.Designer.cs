@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.panelSidebar = new System.Windows.Forms.Panel();
             this.panelSidebarProfile = new System.Windows.Forms.Panel();
-            this.buttonProfile = new System.Windows.Forms.Button();
             this.labelProfileName = new System.Windows.Forms.Label();
             this.pictureBoxProfilePicture = new System.Windows.Forms.PictureBox();
             this.panelSidebarButtons = new System.Windows.Forms.Panel();
@@ -73,7 +72,6 @@
             // 
             // panelSidebarProfile
             // 
-            this.panelSidebarProfile.Controls.Add(this.buttonProfile);
             this.panelSidebarProfile.Controls.Add(this.labelProfileName);
             this.panelSidebarProfile.Controls.Add(this.pictureBoxProfilePicture);
             this.panelSidebarProfile.Location = new System.Drawing.Point(13, 2);
@@ -81,25 +79,6 @@
             this.panelSidebarProfile.Name = "panelSidebarProfile";
             this.panelSidebarProfile.Size = new System.Drawing.Size(187, 125);
             this.panelSidebarProfile.TabIndex = 12;
-            // 
-            // buttonProfile
-            // 
-            this.buttonProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.buttonProfile.BackgroundImage = global::BasicFacebookFeatures.Properties.Resources.Profile;
-            this.buttonProfile.Enabled = false;
-            this.buttonProfile.FlatAppearance.BorderSize = 0;
-            this.buttonProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonProfile.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.buttonProfile.ForeColor = System.Drawing.Color.White;
-            this.buttonProfile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonProfile.Location = new System.Drawing.Point(27, 26);
-            this.buttonProfile.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonProfile.Name = "buttonProfile";
-            this.buttonProfile.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.buttonProfile.Size = new System.Drawing.Size(30, 30);
-            this.buttonProfile.TabIndex = 10;
-            this.buttonProfile.UseVisualStyleBackColor = false;
-            this.buttonProfile.Click += new System.EventHandler(this.buttonProfile_Click);
             // 
             // labelProfileName
             // 
@@ -463,7 +442,6 @@
         private System.Windows.Forms.Label labelProfileName;
         private System.Windows.Forms.PictureBox pictureBoxProfilePicture;
         private System.Windows.Forms.Button buttonFriends;
-        private System.Windows.Forms.Button buttonProfile;
     }
 }
 
