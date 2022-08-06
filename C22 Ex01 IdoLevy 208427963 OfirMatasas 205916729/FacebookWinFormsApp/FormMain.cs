@@ -10,17 +10,17 @@ namespace FaceBookWinFormsApp
     {
         private AppSetting m_AppSetting;
         private FacebookAccountManager m_AccountManager = new FacebookAccountManager();
-        private Form ActivateForm { get; set; }
-        private FormProfile ProfileForm { get; set; }
-        private FormPosts PostsForm { get; set; }
-        private FormAlbums AlbumsForm { get; set; }
-        private FormEvents EventsForm { get; set; }
-        private FormGroups GroupsForm { get; set; }
-        private FormFavoriteTeams FavoriteTeamsForm { get; set; }
-        private FormLikedPages LikedPagesForm { get; set; }
-        private FormFriends FriendsForm { get; set; }
-        private FormStatistics StatisticsForm { get; set; }
-        private FormMostPopularFeed MostPopularFeedForm { get; set; }
+        private Form m_ActivateForm;
+        private FormProfile m_ProfileForm;
+        private FormPosts m_PostsForm;
+        private FormAlbums m_AlbumsForm;
+        private FormEvents m_EventsForm;
+        private FormGroups m_GroupsForm;
+        private FormFavoriteTeams m_FavoriteTeamsForm;
+        private FormLikedPages m_LikedPagesForm;
+        private FormFriends m_FriendsForm;
+        private FormStatistics m_StatisticsForm;
+        private FormMostPopularFeed m_MostPopularFeedForm;
 
         public FormMain()
         {
@@ -32,10 +32,9 @@ namespace FaceBookWinFormsApp
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
-            checkBoxRememberMe.Checked = m_AppSetting.RememberUser;
-            displayLoginControllers(!m_AppSetting.RememberUser);
-
-            if (m_AppSetting.RememberUser && !string.IsNullOrEmpty(m_AppSetting.LastAccessToken))
+            checkBoxRememberMe.Checked = m_AppSetting.RememberUserInfo;
+            displayLoginControllers(!m_AppSetting.RememberUserInfo);
+            if (m_AppSetting.RememberUserInfo && !string.IsNullOrEmpty(m_AppSetting.LastAccessToken))
             {
                 m_AccountManager.Connect(m_AppSetting.LastAccessToken);
                 populateUI();
@@ -55,11 +54,9 @@ namespace FaceBookWinFormsApp
             if (m_AccountManager.Login())
             {
                 populateUI();
-
                 if (checkBoxRememberMe.Checked)
                 {
-                    m_AppSetting.RememberUser = true;
-                    m_AppSetting.LastAccessToken = m_AccountManager.LoginResult.AccessToken;
+                    m_AppSetting.RememberUser(m_AccountManager.LoginResult.AccessToken);
                 }
             }
             else
@@ -91,20 +88,10 @@ namespace FaceBookWinFormsApp
             }
         }
 
-        private void showUsersProfileForm(object i_Sender, EventArgs i_E)
-        {
-            if (ProfileForm == null)
-            {
-                ProfileForm = new FormProfile(m_AccountManager.LoginResult.LoggedInUser);
-            }
-
-            openSubForm(ProfileForm);
-        }
-
         private void openSubForm(Form i_SubForm)
         {
-            ActivateForm?.Hide();
-            ActivateForm = i_SubForm;
+            m_ActivateForm?.Hide();
+            m_ActivateForm = i_SubForm;
             i_SubForm.TopLevel = false;
             i_SubForm.FormBorderStyle = FormBorderStyle.None;
             i_SubForm.Dock = DockStyle.Fill;
@@ -113,94 +100,104 @@ namespace FaceBookWinFormsApp
             i_SubForm.Show();
         }
 
-        private void buttonPosts_Click(object i_Sender, EventArgs i_E)
+        private void showUsersProfileForm(object i_Sender, EventArgs i_E)
         {
-            if (PostsForm == null)
+            if (m_ProfileForm == null)
             {
-                PostsForm = new FormPosts(m_AccountManager);
+                m_ProfileForm = new FormProfile(m_AccountManager.LoginResult.LoggedInUser);
             }
 
-            openSubForm(PostsForm);
+            openSubForm(m_ProfileForm);
+        }       
+
+        private void buttonPosts_Click(object i_Sender, EventArgs i_E)
+        {
+            if (m_PostsForm == null)
+            {
+                m_PostsForm = new FormPosts(m_AccountManager);
+            }
+
+            openSubForm(m_PostsForm);
         }
 
         private void buttonAlbums_Click(object i_Sender, EventArgs i_E)
         {
-            if (AlbumsForm == null)
+            if (m_AlbumsForm == null)
             {
-                AlbumsForm = new FormAlbums(m_AccountManager.LoginResult.LoggedInUser.Albums);
+                m_AlbumsForm = new FormAlbums(m_AccountManager.LoginResult.LoggedInUser.Albums);
             }
 
-            openSubForm(AlbumsForm);
+            openSubForm(m_AlbumsForm);
         }
 
         private void buttonEvents_Click(object i_Sender, EventArgs i_E)
         {
-            if (EventsForm == null)
+            if (m_EventsForm == null)
             {
-                EventsForm = new FormEvents(m_AccountManager.LoginResult.LoggedInUser.Events);
+                m_EventsForm = new FormEvents(m_AccountManager.LoginResult.LoggedInUser.Events);
             }
 
-            openSubForm(EventsForm);
+            openSubForm(m_EventsForm);
         }
 
         private void buttonGroups_Click(object i_Sender, EventArgs i_E)
         {
-            if (GroupsForm == null)
+            if (m_GroupsForm == null)
             {
-                GroupsForm = new FormGroups(m_AccountManager.LoginResult.LoggedInUser.Groups);
+                m_GroupsForm = new FormGroups(m_AccountManager.LoginResult.LoggedInUser.Groups);
             }
 
-            openSubForm(GroupsForm);
+            openSubForm(m_GroupsForm);
         }
 
         private void buttonFavoriteTeams_Click(object i_Sender, EventArgs i_E)
         {
-            if (FavoriteTeamsForm == null)
+            if (m_FavoriteTeamsForm == null)
             {
-                FavoriteTeamsForm = new FormFavoriteTeams(m_AccountManager.LoginResult.LoggedInUser.FavofriteTeams);
+                m_FavoriteTeamsForm = new FormFavoriteTeams(m_AccountManager.LoginResult.LoggedInUser.FavofriteTeams);
             }
 
-            openSubForm(FavoriteTeamsForm);
+            openSubForm(m_FavoriteTeamsForm);
         }
 
         private void buttonLikedPages_Click(object i_Sender, EventArgs i_E)
         {
-            if (LikedPagesForm == null)
+            if (m_LikedPagesForm == null)
             {
-                LikedPagesForm = new FormLikedPages(m_AccountManager.LoginResult.LoggedInUser.LikedPages);
+                m_LikedPagesForm = new FormLikedPages(m_AccountManager.LoginResult.LoggedInUser.LikedPages);
             }
 
-            openSubForm(LikedPagesForm);
+            openSubForm(m_LikedPagesForm);
         }
 
         private void buttonFriends_Click(object sender, EventArgs e)
         {
-            if (FriendsForm == null)
+            if (m_FriendsForm == null)
             {
-                FriendsForm = new FormFriends(m_AccountManager.LoginResult.LoggedInUser.Friends);
+                m_FriendsForm = new FormFriends(m_AccountManager.LoginResult.LoggedInUser.Friends);
             }
 
-            openSubForm(FriendsForm);
+            openSubForm(m_FriendsForm);
         }
 
         private void buttonStatistics_Click(object i_Sender, EventArgs i_E)
         {
-            if (StatisticsForm == null)
+            if (m_StatisticsForm == null)
             {
-                StatisticsForm = new FormStatistics(m_AccountManager.LoginResult.LoggedInUser);
+                m_StatisticsForm = new FormStatistics(m_AccountManager.LoginResult.LoggedInUser);
             }
 
-            openSubForm(StatisticsForm);
+            openSubForm(m_StatisticsForm);
         }
 
         private void buttonMostPopularFeed_Click(object sender, EventArgs e)
         {
-            if (MostPopularFeedForm == null)
+            if (m_MostPopularFeedForm == null)
             {
-                MostPopularFeedForm = new FormMostPopularFeed(m_AccountManager.LoginResult.LoggedInUser);
+                m_MostPopularFeedForm = new FormMostPopularFeed(m_AccountManager.LoginResult.LoggedInUser);
             }
 
-            openSubForm(MostPopularFeedForm);
+            openSubForm(m_MostPopularFeedForm);
         }
 
         private void buttonLogout_Click(object i_Sender, EventArgs i_E)
@@ -214,7 +211,15 @@ namespace FaceBookWinFormsApp
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
-            m_AppSetting.LastAccessToken = m_AppSetting.RememberUser ? m_AccountManager.LoginResult.AccessToken : null;
+            if(m_AppSetting.RememberUserInfo)
+            {
+                m_AppSetting.RememberUser(m_AccountManager.LoginResult.AccessToken);
+            }
+            else
+            {
+                m_AppSetting.ForgetUser();
+            }
+
             m_AppSetting.SaveToFile();
         }
     }
