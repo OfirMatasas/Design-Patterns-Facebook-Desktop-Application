@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.buttonShowMostPopularFeed = new System.Windows.Forms.Button();
-            this.labelChooseYear = new System.Windows.Forms.Label();
-            this.dateTimePickerChoosedYear = new System.Windows.Forms.DateTimePicker();
+            this.labelChooseDate = new System.Windows.Forms.Label();
+            this.dateTimePickerChoosedDate = new System.Windows.Forms.DateTimePicker();
             this.panelMostPopular = new System.Windows.Forms.Panel();
             this.panelPhoto = new System.Windows.Forms.Panel();
             this.pictureBoxMostPopularPhoto = new System.Windows.Forms.PictureBox();
             this.labelMostPopularPhoto = new System.Windows.Forms.Label();
             this.panelPost = new System.Windows.Forms.Panel();
-            this.listBoxMostPopularPost = new System.Windows.Forms.ListBox();
             this.labelMostPopularPost = new System.Windows.Forms.Label();
+            this.listBoxMostPopularPost = new System.Windows.Forms.ListBox();
             this.panelMostPopular.SuspendLayout();
             this.panelPhoto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMostPopularPhoto)).BeginInit();
@@ -55,26 +55,26 @@
             this.buttonShowMostPopularFeed.UseVisualStyleBackColor = true;
             this.buttonShowMostPopularFeed.Click += new System.EventHandler(this.buttonShowPhotosAndPosts_Click);
             // 
-            // labelChooseYear
+            // labelChooseDate
             // 
-            this.labelChooseYear.AutoSize = true;
-            this.labelChooseYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelChooseYear.Location = new System.Drawing.Point(110, 48);
-            this.labelChooseYear.Name = "labelChooseYear";
-            this.labelChooseYear.Size = new System.Drawing.Size(180, 20);
-            this.labelChooseYear.TabIndex = 17;
-            this.labelChooseYear.Text = "Please choose a year";
+            this.labelChooseDate.AutoSize = true;
+            this.labelChooseDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelChooseDate.Location = new System.Drawing.Point(110, 48);
+            this.labelChooseDate.Name = "labelChooseDate";
+            this.labelChooseDate.Size = new System.Drawing.Size(180, 20);
+            this.labelChooseDate.TabIndex = 17;
+            this.labelChooseDate.Text = "Please choose a year";
             // 
-            // dateTimePickerChoosedYear
+            // dateTimePickerChoosedDate
             // 
-            this.dateTimePickerChoosedYear.AllowDrop = true;
-            this.dateTimePickerChoosedYear.CustomFormat = "yyyy";
-            this.dateTimePickerChoosedYear.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerChoosedYear.Location = new System.Drawing.Point(372, 46);
-            this.dateTimePickerChoosedYear.Name = "dateTimePickerChoosedYear";
-            this.dateTimePickerChoosedYear.ShowUpDown = true;
-            this.dateTimePickerChoosedYear.Size = new System.Drawing.Size(174, 22);
-            this.dateTimePickerChoosedYear.TabIndex = 16;
+            this.dateTimePickerChoosedDate.AllowDrop = true;
+            this.dateTimePickerChoosedDate.CustomFormat = "yyyy";
+            this.dateTimePickerChoosedDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerChoosedDate.Location = new System.Drawing.Point(372, 46);
+            this.dateTimePickerChoosedDate.Name = "dateTimePickerChoosedDate";
+            this.dateTimePickerChoosedDate.ShowUpDown = true;
+            this.dateTimePickerChoosedDate.Size = new System.Drawing.Size(174, 22);
+            this.dateTimePickerChoosedDate.TabIndex = 16;
             // 
             // panelMostPopular
             // 
@@ -124,6 +124,14 @@
             this.panelPost.Size = new System.Drawing.Size(336, 150);
             this.panelPost.TabIndex = 12;
             // 
+            // labelMostPopularPost
+            // 
+            this.labelMostPopularPost.AutoSize = true;
+            this.labelMostPopularPost.Location = new System.Drawing.Point(8, 75);
+            this.labelMostPopularPost.Name = "labelMostPopularPost";
+            this.labelMostPopularPost.Size = new System.Drawing.Size(0, 16);
+            this.labelMostPopularPost.TabIndex = 1;
+            // 
             // listBoxMostPopularPost
             // 
             this.listBoxMostPopularPost.FormattingEnabled = true;
@@ -133,14 +141,6 @@
             this.listBoxMostPopularPost.Size = new System.Drawing.Size(336, 68);
             this.listBoxMostPopularPost.TabIndex = 0;
             // 
-            // labelMostPopularPost
-            // 
-            this.labelMostPopularPost.AutoSize = true;
-            this.labelMostPopularPost.Location = new System.Drawing.Point(8, 75);
-            this.labelMostPopularPost.Name = "labelMostPopularPost";
-            this.labelMostPopularPost.Size = new System.Drawing.Size(0, 16);
-            this.labelMostPopularPost.TabIndex = 1;
-            // 
             // FormMostPopularFeed
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -148,8 +148,8 @@
             this.ClientSize = new System.Drawing.Size(800, 566);
             this.Controls.Add(this.panelMostPopular);
             this.Controls.Add(this.buttonShowMostPopularFeed);
-            this.Controls.Add(this.labelChooseYear);
-            this.Controls.Add(this.dateTimePickerChoosedYear);
+            this.Controls.Add(this.labelChooseDate);
+            this.Controls.Add(this.dateTimePickerChoosedDate);
             this.DoubleBuffered = true;
             this.Name = "FormMostPopularFeed";
             this.Text = "FormMostPopularFeed";
@@ -167,8 +167,8 @@
         #endregion
 
         private System.Windows.Forms.Button buttonShowMostPopularFeed;
-        private System.Windows.Forms.Label labelChooseYear;
-        private System.Windows.Forms.DateTimePicker dateTimePickerChoosedYear;
+        private System.Windows.Forms.Label labelChooseDate;
+        private System.Windows.Forms.DateTimePicker dateTimePickerChoosedDate;
         private System.Windows.Forms.Panel panelMostPopular;
         private System.Windows.Forms.Panel panelPhoto;
         private System.Windows.Forms.PictureBox pictureBoxMostPopularPhoto;

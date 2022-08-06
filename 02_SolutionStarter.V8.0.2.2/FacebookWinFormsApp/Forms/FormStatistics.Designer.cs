@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormStatistics));
-            this.dateTimePickerChoosedMonth = new System.Windows.Forms.DateTimePicker();
-            this.labelChooseMonth = new System.Windows.Forms.Label();
+            this.dateTimePickerChoosedDate = new System.Windows.Forms.DateTimePicker();
+            this.labelChooseDate = new System.Windows.Forms.Label();
             this.pictureBoxLikesOnPhotos = new System.Windows.Forms.PictureBox();
             this.labelNumberOfLikesOnPhotos = new System.Windows.Forms.Label();
             this.pictureBoxPosts = new System.Windows.Forms.PictureBox();
@@ -53,26 +53,26 @@
             this.panelSummary.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dateTimePickerChoosedMonth
+            // dateTimePickerChoosedDate
             // 
-            this.dateTimePickerChoosedMonth.AllowDrop = true;
-            this.dateTimePickerChoosedMonth.CustomFormat = "MM/yyyy";
-            this.dateTimePickerChoosedMonth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerChoosedMonth.Location = new System.Drawing.Point(364, 27);
-            this.dateTimePickerChoosedMonth.Name = "dateTimePickerChoosedMonth";
-            this.dateTimePickerChoosedMonth.ShowUpDown = true;
-            this.dateTimePickerChoosedMonth.Size = new System.Drawing.Size(131, 22);
-            this.dateTimePickerChoosedMonth.TabIndex = 1;
+            this.dateTimePickerChoosedDate.AllowDrop = true;
+            this.dateTimePickerChoosedDate.CustomFormat = "MM/yyyy";
+            this.dateTimePickerChoosedDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerChoosedDate.Location = new System.Drawing.Point(364, 27);
+            this.dateTimePickerChoosedDate.Name = "dateTimePickerChoosedDate";
+            this.dateTimePickerChoosedDate.ShowUpDown = true;
+            this.dateTimePickerChoosedDate.Size = new System.Drawing.Size(131, 22);
+            this.dateTimePickerChoosedDate.TabIndex = 1;
             // 
-            // labelChooseMonth
+            // labelChooseDate
             // 
-            this.labelChooseMonth.AutoSize = true;
-            this.labelChooseMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelChooseMonth.Location = new System.Drawing.Point(76, 30);
-            this.labelChooseMonth.Name = "labelChooseMonth";
-            this.labelChooseMonth.Size = new System.Drawing.Size(196, 20);
-            this.labelChooseMonth.TabIndex = 2;
-            this.labelChooseMonth.Text = "Please choose a month";
+            this.labelChooseDate.AutoSize = true;
+            this.labelChooseDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelChooseDate.Location = new System.Drawing.Point(76, 30);
+            this.labelChooseDate.Name = "labelChooseDate";
+            this.labelChooseDate.Size = new System.Drawing.Size(196, 20);
+            this.labelChooseDate.TabIndex = 2;
+            this.labelChooseDate.Text = "Please choose a month";
             // 
             // pictureBoxLikesOnPhotos
             // 
@@ -215,8 +215,8 @@
             this.Controls.Add(this.panelSummary);
             this.Controls.Add(this.buttonShowStatistics);
             this.Controls.Add(this.labelMonthSummary);
-            this.Controls.Add(this.labelChooseMonth);
-            this.Controls.Add(this.dateTimePickerChoosedMonth);
+            this.Controls.Add(this.labelChooseDate);
+            this.Controls.Add(this.dateTimePickerChoosedDate);
             this.Name = "FormStatistics";
             this.Text = "Statistics";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLikesOnPhotos)).EndInit();
@@ -235,8 +235,8 @@
 
         #endregion
 
-        private System.Windows.Forms.DateTimePicker dateTimePickerChoosedMonth;
-        private System.Windows.Forms.Label labelChooseMonth;
+        private System.Windows.Forms.DateTimePicker dateTimePickerChoosedDate;
+        private System.Windows.Forms.Label labelChooseDate;
         private System.Windows.Forms.PictureBox pictureBoxLikesOnPhotos;
         private System.Windows.Forms.Label labelNumberOfLikesOnPhotos;
         private System.Windows.Forms.PictureBox pictureBoxPosts;

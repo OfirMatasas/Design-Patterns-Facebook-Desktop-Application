@@ -27,7 +27,7 @@ namespace BasicFacebookFeatures.Forms
             
             try
             {
-                mostPopular = m_MostPopularFeedLogic.FindMostPopularPost(dateTimePickerChoosedYear.Value);
+                mostPopular = m_MostPopularFeedLogic.FindMostPopularPost(dateTimePickerChoosedDate.Value);
             }
             catch (ArgumentOutOfRangeException)
             {

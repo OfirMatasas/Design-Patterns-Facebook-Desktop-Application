@@ -13,37 +13,39 @@ namespace BasicFacebookFeatures.Forms
         {
             InitializeComponent();
             StatisticsLogic = new StatisticsLogic(i_LoggedInUser);
-            //fetchStatistics();
         }
 
         private void fetchStatistics()
         {
-            try
+            DateTime dateTimeChosen = new DateTime(dateTimePickerChoosedDate.Value.Year,
+                dateTimePickerChoosedDate.Value.Month, DateTime.Today.Day);
+
+            if (dateTimeChosen > DateTime.Today)
             {
-                GetAlbumsAndPhotosDataInChosenMonth();
-                GetNumberOfPostsInChosenMonth();
+                MessageBox.Show($"You can't choose a day from the future !{Environment.NewLine}Please choose a valid date",
+                    "Invalid Date", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (ArgumentOutOfRangeException)
+            else
             {
-                MessageBox.Show($"Invalid date !{Environment.NewLine}Please choose a valid Month", "Invalid Date",
-                    MessageBoxButtons.OK);
+                getAlbumsAndPhotosDataInChosenDate();
+                getNumberOfPostsInChosenDate();
             }
         }
 
-        private void GetAlbumsAndPhotosDataInChosenMonth()
+        private void getAlbumsAndPhotosDataInChosenDate()
         {
             int numberOfLikesOnPhotos, numberOfNewAlbums, numberOfNewPhotos;
 
-            StatisticsLogic.AnalyzeDataOnAlbumsAndPhotosInChosenMonth(dateTimePickerChoosedMonth.Value,
+            StatisticsLogic.AnalyzeDataOnAlbumsAndPhotosInChosenDate(dateTimePickerChoosedDate.Value,
                 out numberOfLikesOnPhotos, out numberOfNewAlbums, out numberOfNewPhotos);
             labelNumberOfLikesOnPhotos.Text = $"{numberOfLikesOnPhotos} {(numberOfLikesOnPhotos == 1 ? " Like" : " Likes")}{ Environment.NewLine}On Photos";
             labelNumberOfNewAlbums.Text = $"{numberOfNewAlbums} New{ Environment.NewLine}{(numberOfNewAlbums == 1 ? "Album" : "Albums")}";
             labelNumberOfNewPhotos.Text = $"{numberOfNewPhotos} New{Environment.NewLine}{(numberOfNewPhotos == 1 ? "Photo" : "Photos")}";
         }
 
-        private void GetNumberOfPostsInChosenMonth()
+        private void getNumberOfPostsInChosenDate()
         {
-            int numberOfPosts = StatisticsLogic.CalculateNumberOfPostsInChosenMonth(dateTimePickerChoosedMonth.Value);
+            int numberOfPosts = StatisticsLogic.CalculateNumberOfPostsInChosenDate(dateTimePickerChoosedDate.Value);
             labelNumberOfPosts.Text = $"{numberOfPosts} {(numberOfPosts == 1 ? " Post" : " Posts")}{ Environment.NewLine}Published";
         }
 

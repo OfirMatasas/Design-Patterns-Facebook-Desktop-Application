@@ -11,18 +11,12 @@ namespace FacebookWinFormsLogic
             LoggedInUser = i_LoggedInUser;
         }
 
-        public void AnalyzeDataOnAlbumsAndPhotosInChosenMonth(DateTime i_Date, out int o_NumberOfLikesOnPhotos,
+        public void AnalyzeDataOnAlbumsAndPhotosInChosenDate(DateTime i_Date, out int o_NumberOfLikesOnPhotos,
             out int o_NumberOfNewAlbums, out int o_NumberOfNewPhotos)
         {
             o_NumberOfLikesOnPhotos = 0;
             o_NumberOfNewAlbums = 0;
             o_NumberOfNewPhotos = 0;
-
-            if ((i_Date.Month > DateTime.Today.Month && i_Date.Year == DateTime.Today.Year) || 
-                i_Date.Year > DateTime.Today.Year)
-            {
-                throw new ArgumentOutOfRangeException();
-            }
 
             foreach (Album album in LoggedInUser.Albums)
             {
@@ -43,15 +37,9 @@ namespace FacebookWinFormsLogic
             }
         }
 
-        public int CalculateNumberOfPostsInChosenMonth(DateTime i_Date)
+        public int CalculateNumberOfPostsInChosenDate(DateTime i_Date)
         {
             int numberOfPosts = 0;
-
-            if ((i_Date.Month > DateTime.Today.Month && i_Date.Year == DateTime.Today.Year) ||
-                i_Date.Year > DateTime.Today.Year)
-            {
-                throw new ArgumentOutOfRangeException();
-            }
 
             foreach (Post post in LoggedInUser.Posts)
             {
