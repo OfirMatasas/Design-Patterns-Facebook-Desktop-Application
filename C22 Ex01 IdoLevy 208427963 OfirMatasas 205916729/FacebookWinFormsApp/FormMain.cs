@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Windows.Forms;
-using BasicFacebookFeatures.Forms;
 using FacebookWrapper;
 using FacebookWinFormsLogic;
-using System.ComponentModel;
+using FaceBookWinFormsApp.Forms;
 
-namespace BasicFacebookFeatures
+namespace FaceBookWinFormsApp
 {
-    public partial class FormMain : Form
+    internal partial class FormMain : Form
     {
         private AppSetting m_AppSetting;
         private FacebookAccountManager m_AccountManager = new FacebookAccountManager();

@@ -1,6 +1,6 @@
-﻿namespace BasicFacebookFeatures.Forms
+﻿namespace FaceBookWinFormsApp.Forms
 {
-    partial class FormStatistics
+    internal partial class FormStatistics
     {
         /// <summary>
         /// Required designer variable.
@@ -116,7 +116,7 @@
             // 
             this.labelMonthSummary.AutoSize = true;
             this.labelMonthSummary.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelMonthSummary.Location = new System.Drawing.Point(267, 150);
+            this.labelMonthSummary.Location = new System.Drawing.Point(266, 158);
             this.labelMonthSummary.Name = "labelMonthSummary";
             this.labelMonthSummary.Size = new System.Drawing.Size(246, 31);
             this.labelMonthSummary.TabIndex = 11;

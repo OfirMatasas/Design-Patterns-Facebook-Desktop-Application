@@ -3,32 +3,33 @@ using System;
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace BasicFacebookFeatures.Forms
+namespace FaceBookWinFormsApp.Forms
 {
-    public partial class FormAlbums : Form
+    internal partial class FormAlbums : Form
     {
-        public FacebookObjectCollection<Album> Albums { get; }
+        private FacebookObjectCollection<Album> m_Albums;
 
-        public FormAlbums(FacebookObjectCollection<Album> i_Album)
+        public FormAlbums(FacebookObjectCollection<Album> i_Albums)
         {
             InitializeComponent();
-            Albums = i_Album;
+            m_Albums = i_Albums;
             fetchAlbums();
         }
 
         private void fetchAlbums()
         {
-            foreach (Album album in Albums)
+            foreach (Album album in m_Albums)
             {
                 listBoxAlbums.Items.Add(album);
             }
         }
+
         protected override void OnShown(EventArgs i_E)
         {
             base.OnShown(i_E);
             if (listBoxAlbums.Items.Count == 0)
             {
-                MessageBox.Show("No albums to retrieve :(");
+                MessageBox.Show("No albums to retrieve: (", "No Albums", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -36,11 +37,11 @@ namespace BasicFacebookFeatures.Forms
         {
             Album album = listBoxAlbums.SelectedItem as Album;
 
-            ShowSelectedAlbumsPhotos(album);
-            ShowSelectedAlbumsName(album);
+            showSelectedAlbumsPhotos(album);
+            showSelectedAlbumsName(album);
         }
 
-        private void ShowSelectedAlbumsPhotos(Album i_Album)
+        private void showSelectedAlbumsPhotos(Album i_Album)
         {
             PictureBox pictureBox;
             Size pictureBoxSize = new Size(200, 200);
@@ -62,7 +63,7 @@ namespace BasicFacebookFeatures.Forms
             flowLayoutPanelSelectedAlbumPhotos.Show();
         }
 
-        private void ShowSelectedAlbumsName(Album i_Album)
+        private void showSelectedAlbumsName(Album i_Album)
         {
             labelSelectedAlbumName.Text = i_Album.Name;
             labelSelectedAlbumName.Visible = true;

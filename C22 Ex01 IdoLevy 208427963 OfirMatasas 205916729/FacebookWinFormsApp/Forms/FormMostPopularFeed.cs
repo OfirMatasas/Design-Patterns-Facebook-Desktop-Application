@@ -4,11 +4,12 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace BasicFacebookFeatures.Forms
+namespace FaceBookWinFormsApp.Forms
 {
-    public partial class FormMostPopularFeed : Form
+    internal partial class FormMostPopularFeed : Form
     {
-        private MostPopularFeedLogic m_MostPopularFeedLogic { get; }
+        private MostPopularFeedLogic m_MostPopularFeedLogic;
+
         public FormMostPopularFeed(User i_LoggedInUser)
         {
             InitializeComponent();
@@ -47,8 +48,7 @@ namespace BasicFacebookFeatures.Forms
             }
             else
             {
-                MessageBox.Show($"This year you haven't published any post !", "No posts to show",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                messageBoxNoDetailsInDate("post");
             }
         }
 
@@ -66,9 +66,14 @@ namespace BasicFacebookFeatures.Forms
             }
             else
             {
-                MessageBox.Show($"This year you haven't published any photo !", "No photos to show",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                messageBoxNoDetailsInDate("photo");
             }
+        }
+
+        private void messageBoxNoDetailsInDate(string i_Details)
+        {
+            MessageBox.Show($"This year you haven't published any {i_Details} !", $"No {i_Details}s to show",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void buttonShowPhotosAndPosts_Click(object sender, EventArgs e)

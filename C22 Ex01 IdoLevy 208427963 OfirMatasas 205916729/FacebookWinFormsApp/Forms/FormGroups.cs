@@ -2,23 +2,22 @@
 using System;
 using System.Windows.Forms;
 
-namespace BasicFacebookFeatures
+namespace FaceBookWinFormsApp.Forms
 {
-    public partial class FormGroups : Form
+    internal partial class FormGroups : Form
     {
-        public FacebookObjectCollection<Group> Groups { get; }
+        private FacebookObjectCollection<Group> m_Groups;
 
         public FormGroups(FacebookObjectCollection<Group> i_Groups)
         {
             InitializeComponent();
-            Groups = i_Groups;
+            m_Groups = i_Groups;
             fetchGroups();
         }
 
         private void fetchGroups()
         {
-            listBoxGroups.DisplayMember = "Name";
-            foreach (Group group in Groups)
+            foreach (Group group in m_Groups)
             {
                 listBoxGroups.Items.Add(group);
             }
@@ -29,7 +28,7 @@ namespace BasicFacebookFeatures
             base.OnShown(i_E);
             if (listBoxGroups.Items.Count == 0)
             {
-                MessageBox.Show("No groups to retrieve :(");
+                MessageBox.Show("No groups to retrieve: (", "No Groups", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -50,6 +49,7 @@ namespace BasicFacebookFeatures
         {
             richTextBoxGroupSelectedDescription.Text = i_SelectedGroup.Description;
             richTextBoxGroupSelectedDescription.Visible = true;
+            labelDescription.Visible = true;
         }
     }
 }

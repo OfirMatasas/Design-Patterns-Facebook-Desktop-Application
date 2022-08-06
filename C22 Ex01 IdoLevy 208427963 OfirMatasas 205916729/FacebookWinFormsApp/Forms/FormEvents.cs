@@ -2,24 +2,24 @@
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 
-namespace BasicFacebookFeatures.Forms
+namespace FaceBookWinFormsApp.Forms
 {
-    public partial class FormEvents : Form
+    internal partial class FormEvents : Form
     {
-        public FacebookObjectCollection<Event> FBEvents { get; }
+        private FacebookObjectCollection<Event> m_Events;
 
         public FormEvents(FacebookObjectCollection<Event> i_Events)
         {
             InitializeComponent();
-            FBEvents = i_Events;
+            m_Events = i_Events;
             fetchEvents();
         }
 
         private void fetchEvents()
         {
-            foreach (Event fbEvent in FBEvents)
+            foreach (Event facebookEvent in m_Events)
             {
-                listBoxEvents.Items.Add(fbEvent.Name);
+                listBoxEvents.Items.Add(facebookEvent.Name);
             }
         }
 
@@ -28,7 +28,7 @@ namespace BasicFacebookFeatures.Forms
             base.OnShown(i_E);
             if (listBoxEvents.Items.Count == 0)
             {
-                MessageBox.Show("No events to retrieve :(");
+                MessageBox.Show("No events to retrieve: (", "No Events", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -43,12 +43,14 @@ namespace BasicFacebookFeatures.Forms
         private void displaySelectedEventPicture(Event i_SelectedEvent)
         {
             pictureBoxEventPicture.LoadAsync(i_SelectedEvent.Cover.SourceURL);
+            labelPicture.Visible = true;
         }
 
         private void displaySelectedEventDescription(Event i_SelectedEvent)
         {
             richTextBoxEventDescription.Text = i_SelectedEvent.Description;
             richTextBoxEventDescription.Visible = true;
+            labelDescription.Visible = true;
         }
     }
 }

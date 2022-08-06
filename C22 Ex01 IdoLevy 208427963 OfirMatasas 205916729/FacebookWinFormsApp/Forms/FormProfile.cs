@@ -2,33 +2,35 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace BasicFacebookFeatures.Forms
+namespace FaceBookWinFormsApp.Forms
 {
-    public partial class FormProfile : Form
+    internal partial class FormProfile : Form
     {
-        public FormProfile(User i_User)
+        private User m_LoggedInUser;
+        public FormProfile(User i_LoggedInUser)
         {
             InitializeComponent();
-            DisplayProfileInfo(i_User);
+            m_LoggedInUser = i_LoggedInUser;
+            fetchProfileInfo();
         }
 
-        private void DisplayProfileInfo(User i_User)
+        private void fetchProfileInfo()
         {
-            labelProfileName.Text = i_User.Name;
-            pictureBoxProfilePicture.Image = i_User.ImageLarge;
-            setUsersCoverPicture(i_User);
-            labelBirthday.Text += i_User.Birthday;
-            labelGender.Text += i_User.Gender;
-            labelFriendsCount.Text += i_User.Friends.Count;
-            labelHometown.Text += i_User.Hometown;
-            labelLocation.Text += i_User.Location.Name;
-            labelWallPosts.Text += i_User.WallPosts.Count;
+            labelProfileName.Text = m_LoggedInUser.Name;
+            pictureBoxProfilePicture.Image = m_LoggedInUser.ImageLarge;
+            setUsersCoverPicture();
+            labelBirthday.Text += m_LoggedInUser.Birthday;
+            labelGender.Text += m_LoggedInUser.Gender;
+            labelFriendsCount.Text += m_LoggedInUser.Friends.Count;
+            labelHometown.Text += m_LoggedInUser.Hometown;
+            labelLocation.Text += m_LoggedInUser.Location.Name;
+            labelWallPosts.Text += m_LoggedInUser.WallPosts.Count;
         }
 
-        private void setUsersCoverPicture(User i_User)
+        private void setUsersCoverPicture()
         {
             List<string> possibleCoverAlbumNames = getCoversPhotosNamesPossibleNames();
-            Album coversAlbum = i_User.Albums.Find(a => possibleCoverAlbumNames.Contains(a.Name));
+            Album coversAlbum = m_LoggedInUser.Albums.Find(a => possibleCoverAlbumNames.Contains(a.Name));
 
             pictureBoxCoverPicture.Image = coversAlbum?.Photos[0].ImageNormal;
         }

@@ -1,6 +1,6 @@
-﻿namespace BasicFacebookFeatures
+﻿namespace FaceBookWinFormsApp
 {
-    partial class FormMain
+    internal partial class FormMain
     {
         /// <summary>
         /// Required designer variable.
@@ -36,7 +36,7 @@
             this.panelSidebarButtons = new System.Windows.Forms.Panel();
             this.buttonFriends = new System.Windows.Forms.Button();
             this.buttonLikedPages = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.buttonLogout = new System.Windows.Forms.Button();
             this.buttonMostPopularFeed = new System.Windows.Forms.Button();
             this.buttonPosts = new System.Windows.Forms.Button();
             this.buttonStatistics = new System.Windows.Forms.Button();
@@ -108,7 +108,7 @@
             // 
             this.panelSidebarButtons.Controls.Add(this.buttonFriends);
             this.panelSidebarButtons.Controls.Add(this.buttonLikedPages);
-            this.panelSidebarButtons.Controls.Add(this.button11);
+            this.panelSidebarButtons.Controls.Add(this.buttonLogout);
             this.panelSidebarButtons.Controls.Add(this.buttonMostPopularFeed);
             this.panelSidebarButtons.Controls.Add(this.buttonPosts);
             this.panelSidebarButtons.Controls.Add(this.buttonStatistics);
@@ -155,21 +155,21 @@
             this.buttonLikedPages.UseVisualStyleBackColor = false;
             this.buttonLikedPages.Click += new System.EventHandler(this.buttonLikedPages_Click);
             // 
-            // button11
+            // buttonLogout
             // 
-            this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.button11.Enabled = false;
-            this.button11.FlatAppearance.BorderSize = 0;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.button11.ForeColor = System.Drawing.Color.White;
-            this.button11.Location = new System.Drawing.Point(5, 474);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(184, 42);
-            this.button11.TabIndex = 10;
-            this.button11.Text = "Logout";
-            this.button11.UseVisualStyleBackColor = false;
-            this.button11.Click += new System.EventHandler(this.buttonLogout_Click);
+            this.buttonLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
+            this.buttonLogout.Enabled = false;
+            this.buttonLogout.FlatAppearance.BorderSize = 0;
+            this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLogout.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.buttonLogout.ForeColor = System.Drawing.Color.White;
+            this.buttonLogout.Location = new System.Drawing.Point(5, 474);
+            this.buttonLogout.Name = "buttonLogout";
+            this.buttonLogout.Size = new System.Drawing.Size(184, 42);
+            this.buttonLogout.TabIndex = 10;
+            this.buttonLogout.Text = "Logout";
+            this.buttonLogout.UseVisualStyleBackColor = false;
+            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
             // 
             // buttonMostPopularFeed
             // 
@@ -319,7 +319,7 @@
             // 
             this.checkBoxRememberMe.AutoSize = true;
             this.checkBoxRememberMe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.checkBoxRememberMe.Location = new System.Drawing.Point(386, 323);
+            this.checkBoxRememberMe.Location = new System.Drawing.Point(274, 316);
             this.checkBoxRememberMe.Name = "checkBoxRememberMe";
             this.checkBoxRememberMe.Size = new System.Drawing.Size(133, 24);
             this.checkBoxRememberMe.TabIndex = 42;
@@ -329,7 +329,7 @@
             // 
             // buttonLogin
             // 
-            this.buttonLogin.Location = new System.Drawing.Point(362, 274);
+            this.buttonLogin.Location = new System.Drawing.Point(274, 268);
             this.buttonLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(217, 41);
@@ -343,7 +343,7 @@
             // 
             this.labelLoginMessage.AutoSize = true;
             this.labelLoginMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelLoginMessage.Location = new System.Drawing.Point(281, 223);
+            this.labelLoginMessage.Location = new System.Drawing.Point(268, 219);
             this.labelLoginMessage.Name = "labelLoginMessage";
             this.labelLoginMessage.Size = new System.Drawing.Size(301, 31);
             this.labelLoginMessage.TabIndex = 40;
@@ -386,7 +386,7 @@
 
 		#endregion
         private System.Windows.Forms.Panel panelSidebar;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button buttonLogout;
         private System.Windows.Forms.Button buttonMostPopularFeed;
         private System.Windows.Forms.Button buttonStatistics;
         private System.Windows.Forms.Button buttonLikedPages;

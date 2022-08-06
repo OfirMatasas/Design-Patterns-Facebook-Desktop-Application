@@ -4,23 +4,22 @@ using System.Windows.Forms;
 using FacebookWinFormsLogic;
 using FacebookWrapper.ObjectModel;
 
-namespace BasicFacebookFeatures
+namespace FaceBookWinFormsApp.Forms
 {
-    public partial class FormPosts : Form
+    internal partial class FormPosts : Form
     {
-        private FacebookAccountManager LoggedInUser { get; }
+        private FacebookAccountManager m_LoggedInUser;
 
         public FormPosts(FacebookAccountManager i_LoggedInUser)
         {
-            LoggedInUser = i_LoggedInUser;
+            m_LoggedInUser = i_LoggedInUser;
             InitializeComponent();
             fetchPosts();
         } 
 
         private void fetchPosts()
         {
-            listBoxPosts.DisplayMember = "Message";
-            foreach (Post post in LoggedInUser.LoginResult.LoggedInUser.Posts)
+            foreach (Post post in m_LoggedInUser.LoginResult.LoggedInUser.Posts)
             {
                 listBoxPosts.Items.Add(post);
             }
@@ -69,18 +68,20 @@ namespace BasicFacebookFeatures
 
             if(string.IsNullOrEmpty(richTextBoxNewPost?.Text))
             {
-                MessageBox.Show("Cannot post an empty post!");
+                MessageBox.Show("Cannot post an empty post!", "Empty Post",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 try
                 {
-                    postedStatus = LoggedInUser.Post(richTextBoxNewPost.Text);
+                    postedStatus = m_LoggedInUser.Post(richTextBoxNewPost.Text);
                     MessageBox.Show(postedStatus.Message);
                 }
                 catch
                 {
-                    MessageBox.Show("Posting action failed.");
+                    MessageBox.Show("Cannot success to post.", "Posting Action Failed",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

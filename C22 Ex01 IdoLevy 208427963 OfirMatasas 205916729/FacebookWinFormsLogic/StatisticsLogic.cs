@@ -25,6 +25,7 @@ namespace FacebookWinFormsLogic
                 {
                     o_NumberOfNewAlbums += 1;
                 }
+
                 foreach (Photo photo in album.Photos)
                 {
                     if (photo.CreatedTime.Value.Month == i_Date.Month

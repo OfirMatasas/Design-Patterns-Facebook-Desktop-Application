@@ -3,16 +3,16 @@ using FacebookWrapper.ObjectModel;
 using System;
 using System.Windows.Forms;
 
-namespace BasicFacebookFeatures.Forms
+namespace FaceBookWinFormsApp.Forms
 {
-    public partial class FormStatistics : Form
+    internal partial class FormStatistics : Form
     {
-        public StatisticsLogic StatisticsLogic { get; }
+        private StatisticsLogic m_StatisticsLogic;
 
         public FormStatistics(User i_LoggedInUser)
         {
             InitializeComponent();
-            StatisticsLogic = new StatisticsLogic(i_LoggedInUser);
+            m_StatisticsLogic = new StatisticsLogic(i_LoggedInUser);
         }
 
         private void fetchStatistics()
@@ -36,7 +36,7 @@ namespace BasicFacebookFeatures.Forms
         {
             int numberOfLikesOnPhotos, numberOfNewAlbums, numberOfNewPhotos;
 
-            StatisticsLogic.AnalyzeDataOnAlbumsAndPhotosInChosenDate(dateTimePickerChoosedDate.Value,
+            m_StatisticsLogic.AnalyzeDataOnAlbumsAndPhotosInChosenDate(dateTimePickerChoosedDate.Value,
                 out numberOfLikesOnPhotos, out numberOfNewAlbums, out numberOfNewPhotos);
             labelNumberOfLikesOnPhotos.Text = $"{numberOfLikesOnPhotos} {(numberOfLikesOnPhotos == 1 ? " Like" : " Likes")}{ Environment.NewLine}On Photos";
             labelNumberOfNewAlbums.Text = $"{numberOfNewAlbums} New{ Environment.NewLine}{(numberOfNewAlbums == 1 ? "Album" : "Albums")}";
@@ -45,15 +45,15 @@ namespace BasicFacebookFeatures.Forms
 
         private void getNumberOfPostsInChosenDate()
         {
-            int numberOfPosts = StatisticsLogic.CalculateNumberOfPostsInChosenDate(dateTimePickerChoosedDate.Value);
+            int numberOfPosts = m_StatisticsLogic.CalculateNumberOfPostsInChosenDate(dateTimePickerChoosedDate.Value);
             labelNumberOfPosts.Text = $"{numberOfPosts} {(numberOfPosts == 1 ? " Post" : " Posts")}{ Environment.NewLine}Published";
         }
 
         private void buttonShowStatistics_Click(object sender, EventArgs i_E)
         {
+            fetchStatistics();
             panelSummary.Visible = true;
             labelMonthSummary.Visible = true;
-            fetchStatistics();
         }
     }
 }

@@ -2,9 +2,9 @@
 using System;
 using System.Windows.Forms;
 
-namespace BasicFacebookFeatures.Forms
+namespace FaceBookWinFormsApp.Forms
 {
-    public partial class FormFriends : Form
+    internal partial class FormFriends : Form
     {
         private FacebookObjectCollection<User> m_Friends;
 
@@ -28,19 +28,25 @@ namespace BasicFacebookFeatures.Forms
             base.OnShown(i_E);
             if (listBoxFriends.Items.Count == 0)
             {
-                MessageBox.Show("No friends to retrieve :(");
+                MessageBox.Show("No friends to retrieve: (", "No Friends", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         private void listBoxFriends_SelectedIndexChanged(object sender, EventArgs e)
         {
             User selectedFriend = listBoxFriends.SelectedItem as User;
-            displaySelectedFriendDetails(selectedFriend);
+
+            displaySelectedFriendProfilePicture(selectedFriend);
+            displaySelectedFriendAbout(selectedFriend);
         }
 
-        private void displaySelectedFriendDetails(User i_SelectedFriend)
+        private void displaySelectedFriendProfilePicture(User i_SelectedFriend)
         {
             pictureBoxFriendProfilePicture.Image = i_SelectedFriend.ImageNormal;
+        }
+
+        private void displaySelectedFriendAbout(User i_SelectedFriend)
+        {
             richTextBoxFriendAbout.Text = i_SelectedFriend.About;
         }
     }

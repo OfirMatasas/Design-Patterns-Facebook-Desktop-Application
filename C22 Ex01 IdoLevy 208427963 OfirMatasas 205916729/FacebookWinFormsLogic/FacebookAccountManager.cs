@@ -15,6 +15,7 @@ namespace FacebookWinFormsLogic
         public bool Login()
         {
             User LoggedInUser;
+
             LoginResult = FacebookService.Login(
                 "473768324575372",
                 "email",

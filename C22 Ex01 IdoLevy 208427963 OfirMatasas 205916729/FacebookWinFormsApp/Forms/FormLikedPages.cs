@@ -2,25 +2,24 @@
 using System;
 using System.Windows.Forms;
 
-namespace BasicFacebookFeatures
+namespace FaceBookWinFormsApp.Forms
 {
-    public partial class FormLikedPages : Form
+    internal partial class FormLikedPages : Form
     {
-        public FacebookObjectCollection<Page> LikedPages { get; }
+        private FacebookObjectCollection<Page> m_LikedPages;
 
         public FormLikedPages(FacebookObjectCollection<Page> i_LikedPages)
         {
             InitializeComponent();
-            LikedPages = i_LikedPages;
+            m_LikedPages = i_LikedPages;
             fetchLikedPages();
         }
 
         private void fetchLikedPages()
         {
-            listBoxLikedPages.DisplayMember = "Name";
-            foreach (Page page in LikedPages)
+            foreach (Page likedPage in m_LikedPages)
             {
-                listBoxLikedPages.Items.Add(page);
+                listBoxLikedPages.Items.Add(likedPage);
             }
         }
 
@@ -29,7 +28,8 @@ namespace BasicFacebookFeatures
             base.OnShown(i_E);
             if (listBoxLikedPages.Items.Count == 0)
             {
-                MessageBox.Show("No pages to retrieve :(");
+                MessageBox.Show("No liked pages to retrieve: (", "No Liked Pages",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

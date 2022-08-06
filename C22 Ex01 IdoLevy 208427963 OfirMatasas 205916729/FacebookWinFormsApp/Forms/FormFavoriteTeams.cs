@@ -3,27 +3,24 @@ using System;
 using System.Text;
 using System.Windows.Forms;
 
-namespace BasicFacebookFeatures
+namespace FaceBookWinFormsApp.Forms
 {
-    public partial class FormFavoriteTeams : Form
+    internal partial class FormFavoriteTeams : Form
     {
-        private Page[] FavoriteTeams { get; }
+        private Page[] m_FavoriteTeams;
 
         public FormFavoriteTeams(Page[] i_FavoriteTeams)
         {
             InitializeComponent();
-            FavoriteTeams = i_FavoriteTeams;
+            m_FavoriteTeams = i_FavoriteTeams;
             fetchFavoriteTeams();
         }
 
         private void fetchFavoriteTeams()
         {
-            if(FavoriteTeams != null)
+            foreach (Page favoriteTeam in m_FavoriteTeams)
             {
-                foreach (Page team in FavoriteTeams)
-                {
-                    listBoxFavoriteTeams.Items.Add(team);
-                }
+                listBoxFavoriteTeams.Items.Add(favoriteTeam);
             }
         }
 
@@ -32,7 +29,8 @@ namespace BasicFacebookFeatures
             base.OnShown(i_E);
             if (listBoxFavoriteTeams.Items.Count == 0)
             {
-                MessageBox.Show("No favorite teams to retrieve :(");
+                MessageBox.Show("No favorite teams to retrieve: (", "No Favorite Teams",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -51,16 +49,22 @@ namespace BasicFacebookFeatures
 
         private void displaySelectedTeamInformation(Page i_SelectedTeam)
         {
-            StringBuilder teamsInfo = new StringBuilder();
-            
-            teamsInfo.AppendFormat("Description: {0}", i_SelectedTeam.Description).Append(Environment.NewLine);
-            teamsInfo.AppendFormat("Category: {0}", i_SelectedTeam.Category).Append(Environment.NewLine);
-            teamsInfo.AppendFormat("Likes: {0}", i_SelectedTeam.LikesCount).Append(Environment.NewLine);
-            teamsInfo.AppendFormat("Phone number: {0}", i_SelectedTeam.Phone).Append(Environment.NewLine);
-            teamsInfo.AppendFormat("Location: {0}", i_SelectedTeam.Location).Append(Environment.NewLine);
-            teamsInfo.AppendFormat("Website: {0}", i_SelectedTeam.Website).Append(Environment.NewLine);
-            richTextBoxSelectedTeamInfo.Text = teamsInfo.ToString();
+            string favoriteTeamsInformation = string.Format(
+@"Description: {0}
+Category: {1}
+Likes: {2}
+Phone number: {3}
+Location: {4}
+Website: {5}",
+i_SelectedTeam.Description,
+i_SelectedTeam.Category,
+i_SelectedTeam.LikesCount,
+i_SelectedTeam.Phone,
+i_SelectedTeam.Location,
+i_SelectedTeam.Website);
+            richTextBoxSelectedTeamInfo.Text = favoriteTeamsInformation.ToString();
             richTextBoxSelectedTeamInfo.Visible = true;
+            labelTeamInformation.Visible = true;
         }
     }
 }

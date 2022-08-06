@@ -1,6 +1,6 @@
-﻿namespace BasicFacebookFeatures.Forms
+﻿namespace FaceBookWinFormsApp.Forms
 {
-    partial class FormFriends
+    internal partial class FormFriends
     {
         /// <summary>
         /// Required designer variable.
@@ -40,7 +40,7 @@
             // 
             this.listBoxFriends.FormattingEnabled = true;
             this.listBoxFriends.ItemHeight = 16;
-            this.listBoxFriends.Location = new System.Drawing.Point(93, 79);
+            this.listBoxFriends.Location = new System.Drawing.Point(75, 59);
             this.listBoxFriends.Name = "listBoxFriends";
             this.listBoxFriends.Size = new System.Drawing.Size(225, 388);
             this.listBoxFriends.TabIndex = 5;
@@ -48,7 +48,7 @@
             // 
             // pictureBoxFriendProfilePicture
             // 
-            this.pictureBoxFriendProfilePicture.Location = new System.Drawing.Point(455, 140);
+            this.pictureBoxFriendProfilePicture.Location = new System.Drawing.Point(437, 120);
             this.pictureBoxFriendProfilePicture.Name = "pictureBoxFriendProfilePicture";
             this.pictureBoxFriendProfilePicture.Size = new System.Drawing.Size(100, 100);
             this.pictureBoxFriendProfilePicture.TabIndex = 6;
@@ -56,7 +56,7 @@
             // 
             // richTextBoxFriendAbout
             // 
-            this.richTextBoxFriendAbout.Location = new System.Drawing.Point(354, 313);
+            this.richTextBoxFriendAbout.Location = new System.Drawing.Point(336, 293);
             this.richTextBoxFriendAbout.Name = "richTextBoxFriendAbout";
             this.richTextBoxFriendAbout.Size = new System.Drawing.Size(297, 154);
             this.richTextBoxFriendAbout.TabIndex = 7;
@@ -66,7 +66,7 @@
             // 
             this.labelFriendProfilePicture.AutoSize = true;
             this.labelFriendProfilePicture.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelFriendProfilePicture.Location = new System.Drawing.Point(448, 98);
+            this.labelFriendProfilePicture.Location = new System.Drawing.Point(430, 78);
             this.labelFriendProfilePicture.Name = "labelFriendProfilePicture";
             this.labelFriendProfilePicture.Size = new System.Drawing.Size(121, 20);
             this.labelFriendProfilePicture.TabIndex = 8;
@@ -76,7 +76,7 @@
             // 
             this.labelFriendAbout.AutoSize = true;
             this.labelFriendAbout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelFriendAbout.Location = new System.Drawing.Point(478, 273);
+            this.labelFriendAbout.Location = new System.Drawing.Point(460, 253);
             this.labelFriendAbout.Name = "labelFriendAbout";
             this.labelFriendAbout.Size = new System.Drawing.Size(57, 20);
             this.labelFriendAbout.TabIndex = 9;

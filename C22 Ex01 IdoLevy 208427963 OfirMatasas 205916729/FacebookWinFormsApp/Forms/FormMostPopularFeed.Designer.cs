@@ -1,6 +1,6 @@
-﻿namespace BasicFacebookFeatures.Forms
+﻿namespace FaceBookWinFormsApp.Forms
 {
-    partial class FormMostPopularFeed
+    internal partial class FormMostPopularFeed
     {
         /// <summary>
         /// Required designer variable.
