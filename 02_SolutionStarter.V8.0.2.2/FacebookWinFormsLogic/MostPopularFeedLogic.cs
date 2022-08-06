@@ -19,11 +19,12 @@ namespace FacebookWinFormsLogic
         {
             Post mostPopularPost = null;
 
-            if(LoggedInUser.Posts.Count > 0)
+            foreach (Post post in LoggedInUser.Posts)
             {
-                foreach (Post post in LoggedInUser.Posts)
+                if (post.CreatedTime.Value.Year == i_Date.Year)
                 {
-                    if(mostPopularPost == null || (post.Comments.Count > mostPopularPost.Comments.Count))
+                    if ((mostPopularPost != null && post.Comments.Count > mostPopularPost.Comments.Count)
+                        || mostPopularPost == null)
                     {
                         mostPopularPost = post;
                     }
@@ -31,6 +32,28 @@ namespace FacebookWinFormsLogic
             }
 
             return mostPopularPost;
+        }
+
+        public Photo FindMostPopularPhoto(DateTime i_Date)
+        {
+            Photo mostPopularPhoto = null;
+
+            foreach (Album album in LoggedInUser.Albums)
+            {
+                foreach(Photo photo in album.Photos)
+                {
+                    if (photo.CreatedTime.Value.Year == i_Date.Year)
+                    {
+                        if ((mostPopularPhoto != null && photo.Comments.Count > mostPopularPhoto.Comments.Count)
+                            || mostPopularPhoto == null)
+                        {
+                            mostPopularPhoto = photo;
+                        }
+                    }
+                }
+            }
+
+            return mostPopularPhoto;
         }
     }
 }

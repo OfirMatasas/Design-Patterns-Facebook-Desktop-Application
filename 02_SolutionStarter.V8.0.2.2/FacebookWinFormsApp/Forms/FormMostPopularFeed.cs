@@ -21,40 +21,68 @@ namespace BasicFacebookFeatures.Forms
             m_MostPopularFeedLogic = new MostPopularFeedLogic(i_LoggedInUser);
         }
 
+        private void fetchMostPopularFeed()
+        {
+            DateTime dateTimeChosen = new DateTime(dateTimePickerChoosedDate.Value.Year,
+               DateTime.Today.Month, DateTime.Today.Day);
+
+            if (dateTimeChosen > DateTime.Today)
+            {
+                MessageBox.Show($"You can't choose a day from the future !{Environment.NewLine}Please choose a valid date",
+                    "Invalid Date", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                getMostPopularPost();
+                getMostPopularPhoto();
+            }
+        }
+
         private void getMostPopularPost()
         {
-            Post mostPopular = null;
-            
-            try
-            {
-                mostPopular = m_MostPopularFeedLogic.FindMostPopularPost(dateTimePickerChoosedDate.Value);
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-                MessageBox.Show($"Invalid date !{Environment.NewLine}Please choose a valid Year", "Invalid Date",
-                    MessageBoxButtons.OK);
-            }
+            int numberOfComments;
+            Post mostPopularPost = m_MostPopularFeedLogic.FindMostPopularPost(dateTimePickerChoosedDate.Value);
 
-            if (mostPopular != null)
+            if (mostPopularPost != null)
             {
-                int numberOfLikes = mostPopular.Comments.Count;
-
+                numberOfComments = mostPopularPost.Comments.Count;
                 listBoxMostPopularPost.Items.Clear();
-                listBoxMostPopularPost.Items.Add(mostPopular);
-                labelMostPopularPost.Text = $"{numberOfLikes} {(numberOfLikes == 1 ? " Like" : " Likes")} On Post";
-                //published at:
+                listBoxMostPopularPost.Items.Add(mostPopularPost);
+                labelMostPopularPostCommentsNumber.Text = $"{numberOfComments} {(numberOfComments == 1 ? " Comment" : " Comments")} of you on post";
+                labelMostPopularPostDate.Text = $"Published At: {mostPopularPost.CreatedTime}";
             }
             else
             {
                 MessageBox.Show($"This year you haven't published any post !", "No posts to show",
-                    MessageBoxButtons.OK);
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void getMostPopularPhoto()
+        {
+            int numberOfComments;
+            Photo mostPopularPhoto = m_MostPopularFeedLogic.FindMostPopularPhoto(dateTimePickerChoosedDate.Value);
+
+            if (mostPopularPhoto != null)
+            {
+                numberOfComments = mostPopularPhoto.Comments.Count;
+
+                //pictureBoxMostPopularPhoto.Image = mostPopularPhoto.ImageNormal;
+
+                labelMostPopularPhotoCommentsNumber.Text = $"{numberOfComments} {(numberOfComments == 1 ? " Comment" : " Comments")} of you on photo";
+                labelMostPopularPhotoDate.Text = $"Published At: {mostPopularPhoto.CreatedTime}";
+            }
+            else
+            {
+                MessageBox.Show($"This year you haven't published any photo !", "No photos to show",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         private void buttonShowPhotosAndPosts_Click(object sender, EventArgs e)
         {
             panelMostPopular.Visible = true;
-            getMostPopularPost();
+            fetchMostPopularFeed();
         }
     }
 }
