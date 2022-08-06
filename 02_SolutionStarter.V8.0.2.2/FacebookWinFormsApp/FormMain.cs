@@ -19,6 +19,7 @@ namespace BasicFacebookFeatures
         private FormGroups GroupsForm { get; set; }
         private FormFavoriteTeams FavoriteTeamsForm { get; set; }
         private FormLikedPages LikedPagesForm { get; set; }
+        private FormFriends FriendsForm { get; set; }
         private FormStatistics StatisticsForm { get; set; }
         private FormMostPopularFeed MostPopularFeedForm { get; set; }
 
@@ -33,13 +34,13 @@ namespace BasicFacebookFeatures
         {
             base.OnShown(e);
             checkBoxRememberMe.Checked = m_AppSetting.RememberUser;
+            displayLoginControllers(!m_AppSetting.RememberUser);
+
             if (m_AppSetting.RememberUser && !string.IsNullOrEmpty(m_AppSetting.LastAccessToken))
             {
                 m_AccountManager.Connect(m_AppSetting.LastAccessToken);
                 populateUI();
             }
-
-            displayLoginControllers(!m_AppSetting.RememberUser);
         }
 
         private void displayLoginControllers(bool i_ToDisplay)
@@ -60,7 +61,6 @@ namespace BasicFacebookFeatures
                 {
                     m_AppSetting.RememberUser = true;
                     m_AppSetting.LastAccessToken = m_AccountManager.LoginResult.AccessToken;
-
                 }
             }
         }
@@ -167,6 +167,16 @@ namespace BasicFacebookFeatures
             }
 
             openSubForm(LikedPagesForm);
+        }
+
+        private void buttonFriends_Click(object sender, EventArgs e)
+        {
+            if (FriendsForm == null)
+            {
+                FriendsForm = new FormFriends(m_AccountManager.LoginResult.LoggedInUser.Friends);
+            }
+
+            openSubForm(FriendsForm);
         }
 
         private void buttonStatistics_Click(object i_Sender, EventArgs i_E)

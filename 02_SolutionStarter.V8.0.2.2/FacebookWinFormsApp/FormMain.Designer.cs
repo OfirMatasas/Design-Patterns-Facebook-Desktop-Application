@@ -34,6 +34,7 @@
             this.labelProfileName = new System.Windows.Forms.Label();
             this.pictureBoxProfilePicture = new System.Windows.Forms.PictureBox();
             this.panelSidebarButtons = new System.Windows.Forms.Panel();
+            this.buttonFriends = new System.Windows.Forms.Button();
             this.buttonLikedPages = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.buttonMostPopularFeed = new System.Windows.Forms.Button();
@@ -105,6 +106,7 @@
             // 
             // panelSidebarButtons
             // 
+            this.panelSidebarButtons.Controls.Add(this.buttonFriends);
             this.panelSidebarButtons.Controls.Add(this.buttonLikedPages);
             this.panelSidebarButtons.Controls.Add(this.button11);
             this.panelSidebarButtons.Controls.Add(this.buttonMostPopularFeed);
@@ -119,6 +121,23 @@
             this.panelSidebarButtons.Size = new System.Drawing.Size(192, 518);
             this.panelSidebarButtons.TabIndex = 11;
             // 
+            // buttonFriends
+            // 
+            this.buttonFriends.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
+            this.buttonFriends.Enabled = false;
+            this.buttonFriends.FlatAppearance.BorderSize = 0;
+            this.buttonFriends.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonFriends.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.buttonFriends.ForeColor = System.Drawing.Color.White;
+            this.buttonFriends.Location = new System.Drawing.Point(1, 263);
+            this.buttonFriends.Name = "buttonFriends";
+            this.buttonFriends.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonFriends.Size = new System.Drawing.Size(192, 42);
+            this.buttonFriends.TabIndex = 11;
+            this.buttonFriends.Text = "Friends";
+            this.buttonFriends.UseVisualStyleBackColor = false;
+            this.buttonFriends.Click += new System.EventHandler(this.buttonFriends_Click);
+            // 
             // buttonLikedPages
             // 
             this.buttonLikedPages.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
@@ -127,7 +146,7 @@
             this.buttonLikedPages.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLikedPages.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.buttonLikedPages.ForeColor = System.Drawing.Color.White;
-            this.buttonLikedPages.Location = new System.Drawing.Point(1, 211);
+            this.buttonLikedPages.Location = new System.Drawing.Point(1, 219);
             this.buttonLikedPages.Name = "buttonLikedPages";
             this.buttonLikedPages.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonLikedPages.Size = new System.Drawing.Size(192, 42);
@@ -160,7 +179,7 @@
             this.buttonMostPopularFeed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMostPopularFeed.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.buttonMostPopularFeed.ForeColor = System.Drawing.Color.White;
-            this.buttonMostPopularFeed.Location = new System.Drawing.Point(1, 294);
+            this.buttonMostPopularFeed.Location = new System.Drawing.Point(1, 351);
             this.buttonMostPopularFeed.Name = "buttonMostPopularFeed";
             this.buttonMostPopularFeed.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonMostPopularFeed.Size = new System.Drawing.Size(192, 42);
@@ -194,7 +213,7 @@
             this.buttonStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonStatistics.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.buttonStatistics.ForeColor = System.Drawing.Color.White;
-            this.buttonStatistics.Location = new System.Drawing.Point(1, 253);
+            this.buttonStatistics.Location = new System.Drawing.Point(1, 307);
             this.buttonStatistics.Name = "buttonStatistics";
             this.buttonStatistics.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonStatistics.Size = new System.Drawing.Size(192, 42);
@@ -211,7 +230,7 @@
             this.buttonAlbums.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAlbums.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.buttonAlbums.ForeColor = System.Drawing.Color.White;
-            this.buttonAlbums.Location = new System.Drawing.Point(1, 45);
+            this.buttonAlbums.Location = new System.Drawing.Point(1, 47);
             this.buttonAlbums.Name = "buttonAlbums";
             this.buttonAlbums.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonAlbums.Size = new System.Drawing.Size(192, 42);
@@ -228,7 +247,7 @@
             this.buttonEvents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEvents.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.buttonEvents.ForeColor = System.Drawing.Color.White;
-            this.buttonEvents.Location = new System.Drawing.Point(1, 86);
+            this.buttonEvents.Location = new System.Drawing.Point(1, 91);
             this.buttonEvents.Name = "buttonEvents";
             this.buttonEvents.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonEvents.Size = new System.Drawing.Size(192, 42);
@@ -245,7 +264,7 @@
             this.buttonFavoriteTeams.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonFavoriteTeams.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.buttonFavoriteTeams.ForeColor = System.Drawing.Color.White;
-            this.buttonFavoriteTeams.Location = new System.Drawing.Point(1, 170);
+            this.buttonFavoriteTeams.Location = new System.Drawing.Point(1, 171);
             this.buttonFavoriteTeams.Name = "buttonFavoriteTeams";
             this.buttonFavoriteTeams.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonFavoriteTeams.Size = new System.Drawing.Size(192, 42);
@@ -262,7 +281,7 @@
             this.buttonGroups.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonGroups.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.buttonGroups.ForeColor = System.Drawing.Color.White;
-            this.buttonGroups.Location = new System.Drawing.Point(1, 128);
+            this.buttonGroups.Location = new System.Drawing.Point(1, 135);
             this.buttonGroups.Name = "buttonGroups";
             this.buttonGroups.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonGroups.Size = new System.Drawing.Size(192, 42);
@@ -386,6 +405,7 @@
         private System.Windows.Forms.Panel panelSidebarProfile;
         private System.Windows.Forms.Label labelProfileName;
         private System.Windows.Forms.PictureBox pictureBoxProfilePicture;
+        private System.Windows.Forms.Button buttonFriends;
     }
 }
 
