@@ -45,6 +45,7 @@ namespace FaceBookWinFormsApp.Forms
         private void displaySelectedTeamPicture(Page i_SelectedTeam)
         {
             pictureBoxSelectedFavoriteTeam.LoadAsync(i_SelectedTeam.PictureNormalURL);
+            labelPicture.Visible = true;
         }
 
         private void displaySelectedTeamInformation(Page i_SelectedTeam)

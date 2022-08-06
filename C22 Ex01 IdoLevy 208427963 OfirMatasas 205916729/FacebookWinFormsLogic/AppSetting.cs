@@ -6,8 +6,8 @@ namespace FacebookWinFormsLogic
     public class AppSetting
     {
         private const string k_XmlFileName = "AppSetting.xml";
-        public bool RememberUserInfo { get; private set; }
-        public string LastAccessToken { get; private set; }
+        public bool RememberUserInfo { get; set; }
+        public string LastAccessToken { get; set; }
 
         private AppSetting()
         {

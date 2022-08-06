@@ -84,6 +84,7 @@
             this.labelPicture.Size = new System.Drawing.Size(75, 24);
             this.labelPicture.TabIndex = 11;
             this.labelPicture.Text = "Picture";
+            this.labelPicture.Visible = false;
             // 
             // labelDescription
             // 

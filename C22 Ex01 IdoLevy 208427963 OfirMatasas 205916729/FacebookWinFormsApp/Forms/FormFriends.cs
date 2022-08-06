@@ -43,11 +43,14 @@ namespace FaceBookWinFormsApp.Forms
         private void displaySelectedFriendProfilePicture(User i_SelectedFriend)
         {
             pictureBoxFriendProfilePicture.Image = i_SelectedFriend.ImageNormal;
+            labelFriendProfilePicture.Visible = true;
         }
 
         private void displaySelectedFriendAbout(User i_SelectedFriend)
         {
             richTextBoxFriendAbout.Text = i_SelectedFriend.About;
+            richTextBoxFriendAbout.Visible = true;
+            labelFriendAbout.Visible = true;
         }
     }
 }

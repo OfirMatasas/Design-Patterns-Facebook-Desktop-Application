@@ -47,7 +47,7 @@
             this.panelChooseAlbum.Location = new System.Drawing.Point(0, 0);
             this.panelChooseAlbum.Margin = new System.Windows.Forms.Padding(2);
             this.panelChooseAlbum.Name = "panelChooseAlbum";
-            this.panelChooseAlbum.Size = new System.Drawing.Size(240, 679);
+            this.panelChooseAlbum.Size = new System.Drawing.Size(277, 679);
             this.panelChooseAlbum.TabIndex = 0;
             // 
             // listBoxAlbums
@@ -57,7 +57,7 @@
             this.listBoxAlbums.Location = new System.Drawing.Point(16, 42);
             this.listBoxAlbums.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxAlbums.Name = "listBoxAlbums";
-            this.listBoxAlbums.Size = new System.Drawing.Size(208, 612);
+            this.listBoxAlbums.Size = new System.Drawing.Size(235, 612);
             this.listBoxAlbums.TabIndex = 1;
             this.listBoxAlbums.SelectedIndexChanged += new System.EventHandler(this.listBoxAlbums_SelectedIndexChanged);
             // 
@@ -77,10 +77,10 @@
             this.flowLayoutPanelSelectedAlbumPhotos.AutoScroll = true;
             this.flowLayoutPanelSelectedAlbumPhotos.Controls.Add(this.label2);
             this.flowLayoutPanelSelectedAlbumPhotos.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanelSelectedAlbumPhotos.Location = new System.Drawing.Point(240, 30);
+            this.flowLayoutPanelSelectedAlbumPhotos.Location = new System.Drawing.Point(277, 30);
             this.flowLayoutPanelSelectedAlbumPhotos.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanelSelectedAlbumPhotos.Name = "flowLayoutPanelSelectedAlbumPhotos";
-            this.flowLayoutPanelSelectedAlbumPhotos.Size = new System.Drawing.Size(609, 649);
+            this.flowLayoutPanelSelectedAlbumPhotos.Size = new System.Drawing.Size(572, 649);
             this.flowLayoutPanelSelectedAlbumPhotos.TabIndex = 1;
             // 
             // label2

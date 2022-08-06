@@ -43,6 +43,7 @@ namespace FaceBookWinFormsApp.Forms
         private void displaySelectedGroupDescription(Group i_SelectedGroup)
         {
             pictureBoxSelectedGroup.LoadAsync(i_SelectedGroup.PictureNormalURL);
+            labelPicture.Visible = true;
         }
 
         private void displaySelectedGroupPicture(Group i_SelectedGroup)
