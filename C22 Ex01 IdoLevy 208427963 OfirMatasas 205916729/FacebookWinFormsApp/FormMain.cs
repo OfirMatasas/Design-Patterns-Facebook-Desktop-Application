@@ -31,7 +31,7 @@ namespace FaceBookWinFormsApp
 
         protected override void OnShown(EventArgs i_E)
         {
-            base.OnShown(e);
+            base.OnShown(i_E);
             checkBoxRememberMe.Checked = r_AppSetting.RememberUserInfo;
             displayLoginControllers(!r_AppSetting.RememberUserInfo);
             if (r_AppSetting.RememberUserInfo && !string.IsNullOrEmpty(r_AppSetting.LastAccessToken))
@@ -214,7 +214,7 @@ namespace FaceBookWinFormsApp
 
         protected override void OnFormClosing(FormClosingEventArgs i_E)
         {
-            base.OnFormClosing(e);
+            base.OnFormClosing(i_E);
             if(r_AppSetting.RememberUserInfo)
             {
                 r_AppSetting.RememberUser(r_AccountManager.LoginResult.AccessToken);

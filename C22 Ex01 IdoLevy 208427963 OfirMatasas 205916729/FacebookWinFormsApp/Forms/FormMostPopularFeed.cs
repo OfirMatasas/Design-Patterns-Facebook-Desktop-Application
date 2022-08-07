@@ -77,7 +77,7 @@ namespace FaceBookWinFormsApp.Forms
             MessageBox.Show($"This year you haven't published any {i_Details} !", $"No {i_Details}s to show", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void buttonShowPhotosAndPosts_Click(object sender, EventArgs e)
+        private void buttonShowPhotosAndPosts_Click(object sender, EventArgs i_E)
         {
             fetchMostPopularFeed();
             panelMostPopular.Visible = true;

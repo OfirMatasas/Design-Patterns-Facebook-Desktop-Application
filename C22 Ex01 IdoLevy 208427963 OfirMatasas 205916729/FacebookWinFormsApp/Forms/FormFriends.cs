@@ -32,7 +32,7 @@ namespace FaceBookWinFormsApp.Forms
             }
         }
 
-        private void listBoxFriends_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBoxFriends_SelectedIndexChanged(object sender, EventArgs i_E)
         {
             User selectedFriend = listBoxFriends.SelectedItem as User;
 
