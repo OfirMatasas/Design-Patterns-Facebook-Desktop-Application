@@ -1,23 +1,23 @@
-﻿using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using FacebookWrapper.ObjectModel;
 
 namespace FaceBookWinFormsApp.Forms
 {
     internal partial class FormFriends : Form
     {
-        private FacebookObjectCollection<User> m_Friends;
+        private readonly FacebookObjectCollection<User> r_Friends;
 
         public FormFriends(FacebookObjectCollection<User> i_Friends)
         {
             InitializeComponent();
-            m_Friends = i_Friends;
+            r_Friends = i_Friends;
             fetchFriends();
         }
 
         private void fetchFriends()
         {
-            foreach (User friend in m_Friends)
+            foreach (User friend in r_Friends)
             {
                 listBoxFriends.Items.Add(friend.Name);
             }

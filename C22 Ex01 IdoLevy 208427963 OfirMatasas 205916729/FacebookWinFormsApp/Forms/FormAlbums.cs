@@ -1,24 +1,24 @@
-﻿using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
 using System.Windows.Forms;
 using System.Drawing;
+using FacebookWrapper.ObjectModel;
 
 namespace FaceBookWinFormsApp.Forms
 {
     internal partial class FormAlbums : Form
     {
-        private FacebookObjectCollection<Album> m_Albums;
+        private readonly FacebookObjectCollection<Album> r_Albums;
 
         public FormAlbums(FacebookObjectCollection<Album> i_Albums)
         {
             InitializeComponent();
-            m_Albums = i_Albums;
+            r_Albums = i_Albums;
             fetchAlbums();
         }
 
         private void fetchAlbums()
         {
-            foreach (Album album in m_Albums)
+            foreach (Album album in r_Albums)
             {
                 listBoxAlbums.Items.Add(album);
             }

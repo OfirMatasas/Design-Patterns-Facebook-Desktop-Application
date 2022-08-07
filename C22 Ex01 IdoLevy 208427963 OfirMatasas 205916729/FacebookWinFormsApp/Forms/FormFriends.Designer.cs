@@ -17,6 +17,7 @@
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -61,7 +62,7 @@
             this.richTextBoxFriendAbout.Name = "richTextBoxFriendAbout";
             this.richTextBoxFriendAbout.Size = new System.Drawing.Size(297, 154);
             this.richTextBoxFriendAbout.TabIndex = 7;
-            this.richTextBoxFriendAbout.Text = "";
+            this.richTextBoxFriendAbout.Text = string.Empty;
             this.richTextBoxFriendAbout.Visible = false;
             // 
             // labelFriendProfilePicture

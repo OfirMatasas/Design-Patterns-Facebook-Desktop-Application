@@ -17,6 +17,7 @@
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -87,7 +88,7 @@
             this.richTextBoxSelectedPost.Name = "richTextBoxSelectedPost";
             this.richTextBoxSelectedPost.Size = new System.Drawing.Size(348, 201);
             this.richTextBoxSelectedPost.TabIndex = 3;
-            this.richTextBoxSelectedPost.Text = "";
+            this.richTextBoxSelectedPost.Text = string.Empty;
             this.richTextBoxSelectedPost.Visible = false;
             // 
             // labelViewPosts
@@ -147,7 +148,7 @@
             this.richTextBoxNewPost.Name = "richTextBoxNewPost";
             this.richTextBoxNewPost.Size = new System.Drawing.Size(692, 246);
             this.richTextBoxNewPost.TabIndex = 3;
-            this.richTextBoxNewPost.Text = "";
+            this.richTextBoxNewPost.Text = string.Empty;
             this.richTextBoxNewPost.TextChanged += new System.EventHandler(this.richTextBoxNewPost_TextChanged);
             // 
             // buttonClearNewPostText

@@ -1,23 +1,23 @@
-﻿using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using FacebookWrapper.ObjectModel;
 
 namespace FaceBookWinFormsApp.Forms
 {
     internal partial class FormGroups : Form
     {
-        private FacebookObjectCollection<Group> m_Groups;
+        private readonly FacebookObjectCollection<Group> r_Groups;
 
         public FormGroups(FacebookObjectCollection<Group> i_Groups)
         {
             InitializeComponent();
-            m_Groups = i_Groups;
+            r_Groups = i_Groups;
             fetchGroups();
         }
 
         private void fetchGroups()
         {
-            foreach (Group group in m_Groups)
+            foreach (Group group in r_Groups)
             {
                 listBoxGroups.Items.Add(group);
             }

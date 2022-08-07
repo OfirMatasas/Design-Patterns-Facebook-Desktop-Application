@@ -6,22 +6,15 @@ namespace FacebookWinFormsLogic
     public class AppSetting
     {
         private const string k_XmlFileName = "AppSetting.xml";
+
         public bool RememberUserInfo { get; set; }
+
         public string LastAccessToken { get; set; }
 
         private AppSetting()
         {
             RememberUserInfo = false;
             LastAccessToken = null;
-        }
-
-        public void SaveToFile()
-        {
-            using (Stream stream = new FileStream(k_XmlFileName, File.Exists(k_XmlFileName) ? FileMode.Truncate : FileMode.CreateNew))
-            {
-                XmlSerializer serializer = new XmlSerializer(this.GetType());
-                serializer.Serialize(stream, this);
-            }
         }
 
         public static AppSetting LoadFromFile()
@@ -43,6 +36,15 @@ namespace FacebookWinFormsLogic
             }
 
             return appSetting;
+        }
+
+        public void SaveToFile()
+        {
+            using (Stream stream = new FileStream(k_XmlFileName, File.Exists(k_XmlFileName) ? FileMode.Truncate : FileMode.CreateNew))
+            {
+                XmlSerializer serializer = new XmlSerializer(this.GetType());
+                serializer.Serialize(stream, this);
+            }
         }
 
         public void RememberUser(string i_AccessToken)

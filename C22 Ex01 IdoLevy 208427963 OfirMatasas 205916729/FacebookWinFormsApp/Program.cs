@@ -4,10 +4,10 @@ using FacebookWrapper;
 
 namespace FaceBookWinFormsApp
 {
-    static class Program
+    internal static class Program
     {
         [STAThread]
-        static void Main()
+        public static void Main()
         {
             FacebookService.s_UseForamttedToStrings = true;
             Application.EnableVisualStyles();

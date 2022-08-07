@@ -17,6 +17,7 @@
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -62,7 +63,7 @@
             this.richTextBoxSelectedTeamInfo.Name = "richTextBoxSelectedTeamInfo";
             this.richTextBoxSelectedTeamInfo.Size = new System.Drawing.Size(278, 400);
             this.richTextBoxSelectedTeamInfo.TabIndex = 2;
-            this.richTextBoxSelectedTeamInfo.Text = "";
+            this.richTextBoxSelectedTeamInfo.Text = string.Empty;
             this.richTextBoxSelectedTeamInfo.Visible = false;
             // 
             // labelFavoriteTeams

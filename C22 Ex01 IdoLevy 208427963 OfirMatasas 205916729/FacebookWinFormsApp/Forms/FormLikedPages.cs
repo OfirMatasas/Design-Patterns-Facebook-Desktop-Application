@@ -1,23 +1,23 @@
-﻿using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using FacebookWrapper.ObjectModel;
 
 namespace FaceBookWinFormsApp.Forms
 {
     internal partial class FormLikedPages : Form
     {
-        private FacebookObjectCollection<Page> m_LikedPages;
+        private readonly FacebookObjectCollection<Page> r_LikedPages;
 
         public FormLikedPages(FacebookObjectCollection<Page> i_LikedPages)
         {
             InitializeComponent();
-            m_LikedPages = i_LikedPages;
+            r_LikedPages = i_LikedPages;
             fetchLikedPages();
         }
 
         private void fetchLikedPages()
         {
-            foreach (Page likedPage in m_LikedPages)
+            foreach (Page likedPage in r_LikedPages)
             {
                 listBoxLikedPages.Items.Add(likedPage);
             }
@@ -28,8 +28,7 @@ namespace FaceBookWinFormsApp.Forms
             base.OnShown(i_E);
             if (listBoxLikedPages.Items.Count == 0)
             {
-                MessageBox.Show("No liked pages to retrieve: (", "No Liked Pages",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No liked pages to retrieve: (", "No Liked Pages", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

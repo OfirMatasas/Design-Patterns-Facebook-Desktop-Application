@@ -1,24 +1,23 @@
-﻿using FacebookWrapper.ObjectModel;
-using System;
-using System.Text;
+﻿using System;
 using System.Windows.Forms;
+using FacebookWrapper.ObjectModel;
 
 namespace FaceBookWinFormsApp.Forms
 {
     internal partial class FormFavoriteTeams : Form
     {
-        private Page[] m_FavoriteTeams;
+        private readonly Page[] r_FavoriteTeams;
 
         public FormFavoriteTeams(Page[] i_FavoriteTeams)
         {
             InitializeComponent();
-            m_FavoriteTeams = i_FavoriteTeams;
+            r_FavoriteTeams = i_FavoriteTeams;
             fetchFavoriteTeams();
         }
 
         private void fetchFavoriteTeams()
         {
-            foreach (Page favoriteTeam in m_FavoriteTeams)
+            foreach (Page favoriteTeam in r_FavoriteTeams)
             {
                 listBoxFavoriteTeams.Items.Add(favoriteTeam);
             }
@@ -29,8 +28,7 @@ namespace FaceBookWinFormsApp.Forms
             base.OnShown(i_E);
             if (listBoxFavoriteTeams.Items.Count == 0)
             {
-                MessageBox.Show("No favorite teams to retrieve: (", "No Favorite Teams",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No favorite teams to retrieve: (", "No Favorite Teams", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

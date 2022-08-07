@@ -8,8 +8,8 @@ namespace FaceBookWinFormsApp
 {
     internal partial class FormMain : Form
     {
-        private AppSetting m_AppSetting;
-        private FacebookAccountManager m_AccountManager = new FacebookAccountManager();
+        private readonly AppSetting r_AppSetting;
+        private readonly FacebookAccountManager r_AccountManager = new FacebookAccountManager();
         private Form m_ActivateForm;
         private FormProfile m_ProfileForm;
         private FormPosts m_PostsForm;
@@ -26,17 +26,17 @@ namespace FaceBookWinFormsApp
         {
             InitializeComponent();
             FacebookService.s_CollectionLimit = 100;
-            m_AppSetting = AppSetting.LoadFromFile();
+            r_AppSetting = AppSetting.LoadFromFile();
         }
 
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
-            checkBoxRememberMe.Checked = m_AppSetting.RememberUserInfo;
-            displayLoginControllers(!m_AppSetting.RememberUserInfo);
-            if (m_AppSetting.RememberUserInfo && !string.IsNullOrEmpty(m_AppSetting.LastAccessToken))
+            checkBoxRememberMe.Checked = r_AppSetting.RememberUserInfo;
+            displayLoginControllers(!r_AppSetting.RememberUserInfo);
+            if (r_AppSetting.RememberUserInfo && !string.IsNullOrEmpty(r_AppSetting.LastAccessToken))
             {
-                m_AccountManager.Connect(m_AppSetting.LastAccessToken);
+                r_AccountManager.Connect(r_AppSetting.LastAccessToken);
                 populateUI();
             }
         }
@@ -51,18 +51,17 @@ namespace FaceBookWinFormsApp
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            if (m_AccountManager.Login())
+            if (r_AccountManager.Login())
             {
                 populateUI();
                 if (checkBoxRememberMe.Checked)
                 {
-                    m_AppSetting.RememberUser(m_AccountManager.LoginResult.AccessToken);
+                    r_AppSetting.RememberUser(r_AccountManager.LoginResult.AccessToken);
                 }
             }
             else
             {
-                MessageBox.Show($"You must login to facebook !",
-                   "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"You must login to facebook !", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -75,8 +74,8 @@ namespace FaceBookWinFormsApp
 
         private void displayUsersProfileInfoOnSidebar()
         {
-            pictureBoxProfilePicture.Image = m_AccountManager.LoginResult.LoggedInUser.ImageNormal;
-            labelProfileName.Text = m_AccountManager.LoginResult.LoggedInUser.Name;
+            pictureBoxProfilePicture.Image = r_AccountManager.LoginResult.LoggedInUser.ImageNormal;
+            labelProfileName.Text = r_AccountManager.LoginResult.LoggedInUser.Name;
             labelProfileName.Visible = true;
         }
 
@@ -104,7 +103,7 @@ namespace FaceBookWinFormsApp
         {
             if (m_ProfileForm == null)
             {
-                m_ProfileForm = new FormProfile(m_AccountManager.LoginResult.LoggedInUser);
+                m_ProfileForm = new FormProfile(r_AccountManager.LoginResult.LoggedInUser);
             }
 
             openSubForm(m_ProfileForm);
@@ -119,7 +118,7 @@ namespace FaceBookWinFormsApp
         {
             if (m_PostsForm == null)
             {
-                m_PostsForm = new FormPosts(m_AccountManager);
+                m_PostsForm = new FormPosts(r_AccountManager);
             }
 
             openSubForm(m_PostsForm);
@@ -129,7 +128,7 @@ namespace FaceBookWinFormsApp
         {
             if (m_AlbumsForm == null)
             {
-                m_AlbumsForm = new FormAlbums(m_AccountManager.LoginResult.LoggedInUser.Albums);
+                m_AlbumsForm = new FormAlbums(r_AccountManager.LoginResult.LoggedInUser.Albums);
             }
 
             openSubForm(m_AlbumsForm);
@@ -139,7 +138,7 @@ namespace FaceBookWinFormsApp
         {
             if (m_EventsForm == null)
             {
-                m_EventsForm = new FormEvents(m_AccountManager.LoginResult.LoggedInUser.Events);
+                m_EventsForm = new FormEvents(r_AccountManager.LoginResult.LoggedInUser.Events);
             }
 
             openSubForm(m_EventsForm);
@@ -149,7 +148,7 @@ namespace FaceBookWinFormsApp
         {
             if (m_GroupsForm == null)
             {
-                m_GroupsForm = new FormGroups(m_AccountManager.LoginResult.LoggedInUser.Groups);
+                m_GroupsForm = new FormGroups(r_AccountManager.LoginResult.LoggedInUser.Groups);
             }
 
             openSubForm(m_GroupsForm);
@@ -159,7 +158,7 @@ namespace FaceBookWinFormsApp
         {
             if (m_FavoriteTeamsForm == null)
             {
-                m_FavoriteTeamsForm = new FormFavoriteTeams(m_AccountManager.LoginResult.LoggedInUser.FavofriteTeams);
+                m_FavoriteTeamsForm = new FormFavoriteTeams(r_AccountManager.LoginResult.LoggedInUser.FavofriteTeams);
             }
 
             openSubForm(m_FavoriteTeamsForm);
@@ -169,7 +168,7 @@ namespace FaceBookWinFormsApp
         {
             if (m_LikedPagesForm == null)
             {
-                m_LikedPagesForm = new FormLikedPages(m_AccountManager.LoginResult.LoggedInUser.LikedPages);
+                m_LikedPagesForm = new FormLikedPages(r_AccountManager.LoginResult.LoggedInUser.LikedPages);
             }
 
             openSubForm(m_LikedPagesForm);
@@ -179,7 +178,7 @@ namespace FaceBookWinFormsApp
         {
             if (m_FriendsForm == null)
             {
-                m_FriendsForm = new FormFriends(m_AccountManager.LoginResult.LoggedInUser.Friends);
+                m_FriendsForm = new FormFriends(r_AccountManager.LoginResult.LoggedInUser.Friends);
             }
 
             openSubForm(m_FriendsForm);
@@ -189,7 +188,7 @@ namespace FaceBookWinFormsApp
         {
             if (m_StatisticsForm == null)
             {
-                m_StatisticsForm = new FormStatistics(m_AccountManager.LoginResult.LoggedInUser);
+                m_StatisticsForm = new FormStatistics(r_AccountManager.LoginResult.LoggedInUser);
             }
 
             openSubForm(m_StatisticsForm);
@@ -199,7 +198,7 @@ namespace FaceBookWinFormsApp
         {
             if (m_MostPopularFeedForm == null)
             {
-                m_MostPopularFeedForm = new FormMostPopularFeed(m_AccountManager.LoginResult.LoggedInUser);
+                m_MostPopularFeedForm = new FormMostPopularFeed(r_AccountManager.LoginResult.LoggedInUser);
             }
 
             openSubForm(m_MostPopularFeedForm);
@@ -210,22 +209,22 @@ namespace FaceBookWinFormsApp
             FacebookService.LogoutWithUI();
             ActiveForm?.Hide();
             displayLoginControllers(true);
-            m_AppSetting.ForgetUser();
+            r_AppSetting.ForgetUser();
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
-            if(m_AppSetting.RememberUserInfo)
+            if(r_AppSetting.RememberUserInfo)
             {
-                m_AppSetting.RememberUser(m_AccountManager.LoginResult.AccessToken);
+                r_AppSetting.RememberUser(r_AccountManager.LoginResult.AccessToken);
             }
             else
             {
-                m_AppSetting.ForgetUser();
+                r_AppSetting.ForgetUser();
             }
 
-            m_AppSetting.SaveToFile();
+            r_AppSetting.SaveToFile();
         }
     }
 }

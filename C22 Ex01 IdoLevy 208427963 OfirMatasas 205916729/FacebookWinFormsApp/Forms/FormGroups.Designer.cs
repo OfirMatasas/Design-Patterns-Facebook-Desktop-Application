@@ -17,6 +17,7 @@
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -62,7 +63,7 @@
             this.richTextBoxGroupSelectedDescription.Name = "richTextBoxGroupSelectedDescription";
             this.richTextBoxGroupSelectedDescription.Size = new System.Drawing.Size(201, 166);
             this.richTextBoxGroupSelectedDescription.TabIndex = 9;
-            this.richTextBoxGroupSelectedDescription.Text = "";
+            this.richTextBoxGroupSelectedDescription.Text = string.Empty;
             this.richTextBoxGroupSelectedDescription.Visible = false;
             // 
             // labelGroups

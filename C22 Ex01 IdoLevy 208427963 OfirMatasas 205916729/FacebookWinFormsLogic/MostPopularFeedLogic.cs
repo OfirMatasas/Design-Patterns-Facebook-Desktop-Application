@@ -1,11 +1,12 @@
-﻿using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
+using FacebookWrapper.ObjectModel;
 
 namespace FacebookWinFormsLogic
 {
     public class MostPopularFeedLogic
     {
         public User LoggedInUser { get; }
+
         public MostPopularFeedLogic(User i_LoggedInUser)
         {
             LoggedInUser = i_LoggedInUser;

@@ -8,18 +8,18 @@ namespace FaceBookWinFormsApp.Forms
 {
     internal partial class FormPosts : Form
     {
-        private FacebookAccountManager m_LoggedInUser;
+        private readonly FacebookAccountManager r_LoggedInUser;
 
         public FormPosts(FacebookAccountManager i_LoggedInUser)
         {
-            m_LoggedInUser = i_LoggedInUser;
+            r_LoggedInUser = i_LoggedInUser;
             InitializeComponent();
             fetchPosts();
         } 
 
         private void fetchPosts()
         {
-            foreach (Post post in m_LoggedInUser.LoginResult.LoggedInUser.Posts)
+            foreach (Post post in r_LoggedInUser.LoginResult.LoggedInUser.Posts)
             {
                 listBoxPosts.Items.Add(post);
             }
@@ -68,20 +68,18 @@ namespace FaceBookWinFormsApp.Forms
 
             if(string.IsNullOrEmpty(richTextBoxNewPost?.Text))
             {
-                MessageBox.Show("Cannot post an empty post!", "Empty Post",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Cannot post an empty post!", "Empty Post", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 try
                 {
-                    postedStatus = m_LoggedInUser.Post(richTextBoxNewPost.Text);
+                    postedStatus = r_LoggedInUser.Post(richTextBoxNewPost.Text);
                     MessageBox.Show(postedStatus.Message);
                 }
                 catch
                 {
-                    MessageBox.Show("Cannot success to post.", "Posting Action Failed",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Cannot success to post.", "Posting Action Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

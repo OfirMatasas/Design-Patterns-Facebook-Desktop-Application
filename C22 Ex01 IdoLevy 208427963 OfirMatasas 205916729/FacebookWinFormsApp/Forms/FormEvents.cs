@@ -6,18 +6,18 @@ namespace FaceBookWinFormsApp.Forms
 {
     internal partial class FormEvents : Form
     {
-        private FacebookObjectCollection<Event> m_Events;
+        private readonly FacebookObjectCollection<Event> r_Events;
 
         public FormEvents(FacebookObjectCollection<Event> i_Events)
         {
             InitializeComponent();
-            m_Events = i_Events;
+            r_Events = i_Events;
             fetchEvents();
         }
 
         private void fetchEvents()
         {
-            foreach (Event facebookEvent in m_Events)
+            foreach (Event facebookEvent in r_Events)
             {
                 listBoxEvents.Items.Add(facebookEvent.Name);
             }

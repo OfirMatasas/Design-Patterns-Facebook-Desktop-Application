@@ -1,5 +1,4 @@
-﻿
-namespace FaceBookWinFormsApp.Forms
+﻿namespace FaceBookWinFormsApp.Forms
 {
     internal partial class FormEvents
     {
@@ -18,6 +17,7 @@ namespace FaceBookWinFormsApp.Forms
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -54,7 +54,7 @@ namespace FaceBookWinFormsApp.Forms
             this.richTextBoxEventDescription.Name = "richTextBoxEventDescription";
             this.richTextBoxEventDescription.Size = new System.Drawing.Size(297, 154);
             this.richTextBoxEventDescription.TabIndex = 3;
-            this.richTextBoxEventDescription.Text = "";
+            this.richTextBoxEventDescription.Text = string.Empty;
             this.richTextBoxEventDescription.Visible = false;
             // 
             // listBoxEvents
