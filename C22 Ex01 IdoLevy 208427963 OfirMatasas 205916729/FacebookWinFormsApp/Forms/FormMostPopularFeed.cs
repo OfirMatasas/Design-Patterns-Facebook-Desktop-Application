@@ -18,34 +18,34 @@ namespace FaceBookWinFormsApp.Forms
 
         private void fetchMostPopularFeed()
         {
-            DateTime dateTimeChosen = new DateTime(dateTimePickerChoosedDate.Value.Year, DateTime.Today.Month, DateTime.Today.Day);
+            DateTime chosenDateTime = new DateTime(dateTimePickerChosenDate.Value.Year, DateTime.Today.Month, DateTime.Today.Day);
 
-            if (dateTimeChosen > DateTime.Today)
+            if (chosenDateTime > DateTime.Today)
             {
                 MessageBox.Show(
-                    $"You can't choose a day from the future !{Environment.NewLine}Please choose a valid date",
+                    $"You can't choose a date from the future!{Environment.NewLine}Please choose a valid date",
                     "Invalid Date",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
             else
             {
-                getMostPopularPost();
-                getMostPopularPhoto();
+                getMostPopularPost(chosenDateTime);
+                getMostPopularPhoto(chosenDateTime);
             }
         }
 
-        private void getMostPopularPost()
+        private void getMostPopularPost(DateTime i_ChosenDateTime)
         {
             int numberOfComments;
-            Post mostPopularPost = r_MostPopularFeedLogic.FindMostPopularPost(dateTimePickerChoosedDate.Value);
+            Post mostPopularPost = r_MostPopularFeedLogic.FindMostPopularPost(i_ChosenDateTime);
 
             if (mostPopularPost != null)
             {
                 numberOfComments = mostPopularPost.Comments.Count;
                 listBoxMostPopularPost.Items.Clear();
                 listBoxMostPopularPost.Items.Add(mostPopularPost);
-                labelMostPopularPostCommentsNumber.Text = $"{numberOfComments} Comment{(numberOfComments == 1 ? "" : "s")} of you on post";
+                labelMostPopularPostCommentsNumber.Text = $"{numberOfComments} Comment{(numberOfComments == 1 ? string.Empty : "s")} of you on post";
                 labelMostPopularPostDate.Text = $"Published At: {mostPopularPost.CreatedTime}";
             }
             else
@@ -54,16 +54,16 @@ namespace FaceBookWinFormsApp.Forms
             }
         }
 
-        private void getMostPopularPhoto()
+        private void getMostPopularPhoto(DateTime i_ChosenDateTime)
         {
+            Photo mostPopularPhoto = r_MostPopularFeedLogic.FindMostPopularPhoto(i_ChosenDateTime);
             int numberOfComments;
-            Photo mostPopularPhoto = r_MostPopularFeedLogic.FindMostPopularPhoto(dateTimePickerChoosedDate.Value);
 
             if (mostPopularPhoto != null)
             {
                 numberOfComments = mostPopularPhoto.Comments.Count;
                 pictureBoxMostPopularPhoto.Image = new Bitmap(mostPopularPhoto.ImageNormal, pictureBoxMostPopularPhoto.Size);
-                labelMostPopularPhotoCommentsNumber.Text = $"{numberOfComments} Comment{(numberOfComments == 1 ? "" : "s")} of you on photo";
+                labelMostPopularPhotoCommentsNumber.Text = $"{numberOfComments} Comment{(numberOfComments == 1 ? string.Empty : "s")} of you on photo";
                 labelMostPopularPhotoDate.Text = $"Published At: {mostPopularPhoto.CreatedTime}";
             }
             else
@@ -74,10 +74,13 @@ namespace FaceBookWinFormsApp.Forms
 
         private void messageBoxNoDetailsInDate(string i_Details)
         {
-            MessageBox.Show($"This year you haven't published any {i_Details} !", $"No {i_Details}s to show", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"This year you haven't published any {i_Details}!", 
+                $"No {i_Details}s to show", 
+                MessageBoxButtons.OK, 
+                MessageBoxIcon.Information);
         }
 
-        private void buttonShowPhotosAndPosts_Click(object sender, EventArgs i_E)
+        private void buttonShowPhotosAndPosts_Click(object i_Sender, EventArgs i_E)
         {
             fetchMostPopularFeed();
             panelMostPopular.Visible = true;

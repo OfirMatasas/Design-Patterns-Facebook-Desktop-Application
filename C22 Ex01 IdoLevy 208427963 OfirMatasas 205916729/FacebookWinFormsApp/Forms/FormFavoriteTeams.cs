@@ -17,9 +17,12 @@ namespace FaceBookWinFormsApp.Forms
 
         private void fetchFavoriteTeams()
         {
-            foreach (Page favoriteTeam in r_FavoriteTeams)
+            if(r_FavoriteTeams != null)
             {
-                listBoxFavoriteTeams.Items.Add(favoriteTeam);
+                foreach (Page favoriteTeam in r_FavoriteTeams)
+                {
+                    listBoxFavoriteTeams.Items.Add(favoriteTeam);
+                }
             }
         }
 
@@ -28,7 +31,10 @@ namespace FaceBookWinFormsApp.Forms
             base.OnShown(i_E);
             if (listBoxFavoriteTeams.Items.Count == 0)
             {
-                MessageBox.Show("No favorite teams to retrieve: (", "No Favorite Teams", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No favorite teams to retrieve :(",
+                    "No Favorite Teams",
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Information);
             }
         }
 
@@ -48,7 +54,7 @@ namespace FaceBookWinFormsApp.Forms
 
         private void displaySelectedTeamInformation(Page i_SelectedTeam)
         {
-            string favoriteTeamsInformation = string.Format(
+            richTextBoxSelectedTeamInfo.Text = string.Format(
 @"Description: {0}
 Category: {1}
 Likes: {2}
@@ -61,7 +67,6 @@ i_SelectedTeam.LikesCount,
 i_SelectedTeam.Phone,
 i_SelectedTeam.Location,
 i_SelectedTeam.Website);
-            richTextBoxSelectedTeamInfo.Text = favoriteTeamsInformation.ToString();
             richTextBoxSelectedTeamInfo.Visible = true;
             labelTeamInformation.Visible = true;
         }

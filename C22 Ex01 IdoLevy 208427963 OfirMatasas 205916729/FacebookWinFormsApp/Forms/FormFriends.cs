@@ -28,11 +28,14 @@ namespace FaceBookWinFormsApp.Forms
             base.OnShown(i_E);
             if (listBoxFriends.Items.Count == 0)
             {
-                MessageBox.Show("No friends to retrieve: (", "No Friends", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No friends to retrieve :(", 
+                    "No Friends",
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Information);
             }
         }
 
-        private void listBoxFriends_SelectedIndexChanged(object sender, EventArgs i_E)
+        private void listBoxFriends_SelectedIndexChanged(object i_Sender, EventArgs i_E)
         {
             User selectedFriend = listBoxFriends.SelectedItem as User;
 

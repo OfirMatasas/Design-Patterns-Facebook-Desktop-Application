@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using FacebookWrapper;
 using FacebookWinFormsLogic;
 using FaceBookWinFormsApp.Forms;
+using System.Collections.Generic;
 
 namespace FaceBookWinFormsApp
 {
@@ -49,7 +50,7 @@ namespace FaceBookWinFormsApp
             }
         }
 
-        private void buttonLogin_Click(object sender, EventArgs i_E)
+        private void buttonLogin_Click(object i_Sender, EventArgs i_E)
         {
             if (r_AccountManager.Login())
             {
@@ -109,7 +110,7 @@ namespace FaceBookWinFormsApp
             openSubForm(m_ProfileForm);
         }
 
-        private void buttonProfile_Click(object sender, EventArgs i_E)
+        private void buttonProfile_Click(object i_Sender, EventArgs i_E)
         {
             showUsersProfileForm(null, null);
         }
@@ -174,7 +175,7 @@ namespace FaceBookWinFormsApp
             openSubForm(m_LikedPagesForm);
         }
 
-        private void buttonFriends_Click(object sender, EventArgs i_E)
+        private void buttonFriends_Click(object i_Sender, EventArgs i_E)
         {
             if (m_FriendsForm == null)
             {
@@ -194,7 +195,7 @@ namespace FaceBookWinFormsApp
             openSubForm(m_StatisticsForm);
         }
 
-        private void buttonMostPopularFeed_Click(object sender, EventArgs i_E)
+        private void buttonMostPopularFeed_Click(object i_Sender, EventArgs i_E)
         {
             if (m_MostPopularFeedForm == null)
             {
@@ -206,10 +207,16 @@ namespace FaceBookWinFormsApp
 
         private void buttonLogout_Click(object i_Sender, EventArgs i_E)
         {
-            FacebookService.LogoutWithUI();
+            r_AccountManager.Logout();
             ActiveForm?.Hide();
             displayLoginControllers(true);
             r_AppSetting.ForgetUser();
+            setAllSubFormsAsNull();
+        }
+
+        private void setAllSubFormsAsNull()
+        {
+            //Need to implement using reflection
         }
 
         protected override void OnFormClosing(FormClosingEventArgs i_E)

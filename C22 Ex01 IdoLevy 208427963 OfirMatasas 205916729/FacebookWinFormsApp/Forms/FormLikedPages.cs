@@ -28,7 +28,10 @@ namespace FaceBookWinFormsApp.Forms
             base.OnShown(i_E);
             if (listBoxLikedPages.Items.Count == 0)
             {
-                MessageBox.Show("No liked pages to retrieve: (", "No Liked Pages", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No liked pages to retrieve :(", 
+                    "No Liked Pages", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Information);
             }
         }
 

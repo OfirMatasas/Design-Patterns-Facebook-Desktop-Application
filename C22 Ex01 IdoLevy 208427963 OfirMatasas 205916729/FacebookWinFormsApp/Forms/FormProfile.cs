@@ -31,7 +31,7 @@ namespace FaceBookWinFormsApp.Forms
         private void setUsersCoverPicture()
         {
             List<string> possibleCoverAlbumNames = getCoversPhotosNamesPossibleNames();
-            Album coversAlbum = r_LoggedInUser.Albums.Find(a => possibleCoverAlbumNames.Contains(a.Name));
+            Album coversAlbum = r_LoggedInUser.Albums.Find(album => possibleCoverAlbumNames.Contains(album.Name));
 
             pictureBoxCoverPicture.Image = coversAlbum?.Photos[0].ImageNormal;
         }

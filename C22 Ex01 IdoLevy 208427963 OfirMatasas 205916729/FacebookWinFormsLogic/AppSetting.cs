@@ -6,10 +6,8 @@ namespace FacebookWinFormsLogic
     public class AppSetting
     {
         private const string k_XmlFileName = "AppSetting.xml";
-
-        public bool RememberUserInfo { get; set; }
-
-        public string LastAccessToken { get; set; }
+        public bool RememberUserInfo { get; private set; }
+        public string LastAccessToken { get; private set; }
 
         private AppSetting()
         {
@@ -20,14 +18,14 @@ namespace FacebookWinFormsLogic
         public static AppSetting LoadFromFile()
         {
             AppSetting appSetting = null;
-            XmlSerializer deserializer;
+            XmlSerializer serializer;
 
             if (File.Exists(k_XmlFileName))
             {
                 using (Stream stream = new FileStream(k_XmlFileName, FileMode.Open))
                 {
-                    deserializer = new XmlSerializer(typeof(AppSetting));
-                    appSetting = deserializer.Deserialize(stream) as AppSetting;
+                    serializer = new XmlSerializer(typeof(AppSetting));
+                    appSetting = serializer.Deserialize(stream) as AppSetting;
                 }
             }
             else

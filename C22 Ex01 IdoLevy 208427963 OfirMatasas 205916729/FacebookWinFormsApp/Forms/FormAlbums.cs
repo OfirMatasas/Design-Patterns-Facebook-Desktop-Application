@@ -29,7 +29,10 @@ namespace FaceBookWinFormsApp.Forms
             base.OnShown(i_E);
             if (listBoxAlbums.Items.Count == 0)
             {
-                MessageBox.Show("No albums to retrieve: (", "No Albums", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No albums to retrieve :(", 
+                    "No Albums", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Information);
             }
         }
 

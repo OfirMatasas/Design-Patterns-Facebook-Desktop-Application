@@ -66,19 +66,19 @@
             this.panelSidebar.Controls.Add(this.panelSidebarButtons);
             this.panelSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSidebar.Location = new System.Drawing.Point(0, 0);
-            this.panelSidebar.Margin = new System.Windows.Forms.Padding(2);
+            this.panelSidebar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelSidebar.Name = "panelSidebar";
-            this.panelSidebar.Size = new System.Drawing.Size(225, 552);
+            this.panelSidebar.Size = new System.Drawing.Size(450, 1062);
             this.panelSidebar.TabIndex = 53;
             // 
             // panelSidebarProfile
             // 
             this.panelSidebarProfile.Controls.Add(this.labelProfileName);
             this.panelSidebarProfile.Controls.Add(this.pictureBoxProfilePicture);
-            this.panelSidebarProfile.Location = new System.Drawing.Point(13, 2);
-            this.panelSidebarProfile.Margin = new System.Windows.Forms.Padding(2);
+            this.panelSidebarProfile.Location = new System.Drawing.Point(26, 4);
+            this.panelSidebarProfile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelSidebarProfile.Name = "panelSidebarProfile";
-            this.panelSidebarProfile.Size = new System.Drawing.Size(187, 125);
+            this.panelSidebarProfile.Size = new System.Drawing.Size(374, 240);
             this.panelSidebarProfile.TabIndex = 12;
             // 
             // labelProfileName
@@ -88,10 +88,10 @@
             this.labelProfileName.AutoSize = true;
             this.labelProfileName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelProfileName.ForeColor = System.Drawing.Color.White;
-            this.labelProfileName.Location = new System.Drawing.Point(46, 104);
-            this.labelProfileName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelProfileName.Location = new System.Drawing.Point(44, 203);
+            this.labelProfileName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelProfileName.Name = "labelProfileName";
-            this.labelProfileName.Size = new System.Drawing.Size(162, 21);
+            this.labelProfileName.Size = new System.Drawing.Size(317, 45);
             this.labelProfileName.TabIndex = 1;
             this.labelProfileName.Text = "Firstname Lastname";
             this.labelProfileName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -100,8 +100,8 @@
             // 
             // pictureBoxProfilePicture
             // 
-            this.pictureBoxProfilePicture.Location = new System.Drawing.Point(78, 2);
-            this.pictureBoxProfilePicture.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBoxProfilePicture.Location = new System.Drawing.Point(164, 36);
+            this.pictureBoxProfilePicture.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBoxProfilePicture.Name = "pictureBoxProfilePicture";
             this.pictureBoxProfilePicture.Size = new System.Drawing.Size(80, 80);
             this.pictureBoxProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -121,10 +121,10 @@
             this.panelSidebarButtons.Controls.Add(this.buttonEvents);
             this.panelSidebarButtons.Controls.Add(this.buttonFavoriteTeams);
             this.panelSidebarButtons.Controls.Add(this.buttonGroups);
-            this.panelSidebarButtons.Location = new System.Drawing.Point(9, 131);
-            this.panelSidebarButtons.Margin = new System.Windows.Forms.Padding(2);
+            this.panelSidebarButtons.Location = new System.Drawing.Point(18, 252);
+            this.panelSidebarButtons.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelSidebarButtons.Name = "panelSidebarButtons";
-            this.panelSidebarButtons.Size = new System.Drawing.Size(210, 421);
+            this.panelSidebarButtons.Size = new System.Drawing.Size(420, 810);
             this.panelSidebarButtons.TabIndex = 11;
             // 
             // buttonFriends
@@ -137,11 +137,11 @@
             this.buttonFriends.ForeColor = System.Drawing.Color.White;
             this.buttonFriends.Image = global::BasicFacebookFeatures.Properties.Resources.Friends;
             this.buttonFriends.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonFriends.Location = new System.Drawing.Point(1, 218);
-            this.buttonFriends.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonFriends.Location = new System.Drawing.Point(2, 419);
+            this.buttonFriends.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonFriends.Name = "buttonFriends";
-            this.buttonFriends.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.buttonFriends.Size = new System.Drawing.Size(210, 35);
+            this.buttonFriends.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonFriends.Size = new System.Drawing.Size(420, 67);
             this.buttonFriends.TabIndex = 6;
             this.buttonFriends.Text = "Friends";
             this.buttonFriends.UseVisualStyleBackColor = false;
@@ -157,11 +157,11 @@
             this.buttonLikedPages.ForeColor = System.Drawing.Color.White;
             this.buttonLikedPages.Image = global::BasicFacebookFeatures.Properties.Resources.Liked_Pages;
             this.buttonLikedPages.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonLikedPages.Location = new System.Drawing.Point(1, 182);
-            this.buttonLikedPages.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonLikedPages.Location = new System.Drawing.Point(2, 350);
+            this.buttonLikedPages.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonLikedPages.Name = "buttonLikedPages";
-            this.buttonLikedPages.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.buttonLikedPages.Size = new System.Drawing.Size(210, 35);
+            this.buttonLikedPages.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonLikedPages.Size = new System.Drawing.Size(420, 67);
             this.buttonLikedPages.TabIndex = 5;
             this.buttonLikedPages.Text = "Liked Pages";
             this.buttonLikedPages.UseVisualStyleBackColor = false;
@@ -175,10 +175,10 @@
             this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLogout.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.buttonLogout.ForeColor = System.Drawing.Color.White;
-            this.buttonLogout.Location = new System.Drawing.Point(4, 384);
-            this.buttonLogout.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonLogout.Location = new System.Drawing.Point(8, 738);
+            this.buttonLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonLogout.Name = "buttonLogout";
-            this.buttonLogout.Size = new System.Drawing.Size(210, 35);
+            this.buttonLogout.Size = new System.Drawing.Size(420, 67);
             this.buttonLogout.TabIndex = 9;
             this.buttonLogout.Text = "Logout";
             this.buttonLogout.UseVisualStyleBackColor = false;
@@ -194,11 +194,11 @@
             this.buttonMostPopularFeed.ForeColor = System.Drawing.Color.White;
             this.buttonMostPopularFeed.Image = global::BasicFacebookFeatures.Properties.Resources.Most_Popular;
             this.buttonMostPopularFeed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonMostPopularFeed.Location = new System.Drawing.Point(1, 290);
-            this.buttonMostPopularFeed.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonMostPopularFeed.Location = new System.Drawing.Point(2, 558);
+            this.buttonMostPopularFeed.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonMostPopularFeed.Name = "buttonMostPopularFeed";
-            this.buttonMostPopularFeed.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.buttonMostPopularFeed.Size = new System.Drawing.Size(210, 35);
+            this.buttonMostPopularFeed.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonMostPopularFeed.Size = new System.Drawing.Size(420, 67);
             this.buttonMostPopularFeed.TabIndex = 8;
             this.buttonMostPopularFeed.Text = "Most Popular Feed";
             this.buttonMostPopularFeed.UseVisualStyleBackColor = false;
@@ -214,11 +214,11 @@
             this.buttonPosts.ForeColor = System.Drawing.Color.White;
             this.buttonPosts.Image = global::BasicFacebookFeatures.Properties.Resources.Posts;
             this.buttonPosts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonPosts.Location = new System.Drawing.Point(1, 2);
-            this.buttonPosts.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonPosts.Location = new System.Drawing.Point(2, 4);
+            this.buttonPosts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonPosts.Name = "buttonPosts";
-            this.buttonPosts.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.buttonPosts.Size = new System.Drawing.Size(210, 35);
+            this.buttonPosts.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonPosts.Size = new System.Drawing.Size(420, 67);
             this.buttonPosts.TabIndex = 0;
             this.buttonPosts.Text = "Posts";
             this.buttonPosts.UseVisualStyleBackColor = false;
@@ -234,11 +234,11 @@
             this.buttonStatistics.ForeColor = System.Drawing.Color.White;
             this.buttonStatistics.Image = global::BasicFacebookFeatures.Properties.Resources.Statistics;
             this.buttonStatistics.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonStatistics.Location = new System.Drawing.Point(1, 254);
-            this.buttonStatistics.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonStatistics.Location = new System.Drawing.Point(2, 488);
+            this.buttonStatistics.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonStatistics.Name = "buttonStatistics";
-            this.buttonStatistics.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.buttonStatistics.Size = new System.Drawing.Size(210, 35);
+            this.buttonStatistics.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonStatistics.Size = new System.Drawing.Size(420, 67);
             this.buttonStatistics.TabIndex = 7;
             this.buttonStatistics.Text = "Statistics";
             this.buttonStatistics.UseVisualStyleBackColor = false;
@@ -254,11 +254,11 @@
             this.buttonAlbums.ForeColor = System.Drawing.Color.White;
             this.buttonAlbums.Image = global::BasicFacebookFeatures.Properties.Resources.Albums;
             this.buttonAlbums.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAlbums.Location = new System.Drawing.Point(1, 38);
-            this.buttonAlbums.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonAlbums.Location = new System.Drawing.Point(2, 73);
+            this.buttonAlbums.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonAlbums.Name = "buttonAlbums";
-            this.buttonAlbums.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.buttonAlbums.Size = new System.Drawing.Size(210, 35);
+            this.buttonAlbums.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonAlbums.Size = new System.Drawing.Size(420, 67);
             this.buttonAlbums.TabIndex = 1;
             this.buttonAlbums.Text = "Albums";
             this.buttonAlbums.UseVisualStyleBackColor = false;
@@ -274,11 +274,11 @@
             this.buttonEvents.ForeColor = System.Drawing.Color.White;
             this.buttonEvents.Image = global::BasicFacebookFeatures.Properties.Resources.Events;
             this.buttonEvents.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonEvents.Location = new System.Drawing.Point(1, 74);
-            this.buttonEvents.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonEvents.Location = new System.Drawing.Point(2, 142);
+            this.buttonEvents.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonEvents.Name = "buttonEvents";
-            this.buttonEvents.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.buttonEvents.Size = new System.Drawing.Size(210, 35);
+            this.buttonEvents.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonEvents.Size = new System.Drawing.Size(420, 67);
             this.buttonEvents.TabIndex = 2;
             this.buttonEvents.Text = "Events";
             this.buttonEvents.UseVisualStyleBackColor = false;
@@ -294,11 +294,11 @@
             this.buttonFavoriteTeams.ForeColor = System.Drawing.Color.White;
             this.buttonFavoriteTeams.Image = global::BasicFacebookFeatures.Properties.Resources.Favorite_Teams;
             this.buttonFavoriteTeams.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonFavoriteTeams.Location = new System.Drawing.Point(1, 146);
-            this.buttonFavoriteTeams.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonFavoriteTeams.Location = new System.Drawing.Point(2, 281);
+            this.buttonFavoriteTeams.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonFavoriteTeams.Name = "buttonFavoriteTeams";
-            this.buttonFavoriteTeams.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.buttonFavoriteTeams.Size = new System.Drawing.Size(210, 35);
+            this.buttonFavoriteTeams.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonFavoriteTeams.Size = new System.Drawing.Size(420, 67);
             this.buttonFavoriteTeams.TabIndex = 4;
             this.buttonFavoriteTeams.Text = "Favorite Teams";
             this.buttonFavoriteTeams.UseVisualStyleBackColor = false;
@@ -314,11 +314,11 @@
             this.buttonGroups.ForeColor = System.Drawing.Color.White;
             this.buttonGroups.Image = global::BasicFacebookFeatures.Properties.Resources.Groups;
             this.buttonGroups.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonGroups.Location = new System.Drawing.Point(1, 110);
-            this.buttonGroups.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonGroups.Location = new System.Drawing.Point(2, 212);
+            this.buttonGroups.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonGroups.Name = "buttonGroups";
-            this.buttonGroups.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.buttonGroups.Size = new System.Drawing.Size(210, 35);
+            this.buttonGroups.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonGroups.Size = new System.Drawing.Size(420, 67);
             this.buttonGroups.TabIndex = 3;
             this.buttonGroups.Text = "Groups";
             this.buttonGroups.UseVisualStyleBackColor = false;
@@ -330,9 +330,9 @@
             this.panelDesktop.Controls.Add(this.panelSidebar);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(0, 0);
-            this.panelDesktop.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.panelDesktop.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(860, 552);
+            this.panelDesktop.Size = new System.Drawing.Size(1720, 1062);
             this.panelDesktop.TabIndex = 54;
             // 
             // panelLogin
@@ -343,20 +343,20 @@
             this.panelLogin.Controls.Add(this.labelLoginMessage);
             this.panelLogin.Controls.Add(this.labelWelcome);
             this.panelLogin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelLogin.Location = new System.Drawing.Point(225, 0);
-            this.panelLogin.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.panelLogin.Location = new System.Drawing.Point(450, 0);
+            this.panelLogin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.panelLogin.Name = "panelLogin";
-            this.panelLogin.Size = new System.Drawing.Size(635, 552);
+            this.panelLogin.Size = new System.Drawing.Size(1270, 1062);
             this.panelLogin.TabIndex = 54;
             // 
             // checkBoxRememberMe
             // 
             this.checkBoxRememberMe.AutoSize = true;
             this.checkBoxRememberMe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.checkBoxRememberMe.Location = new System.Drawing.Point(178, 262);
-            this.checkBoxRememberMe.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBoxRememberMe.Location = new System.Drawing.Point(528, 494);
+            this.checkBoxRememberMe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxRememberMe.Name = "checkBoxRememberMe";
-            this.checkBoxRememberMe.Size = new System.Drawing.Size(133, 24);
+            this.checkBoxRememberMe.Size = new System.Drawing.Size(258, 41);
             this.checkBoxRememberMe.TabIndex = 42;
             this.checkBoxRememberMe.Text = "Remember me";
             this.checkBoxRememberMe.UseVisualStyleBackColor = true;
@@ -364,10 +364,10 @@
             // 
             // buttonLogin
             // 
-            this.buttonLogin.Location = new System.Drawing.Point(178, 223);
-            this.buttonLogin.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.buttonLogin.Location = new System.Drawing.Point(490, 421);
+            this.buttonLogin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(163, 33);
+            this.buttonLogin.Size = new System.Drawing.Size(326, 63);
             this.buttonLogin.TabIndex = 41;
             this.buttonLogin.Text = "Login";
             this.buttonLogin.UseVisualStyleBackColor = true;
@@ -378,10 +378,10 @@
             // 
             this.labelLoginMessage.AutoSize = true;
             this.labelLoginMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelLoginMessage.Location = new System.Drawing.Point(173, 183);
-            this.labelLoginMessage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelLoginMessage.Location = new System.Drawing.Point(346, 352);
+            this.labelLoginMessage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelLoginMessage.Name = "labelLoginMessage";
-            this.labelLoginMessage.Size = new System.Drawing.Size(301, 31);
+            this.labelLoginMessage.Size = new System.Drawing.Size(601, 63);
             this.labelLoginMessage.TabIndex = 40;
             this.labelLoginMessage.Text = "Please login to continue";
             this.labelLoginMessage.Visible = false;
@@ -390,22 +390,22 @@
             // 
             this.labelWelcome.AutoSize = true;
             this.labelWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelWelcome.Location = new System.Drawing.Point(108, 103);
-            this.labelWelcome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelWelcome.Location = new System.Drawing.Point(216, 198);
+            this.labelWelcome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelWelcome.Name = "labelWelcome";
-            this.labelWelcome.Size = new System.Drawing.Size(459, 91);
+            this.labelWelcome.Size = new System.Drawing.Size(911, 181);
             this.labelWelcome.TabIndex = 39;
             this.labelWelcome.Text = "WELCOME";
             this.labelWelcome.Visible = false;
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(860, 552);
+            this.ClientSize = new System.Drawing.Size(1720, 1062);
             this.Controls.Add(this.panelDesktop);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Facebook";

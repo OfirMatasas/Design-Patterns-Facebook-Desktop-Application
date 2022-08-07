@@ -28,7 +28,10 @@ namespace FaceBookWinFormsApp.Forms
             base.OnShown(i_E);
             if (listBoxEvents.Items.Count == 0)
             {
-                MessageBox.Show("No events to retrieve: (", "No Events", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No events to retrieve :(", 
+                    "No Events", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Information);
             }
         }
 

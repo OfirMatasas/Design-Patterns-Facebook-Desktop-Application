@@ -12,18 +12,17 @@ namespace FacebookWinFormsLogic
             LoggedInUser = i_LoggedInUser;
         }
 
-        public Post FindMostPopularPost(DateTime i_Date)
+        public Post FindMostPopularPost(DateTime i_ChosenDate)
         {
             Post mostPopularPost = null;
 
-            foreach (Post post in LoggedInUser.Posts)
+            foreach (Post currentPost in LoggedInUser.Posts)
             {
-                if (post.CreatedTime.Value.Year == i_Date.Year)
+                if (currentPost.CreatedTime.Value.Year == i_ChosenDate.Year)
                 {
-                    if ((mostPopularPost != null && post.Comments.Count > mostPopularPost.Comments.Count)
-                        || mostPopularPost == null)
+                    if (mostPopularPost == null || (currentPost.Comments.Count > mostPopularPost.Comments.Count))
                     {
-                        mostPopularPost = post;
+                        mostPopularPost = currentPost;
                     }
                 }
             }
@@ -31,20 +30,19 @@ namespace FacebookWinFormsLogic
             return mostPopularPost;
         }
 
-        public Photo FindMostPopularPhoto(DateTime i_Date)
+        public Photo FindMostPopularPhoto(DateTime i_ChosenDate)
         {
             Photo mostPopularPhoto = null;
 
-            foreach (Album album in LoggedInUser.Albums)
+            foreach (Album currentAlbum in LoggedInUser.Albums)
             {
-                foreach(Photo photo in album.Photos)
+                foreach(Photo currentPhoto in currentAlbum.Photos)
                 {
-                    if (photo.CreatedTime.Value.Year == i_Date.Year)
+                    if (currentPhoto.CreatedTime.Value.Year == i_ChosenDate.Year)
                     {
-                        if ((mostPopularPhoto != null && photo.Comments.Count > mostPopularPhoto.Comments.Count)
-                            || mostPopularPhoto == null)
+                        if (mostPopularPhoto == null || (currentPhoto.Comments.Count > mostPopularPhoto.Comments.Count))
                         {
-                            mostPopularPhoto = photo;
+                            mostPopularPhoto = currentPhoto;
                         }
                     }
                 }

@@ -12,52 +12,52 @@ namespace FacebookWinFormsLogic
             LoggedInUser = i_LoggedInUser;
         }
 
-        private bool IsSameDate(DateTime i_CurrentDate, DateTime i_PostedDate)
+        private bool CheckIfDatesHasTheSameYearAndMonth(DateTime i_CurrentDate, DateTime i_PostedDate)
         {
             return i_PostedDate.Month == i_CurrentDate.Month && i_PostedDate.Year == i_CurrentDate.Year;
         }
 
         public void AnalyzeDataOnAlbumsAndPhotosInChosenDate(
-            DateTime i_Date,
-            out int o_NumberOfLikesOnPhotos,
-            out int o_NumberOfNewAlbums,
-            out int o_NumberOfNewPhotos)
+            DateTime i_ChosenDate,
+            out int o_NumberOfLikesOnPhotosCreatedOnChosenDate,
+            out int o_NumberOfAlbumsCreatedOnChosenDate,
+            out int o_NumberOfPhotosCreatedOnChosenDate)
         {
-            o_NumberOfLikesOnPhotos = 0;
-            o_NumberOfNewAlbums = 0;
-            o_NumberOfNewPhotos = 0;
+            o_NumberOfLikesOnPhotosCreatedOnChosenDate = 0;
+            o_NumberOfAlbumsCreatedOnChosenDate = 0;
+            o_NumberOfPhotosCreatedOnChosenDate = 0;
 
-            foreach (Album album in LoggedInUser.Albums)
+            foreach (Album currentAlbum in LoggedInUser.Albums)
             {
-                if (IsSameDate(i_Date, album.CreatedTime.Value))
+                if (CheckIfDatesHasTheSameYearAndMonth(i_ChosenDate, currentAlbum.CreatedTime.Value))
                 {
-                    o_NumberOfNewAlbums += 1;
+                    o_NumberOfAlbumsCreatedOnChosenDate += 1;
                 }
 
-                foreach (Photo photo in album.Photos)
+                foreach (Photo currentPhoto in currentAlbum.Photos)
                 {
-                    if (IsSameDate(i_Date, photo.CreatedTime.Value))
+                    if (CheckIfDatesHasTheSameYearAndMonth(i_ChosenDate, currentPhoto.CreatedTime.Value))
                     {
-                        o_NumberOfLikesOnPhotos += photo.LikedBy.Count;
-                        o_NumberOfNewPhotos += 1;
+                        o_NumberOfLikesOnPhotosCreatedOnChosenDate += currentPhoto.LikedBy.Count;
+                        o_NumberOfPhotosCreatedOnChosenDate += 1;
                     }
                 }
             }
         }
 
-        public int CalculateNumberOfPostsInChosenDate(DateTime i_Date)
+        public int GetTheNumberOfPostsCreatedOnChosenDate(DateTime i_ChosenDate)
         {
-            int numberOfPosts = 0;
+            int numberOfPostsCreatedOnChosenDate = 0;
 
             foreach (Post post in LoggedInUser.Posts)
             {
-                if (IsSameDate(i_Date, post.CreatedTime.Value))
+                if (CheckIfDatesHasTheSameYearAndMonth(i_ChosenDate, post.CreatedTime.Value))
                 {
-                    numberOfPosts++;
+                    numberOfPostsCreatedOnChosenDate++;
                 }
             }
 
-            return numberOfPosts;
+            return numberOfPostsCreatedOnChosenDate;
         }
     }
 }

@@ -28,7 +28,10 @@ namespace FaceBookWinFormsApp.Forms
             base.OnShown(i_E);
             if (listBoxGroups.Items.Count == 0)
             {
-                MessageBox.Show("No groups to retrieve: (", "No Groups", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No groups to retrieve :(", 
+                    "No Groups", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Information);
             }
         }
 
