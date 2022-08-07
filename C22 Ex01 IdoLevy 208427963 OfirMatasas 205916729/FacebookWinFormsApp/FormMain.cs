@@ -29,7 +29,7 @@ namespace FaceBookWinFormsApp
             r_AppSetting = AppSetting.LoadFromFile();
         }
 
-        protected override void OnShown(EventArgs e)
+        protected override void OnShown(EventArgs i_E)
         {
             base.OnShown(e);
             checkBoxRememberMe.Checked = r_AppSetting.RememberUserInfo;
@@ -49,7 +49,7 @@ namespace FaceBookWinFormsApp
             }
         }
 
-        private void buttonLogin_Click(object sender, EventArgs e)
+        private void buttonLogin_Click(object sender, EventArgs i_E)
         {
             if (r_AccountManager.Login())
             {
@@ -109,7 +109,7 @@ namespace FaceBookWinFormsApp
             openSubForm(m_ProfileForm);
         }
 
-        private void buttonProfile_Click(object sender, EventArgs e)
+        private void buttonProfile_Click(object sender, EventArgs i_E)
         {
             showUsersProfileForm(null, null);
         }
@@ -174,7 +174,7 @@ namespace FaceBookWinFormsApp
             openSubForm(m_LikedPagesForm);
         }
 
-        private void buttonFriends_Click(object sender, EventArgs e)
+        private void buttonFriends_Click(object sender, EventArgs i_E)
         {
             if (m_FriendsForm == null)
             {
@@ -194,7 +194,7 @@ namespace FaceBookWinFormsApp
             openSubForm(m_StatisticsForm);
         }
 
-        private void buttonMostPopularFeed_Click(object sender, EventArgs e)
+        private void buttonMostPopularFeed_Click(object sender, EventArgs i_E)
         {
             if (m_MostPopularFeedForm == null)
             {
@@ -212,7 +212,7 @@ namespace FaceBookWinFormsApp
             r_AppSetting.ForgetUser();
         }
 
-        protected override void OnFormClosing(FormClosingEventArgs e)
+        protected override void OnFormClosing(FormClosingEventArgs i_E)
         {
             base.OnFormClosing(e);
             if(r_AppSetting.RememberUserInfo)
