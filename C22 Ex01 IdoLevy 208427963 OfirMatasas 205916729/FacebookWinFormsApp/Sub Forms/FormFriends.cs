@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 
-namespace FaceBookWinFormsApp.Forms
+namespace FacebookWinFormsApp.Forms
 {
     internal partial class FormFriends : Form
     {
@@ -17,9 +17,11 @@ namespace FaceBookWinFormsApp.Forms
 
         private void fetchFriends()
         {
+            listBoxFriends.Text = Name;
+
             foreach (User friend in r_Friends)
             {
-                listBoxFriends.Items.Add(friend.Name);
+                listBoxFriends.Items.Add(friend);
             }
         }
 
@@ -28,7 +30,8 @@ namespace FaceBookWinFormsApp.Forms
             base.OnShown(i_E);
             if (listBoxFriends.Items.Count == 0)
             {
-                MessageBox.Show("No friends to retrieve :(", 
+                MessageBox.Show(
+                    "No friends to retrieve :(", 
                     "No Friends",
                     MessageBoxButtons.OK, 
                     MessageBoxIcon.Information);
@@ -46,14 +49,13 @@ namespace FaceBookWinFormsApp.Forms
         private void displaySelectedFriendProfilePicture(User i_SelectedFriend)
         {
             pictureBoxFriendProfilePicture.Image = i_SelectedFriend.ImageNormal;
-            labelFriendProfilePicture.Visible = true;
         }
 
         private void displaySelectedFriendAbout(User i_SelectedFriend)
         {
             richTextBoxFriendAbout.Text = i_SelectedFriend.About;
             richTextBoxFriendAbout.Visible = true;
-            labelFriendAbout.Visible = true;
+            labelFriendsInformation.Visible = true;
         }
     }
 }

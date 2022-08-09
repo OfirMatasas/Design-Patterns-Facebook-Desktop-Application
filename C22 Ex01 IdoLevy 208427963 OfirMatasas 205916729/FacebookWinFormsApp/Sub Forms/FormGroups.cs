@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 
-namespace FaceBookWinFormsApp.Forms
+namespace FacebookWinFormsApp.Forms
 {
     internal partial class FormGroups : Form
     {
@@ -17,6 +17,8 @@ namespace FaceBookWinFormsApp.Forms
 
         private void fetchGroups()
         {
+            listBoxGroups.Text = Name;
+
             foreach (Group group in r_Groups)
             {
                 listBoxGroups.Items.Add(group);
@@ -28,7 +30,8 @@ namespace FaceBookWinFormsApp.Forms
             base.OnShown(i_E);
             if (listBoxGroups.Items.Count == 0)
             {
-                MessageBox.Show("No groups to retrieve :(", 
+                MessageBox.Show(
+                    "No groups to retrieve :(", 
                     "No Groups", 
                     MessageBoxButtons.OK, 
                     MessageBoxIcon.Information);
@@ -51,6 +54,7 @@ namespace FaceBookWinFormsApp.Forms
 
         private void displaySelectedGroupPicture(Group i_SelectedGroup)
         {
+            richTextBoxGroupSelectedDescription.Text = string.Format("{0}{1}{1}", i_SelectedGroup.Name, Environment.NewLine);
             richTextBoxGroupSelectedDescription.Text = i_SelectedGroup.Description;
             richTextBoxGroupSelectedDescription.Visible = true;
             labelDescription.Visible = true;

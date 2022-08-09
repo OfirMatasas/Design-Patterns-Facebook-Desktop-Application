@@ -2,10 +2,9 @@
 using System.Windows.Forms;
 using FacebookWrapper;
 using FacebookWinFormsLogic;
-using FaceBookWinFormsApp.Forms;
-using System.Collections.Generic;
+using FacebookWinFormsApp.Forms;
 
-namespace FaceBookWinFormsApp
+namespace FacebookWinFormsApp
 {
     internal partial class FormMain : Form
     {
@@ -68,9 +67,11 @@ namespace FaceBookWinFormsApp
 
         private void populateUI()
         {
+            Cursor.Current = Cursors.WaitCursor;
             displayUsersProfileInfoOnSidebar();
             enableAllSidebarButtons();
             showUsersProfileForm(null, null);
+            Cursor.Current = Cursors.WaitCursor;
         }
 
         private void displayUsersProfileInfoOnSidebar()
@@ -102,121 +103,129 @@ namespace FaceBookWinFormsApp
 
         private void showUsersProfileForm(object i_Sender, EventArgs i_E)
         {
+            loadingFormProcessStarted();
             if (m_ProfileForm == null)
             {
                 m_ProfileForm = new FormProfile(r_AccountManager.LoginResult.LoggedInUser);
             }
 
             openSubForm(m_ProfileForm);
-        }
-
-        private void buttonProfile_Click(object i_Sender, EventArgs i_E)
-        {
-            showUsersProfileForm(null, null);
+            loadingFormProcessDone();
         }
 
         private void buttonPosts_Click(object i_Sender, EventArgs i_E)
         {
+            loadingFormProcessStarted();
             if (m_PostsForm == null)
             {
                 m_PostsForm = new FormPosts(r_AccountManager);
             }
 
             openSubForm(m_PostsForm);
+            loadingFormProcessDone();
         }
 
         private void buttonAlbums_Click(object i_Sender, EventArgs i_E)
         {
+            loadingFormProcessStarted();
             if (m_AlbumsForm == null)
             {
                 m_AlbumsForm = new FormAlbums(r_AccountManager.LoginResult.LoggedInUser.Albums);
             }
 
             openSubForm(m_AlbumsForm);
+            loadingFormProcessDone();
         }
 
         private void buttonEvents_Click(object i_Sender, EventArgs i_E)
         {
+            loadingFormProcessStarted();
             if (m_EventsForm == null)
             {
                 m_EventsForm = new FormEvents(r_AccountManager.LoginResult.LoggedInUser.Events);
             }
 
             openSubForm(m_EventsForm);
+            loadingFormProcessDone();
         }
 
         private void buttonGroups_Click(object i_Sender, EventArgs i_E)
         {
+            loadingFormProcessStarted();
             if (m_GroupsForm == null)
             {
                 m_GroupsForm = new FormGroups(r_AccountManager.LoginResult.LoggedInUser.Groups);
             }
 
             openSubForm(m_GroupsForm);
+            loadingFormProcessDone();
         }
 
         private void buttonFavoriteTeams_Click(object i_Sender, EventArgs i_E)
         {
+            loadingFormProcessStarted();
             if (m_FavoriteTeamsForm == null)
             {
                 m_FavoriteTeamsForm = new FormFavoriteTeams(r_AccountManager.LoginResult.LoggedInUser.FavofriteTeams);
             }
 
             openSubForm(m_FavoriteTeamsForm);
+            loadingFormProcessDone();
         }
 
         private void buttonLikedPages_Click(object i_Sender, EventArgs i_E)
         {
+            loadingFormProcessStarted();
             if (m_LikedPagesForm == null)
             {
                 m_LikedPagesForm = new FormLikedPages(r_AccountManager.LoginResult.LoggedInUser.LikedPages);
             }
 
             openSubForm(m_LikedPagesForm);
+            loadingFormProcessDone();
         }
 
         private void buttonFriends_Click(object i_Sender, EventArgs i_E)
         {
+            loadingFormProcessStarted();
             if (m_FriendsForm == null)
             {
                 m_FriendsForm = new FormFriends(r_AccountManager.LoginResult.LoggedInUser.Friends);
             }
 
             openSubForm(m_FriendsForm);
+            loadingFormProcessDone();
         }
 
         private void buttonStatistics_Click(object i_Sender, EventArgs i_E)
         {
+            loadingFormProcessStarted();
             if (m_StatisticsForm == null)
             {
                 m_StatisticsForm = new FormStatistics(r_AccountManager.LoginResult.LoggedInUser);
             }
 
             openSubForm(m_StatisticsForm);
+            loadingFormProcessDone();
         }
 
         private void buttonMostPopularFeed_Click(object i_Sender, EventArgs i_E)
         {
+            loadingFormProcessStarted();
             if (m_MostPopularFeedForm == null)
             {
                 m_MostPopularFeedForm = new FormMostPopularFeed(r_AccountManager.LoginResult.LoggedInUser);
             }
 
             openSubForm(m_MostPopularFeedForm);
+            loadingFormProcessDone();
         }
 
         private void buttonLogout_Click(object i_Sender, EventArgs i_E)
         {
             r_AccountManager.Logout();
-            ActiveForm?.Hide();
-            displayLoginControllers(true);
             r_AppSetting.ForgetUser();
-            setAllSubFormsAsNull();
-        }
-
-        private void setAllSubFormsAsNull()
-        {
-            //Need to implement using reflection
+            Close();
         }
 
         protected override void OnFormClosing(FormClosingEventArgs i_E)
@@ -232,6 +241,16 @@ namespace FaceBookWinFormsApp
             }
 
             r_AppSetting.SaveToFile();
+        }
+
+        private void loadingFormProcessStarted()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+        }
+
+        private void loadingFormProcessDone()
+        {
+            Cursor.Current = Cursors.Default;
         }
     }
 }

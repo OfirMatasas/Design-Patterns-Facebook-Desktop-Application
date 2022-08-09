@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using FacebookWrapper.ObjectModel;
 
-namespace FaceBookWinFormsApp.Forms
+namespace FacebookWinFormsApp.Forms
 {
     internal partial class FormAlbums : Form
     {
@@ -29,7 +29,8 @@ namespace FaceBookWinFormsApp.Forms
             base.OnShown(i_E);
             if (listBoxAlbums.Items.Count == 0)
             {
-                MessageBox.Show("No albums to retrieve :(", 
+                MessageBox.Show(
+                    "No albums to retrieve :(", 
                     "No Albums", 
                     MessageBoxButtons.OK, 
                     MessageBoxIcon.Information);

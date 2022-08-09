@@ -1,4 +1,4 @@
-﻿namespace FaceBookWinFormsApp.Forms
+﻿namespace FacebookWinFormsApp.Forms
 {
     internal partial class FormAlbums
     {
@@ -48,17 +48,17 @@
             this.panelChooseAlbum.Location = new System.Drawing.Point(0, 0);
             this.panelChooseAlbum.Margin = new System.Windows.Forms.Padding(2);
             this.panelChooseAlbum.Name = "panelChooseAlbum";
-            this.panelChooseAlbum.Size = new System.Drawing.Size(277, 679);
+            this.panelChooseAlbum.Size = new System.Drawing.Size(292, 846);
             this.panelChooseAlbum.TabIndex = 0;
             // 
             // listBoxAlbums
             // 
             this.listBoxAlbums.FormattingEnabled = true;
-            this.listBoxAlbums.ItemHeight = 16;
-            this.listBoxAlbums.Location = new System.Drawing.Point(16, 42);
+            this.listBoxAlbums.ItemHeight = 20;
+            this.listBoxAlbums.Location = new System.Drawing.Point(18, 52);
             this.listBoxAlbums.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxAlbums.Name = "listBoxAlbums";
-            this.listBoxAlbums.Size = new System.Drawing.Size(235, 612);
+            this.listBoxAlbums.Size = new System.Drawing.Size(257, 764);
             this.listBoxAlbums.TabIndex = 1;
             this.listBoxAlbums.SelectedIndexChanged += new System.EventHandler(this.listBoxAlbums_SelectedIndexChanged);
             // 
@@ -66,10 +66,10 @@
             // 
             this.labelAlbums.AutoSize = true;
             this.labelAlbums.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAlbums.Location = new System.Drawing.Point(70, 13);
+            this.labelAlbums.Location = new System.Drawing.Point(97, 16);
             this.labelAlbums.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelAlbums.Name = "labelAlbums";
-            this.labelAlbums.Size = new System.Drawing.Size(74, 24);
+            this.labelAlbums.Size = new System.Drawing.Size(110, 32);
             this.labelAlbums.TabIndex = 0;
             this.labelAlbums.Text = "Albums";
             // 
@@ -78,10 +78,10 @@
             this.flowLayoutPanelSelectedAlbumPhotos.AutoScroll = true;
             this.flowLayoutPanelSelectedAlbumPhotos.Controls.Add(this.label2);
             this.flowLayoutPanelSelectedAlbumPhotos.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanelSelectedAlbumPhotos.Location = new System.Drawing.Point(277, 30);
+            this.flowLayoutPanelSelectedAlbumPhotos.Location = new System.Drawing.Point(292, 35);
             this.flowLayoutPanelSelectedAlbumPhotos.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanelSelectedAlbumPhotos.Name = "flowLayoutPanelSelectedAlbumPhotos";
-            this.flowLayoutPanelSelectedAlbumPhotos.Size = new System.Drawing.Size(572, 649);
+            this.flowLayoutPanelSelectedAlbumPhotos.Size = new System.Drawing.Size(649, 811);
             this.flowLayoutPanelSelectedAlbumPhotos.TabIndex = 1;
             // 
             // label2
@@ -91,7 +91,7 @@
             this.label2.Location = new System.Drawing.Point(2, 0);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 16);
+            this.label2.Size = new System.Drawing.Size(0, 20);
             this.label2.TabIndex = 0;
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -101,20 +101,20 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelSelectedAlbumName.AutoSize = true;
             this.labelSelectedAlbumName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSelectedAlbumName.Location = new System.Drawing.Point(423, 13);
+            this.labelSelectedAlbumName.Location = new System.Drawing.Point(476, 16);
             this.labelSelectedAlbumName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSelectedAlbumName.Name = "labelSelectedAlbumName";
-            this.labelSelectedAlbumName.Size = new System.Drawing.Size(200, 24);
+            this.labelSelectedAlbumName.Size = new System.Drawing.Size(297, 32);
             this.labelSelectedAlbumName.TabIndex = 2;
             this.labelSelectedAlbumName.Text = "Selected Album Name";
             this.labelSelectedAlbumName.Visible = false;
             // 
             // FormAlbums
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(849, 679);
+            this.ClientSize = new System.Drawing.Size(941, 846);
             this.Controls.Add(this.labelSelectedAlbumName);
             this.Controls.Add(this.flowLayoutPanelSelectedAlbumPhotos);
             this.Controls.Add(this.panelChooseAlbum);

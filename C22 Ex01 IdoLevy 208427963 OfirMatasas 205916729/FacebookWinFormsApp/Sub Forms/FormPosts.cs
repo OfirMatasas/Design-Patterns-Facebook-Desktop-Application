@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using FacebookWinFormsLogic;
 using FacebookWrapper.ObjectModel;
 
-namespace FaceBookWinFormsApp.Forms
+namespace FacebookWinFormsApp.Forms
 {
     internal partial class FormPosts : Form
     {
@@ -19,6 +19,8 @@ namespace FaceBookWinFormsApp.Forms
 
         private void fetchPosts()
         {
+            listBoxPosts.Text = Name;
+
             foreach (Post post in r_LoggedInUser.LoginResult.LoggedInUser.Posts)
             {
                 listBoxPosts.Items.Add(post);
@@ -45,7 +47,7 @@ namespace FaceBookWinFormsApp.Forms
             postInformation.AppendFormat("{0}{1}{1}", i_SelectedPost?.Message, Environment.NewLine);
             postInformation.Append(i_SelectedPost?.CreatedTime);
             richTextBoxSelectedPost.Text = postInformation.ToString();
-            richTextBoxNewPost.Visible = true;
+            richTextBoxSelectedPost.Visible = true;
         }
 
         private void displaySelectedPostPicture(Post i_SelectedPost)
@@ -68,7 +70,11 @@ namespace FaceBookWinFormsApp.Forms
 
             if(string.IsNullOrEmpty(richTextBoxNewPost?.Text))
             {
-                MessageBox.Show("Cannot post an empty post!", "Empty Post", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    "Cannot post an empty post!",
+                    "Empty Post", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Error);
             }
             else
             {
@@ -79,7 +85,11 @@ namespace FaceBookWinFormsApp.Forms
                 }
                 catch
                 {
-                    MessageBox.Show("Cannot success to post.", "Posting Action Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(
+                        "Cannot success to post.", 
+                        "Posting Action Failed", 
+                        MessageBoxButtons.OK, 
+                        MessageBoxIcon.Error);
                 }
             }
         }

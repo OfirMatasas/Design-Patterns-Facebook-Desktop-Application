@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 
-namespace FaceBookWinFormsApp.Forms
+namespace FacebookWinFormsApp.Forms
 {
     internal partial class FormLikedPages : Form
     {
@@ -17,6 +17,8 @@ namespace FaceBookWinFormsApp.Forms
 
         private void fetchLikedPages()
         {
+            listBoxLikedPages.Text = Name;
+
             foreach (Page likedPage in r_LikedPages)
             {
                 listBoxLikedPages.Items.Add(likedPage);
@@ -28,7 +30,8 @@ namespace FaceBookWinFormsApp.Forms
             base.OnShown(i_E);
             if (listBoxLikedPages.Items.Count == 0)
             {
-                MessageBox.Show("No liked pages to retrieve :(", 
+                MessageBox.Show(
+                    "No liked pages to retrieve :(", 
                     "No Liked Pages", 
                     MessageBoxButtons.OK, 
                     MessageBoxIcon.Information);

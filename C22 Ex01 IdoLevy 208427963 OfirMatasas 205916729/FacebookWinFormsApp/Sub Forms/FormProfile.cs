@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 
-namespace FaceBookWinFormsApp.Forms
+namespace FacebookWinFormsApp.Forms
 {
     internal partial class FormProfile : Form
     {

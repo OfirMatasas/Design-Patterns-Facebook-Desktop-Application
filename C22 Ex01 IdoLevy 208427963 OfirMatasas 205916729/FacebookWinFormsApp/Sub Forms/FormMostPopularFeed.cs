@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using FacebookWinFormsLogic;
 using FacebookWrapper.ObjectModel;
 
-namespace FaceBookWinFormsApp.Forms
+namespace FacebookWinFormsApp.Forms
 {
     internal partial class FormMostPopularFeed : Form
     {
@@ -19,6 +19,7 @@ namespace FaceBookWinFormsApp.Forms
         private void fetchMostPopularFeed()
         {
             DateTime chosenDateTime = new DateTime(dateTimePickerChosenDate.Value.Year, DateTime.Today.Month, DateTime.Today.Day);
+            bool foundMostPopularPost, foundMostPopularPhoto;
 
             if (chosenDateTime > DateTime.Today)
             {
@@ -30,52 +31,69 @@ namespace FaceBookWinFormsApp.Forms
             }
             else
             {
-                getMostPopularPost(chosenDateTime);
-                getMostPopularPhoto(chosenDateTime);
+                Cursor.Current = Cursors.WaitCursor;
+                getMostPopularPost(chosenDateTime, out foundMostPopularPost);
+                getMostPopularPhoto(chosenDateTime, out foundMostPopularPhoto);
+                Cursor.Current = Cursors.Default;
+                if (!foundMostPopularPost || !foundMostPopularPhoto)
+                {
+                    notifyUserAboutNonExistedItemsOnSelectedYear(foundMostPopularPost, foundMostPopularPhoto);
+                }
             }
         }
 
-        private void getMostPopularPost(DateTime i_ChosenDateTime)
+        private void notifyUserAboutNonExistedItemsOnSelectedYear(bool i_FoundMostPopularPost, bool i_FoundMostPopularPhoto)
+        {
+            string nonExistedItem;
+
+            if(!i_FoundMostPopularPost && !i_FoundMostPopularPhoto)
+            {
+                nonExistedItem = "post / photo";
+            }
+            else
+            {
+                nonExistedItem = !i_FoundMostPopularPost ? "post" : "photo";
+            }
+
+            messageBoxNoDetailsInDate(nonExistedItem);
+        }
+
+        private void getMostPopularPost(DateTime i_ChosenDateTime, out bool o_FoundMostPopularPost)
         {
             int numberOfComments;
             Post mostPopularPost = r_MostPopularFeedLogic.FindMostPopularPost(i_ChosenDateTime);
 
-            if (mostPopularPost != null)
+            o_FoundMostPopularPost = mostPopularPost != null;
+            if (o_FoundMostPopularPost)
             {
                 numberOfComments = mostPopularPost.Comments.Count;
                 listBoxMostPopularPost.Items.Clear();
                 listBoxMostPopularPost.Items.Add(mostPopularPost);
-                labelMostPopularPostCommentsNumber.Text = $"{numberOfComments} Comment{(numberOfComments == 1 ? string.Empty : "s")} of you on post";
+                labelMostPopularPostCommentsNumber.Text = $"{numberOfComments} Comment{(numberOfComments == 1 ? string.Empty : "s")} on your post";
                 labelMostPopularPostDate.Text = $"Published At: {mostPopularPost.CreatedTime}";
-            }
-            else
-            {
-                messageBoxNoDetailsInDate("post");
             }
         }
 
-        private void getMostPopularPhoto(DateTime i_ChosenDateTime)
+        private void getMostPopularPhoto(DateTime i_ChosenDateTime, out bool o_FoundMostPopularPhoto)
         {
             Photo mostPopularPhoto = r_MostPopularFeedLogic.FindMostPopularPhoto(i_ChosenDateTime);
             int numberOfComments;
 
-            if (mostPopularPhoto != null)
+            o_FoundMostPopularPhoto = mostPopularPhoto != null;
+            if (o_FoundMostPopularPhoto)
             {
                 numberOfComments = mostPopularPhoto.Comments.Count;
                 pictureBoxMostPopularPhoto.Image = new Bitmap(mostPopularPhoto.ImageNormal, pictureBoxMostPopularPhoto.Size);
-                labelMostPopularPhotoCommentsNumber.Text = $"{numberOfComments} Comment{(numberOfComments == 1 ? string.Empty : "s")} of you on photo";
+                labelMostPopularPhotoCommentsNumber.Text = $"{numberOfComments} Comment{(numberOfComments == 1 ? string.Empty : "s")} on your photo";
                 labelMostPopularPhotoDate.Text = $"Published At: {mostPopularPhoto.CreatedTime}";
-            }
-            else
-            {
-                messageBoxNoDetailsInDate("photo");
             }
         }
 
         private void messageBoxNoDetailsInDate(string i_Details)
         {
-            MessageBox.Show($"This year you haven't published any {i_Details}!", 
-                $"No {i_Details}s to show", 
+            MessageBox.Show(
+                $"This year you haven't published any {i_Details}!", 
+                $"No {i_Details} to show", 
                 MessageBoxButtons.OK, 
                 MessageBoxIcon.Information);
         }

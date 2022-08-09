@@ -89,40 +89,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\FormAlbums.cs">
+    <Compile Include="Sub Forms\FormAlbums.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormAlbums.Designer.cs">
+    <Compile Include="Sub Forms\FormAlbums.Designer.cs">
       <DependentUpon>FormAlbums.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormEvents.cs">
+    <Compile Include="Sub Forms\FormEvents.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormEvents.Designer.cs">
+    <Compile Include="Sub Forms\FormEvents.Designer.cs">
       <DependentUpon>FormEvents.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormFavoriteTeams.cs">
+    <Compile Include="Sub Forms\FormFavoriteTeams.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormFavoriteTeams.Designer.cs">
+    <Compile Include="Sub Forms\FormFavoriteTeams.Designer.cs">
       <DependentUpon>FormFavoriteTeams.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormFriends.cs">
+    <Compile Include="Sub Forms\FormFriends.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormFriends.Designer.cs">
+    <Compile Include="Sub Forms\FormFriends.Designer.cs">
       <DependentUpon>FormFriends.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormGroups.cs">
+    <Compile Include="Sub Forms\FormGroups.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormGroups.Designer.cs">
+    <Compile Include="Sub Forms\FormGroups.Designer.cs">
       <DependentUpon>FormGroups.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormLikedPages.cs">
+    <Compile Include="Sub Forms\FormLikedPages.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormLikedPages.Designer.cs">
+    <Compile Include="Sub Forms\FormLikedPages.Designer.cs">
       <DependentUpon>FormLikedPages.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMain.cs">
@@ -131,63 +131,63 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormMostPopularFeed.cs">
+    <Compile Include="Sub Forms\FormMostPopularFeed.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormMostPopularFeed.Designer.cs">
+    <Compile Include="Sub Forms\FormMostPopularFeed.Designer.cs">
       <DependentUpon>FormMostPopularFeed.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormPosts.cs">
+    <Compile Include="Sub Forms\FormPosts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormPosts.Designer.cs">
+    <Compile Include="Sub Forms\FormPosts.Designer.cs">
       <DependentUpon>FormPosts.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormProfile.cs">
+    <Compile Include="Sub Forms\FormProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormProfile.Designer.cs">
+    <Compile Include="Sub Forms\FormProfile.Designer.cs">
       <DependentUpon>FormProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormStatistics.cs">
+    <Compile Include="Sub Forms\FormStatistics.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormStatistics.Designer.cs">
+    <Compile Include="Sub Forms\FormStatistics.Designer.cs">
       <DependentUpon>FormStatistics.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\FormAlbums.resx">
+    <EmbeddedResource Include="Sub Forms\FormAlbums.resx">
       <DependentUpon>FormAlbums.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormEvents.resx">
+    <EmbeddedResource Include="Sub Forms\FormEvents.resx">
       <DependentUpon>FormEvents.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormFavoriteTeams.resx">
+    <EmbeddedResource Include="Sub Forms\FormFavoriteTeams.resx">
       <DependentUpon>FormFavoriteTeams.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormFriends.resx">
+    <EmbeddedResource Include="Sub Forms\FormFriends.resx">
       <DependentUpon>FormFriends.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormGroups.resx">
+    <EmbeddedResource Include="Sub Forms\FormGroups.resx">
       <DependentUpon>FormGroups.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormLikedPages.resx">
+    <EmbeddedResource Include="Sub Forms\FormLikedPages.resx">
       <DependentUpon>FormLikedPages.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormMostPopularFeed.resx">
+    <EmbeddedResource Include="Sub Forms\FormMostPopularFeed.resx">
       <DependentUpon>FormMostPopularFeed.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormPosts.resx">
+    <EmbeddedResource Include="Sub Forms\FormPosts.resx">
       <DependentUpon>FormPosts.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormProfile.resx">
+    <EmbeddedResource Include="Sub Forms\FormProfile.resx">
       <DependentUpon>FormProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormStatistics.resx">
+    <EmbeddedResource Include="Sub Forms\FormStatistics.resx">
       <DependentUpon>FormStatistics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -262,6 +262,7 @@
   <ItemGroup>
     <None Include="Resources\Statistics-Likes.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

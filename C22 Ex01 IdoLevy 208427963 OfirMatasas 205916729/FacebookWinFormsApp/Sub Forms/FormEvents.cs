@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 
-namespace FaceBookWinFormsApp.Forms
+namespace FacebookWinFormsApp.Forms
 {
     internal partial class FormEvents : Form
     {
@@ -17,9 +17,11 @@ namespace FaceBookWinFormsApp.Forms
 
         private void fetchEvents()
         {
+            listBoxEvents.Text = Name;
+
             foreach (Event facebookEvent in r_Events)
             {
-                listBoxEvents.Items.Add(facebookEvent.Name);
+                listBoxEvents.Items.Add(facebookEvent);
             }
         }
 
@@ -28,7 +30,8 @@ namespace FaceBookWinFormsApp.Forms
             base.OnShown(i_E);
             if (listBoxEvents.Items.Count == 0)
             {
-                MessageBox.Show("No events to retrieve :(", 
+                MessageBox.Show(
+                    "No events to retrieve :(", 
                     "No Events", 
                     MessageBoxButtons.OK, 
                     MessageBoxIcon.Information);
@@ -51,7 +54,8 @@ namespace FaceBookWinFormsApp.Forms
 
         private void displaySelectedEventDescription(Event i_SelectedEvent)
         {
-            richTextBoxEventDescription.Text = i_SelectedEvent.Description;
+            richTextBoxEventDescription.Text = string.Format("{0}{1}{1}", i_SelectedEvent.Name, Environment.NewLine);
+            richTextBoxEventDescription.Text += i_SelectedEvent.Description;
             richTextBoxEventDescription.Visible = true;
             labelDescription.Visible = true;
         }

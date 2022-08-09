@@ -1,4 +1,4 @@
-﻿namespace FaceBookWinFormsApp.Forms
+﻿namespace FacebookWinFormsApp.Forms
 {
     internal partial class FormFriends
     {
@@ -32,90 +32,76 @@
             this.listBoxFriends = new System.Windows.Forms.ListBox();
             this.pictureBoxFriendProfilePicture = new System.Windows.Forms.PictureBox();
             this.richTextBoxFriendAbout = new System.Windows.Forms.RichTextBox();
-            this.labelFriendProfilePicture = new System.Windows.Forms.Label();
-            this.labelFriendAbout = new System.Windows.Forms.Label();
+            this.labelFriendsInformation = new System.Windows.Forms.Label();
             this.labelFriends = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriendProfilePicture)).BeginInit();
             this.SuspendLayout();
             // 
             // listBoxFriends
             // 
+            this.listBoxFriends.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxFriends.FormattingEnabled = true;
-            this.listBoxFriends.ItemHeight = 25;
-            this.listBoxFriends.Location = new System.Drawing.Point(138, 139);
-            this.listBoxFriends.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.listBoxFriends.ItemHeight = 21;
+            this.listBoxFriends.Location = new System.Drawing.Point(44, 102);
+            this.listBoxFriends.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listBoxFriends.Name = "listBoxFriends";
-            this.listBoxFriends.Size = new System.Drawing.Size(336, 604);
+            this.listBoxFriends.Size = new System.Drawing.Size(276, 571);
             this.listBoxFriends.TabIndex = 5;
             this.listBoxFriends.SelectedIndexChanged += new System.EventHandler(this.listBoxFriends_SelectedIndexChanged);
             // 
             // pictureBoxFriendProfilePicture
             // 
-            this.pictureBoxFriendProfilePicture.Location = new System.Drawing.Point(681, 234);
-            this.pictureBoxFriendProfilePicture.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBoxFriendProfilePicture.Location = new System.Drawing.Point(424, 152);
+            this.pictureBoxFriendProfilePicture.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBoxFriendProfilePicture.Name = "pictureBoxFriendProfilePicture";
-            this.pictureBoxFriendProfilePicture.Size = new System.Drawing.Size(150, 156);
+            this.pictureBoxFriendProfilePicture.Size = new System.Drawing.Size(176, 178);
             this.pictureBoxFriendProfilePicture.TabIndex = 6;
             this.pictureBoxFriendProfilePicture.TabStop = false;
             // 
             // richTextBoxFriendAbout
             // 
-            this.richTextBoxFriendAbout.Location = new System.Drawing.Point(530, 505);
-            this.richTextBoxFriendAbout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.richTextBoxFriendAbout.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBoxFriendAbout.Location = new System.Drawing.Point(350, 395);
+            this.richTextBoxFriendAbout.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.richTextBoxFriendAbout.Name = "richTextBoxFriendAbout";
-            this.richTextBoxFriendAbout.Size = new System.Drawing.Size(444, 238);
+            this.richTextBoxFriendAbout.Size = new System.Drawing.Size(322, 191);
             this.richTextBoxFriendAbout.TabIndex = 7;
             this.richTextBoxFriendAbout.Text = "";
             this.richTextBoxFriendAbout.Visible = false;
             // 
-            // labelFriendProfilePicture
+            // labelFriendsInformation
             // 
-            this.labelFriendProfilePicture.AutoSize = true;
-            this.labelFriendProfilePicture.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelFriendProfilePicture.Location = new System.Drawing.Point(670, 169);
-            this.labelFriendProfilePicture.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelFriendProfilePicture.Name = "labelFriendProfilePicture";
-            this.labelFriendProfilePicture.Size = new System.Drawing.Size(230, 37);
-            this.labelFriendProfilePicture.TabIndex = 8;
-            this.labelFriendProfilePicture.Text = "Profile Picture";
-            this.labelFriendProfilePicture.Visible = false;
-            // 
-            // labelFriendAbout
-            // 
-            this.labelFriendAbout.AutoSize = true;
-            this.labelFriendAbout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelFriendAbout.Location = new System.Drawing.Point(716, 442);
-            this.labelFriendAbout.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelFriendAbout.Name = "labelFriendAbout";
-            this.labelFriendAbout.Size = new System.Drawing.Size(107, 37);
-            this.labelFriendAbout.TabIndex = 9;
-            this.labelFriendAbout.Text = "About";
-            this.labelFriendAbout.Visible = false;
+            this.labelFriendsInformation.AutoSize = true;
+            this.labelFriendsInformation.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelFriendsInformation.Location = new System.Drawing.Point(432, 358);
+            this.labelFriendsInformation.Name = "labelFriendsInformation";
+            this.labelFriendsInformation.Size = new System.Drawing.Size(172, 32);
+            this.labelFriendsInformation.TabIndex = 9;
+            this.labelFriendsInformation.Text = "Friend\'s About";
+            this.labelFriendsInformation.Visible = false;
             // 
             // labelFriends
             // 
             this.labelFriends.AutoSize = true;
-            this.labelFriends.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelFriends.Location = new System.Drawing.Point(238, 80);
-            this.labelFriends.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelFriends.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelFriends.Location = new System.Drawing.Point(286, 9);
             this.labelFriends.Name = "labelFriends";
-            this.labelFriends.Size = new System.Drawing.Size(153, 44);
-            this.labelFriends.TabIndex = 11;
+            this.labelFriends.Size = new System.Drawing.Size(159, 46);
+            this.labelFriends.TabIndex = 15;
             this.labelFriends.Text = "Friends";
             // 
             // FormFriends
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1314, 988);
+            this.ClientSize = new System.Drawing.Size(986, 790);
             this.Controls.Add(this.labelFriends);
-            this.Controls.Add(this.labelFriendAbout);
-            this.Controls.Add(this.labelFriendProfilePicture);
+            this.Controls.Add(this.labelFriendsInformation);
             this.Controls.Add(this.richTextBoxFriendAbout);
             this.Controls.Add(this.pictureBoxFriendProfilePicture);
             this.Controls.Add(this.listBoxFriends);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormFriends";
             this.Text = "FormFriends";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriendProfilePicture)).EndInit();
@@ -129,8 +115,7 @@
         private System.Windows.Forms.ListBox listBoxFriends;
         private System.Windows.Forms.PictureBox pictureBoxFriendProfilePicture;
         private System.Windows.Forms.RichTextBox richTextBoxFriendAbout;
-        private System.Windows.Forms.Label labelFriendProfilePicture;
-        private System.Windows.Forms.Label labelFriendAbout;
+        private System.Windows.Forms.Label labelFriendsInformation;
         private System.Windows.Forms.Label labelFriends;
     }
 }

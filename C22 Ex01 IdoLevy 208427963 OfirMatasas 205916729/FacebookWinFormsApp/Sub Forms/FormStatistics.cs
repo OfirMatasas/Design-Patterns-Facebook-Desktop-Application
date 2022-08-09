@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using FacebookWinFormsLogic;
 using FacebookWrapper.ObjectModel;
 
-namespace FaceBookWinFormsApp.Forms
+namespace FacebookWinFormsApp.Forms
 {
     internal partial class FormStatistics : Form
     {
@@ -23,15 +23,17 @@ namespace FaceBookWinFormsApp.Forms
             if (chosenDate > DateTime.Today)
             {
                 MessageBox.Show(
-                    $"You can't choose a day from the future !{Environment.NewLine}Please choose a valid date",
+                    $"You can't choose a day from the future!{Environment.NewLine}Please choose a valid date",
                     "Invalid Date",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
             else
             {
+                Cursor.Current = Cursors.WaitCursor;
                 getAlbumsAndPhotosDataInChosenDate(chosenDate);
                 getNumberOfPostsInChosenDate(chosenDate);
+                Cursor.Current = Cursors.Default;
             }
         }
 

@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 
-namespace FaceBookWinFormsApp.Forms
+namespace FacebookWinFormsApp.Forms
 {
     internal partial class FormFavoriteTeams : Form
     {
@@ -17,7 +17,9 @@ namespace FaceBookWinFormsApp.Forms
 
         private void fetchFavoriteTeams()
         {
-            if(r_FavoriteTeams != null)
+            listBoxFavoriteTeams.Text = Name;
+
+            if (r_FavoriteTeams != null)
             {
                 foreach (Page favoriteTeam in r_FavoriteTeams)
                 {
@@ -31,7 +33,8 @@ namespace FaceBookWinFormsApp.Forms
             base.OnShown(i_E);
             if (listBoxFavoriteTeams.Items.Count == 0)
             {
-                MessageBox.Show("No favorite teams to retrieve :(",
+                MessageBox.Show(
+                    "No favorite teams to retrieve :(",
                     "No Favorite Teams",
                     MessageBoxButtons.OK, 
                     MessageBoxIcon.Information);
@@ -49,18 +52,19 @@ namespace FaceBookWinFormsApp.Forms
         private void displaySelectedTeamPicture(Page i_SelectedTeam)
         {
             pictureBoxSelectedFavoriteTeam.LoadAsync(i_SelectedTeam.PictureNormalURL);
-            labelPicture.Visible = true;
         }
 
         private void displaySelectedTeamInformation(Page i_SelectedTeam)
         {
             richTextBoxSelectedTeamInfo.Text = string.Format(
-@"Description: {0}
-Category: {1}
-Likes: {2}
-Phone number: {3}
-Location: {4}
-Website: {5}",
+@"Name: {0}
+Description: {1}
+Category: {2}
+Likes: {3}
+Phone number: {4}
+Location: {5}
+Website: {6}",
+i_SelectedTeam.Name,
 i_SelectedTeam.Description,
 i_SelectedTeam.Category,
 i_SelectedTeam.LikesCount,
