@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
-<AppSetting xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <RememberUserInfo>true</RememberUserInfo>
-  <LastAccessToken>EAAGu48ixMIwBAIp2ID2EBZBB6WL5ufSaHbEOJsZAaAL4S5LTaZBzHpZCXHJOiyvTg3le0fUjyTlZAgZCZAr0MZCht57YSwBZAvpAIOJIqyzr3p6YdU5E5hf7d6DqUBHuk8nO3ZC05fWOusqZBTJ0Pj6pn3BYBDuwCbkn2bL2fBnSV40UfJY1bizHb4b</LastAccessToken>
+<AppSetting xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <RememberUserInfo>false</RememberUserInfo>
 </AppSetting>
