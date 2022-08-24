@@ -29,44 +29,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBoxSelectedGroup = new System.Windows.Forms.PictureBox();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label descriptionLabel;
             this.listBoxGroups = new System.Windows.Forms.ListBox();
-            this.richTextBoxGroupSelectedDescription = new System.Windows.Forms.RichTextBox();
+            this.groupBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelPicture = new System.Windows.Forms.Label();
-            this.labelDescription = new System.Windows.Forms.Label();
             this.labelGroups = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedGroup)).BeginInit();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.descriptionRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.imageNormalPictureBox = new System.Windows.Forms.PictureBox();
+            descriptionLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.groupBindingSource)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageNormalPictureBox)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBoxSelectedGroup
-            // 
-            this.pictureBoxSelectedGroup.Location = new System.Drawing.Point(384, 94);
-            this.pictureBoxSelectedGroup.Name = "pictureBoxSelectedGroup";
-            this.pictureBoxSelectedGroup.Size = new System.Drawing.Size(189, 159);
-            this.pictureBoxSelectedGroup.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxSelectedGroup.TabIndex = 7;
-            this.pictureBoxSelectedGroup.TabStop = false;
             // 
             // listBoxGroups
             // 
+            this.listBoxGroups.DataSource = this.groupBindingSource;
+            this.listBoxGroups.DisplayMember = "Name";
             this.listBoxGroups.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.listBoxGroups.FormattingEnabled = true;
-            this.listBoxGroups.ItemHeight = 28;
-            this.listBoxGroups.Location = new System.Drawing.Point(78, 94);
+            this.listBoxGroups.ItemHeight = 17;
+            this.listBoxGroups.Location = new System.Drawing.Point(58, 94);
             this.listBoxGroups.Name = "listBoxGroups";
-            this.listBoxGroups.Size = new System.Drawing.Size(210, 452);
+            this.listBoxGroups.Size = new System.Drawing.Size(210, 446);
             this.listBoxGroups.TabIndex = 6;
-            this.listBoxGroups.SelectedIndexChanged += new System.EventHandler(this.listBoxGroups_SelectedIndexChanged);
             // 
-            // richTextBoxGroupSelectedDescription
+            // groupBindingSource
             // 
-            this.richTextBoxGroupSelectedDescription.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.richTextBoxGroupSelectedDescription.Location = new System.Drawing.Point(311, 313);
-            this.richTextBoxGroupSelectedDescription.Name = "richTextBoxGroupSelectedDescription";
-            this.richTextBoxGroupSelectedDescription.Size = new System.Drawing.Size(322, 205);
-            this.richTextBoxGroupSelectedDescription.TabIndex = 9;
-            this.richTextBoxGroupSelectedDescription.Text = "";
-            this.richTextBoxGroupSelectedDescription.Visible = false;
+            this.groupBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Group);
             // 
             // labelPicture
             // 
@@ -74,20 +66,9 @@
             this.labelPicture.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.labelPicture.Location = new System.Drawing.Point(339, 94);
             this.labelPicture.Name = "labelPicture";
-            this.labelPicture.Size = new System.Drawing.Size(0, 28);
+            this.labelPicture.Size = new System.Drawing.Size(0, 19);
             this.labelPicture.TabIndex = 11;
             this.labelPicture.Visible = false;
-            // 
-            // labelDescription
-            // 
-            this.labelDescription.AutoSize = true;
-            this.labelDescription.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelDescription.Location = new System.Drawing.Point(421, 282);
-            this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(115, 28);
-            this.labelDescription.TabIndex = 12;
-            this.labelDescription.Text = "Description";
-            this.labelDescription.Visible = false;
             // 
             // labelGroups
             // 
@@ -95,40 +76,80 @@
             this.labelGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.labelGroups.Location = new System.Drawing.Point(256, 12);
             this.labelGroups.Name = "labelGroups";
-            this.labelGroups.Size = new System.Drawing.Size(157, 46);
+            this.labelGroups.Size = new System.Drawing.Size(109, 31);
             this.labelGroups.TabIndex = 16;
             this.labelGroups.Text = "Groups";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.imageNormalPictureBox);
+            this.panel1.Controls.Add(descriptionLabel);
+            this.panel1.Controls.Add(this.descriptionRichTextBox);
+            this.panel1.Location = new System.Drawing.Point(295, 116);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(306, 429);
+            this.panel1.TabIndex = 17;
+            // 
+            // descriptionLabel
+            // 
+            descriptionLabel.AutoSize = true;
+            descriptionLabel.Location = new System.Drawing.Point(108, 186);
+            descriptionLabel.Name = "descriptionLabel";
+            descriptionLabel.Size = new System.Drawing.Size(105, 20);
+            descriptionLabel.TabIndex = 0;
+            descriptionLabel.Text = "Description:";
+            // 
+            // descriptionRichTextBox
+            // 
+            this.descriptionRichTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.groupBindingSource, "Description", true));
+            this.descriptionRichTextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.descriptionRichTextBox.Location = new System.Drawing.Point(0, 228);
+            this.descriptionRichTextBox.Name = "descriptionRichTextBox";
+            this.descriptionRichTextBox.Size = new System.Drawing.Size(306, 201);
+            this.descriptionRichTextBox.TabIndex = 1;
+            this.descriptionRichTextBox.Text = "";
+            // 
+            // imageNormalPictureBox
+            // 
+            this.imageNormalPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.groupBindingSource, "ImageNormal", true));
+            this.imageNormalPictureBox.Location = new System.Drawing.Point(103, 65);
+            this.imageNormalPictureBox.Name = "imageNormalPictureBox";
+            this.imageNormalPictureBox.Size = new System.Drawing.Size(110, 100);
+            this.imageNormalPictureBox.TabIndex = 3;
+            this.imageNormalPictureBox.TabStop = false;
+            // 
             // FormGroups
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 32F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(984, 845);
+            this.ClientSize = new System.Drawing.Size(779, 607);
             this.Controls.Add(this.labelGroups);
-            this.Controls.Add(this.labelDescription);
             this.Controls.Add(this.labelPicture);
-            this.Controls.Add(this.richTextBoxGroupSelectedDescription);
-            this.Controls.Add(this.pictureBoxSelectedGroup);
             this.Controls.Add(this.listBoxGroups);
+            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)), true);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormGroups";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Groups";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupBindingSource)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageNormalPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox pictureBoxSelectedGroup;
         private System.Windows.Forms.ListBox listBoxGroups;
-        private System.Windows.Forms.RichTextBox richTextBoxGroupSelectedDescription;
         private System.Windows.Forms.Label labelPicture;
-        private System.Windows.Forms.Label labelDescription;
         private System.Windows.Forms.Label labelGroups;
+        private System.Windows.Forms.BindingSource groupBindingSource;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RichTextBox descriptionRichTextBox;
+        private System.Windows.Forms.PictureBox imageNormalPictureBox;
     }
 }

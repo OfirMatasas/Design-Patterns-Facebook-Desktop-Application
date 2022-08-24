@@ -19,11 +19,13 @@ namespace FacebookWinFormsApp.Forms
 
         private void fetchGroups()
         {
-            listBoxGroups.Text = Name;
-
-            foreach (Group group in r_Groups)
+            if (!listBoxGroups.InvokeRequired)
             {
-                listBoxGroups.Items.Add(group);
+                groupBindingSource.DataSource = r_Groups;
+            }
+            else
+            {
+                listBoxGroups.Invoke(new Action(() => groupBindingSource.DataSource = r_Groups));
             }
         }
 
@@ -34,28 +36,6 @@ namespace FacebookWinFormsApp.Forms
             {
                 MessageDisplayer.NoItemsAppearOnForm("groups");
             }
-        }
-
-        private void listBoxGroups_SelectedIndexChanged(object i_Sender, EventArgs i_E)
-        {
-            Group selectedGroup = listBoxGroups.SelectedItem as Group;
-
-            displaySelectedGroupPicture(selectedGroup);
-            displaySelectedGroupDescription(selectedGroup);
-        }
-
-        private void displaySelectedGroupDescription(Group i_SelectedGroup)
-        {
-            pictureBoxSelectedGroup.LoadAsync(i_SelectedGroup.PictureNormalURL);
-            labelPicture.Visible = true;
-        }
-
-        private void displaySelectedGroupPicture(Group i_SelectedGroup)
-        {
-            richTextBoxGroupSelectedDescription.Text = string.Format("{0}{1}{1}", i_SelectedGroup.Name, Environment.NewLine);
-            richTextBoxGroupSelectedDescription.Text = i_SelectedGroup.Description;
-            richTextBoxGroupSelectedDescription.Visible = true;
-            labelDescription.Visible = true;
         }
     }
 }
