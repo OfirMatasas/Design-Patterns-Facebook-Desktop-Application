@@ -89,6 +89,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MessageDisplayer.cs" />
     <Compile Include="Sub Forms\FormAlbums.cs">
       <SubType>Form</SubType>
     </Compile>

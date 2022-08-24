@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using BasicFacebookFeatures;
 using FacebookWrapper.ObjectModel;
 
 namespace FacebookWinFormsApp.Forms
@@ -30,11 +31,7 @@ namespace FacebookWinFormsApp.Forms
             base.OnShown(i_E);
             if (listBoxFriends.Items.Count == 0)
             {
-                MessageBox.Show(
-                    "No friends to retrieve :(", 
-                    "No Friends",
-                    MessageBoxButtons.OK, 
-                    MessageBoxIcon.Information);
+                MessageDisplayer.NoItemsAppearOnForm("friends");
             }
         }
 

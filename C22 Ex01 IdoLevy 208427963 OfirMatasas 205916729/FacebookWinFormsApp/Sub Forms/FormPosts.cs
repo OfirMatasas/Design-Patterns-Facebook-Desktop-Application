@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
 using System.Windows.Forms;
+using BasicFacebookFeatures;
 using FacebookWinFormsLogic;
 using FacebookWrapper.ObjectModel;
 
@@ -70,26 +71,18 @@ namespace FacebookWinFormsApp.Forms
 
             if(string.IsNullOrEmpty(richTextBoxNewPost?.Text))
             {
-                MessageBox.Show(
-                    "Cannot post an empty post!",
-                    "Empty Post", 
-                    MessageBoxButtons.OK, 
-                    MessageBoxIcon.Error);
+                MessageDisplayer.CannotBeEmpty("post", "post");
             }
             else
             {
                 try
                 {
                     postedStatus = r_LoggedInUser.Post(richTextBoxNewPost.Text);
-                    MessageBox.Show(postedStatus.Message);
+                    MessageDisplayer.ActionSucceeded(postedStatus.Message);
                 }
                 catch
                 {
-                    MessageBox.Show(
-                        "Cannot success to post.", 
-                        "Posting Action Failed", 
-                        MessageBoxButtons.OK, 
-                        MessageBoxIcon.Error);
+                    MessageDisplayer.ActionFailed("posting");
                 }
             }
         }

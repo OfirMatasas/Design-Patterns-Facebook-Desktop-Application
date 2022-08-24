@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using BasicFacebookFeatures;
 using FacebookWrapper.ObjectModel;
 
 namespace FacebookWinFormsApp.Forms
@@ -33,11 +34,7 @@ namespace FacebookWinFormsApp.Forms
             base.OnShown(i_E);
             if (listBoxFavoriteTeams.Items.Count == 0)
             {
-                MessageBox.Show(
-                    "No favorite teams to retrieve :(",
-                    "No Favorite Teams",
-                    MessageBoxButtons.OK, 
-                    MessageBoxIcon.Information);
+                MessageDisplayer.NoItemsAppearOnForm("favorite teams");
             }
         }
 

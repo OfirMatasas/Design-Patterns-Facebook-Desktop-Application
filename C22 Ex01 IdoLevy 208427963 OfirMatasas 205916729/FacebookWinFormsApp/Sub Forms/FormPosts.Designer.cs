@@ -58,38 +58,38 @@
             this.PanelViewPosts.Controls.Add(this.richTextBoxSelectedPost);
             this.PanelViewPosts.Controls.Add(this.labelViewPosts);
             this.PanelViewPosts.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PanelViewPosts.Location = new System.Drawing.Point(0, 365);
-            this.PanelViewPosts.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.PanelViewPosts.Location = new System.Drawing.Point(0, 456);
+            this.PanelViewPosts.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PanelViewPosts.Name = "PanelViewPosts";
-            this.PanelViewPosts.Size = new System.Drawing.Size(975, 484);
+            this.PanelViewPosts.Size = new System.Drawing.Size(1300, 605);
             this.PanelViewPosts.TabIndex = 1;
             // 
             // pictureBoxSelectedPostPicture
             // 
-            this.pictureBoxSelectedPostPicture.Location = new System.Drawing.Point(582, 315);
-            this.pictureBoxSelectedPostPicture.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.pictureBoxSelectedPostPicture.Location = new System.Drawing.Point(776, 394);
+            this.pictureBoxSelectedPostPicture.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.pictureBoxSelectedPostPicture.Name = "pictureBoxSelectedPostPicture";
-            this.pictureBoxSelectedPostPicture.Size = new System.Drawing.Size(224, 136);
+            this.pictureBoxSelectedPostPicture.Size = new System.Drawing.Size(299, 170);
             this.pictureBoxSelectedPostPicture.TabIndex = 7;
             this.pictureBoxSelectedPostPicture.TabStop = false;
             // 
             // listBoxPosts
             // 
             this.listBoxPosts.FormattingEnabled = true;
-            this.listBoxPosts.ItemHeight = 20;
-            this.listBoxPosts.Location = new System.Drawing.Point(21, 58);
-            this.listBoxPosts.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.listBoxPosts.ItemHeight = 25;
+            this.listBoxPosts.Location = new System.Drawing.Point(28, 72);
+            this.listBoxPosts.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listBoxPosts.Name = "listBoxPosts";
-            this.listBoxPosts.Size = new System.Drawing.Size(421, 404);
+            this.listBoxPosts.Size = new System.Drawing.Size(560, 504);
             this.listBoxPosts.TabIndex = 6;
             this.listBoxPosts.SelectedIndexChanged += new System.EventHandler(this.listBoxPosts_SelectedIndexChanged);
             // 
             // richTextBoxSelectedPost
             // 
-            this.richTextBoxSelectedPost.Location = new System.Drawing.Point(495, 58);
-            this.richTextBoxSelectedPost.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.richTextBoxSelectedPost.Location = new System.Drawing.Point(660, 72);
+            this.richTextBoxSelectedPost.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.richTextBoxSelectedPost.Name = "richTextBoxSelectedPost";
-            this.richTextBoxSelectedPost.Size = new System.Drawing.Size(391, 250);
+            this.richTextBoxSelectedPost.Size = new System.Drawing.Size(520, 312);
             this.richTextBoxSelectedPost.TabIndex = 3;
             this.richTextBoxSelectedPost.Text = "";
             this.richTextBoxSelectedPost.Visible = false;
@@ -100,9 +100,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelViewPosts.AutoSize = true;
             this.labelViewPosts.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelViewPosts.Location = new System.Drawing.Point(406, 5);
+            this.labelViewPosts.Location = new System.Drawing.Point(541, 6);
+            this.labelViewPosts.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelViewPosts.Name = "labelViewPosts";
-            this.labelViewPosts.Size = new System.Drawing.Size(164, 36);
+            this.labelViewPosts.Size = new System.Drawing.Size(219, 46);
             this.labelViewPosts.TabIndex = 1;
             this.labelViewPosts.Text = "View Posts";
             this.labelViewPosts.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -113,9 +114,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelCreateNewPost.AutoSize = true;
             this.labelCreateNewPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCreateNewPost.Location = new System.Drawing.Point(375, 15);
+            this.labelCreateNewPost.Location = new System.Drawing.Point(500, 19);
+            this.labelCreateNewPost.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCreateNewPost.Name = "labelCreateNewPost";
-            this.labelCreateNewPost.Size = new System.Drawing.Size(238, 36);
+            this.labelCreateNewPost.Size = new System.Drawing.Size(322, 46);
             this.labelCreateNewPost.TabIndex = 2;
             this.labelCreateNewPost.Text = "Create New Post";
             this.labelCreateNewPost.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -124,10 +126,10 @@
             // 
             this.splitContainerUpper.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainerUpper.Location = new System.Drawing.Point(9, 65);
-            this.splitContainerUpper.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.splitContainerUpper.MaximumSize = new System.Drawing.Size(900, 307);
-            this.splitContainerUpper.MinimumSize = new System.Drawing.Size(900, 307);
+            this.splitContainerUpper.Location = new System.Drawing.Point(12, 81);
+            this.splitContainerUpper.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.splitContainerUpper.MaximumSize = new System.Drawing.Size(1200, 384);
+            this.splitContainerUpper.MinimumSize = new System.Drawing.Size(1200, 384);
             this.splitContainerUpper.Name = "splitContainerUpper";
             // 
             // splitContainerUpper.Panel1
@@ -138,20 +140,19 @@
             // 
             this.splitContainerUpper.Panel2.Controls.Add(this.buttonClearNewPostText);
             this.splitContainerUpper.Panel2.Controls.Add(this.buttonPost);
-            this.splitContainerUpper.Size = new System.Drawing.Size(900, 307);
-            this.splitContainerUpper.SplitterDistance = 662;
-            this.splitContainerUpper.SplitterWidth = 3;
+            this.splitContainerUpper.Size = new System.Drawing.Size(1200, 384);
+            this.splitContainerUpper.SplitterDistance = 882;
             this.splitContainerUpper.TabIndex = 6;
             // 
             // richTextBoxNewPost
             // 
             this.richTextBoxNewPost.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBoxNewPost.Location = new System.Drawing.Point(0, 0);
-            this.richTextBoxNewPost.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.richTextBoxNewPost.MaximumSize = new System.Drawing.Size(778, 306);
-            this.richTextBoxNewPost.MinimumSize = new System.Drawing.Size(778, 306);
+            this.richTextBoxNewPost.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.richTextBoxNewPost.MaximumSize = new System.Drawing.Size(1036, 382);
+            this.richTextBoxNewPost.MinimumSize = new System.Drawing.Size(1036, 382);
             this.richTextBoxNewPost.Name = "richTextBoxNewPost";
-            this.richTextBoxNewPost.Size = new System.Drawing.Size(778, 306);
+            this.richTextBoxNewPost.Size = new System.Drawing.Size(1036, 382);
             this.richTextBoxNewPost.TabIndex = 3;
             this.richTextBoxNewPost.Text = "";
             this.richTextBoxNewPost.TextChanged += new System.EventHandler(this.richTextBoxNewPost_TextChanged);
@@ -163,9 +164,9 @@
             this.buttonClearNewPostText.Enabled = false;
             this.buttonClearNewPostText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonClearNewPostText.Location = new System.Drawing.Point(0, 0);
-            this.buttonClearNewPostText.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonClearNewPostText.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonClearNewPostText.Name = "buttonClearNewPostText";
-            this.buttonClearNewPostText.Size = new System.Drawing.Size(235, 86);
+            this.buttonClearNewPostText.Size = new System.Drawing.Size(314, 108);
             this.buttonClearNewPostText.TabIndex = 5;
             this.buttonClearNewPostText.Text = "Clear";
             this.buttonClearNewPostText.UseVisualStyleBackColor = true;
@@ -177,10 +178,10 @@
             this.buttonPost.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.buttonPost.Enabled = false;
             this.buttonPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPost.Location = new System.Drawing.Point(0, 221);
-            this.buttonPost.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonPost.Location = new System.Drawing.Point(0, 276);
+            this.buttonPost.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonPost.Name = "buttonPost";
-            this.buttonPost.Size = new System.Drawing.Size(235, 86);
+            this.buttonPost.Size = new System.Drawing.Size(314, 108);
             this.buttonPost.TabIndex = 4;
             this.buttonPost.Text = "Post";
             this.buttonPost.UseVisualStyleBackColor = true;
@@ -194,19 +195,19 @@
             this.panelPostsSection.Controls.Add(this.labelCreateNewPost);
             this.panelPostsSection.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelPostsSection.Location = new System.Drawing.Point(0, 0);
-            this.panelPostsSection.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panelPostsSection.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelPostsSection.Name = "panelPostsSection";
-            this.panelPostsSection.Size = new System.Drawing.Size(975, 849);
+            this.panelPostsSection.Size = new System.Drawing.Size(1300, 1061);
             this.panelPostsSection.TabIndex = 0;
             // 
             // FormPosts
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(975, 849);
+            this.ClientSize = new System.Drawing.Size(1300, 1061);
             this.Controls.Add(this.PanelViewPosts);
             this.Controls.Add(this.panelPostsSection);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormPosts";
             this.Text = "FormPosts";
             this.PanelViewPosts.ResumeLayout(false);

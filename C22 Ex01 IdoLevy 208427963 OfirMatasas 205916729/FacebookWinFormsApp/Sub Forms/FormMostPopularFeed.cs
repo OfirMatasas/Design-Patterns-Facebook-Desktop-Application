@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using BasicFacebookFeatures;
 using FacebookWinFormsLogic;
 using FacebookWrapper.ObjectModel;
 
@@ -23,11 +24,7 @@ namespace FacebookWinFormsApp.Forms
 
             if (chosenDateTime > DateTime.Today)
             {
-                MessageBox.Show(
-                    $"You can't choose a date from the future!{Environment.NewLine}Please choose a valid date",
-                    "Invalid Date",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MessageDisplayer.InvalidTimePeriod("future");
             }
             else
             {
@@ -55,7 +52,7 @@ namespace FacebookWinFormsApp.Forms
                 nonExistedItem = !i_FoundMostPopularPost ? "post" : "photo";
             }
 
-            messageBoxNoDetailsInDate(nonExistedItem);
+            MessageDisplayer.NoItemsPublishedOnRelevantTime("This year", nonExistedItem);
         }
 
         private void getMostPopularPost(DateTime i_ChosenDateTime, out bool o_FoundMostPopularPost)
@@ -87,15 +84,6 @@ namespace FacebookWinFormsApp.Forms
                 labelMostPopularPhotoCommentsNumber.Text = $"{numberOfComments} Comment{(numberOfComments == 1 ? string.Empty : "s")} on your photo";
                 labelMostPopularPhotoDate.Text = $"Published At: {mostPopularPhoto.CreatedTime}";
             }
-        }
-
-        private void messageBoxNoDetailsInDate(string i_Details)
-        {
-            MessageBox.Show(
-                $"This year you haven't published any {i_Details}!", 
-                $"No {i_Details} to show", 
-                MessageBoxButtons.OK, 
-                MessageBoxIcon.Information);
         }
 
         private void buttonShowPhotosAndPosts_Click(object i_Sender, EventArgs i_E)

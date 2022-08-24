@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using BasicFacebookFeatures;
 using FacebookWrapper.ObjectModel;
 
 namespace FacebookWinFormsApp.Forms
@@ -30,11 +31,7 @@ namespace FacebookWinFormsApp.Forms
             base.OnShown(i_E);
             if (listBoxEvents.Items.Count == 0)
             {
-                MessageBox.Show(
-                    "No events to retrieve :(", 
-                    "No Events", 
-                    MessageBoxButtons.OK, 
-                    MessageBoxIcon.Information);
+                MessageDisplayer.NoItemsAppearOnForm("events");
             }
         }
 

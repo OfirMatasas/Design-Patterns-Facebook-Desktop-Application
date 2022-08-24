@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using BasicFacebookFeatures;
 using FacebookWinFormsLogic;
 using FacebookWrapper.ObjectModel;
 
@@ -22,11 +23,7 @@ namespace FacebookWinFormsApp.Forms
 
             if (chosenDate > DateTime.Today)
             {
-                MessageBox.Show(
-                    $"You can't choose a day from the future!{Environment.NewLine}Please choose a valid date",
-                    "Invalid Date",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MessageDisplayer.InvalidTimePeriod("future");
             }
             else
             {
