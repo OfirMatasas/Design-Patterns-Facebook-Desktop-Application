@@ -205,6 +205,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="FacebookWrapper.ObjectModel.Event.datasource" />
     <None Include="FacebookWrapper.ObjectModel.Group.datasource" />
     <None Include="FacebookWrapper.ObjectModel.Page.datasource" />
     <None Include="FacebookWrapper.ObjectModel.User.datasource" />

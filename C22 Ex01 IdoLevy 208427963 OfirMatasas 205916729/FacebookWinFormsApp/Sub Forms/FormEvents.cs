@@ -19,11 +19,13 @@ namespace FacebookWinFormsApp.Forms
 
         private void fetchEvents()
         {
-            listBoxEvents.Text = Name;
-
-            foreach (Event facebookEvent in r_Events)
+            if (!listBoxEvents.InvokeRequired)
             {
-                listBoxEvents.Items.Add(facebookEvent);
+                eventBindingSource.DataSource = r_Events;
+            }
+            else
+            {
+                listBoxEvents.Invoke(new Action(() => eventBindingSource.DataSource = r_Events));
             }
         }
 
@@ -34,28 +36,6 @@ namespace FacebookWinFormsApp.Forms
             {
                 MessageDisplayer.NoItemsAppearOnForm("events");
             }
-        }
-
-        private void listBoxEvents_SelectedIndexChanged(object i_Sender, EventArgs i_E)
-        {
-            Event selectedEvent = listBoxEvents.SelectedItem as Event;
-
-            displaySelectedEventPicture(selectedEvent);
-            displaySelectedEventDescription(selectedEvent);
-        }
-
-        private void displaySelectedEventPicture(Event i_SelectedEvent)
-        {
-            pictureBoxEventPicture.LoadAsync(i_SelectedEvent.Cover.SourceURL);
-            labelPicture.Visible = true;
-        }
-
-        private void displaySelectedEventDescription(Event i_SelectedEvent)
-        {
-            richTextBoxEventDescription.Text = string.Format("{0}{1}{1}", i_SelectedEvent.Name, Environment.NewLine);
-            richTextBoxEventDescription.Text += i_SelectedEvent.Description;
-            richTextBoxEventDescription.Visible = true;
-            labelDescription.Visible = true;
         }
     }
 }

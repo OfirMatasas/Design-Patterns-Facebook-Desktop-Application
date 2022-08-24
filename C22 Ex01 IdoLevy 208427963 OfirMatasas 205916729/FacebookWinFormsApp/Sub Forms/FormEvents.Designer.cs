@@ -29,104 +29,126 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBoxEventPicture = new System.Windows.Forms.PictureBox();
-            this.richTextBoxEventDescription = new System.Windows.Forms.RichTextBox();
-            this.listBoxEvents = new System.Windows.Forms.ListBox();
-            this.panelEventsSection = new System.Windows.Forms.Panel();
-            this.labelEvent = new System.Windows.Forms.Label();
+            this.components = new System.ComponentModel.Container();
+            this.eventBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.imageNormalPictureBox = new System.Windows.Forms.PictureBox();
+            this.descriptionRichTextBox = new System.Windows.Forms.RichTextBox();
             this.labelDescription = new System.Windows.Forms.Label();
+            this.listBoxEvents = new System.Windows.Forms.ListBox();
             this.labelPicture = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEventPicture)).BeginInit();
+            this.labelEvent = new System.Windows.Forms.Label();
+            this.panelEventsSection = new System.Windows.Forms.Panel();
+            ((System.ComponentModel.ISupportInitialize)(this.eventBindingSource)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageNormalPictureBox)).BeginInit();
             this.panelEventsSection.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictureBoxEventPicture
+            // eventBindingSource
             // 
-            this.pictureBoxEventPicture.Location = new System.Drawing.Point(454, 422);
-            this.pictureBoxEventPicture.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBoxEventPicture.Name = "pictureBoxEventPicture";
-            this.pictureBoxEventPicture.Size = new System.Drawing.Size(231, 207);
-            this.pictureBoxEventPicture.TabIndex = 2;
-            this.pictureBoxEventPicture.TabStop = false;
+            this.eventBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Event);
             // 
-            // richTextBoxEventDescription
+            // panel1
             // 
-            this.richTextBoxEventDescription.Location = new System.Drawing.Point(405, 153);
-            this.richTextBoxEventDescription.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.richTextBoxEventDescription.Name = "richTextBoxEventDescription";
-            this.richTextBoxEventDescription.Size = new System.Drawing.Size(334, 191);
-            this.richTextBoxEventDescription.TabIndex = 3;
-            this.richTextBoxEventDescription.Text = "";
-            this.richTextBoxEventDescription.Visible = false;
+            this.panel1.Controls.Add(this.labelDescription);
+            this.panel1.Controls.Add(this.descriptionRichTextBox);
+            this.panel1.Controls.Add(this.imageNormalPictureBox);
+            this.panel1.Location = new System.Drawing.Point(282, 68);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(224, 285);
+            this.panel1.TabIndex = 13;
             // 
-            // listBoxEvents
+            // imageNormalPictureBox
             // 
-            this.listBoxEvents.FormattingEnabled = true;
-            this.listBoxEvents.ItemHeight = 20;
-            this.listBoxEvents.Location = new System.Drawing.Point(81, 104);
-            this.listBoxEvents.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.listBoxEvents.Name = "listBoxEvents";
-            this.listBoxEvents.Size = new System.Drawing.Size(282, 524);
-            this.listBoxEvents.TabIndex = 4;
-            this.listBoxEvents.SelectedIndexChanged += new System.EventHandler(this.listBoxEvents_SelectedIndexChanged);
+            this.imageNormalPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.eventBindingSource, "ImageNormal", true));
+            this.imageNormalPictureBox.Location = new System.Drawing.Point(64, 183);
+            this.imageNormalPictureBox.Name = "imageNormalPictureBox";
+            this.imageNormalPictureBox.Size = new System.Drawing.Size(100, 101);
+            this.imageNormalPictureBox.TabIndex = 16;
+            this.imageNormalPictureBox.TabStop = false;
             // 
-            // panelEventsSection
+            // descriptionRichTextBox
             // 
-            this.panelEventsSection.BackColor = System.Drawing.Color.White;
-            this.panelEventsSection.Controls.Add(this.labelEvent);
-            this.panelEventsSection.Controls.Add(this.labelDescription);
-            this.panelEventsSection.Controls.Add(this.labelPicture);
-            this.panelEventsSection.Controls.Add(this.pictureBoxEventPicture);
-            this.panelEventsSection.Controls.Add(this.listBoxEvents);
-            this.panelEventsSection.Controls.Add(this.richTextBoxEventDescription);
-            this.panelEventsSection.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelEventsSection.Location = new System.Drawing.Point(0, 0);
-            this.panelEventsSection.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panelEventsSection.Name = "panelEventsSection";
-            this.panelEventsSection.Size = new System.Drawing.Size(982, 844);
-            this.panelEventsSection.TabIndex = 5;
-            // 
-            // labelEvent
-            // 
-            this.labelEvent.AutoSize = true;
-            this.labelEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelEvent.Location = new System.Drawing.Point(361, 9);
-            this.labelEvent.Name = "labelEvent";
-            this.labelEvent.Size = new System.Drawing.Size(147, 46);
-            this.labelEvent.TabIndex = 12;
-            this.labelEvent.Text = "Events";
+            this.descriptionRichTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Description", true));
+            this.descriptionRichTextBox.Location = new System.Drawing.Point(0, 31);
+            this.descriptionRichTextBox.Name = "descriptionRichTextBox";
+            this.descriptionRichTextBox.Size = new System.Drawing.Size(224, 126);
+            this.descriptionRichTextBox.TabIndex = 14;
+            this.descriptionRichTextBox.Text = "";
             // 
             // labelDescription
             // 
             this.labelDescription.AutoSize = true;
             this.labelDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelDescription.Location = new System.Drawing.Point(492, 104);
+            this.labelDescription.Location = new System.Drawing.Point(49, 4);
+            this.labelDescription.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(169, 32);
+            this.labelDescription.Size = new System.Drawing.Size(115, 24);
             this.labelDescription.TabIndex = 7;
             this.labelDescription.Text = "Description";
             this.labelDescription.Visible = false;
+            // 
+            // listBoxEvents
+            // 
+            this.listBoxEvents.DataSource = this.eventBindingSource;
+            this.listBoxEvents.DisplayMember = "Name";
+            this.listBoxEvents.FormattingEnabled = true;
+            this.listBoxEvents.Location = new System.Drawing.Point(54, 68);
+            this.listBoxEvents.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.listBoxEvents.Name = "listBoxEvents";
+            this.listBoxEvents.Size = new System.Drawing.Size(189, 342);
+            this.listBoxEvents.TabIndex = 4;
             // 
             // labelPicture
             // 
             this.labelPicture.AutoSize = true;
             this.labelPicture.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelPicture.Location = new System.Drawing.Point(524, 367);
+            this.labelPicture.Location = new System.Drawing.Point(349, 239);
+            this.labelPicture.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPicture.Name = "labelPicture";
-            this.labelPicture.Size = new System.Drawing.Size(0, 32);
+            this.labelPicture.Size = new System.Drawing.Size(0, 24);
             this.labelPicture.TabIndex = 6;
             this.labelPicture.Visible = false;
             // 
+            // labelEvent
+            // 
+            this.labelEvent.AutoSize = true;
+            this.labelEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelEvent.Location = new System.Drawing.Point(241, 6);
+            this.labelEvent.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEvent.Name = "labelEvent";
+            this.labelEvent.Size = new System.Drawing.Size(104, 31);
+            this.labelEvent.TabIndex = 12;
+            this.labelEvent.Text = "Events";
+            // 
+            // panelEventsSection
+            // 
+            this.panelEventsSection.BackColor = System.Drawing.Color.White;
+            this.panelEventsSection.Controls.Add(this.labelEvent);
+            this.panelEventsSection.Controls.Add(this.labelPicture);
+            this.panelEventsSection.Controls.Add(this.listBoxEvents);
+            this.panelEventsSection.Controls.Add(this.panel1);
+            this.panelEventsSection.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelEventsSection.Location = new System.Drawing.Point(0, 0);
+            this.panelEventsSection.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.panelEventsSection.Name = "panelEventsSection";
+            this.panelEventsSection.Size = new System.Drawing.Size(627, 502);
+            this.panelEventsSection.TabIndex = 5;
+            // 
             // FormEvents
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(982, 844);
+            this.ClientSize = new System.Drawing.Size(627, 502);
             this.Controls.Add(this.panelEventsSection);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "FormEvents";
             this.Text = "FormEvents";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEventPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eventBindingSource)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageNormalPictureBox)).EndInit();
             this.panelEventsSection.ResumeLayout(false);
             this.panelEventsSection.PerformLayout();
             this.ResumeLayout(false);
@@ -134,12 +156,15 @@
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox pictureBoxEventPicture;
-        private System.Windows.Forms.RichTextBox richTextBoxEventDescription;
-        private System.Windows.Forms.ListBox listBoxEvents;
-        private System.Windows.Forms.Panel panelEventsSection;
+
+        private System.Windows.Forms.BindingSource eventBindingSource;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label labelDescription;
+        private System.Windows.Forms.RichTextBox descriptionRichTextBox;
+        private System.Windows.Forms.PictureBox imageNormalPictureBox;
+        private System.Windows.Forms.ListBox listBoxEvents;
         private System.Windows.Forms.Label labelPicture;
         private System.Windows.Forms.Label labelEvent;
+        private System.Windows.Forms.Panel panelEventsSection;
     }
 }
