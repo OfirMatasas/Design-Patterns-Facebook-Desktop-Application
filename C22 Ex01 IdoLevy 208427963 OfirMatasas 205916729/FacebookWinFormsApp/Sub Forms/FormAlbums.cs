@@ -20,9 +20,13 @@ namespace FacebookWinFormsApp.Forms
 
         private void fetchAlbums()
         {
-            foreach (Album album in r_Albums)
+            if (!listBoxAlbums.InvokeRequired)
             {
-                listBoxAlbums.Items.Add(album);
+                albumBindingSource.DataSource = r_Albums;
+            }
+            else
+            {
+                listBoxAlbums.Invoke(new Action(() => albumBindingSource.DataSource = r_Albums));
             }
         }
 
