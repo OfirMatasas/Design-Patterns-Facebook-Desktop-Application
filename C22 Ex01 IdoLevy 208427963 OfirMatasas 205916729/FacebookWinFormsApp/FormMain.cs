@@ -105,121 +105,63 @@ namespace FacebookWinFormsApp
 
         private void showUsersProfileForm(object i_Sender, EventArgs i_E)
         {
-            loadingFormProcessStarted();
-            if (m_ProfileForm == null)
-            {
-                m_ProfileForm = FacebookFormFactoryMethod.CreateForm(FacebookFormFactoryMethod.eFormTypes.Profile);
-            }
-
-            openSubForm(m_ProfileForm);
-            loadingFormProcessDone();
+            loadSelectedForm(ref m_ProfileForm, FacebookFormFactoryMethod.eFormTypes.Profile);
         }
 
         private void buttonPosts_Click(object i_Sender, EventArgs i_E)
         {
-            loadingFormProcessStarted();
-            if (m_PostsForm == null)
-            {
-                m_PostsForm = FacebookFormFactoryMethod.CreateForm(FacebookFormFactoryMethod.eFormTypes.Posts);
-            }
-
-            openSubForm(m_PostsForm);
-            loadingFormProcessDone();
+            loadSelectedForm(ref m_PostsForm, FacebookFormFactoryMethod.eFormTypes.Posts);
         }
 
         private void buttonAlbums_Click(object i_Sender, EventArgs i_E)
         {
-            loadingFormProcessStarted();
-            if (m_AlbumsForm == null)
-            {
-                m_AlbumsForm = FacebookFormFactoryMethod.CreateForm(FacebookFormFactoryMethod.eFormTypes.Albums);
-            }
-
-            openSubForm(m_AlbumsForm);
-            loadingFormProcessDone();
+            loadSelectedForm(ref m_AlbumsForm, FacebookFormFactoryMethod.eFormTypes.Albums);
         }
 
         private void buttonEvents_Click(object i_Sender, EventArgs i_E)
         {
-            loadingFormProcessStarted();
-            if (m_EventsForm == null)
-            {
-                m_EventsForm = FacebookFormFactoryMethod.CreateForm(FacebookFormFactoryMethod.eFormTypes.Events);
-            }
-
-            openSubForm(m_EventsForm);
-            loadingFormProcessDone();
+            loadSelectedForm(ref m_EventsForm, FacebookFormFactoryMethod.eFormTypes.Events);
         }
 
         private void buttonGroups_Click(object i_Sender, EventArgs i_E)
         {
-            loadingFormProcessStarted();
-            if (m_GroupsForm == null)
-            {
-                m_GroupsForm = FacebookFormFactoryMethod.CreateForm(FacebookFormFactoryMethod.eFormTypes.Groups);
-            }
-
-            openSubForm(m_GroupsForm);
-            loadingFormProcessDone();
+            loadSelectedForm(ref m_GroupsForm, FacebookFormFactoryMethod.eFormTypes.Groups);
         }
 
         private void buttonFavoriteTeams_Click(object i_Sender, EventArgs i_E)
         {
-            loadingFormProcessStarted();
-            if (m_FavoriteTeamsForm == null)
-            {
-                m_FavoriteTeamsForm = FacebookFormFactoryMethod.CreateForm(FacebookFormFactoryMethod.eFormTypes.FavoriteTeams);
-            }
-
-            openSubForm(m_FavoriteTeamsForm);
-            loadingFormProcessDone();
+            loadSelectedForm(ref m_FavoriteTeamsForm, FacebookFormFactoryMethod.eFormTypes.FavoriteTeams);
         }
 
         private void buttonLikedPages_Click(object i_Sender, EventArgs i_E)
         {
-            loadingFormProcessStarted();
-            if (m_LikedPagesForm == null)
-            {
-                m_LikedPagesForm = FacebookFormFactoryMethod.CreateForm(FacebookFormFactoryMethod.eFormTypes.LikedPages);
-            }
-
-            openSubForm(m_LikedPagesForm);
-            loadingFormProcessDone();
+            loadSelectedForm(ref m_LikedPagesForm, FacebookFormFactoryMethod.eFormTypes.LikedPages);
         }
 
         private void buttonFriends_Click(object i_Sender, EventArgs i_E)
         {
-            loadingFormProcessStarted();
-            if (m_FriendsForm == null)
-            {
-                m_FriendsForm = FacebookFormFactoryMethod.CreateForm(FacebookFormFactoryMethod.eFormTypes.Friends);
-            }
-
-            openSubForm(m_FriendsForm);
-            loadingFormProcessDone();
+            loadSelectedForm(ref m_FriendsForm, FacebookFormFactoryMethod.eFormTypes.Friends);
         }
 
         private void buttonStatistics_Click(object i_Sender, EventArgs i_E)
         {
-            loadingFormProcessStarted();
-            if (m_StatisticsForm == null)
-            {
-                m_StatisticsForm = FacebookFormFactoryMethod.CreateForm(FacebookFormFactoryMethod.eFormTypes.Statistics);
-            }
-
-            openSubForm(m_StatisticsForm);
-            loadingFormProcessDone();
+            loadSelectedForm(ref m_StatisticsForm, FacebookFormFactoryMethod.eFormTypes.Statistics);
         }
 
         private void buttonMostPopularFeed_Click(object i_Sender, EventArgs i_E)
         {
+            loadSelectedForm(ref m_MostPopularFeedForm, FacebookFormFactoryMethod.eFormTypes.MostPopularFeed);
+        }
+
+        private void loadSelectedForm(ref Form io_SelectedForm, FacebookFormFactoryMethod.eFormTypes i_SelectedFormType)
+        {
             loadingFormProcessStarted();
-            if (m_MostPopularFeedForm == null)
+            if (io_SelectedForm == null)
             {
-                m_MostPopularFeedForm = FacebookFormFactoryMethod.CreateForm(FacebookFormFactoryMethod.eFormTypes.MostPopularFeed);
+                io_SelectedForm = FacebookFormFactoryMethod.CreateForm(i_SelectedFormType);
             }
 
-            openSubForm(m_MostPopularFeedForm);
+            openSubForm(io_SelectedForm);
             loadingFormProcessDone();
         }
 
