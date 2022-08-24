@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using FacebookWrapper.ObjectModel;
+using System.Collections.Generic;
 using System.Windows.Forms;
-using FacebookWrapper.ObjectModel;
 
 namespace FacebookWinFormsApp.Forms
 {

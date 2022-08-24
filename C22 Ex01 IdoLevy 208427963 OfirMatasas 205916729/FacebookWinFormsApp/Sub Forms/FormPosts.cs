@@ -1,9 +1,9 @@
-﻿using System;
-using System.Text;
-using System.Windows.Forms;
-using BasicFacebookFeatures;
+﻿using BasicFacebookFeatures;
 using FacebookWinFormsLogic;
 using FacebookWrapper.ObjectModel;
+using System;
+using System.Text;
+using System.Windows.Forms;
 
 namespace FacebookWinFormsApp.Forms
 {
@@ -16,7 +16,7 @@ namespace FacebookWinFormsApp.Forms
             r_LoggedInUser = i_LoggedInUser;
             InitializeComponent();
             fetchPosts();
-        } 
+        }
 
         private void fetchPosts()
         {
@@ -69,7 +69,7 @@ namespace FacebookWinFormsApp.Forms
         {
             Status postedStatus;
 
-            if(string.IsNullOrEmpty(richTextBoxNewPost?.Text))
+            if (string.IsNullOrEmpty(richTextBoxNewPost?.Text))
             {
                 MessageDisplayer.CannotBeEmpty("post", "post");
             }

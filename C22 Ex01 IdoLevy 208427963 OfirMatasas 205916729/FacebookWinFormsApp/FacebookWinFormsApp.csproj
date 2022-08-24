@@ -89,6 +89,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\NotSupportedFormTypeException.cs" />
+    <Compile Include="FacebookFormFactoryMethod.cs" />
     <Compile Include="MessageDisplayer.cs" />
     <Compile Include="Sub Forms\FormAlbums.cs">
       <SubType>Form</SubType>

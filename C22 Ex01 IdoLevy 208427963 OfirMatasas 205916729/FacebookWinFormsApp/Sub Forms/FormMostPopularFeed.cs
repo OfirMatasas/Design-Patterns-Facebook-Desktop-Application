@@ -1,9 +1,9 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
-using BasicFacebookFeatures;
+﻿using BasicFacebookFeatures;
 using FacebookWinFormsLogic;
 using FacebookWrapper.ObjectModel;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace FacebookWinFormsApp.Forms
 {
@@ -43,7 +43,7 @@ namespace FacebookWinFormsApp.Forms
         {
             string nonExistedItem;
 
-            if(!i_FoundMostPopularPost && !i_FoundMostPopularPhoto)
+            if (!i_FoundMostPopularPost && !i_FoundMostPopularPhoto)
             {
                 nonExistedItem = "post / photo";
             }

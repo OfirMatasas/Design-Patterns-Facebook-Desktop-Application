@@ -1,5 +1,5 @@
-﻿using System;
-using FacebookWrapper.ObjectModel;
+﻿using FacebookWrapper.ObjectModel;
+using System;
 
 namespace FacebookWinFormsLogic
 {
@@ -36,7 +36,7 @@ namespace FacebookWinFormsLogic
 
             foreach (Album album in LoggedInUser.Albums)
             {
-                foreach(Photo photo in album.Photos)
+                foreach (Photo photo in album.Photos)
                 {
                     if (photo.CreatedTime.Value.Year == i_ChosenDate.Year)
                     {

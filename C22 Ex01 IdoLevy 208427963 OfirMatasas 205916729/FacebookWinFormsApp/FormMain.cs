@@ -1,8 +1,8 @@
-﻿using System;
-using System.Windows.Forms;
-using FacebookWrapper;
+﻿using BasicFacebookFeatures;
 using FacebookWinFormsLogic;
-using FacebookWinFormsApp.Forms;
+using FacebookWrapper;
+using System;
+using System.Windows.Forms;
 
 namespace FacebookWinFormsApp
 {
@@ -11,16 +11,16 @@ namespace FacebookWinFormsApp
         private readonly AppSetting r_AppSetting;
         private readonly FacebookAccountManager r_AccountManager = new FacebookAccountManager();
         private Form m_ActivateForm;
-        private FormProfile m_ProfileForm;
-        private FormPosts m_PostsForm;
-        private FormAlbums m_AlbumsForm;
-        private FormEvents m_EventsForm;
-        private FormGroups m_GroupsForm;
-        private FormFavoriteTeams m_FavoriteTeamsForm;
-        private FormLikedPages m_LikedPagesForm;
-        private FormFriends m_FriendsForm;
-        private FormStatistics m_StatisticsForm;
-        private FormMostPopularFeed m_MostPopularFeedForm;
+        private Form m_ProfileForm;
+        private Form m_PostsForm;
+        private Form m_AlbumsForm;
+        private Form m_EventsForm;
+        private Form m_GroupsForm;
+        private Form m_FavoriteTeamsForm;
+        private Form m_LikedPagesForm;
+        private Form m_FriendsForm;
+        private Form m_StatisticsForm;
+        private Form m_MostPopularFeedForm;
 
         public FormMain()
         {
@@ -37,6 +37,7 @@ namespace FacebookWinFormsApp
             if (r_AppSetting.RememberUserInfo && !string.IsNullOrEmpty(r_AppSetting.LastAccessToken))
             {
                 r_AccountManager.Connect(r_AppSetting.LastAccessToken);
+                FacebookFormFactoryMethod.SetFacebookAccountManager(r_AccountManager);
                 populateUI();
             }
         }
@@ -54,6 +55,7 @@ namespace FacebookWinFormsApp
             if (r_AccountManager.Login())
             {
                 populateUI();
+                FacebookFormFactoryMethod.SetFacebookAccountManager(r_AccountManager);
                 if (checkBoxRememberMe.Checked)
                 {
                     r_AppSetting.RememberUser(r_AccountManager.LoginResult.AccessToken);
@@ -61,7 +63,7 @@ namespace FacebookWinFormsApp
             }
             else
             {
-                MessageBox.Show($"You must login to facebook !", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageDisplayer.ActionFailed("login");
             }
         }
 
@@ -106,7 +108,7 @@ namespace FacebookWinFormsApp
             loadingFormProcessStarted();
             if (m_ProfileForm == null)
             {
-                m_ProfileForm = new FormProfile(r_AccountManager.LoginResult.LoggedInUser);
+                m_ProfileForm = FacebookFormFactoryMethod.CreateForm(FacebookFormFactoryMethod.eFormTypes.Profile);
             }
 
             openSubForm(m_ProfileForm);
@@ -118,7 +120,7 @@ namespace FacebookWinFormsApp
             loadingFormProcessStarted();
             if (m_PostsForm == null)
             {
-                m_PostsForm = new FormPosts(r_AccountManager);
+                m_PostsForm = FacebookFormFactoryMethod.CreateForm(FacebookFormFactoryMethod.eFormTypes.Posts);
             }
 
             openSubForm(m_PostsForm);
@@ -130,7 +132,7 @@ namespace FacebookWinFormsApp
             loadingFormProcessStarted();
             if (m_AlbumsForm == null)
             {
-                m_AlbumsForm = new FormAlbums(r_AccountManager.LoginResult.LoggedInUser.Albums);
+                m_AlbumsForm = FacebookFormFactoryMethod.CreateForm(FacebookFormFactoryMethod.eFormTypes.Albums);
             }
 
             openSubForm(m_AlbumsForm);
@@ -142,7 +144,7 @@ namespace FacebookWinFormsApp
             loadingFormProcessStarted();
             if (m_EventsForm == null)
             {
-                m_EventsForm = new FormEvents(r_AccountManager.LoginResult.LoggedInUser.Events);
+                m_EventsForm = FacebookFormFactoryMethod.CreateForm(FacebookFormFactoryMethod.eFormTypes.Events);
             }
 
             openSubForm(m_EventsForm);
@@ -154,7 +156,7 @@ namespace FacebookWinFormsApp
             loadingFormProcessStarted();
             if (m_GroupsForm == null)
             {
-                m_GroupsForm = new FormGroups(r_AccountManager.LoginResult.LoggedInUser.Groups);
+                m_GroupsForm = FacebookFormFactoryMethod.CreateForm(FacebookFormFactoryMethod.eFormTypes.Groups);
             }
 
             openSubForm(m_GroupsForm);
@@ -166,7 +168,7 @@ namespace FacebookWinFormsApp
             loadingFormProcessStarted();
             if (m_FavoriteTeamsForm == null)
             {
-                m_FavoriteTeamsForm = new FormFavoriteTeams(r_AccountManager.LoginResult.LoggedInUser.FavofriteTeams);
+                m_FavoriteTeamsForm = FacebookFormFactoryMethod.CreateForm(FacebookFormFactoryMethod.eFormTypes.FavoriteTeams);
             }
 
             openSubForm(m_FavoriteTeamsForm);
@@ -178,7 +180,7 @@ namespace FacebookWinFormsApp
             loadingFormProcessStarted();
             if (m_LikedPagesForm == null)
             {
-                m_LikedPagesForm = new FormLikedPages(r_AccountManager.LoginResult.LoggedInUser.LikedPages);
+                m_LikedPagesForm = FacebookFormFactoryMethod.CreateForm(FacebookFormFactoryMethod.eFormTypes.LikedPages);
             }
 
             openSubForm(m_LikedPagesForm);
@@ -190,7 +192,7 @@ namespace FacebookWinFormsApp
             loadingFormProcessStarted();
             if (m_FriendsForm == null)
             {
-                m_FriendsForm = new FormFriends(r_AccountManager.LoginResult.LoggedInUser.Friends);
+                m_FriendsForm = FacebookFormFactoryMethod.CreateForm(FacebookFormFactoryMethod.eFormTypes.Friends);
             }
 
             openSubForm(m_FriendsForm);
@@ -202,7 +204,7 @@ namespace FacebookWinFormsApp
             loadingFormProcessStarted();
             if (m_StatisticsForm == null)
             {
-                m_StatisticsForm = new FormStatistics(r_AccountManager.LoginResult.LoggedInUser);
+                m_StatisticsForm = FacebookFormFactoryMethod.CreateForm(FacebookFormFactoryMethod.eFormTypes.Statistics);
             }
 
             openSubForm(m_StatisticsForm);
@@ -214,7 +216,7 @@ namespace FacebookWinFormsApp
             loadingFormProcessStarted();
             if (m_MostPopularFeedForm == null)
             {
-                m_MostPopularFeedForm = new FormMostPopularFeed(r_AccountManager.LoginResult.LoggedInUser);
+                m_MostPopularFeedForm = FacebookFormFactoryMethod.CreateForm(FacebookFormFactoryMethod.eFormTypes.MostPopularFeed);
             }
 
             openSubForm(m_MostPopularFeedForm);
@@ -231,7 +233,7 @@ namespace FacebookWinFormsApp
         protected override void OnFormClosing(FormClosingEventArgs i_E)
         {
             base.OnFormClosing(i_E);
-            if(r_AppSetting.RememberUserInfo)
+            if (r_AppSetting.RememberUserInfo)
             {
                 r_AppSetting.RememberUser(r_AccountManager.LoginResult.AccessToken);
             }

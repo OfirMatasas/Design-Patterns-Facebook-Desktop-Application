@@ -1,8 +1,8 @@
-﻿using System;
-using System.Windows.Forms;
-using BasicFacebookFeatures;
+﻿using BasicFacebookFeatures;
 using FacebookWinFormsLogic;
 using FacebookWrapper.ObjectModel;
+using System;
+using System.Windows.Forms;
 
 namespace FacebookWinFormsApp.Forms
 {
@@ -39,9 +39,9 @@ namespace FacebookWinFormsApp.Forms
             int numberOfLikesOnPhotos, numberOfNewAlbums, numberOfNewPhotos;
 
             r_StatisticsLogic.AnalyzeDataOnAlbumsAndPhotosInChosenDate(
-                i_ChosenDate, 
-                out numberOfLikesOnPhotos, 
-                out numberOfNewAlbums, 
+                i_ChosenDate,
+                out numberOfLikesOnPhotos,
+                out numberOfNewAlbums,
                 out numberOfNewPhotos);
             labelNumberOfLikesOnPhotos.Text = $"{numberOfLikesOnPhotos} Like{(numberOfLikesOnPhotos == 1 ? string.Empty : "s")}{Environment.NewLine}on photos";
             labelNumberOfNewAlbums.Text = $"{numberOfNewAlbums} new{Environment.NewLine}album{(numberOfNewAlbums == 1 ? string.Empty : "s")}";

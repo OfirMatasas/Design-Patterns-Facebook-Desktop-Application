@@ -54,8 +54,8 @@ namespace BasicFacebookFeatures
         {
             MessageBox.Show(
                 i_Message,
-                "Action succeeded", 
-                MessageBoxButtons.OK, 
+                "Action succeeded",
+                MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
         }
     }

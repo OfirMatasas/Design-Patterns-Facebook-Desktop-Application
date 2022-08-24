@@ -1,5 +1,5 @@
-﻿using System;
-using FacebookWrapper.ObjectModel;
+﻿using FacebookWrapper.ObjectModel;
+using System;
 
 namespace FacebookWinFormsLogic
 {
