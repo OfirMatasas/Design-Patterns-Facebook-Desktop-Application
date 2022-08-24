@@ -1,4 +1,5 @@
 ﻿using BasicFacebookFeatures;
+using FacebookExceptions;
 using FacebookWinFormsLogic;
 using FacebookWrapper;
 using System;
@@ -9,7 +10,6 @@ namespace FacebookWinFormsApp
     internal partial class FormMain : Form
     {
         private readonly AppSetting r_AppSetting;
-        private readonly FacebookAccountManager r_AccountManager = new FacebookAccountManager();
         private Form m_ActivateForm;
         private Form m_ProfileForm;
         private Form m_PostsForm;
@@ -31,13 +31,14 @@ namespace FacebookWinFormsApp
 
         protected override void OnShown(EventArgs i_E)
         {
+            FacebookAccountManager accountManager = FacebookAccountManager.Instance;
+
             base.OnShown(i_E);
             checkBoxRememberMe.Checked = r_AppSetting.RememberUserInfo;
             displayLoginControllers(!r_AppSetting.RememberUserInfo);
             if (r_AppSetting.RememberUserInfo && !string.IsNullOrEmpty(r_AppSetting.LastAccessToken))
             {
-                r_AccountManager.Connect(r_AppSetting.LastAccessToken);
-                FacebookFormFactoryMethod.SetFacebookAccountManager(r_AccountManager);
+                accountManager.Connect(r_AppSetting.LastAccessToken);
                 populateUI();
             }
         }
@@ -52,18 +53,24 @@ namespace FacebookWinFormsApp
 
         private void buttonLogin_Click(object i_Sender, EventArgs i_E)
         {
-            if (r_AccountManager.Login())
+            try
             {
+                FacebookAccountManager accountManager = FacebookAccountManager.Instance;
+
+                accountManager.Login();
                 populateUI();
-                FacebookFormFactoryMethod.SetFacebookAccountManager(r_AccountManager);
                 if (checkBoxRememberMe.Checked)
                 {
-                    r_AppSetting.RememberUser(r_AccountManager.LoginResult.AccessToken);
+                    r_AppSetting.RememberUser(accountManager.AccessToken);
                 }
             }
-            else
+            catch(LoginFailureException)
             {
                 MessageDisplayer.ActionFailed("login");
+            }
+            catch (UserAlreadyLoggedInException)
+            {
+                MessageDisplayer.InvalidOperation("User already logged in!");
             }
         }
 
@@ -78,8 +85,10 @@ namespace FacebookWinFormsApp
 
         private void displayUsersProfileInfoOnSidebar()
         {
-            pictureBoxProfilePicture.Image = r_AccountManager.LoginResult.LoggedInUser.ImageNormal;
-            labelProfileName.Text = r_AccountManager.LoginResult.LoggedInUser.Name;
+            FacebookAccountManager accountManager = FacebookAccountManager.Instance;
+
+            pictureBoxProfilePicture.Image = accountManager.User.ImageNormal;
+            labelProfileName.Text = accountManager.User.Name;
             labelProfileName.Visible = true;
         }
 
@@ -105,60 +114,60 @@ namespace FacebookWinFormsApp
 
         private void showUsersProfileForm(object i_Sender, EventArgs i_E)
         {
-            loadSelectedForm(ref m_ProfileForm, FacebookFormFactoryMethod.eFormTypes.Profile);
+            loadSelectedForm(ref m_ProfileForm, FacebookFormFactory.eFormTypes.Profile);
         }
 
         private void buttonPosts_Click(object i_Sender, EventArgs i_E)
         {
-            loadSelectedForm(ref m_PostsForm, FacebookFormFactoryMethod.eFormTypes.Posts);
+            loadSelectedForm(ref m_PostsForm, FacebookFormFactory.eFormTypes.Posts);
         }
 
         private void buttonAlbums_Click(object i_Sender, EventArgs i_E)
         {
-            loadSelectedForm(ref m_AlbumsForm, FacebookFormFactoryMethod.eFormTypes.Albums);
+            loadSelectedForm(ref m_AlbumsForm, FacebookFormFactory.eFormTypes.Albums);
         }
 
         private void buttonEvents_Click(object i_Sender, EventArgs i_E)
         {
-            loadSelectedForm(ref m_EventsForm, FacebookFormFactoryMethod.eFormTypes.Events);
+            loadSelectedForm(ref m_EventsForm, FacebookFormFactory.eFormTypes.Events);
         }
 
         private void buttonGroups_Click(object i_Sender, EventArgs i_E)
         {
-            loadSelectedForm(ref m_GroupsForm, FacebookFormFactoryMethod.eFormTypes.Groups);
+            loadSelectedForm(ref m_GroupsForm, FacebookFormFactory.eFormTypes.Groups);
         }
 
         private void buttonFavoriteTeams_Click(object i_Sender, EventArgs i_E)
         {
-            loadSelectedForm(ref m_FavoriteTeamsForm, FacebookFormFactoryMethod.eFormTypes.FavoriteTeams);
+            loadSelectedForm(ref m_FavoriteTeamsForm, FacebookFormFactory.eFormTypes.FavoriteTeams);
         }
 
         private void buttonLikedPages_Click(object i_Sender, EventArgs i_E)
         {
-            loadSelectedForm(ref m_LikedPagesForm, FacebookFormFactoryMethod.eFormTypes.LikedPages);
+            loadSelectedForm(ref m_LikedPagesForm, FacebookFormFactory.eFormTypes.LikedPages);
         }
 
         private void buttonFriends_Click(object i_Sender, EventArgs i_E)
         {
-            loadSelectedForm(ref m_FriendsForm, FacebookFormFactoryMethod.eFormTypes.Friends);
+            loadSelectedForm(ref m_FriendsForm, FacebookFormFactory.eFormTypes.Friends);
         }
 
         private void buttonStatistics_Click(object i_Sender, EventArgs i_E)
         {
-            loadSelectedForm(ref m_StatisticsForm, FacebookFormFactoryMethod.eFormTypes.Statistics);
+            loadSelectedForm(ref m_StatisticsForm, FacebookFormFactory.eFormTypes.Statistics);
         }
 
         private void buttonMostPopularFeed_Click(object i_Sender, EventArgs i_E)
         {
-            loadSelectedForm(ref m_MostPopularFeedForm, FacebookFormFactoryMethod.eFormTypes.MostPopularFeed);
+            loadSelectedForm(ref m_MostPopularFeedForm, FacebookFormFactory.eFormTypes.MostPopularFeed);
         }
 
-        private void loadSelectedForm(ref Form io_SelectedForm, FacebookFormFactoryMethod.eFormTypes i_SelectedFormType)
+        private void loadSelectedForm(ref Form io_SelectedForm, FacebookFormFactory.eFormTypes i_SelectedFormType)
         {
             loadingFormProcessStarted();
             if (io_SelectedForm == null)
             {
-                io_SelectedForm = FacebookFormFactoryMethod.CreateForm(i_SelectedFormType);
+                io_SelectedForm = FacebookFormFactory.CreateForm(i_SelectedFormType);
             }
 
             openSubForm(io_SelectedForm);
@@ -167,17 +176,19 @@ namespace FacebookWinFormsApp
 
         private void buttonLogout_Click(object i_Sender, EventArgs i_E)
         {
-            r_AccountManager.Logout();
+            FacebookAccountManager.Instance.Logout();
             r_AppSetting.ForgetUser();
             Close();
         }
 
         protected override void OnFormClosing(FormClosingEventArgs i_E)
-        {
+        { 
+            FacebookAccountManager accountManager = FacebookAccountManager.Instance;
+
             base.OnFormClosing(i_E);
             if (r_AppSetting.RememberUserInfo)
             {
-                r_AppSetting.RememberUser(r_AccountManager.LoginResult.AccessToken);
+                r_AppSetting.RememberUser(accountManager.AccessToken);
             }
             else
             {

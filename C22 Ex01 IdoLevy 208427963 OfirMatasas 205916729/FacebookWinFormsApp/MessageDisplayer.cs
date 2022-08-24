@@ -41,6 +41,15 @@ namespace BasicFacebookFeatures
                 MessageBoxIcon.Error);
         }
 
+        public static void InvalidOperation(string i_Message)
+        {
+            MessageBox.Show(
+                i_Message,
+                "Invalid Operation",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+        }
+
         internal static void ActionFailed(string i_Action)
         {
             MessageBox.Show(

@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EA1DE595-8230-423F-B2F4-B90FBC3C4382}</ProjectGuid>
+    <ProjectGuid>{F842BD51-CC08-4AA6-8CAC-1C0AAAF4C50D}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>FacebookWinFormsLogic</RootNamespace>
-    <AssemblyName>FacebookWinFormsLogic</AssemblyName>
+    <RootNamespace>FacebookExceptions</RootNamespace>
+    <AssemblyName>FacebookExceptions</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -40,28 +39,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppSetting.cs" />
-    <Compile Include="FacebookAccountManager.cs" />
-    <Compile Include="MostPopularFeedLogic.cs" />
-    <Compile Include="StatisticsLogic.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="FbGraphApiWrapper">
-      <HintPath>..\FBApi\FbGraphApiWrapper.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="AppSetting.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FacebookExceptions\FacebookExceptions.csproj">
-      <Project>{f842bd51-cc08-4aa6-8cac-1c0aaaf4c50d}</Project>
-      <Name>FacebookExceptions</Name>
-    </ProjectReference>
+    <Compile Include="LoginFailureException.cs" />
+    <Compile Include="NotSupportedFormTypeException.cs" />
+    <Compile Include="UserAlreadyLoggedInException.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

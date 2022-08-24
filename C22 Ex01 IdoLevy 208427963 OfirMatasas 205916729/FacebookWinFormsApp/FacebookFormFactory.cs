@@ -1,4 +1,4 @@
-﻿using BasicFacebookFeatures.Exceptions;
+﻿using FacebookExceptions;
 using FacebookWinFormsApp.Forms;
 using FacebookWinFormsLogic;
 using System;
@@ -6,11 +6,8 @@ using System.Windows.Forms;
 
 namespace BasicFacebookFeatures
 {
-    public class FacebookFormFactoryMethod
+    public class FacebookFormFactory
     {
-        private static FacebookAccountManager facebookAccountManager;
-        private static object setFacebookAccountManagerLock = new object();
-
         public enum eFormTypes
         {
             Albums,
@@ -25,19 +22,6 @@ namespace BasicFacebookFeatures
             Statistics
         }
 
-        public static void SetFacebookAccountManager(FacebookAccountManager i_FacebookAccountManager)
-        {
-            lock (setFacebookAccountManagerLock)
-            {
-                if (facebookAccountManager != null)
-                {
-                    throw new Exception("Facebook account manager can be set only once on FormFactoryMethod.");
-                }
-
-                facebookAccountManager = i_FacebookAccountManager;
-            }
-        }
-
         public static Form CreateForm(eFormTypes i_FormType)
         {
             Form requestedForm;
@@ -50,7 +34,7 @@ namespace BasicFacebookFeatures
 
         private static void makeSureTheUserIsLoggedIn()
         {
-            if (facebookAccountManager == null)
+            if (!FacebookAccountManager.LoggedIn)
             {
                 throw new InvalidOperationException("Forms can be created only after logging into a Facebook account.");
             }
@@ -58,39 +42,40 @@ namespace BasicFacebookFeatures
 
         private static Form createTheFormRequested(eFormTypes i_FormType)
         {
+            FacebookAccountManager accountManager = FacebookAccountManager.Instance;
             Form requestedForm;
 
             switch (i_FormType)
             {
                 case eFormTypes.Profile:
-                    requestedForm = new FormProfile(facebookAccountManager.LoginResult.LoggedInUser);
+                    requestedForm = new FormProfile(accountManager.User);
                     break;
                 case eFormTypes.Albums:
-                    requestedForm = new FormAlbums(facebookAccountManager.LoginResult.LoggedInUser.Albums);
+                    requestedForm = new FormAlbums(accountManager.User.Albums);
                     break;
                 case eFormTypes.Events:
-                    requestedForm = new FormEvents(facebookAccountManager.LoginResult.LoggedInUser.Events);
+                    requestedForm = new FormEvents(accountManager.User.Events);
                     break;
                 case eFormTypes.Posts:
-                    requestedForm = new FormPosts(facebookAccountManager);
+                    requestedForm = new FormPosts(accountManager);
                     break;
                 case eFormTypes.LikedPages:
-                    requestedForm = new FormLikedPages(facebookAccountManager.LoginResult.LoggedInUser.LikedPages);
+                    requestedForm = new FormLikedPages(accountManager.User.LikedPages);
                     break;
                 case eFormTypes.FavoriteTeams:
-                    requestedForm = new FormFavoriteTeams(facebookAccountManager.LoginResult.LoggedInUser.FavofriteTeams);
+                    requestedForm = new FormFavoriteTeams(accountManager.User.FavofriteTeams);
                     break;
                 case eFormTypes.Friends:
-                    requestedForm = new FormFriends(facebookAccountManager.LoginResult.LoggedInUser.Friends);
+                    requestedForm = new FormFriends(accountManager.User.Friends);
                     break;
                 case eFormTypes.Groups:
-                    requestedForm = new FormGroups(facebookAccountManager.LoginResult.LoggedInUser.Groups);
+                    requestedForm = new FormGroups(accountManager.User.Groups);
                     break;
                 case eFormTypes.Statistics:
-                    requestedForm = new FormStatistics(facebookAccountManager.LoginResult.LoggedInUser);
+                    requestedForm = new FormStatistics(accountManager.User);
                     break;
                 case eFormTypes.MostPopularFeed:
-                    requestedForm = new FormMostPopularFeed(facebookAccountManager.LoginResult.LoggedInUser);
+                    requestedForm = new FormMostPopularFeed(accountManager.User);
                     break;
                 default:
                     throw new NotSupportedFormTypeException("This form type is not manufactored in this factory.");

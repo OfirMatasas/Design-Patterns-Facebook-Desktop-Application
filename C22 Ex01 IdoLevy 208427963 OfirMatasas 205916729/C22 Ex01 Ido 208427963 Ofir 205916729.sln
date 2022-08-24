@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacebookWinFormsApp", "Face
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacebookWinFormsLogic", "FacebookWinFormsLogic\FacebookWinFormsLogic.csproj", "{EA1DE595-8230-423F-B2F4-B90FBC3C4382}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacebookExceptions", "FacebookExceptions\FacebookExceptions.csproj", "{F842BD51-CC08-4AA6-8CAC-1C0AAAF4C50D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,8 +19,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{905D5BF1-A7E4-4440-85E8-84772F5312D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{905D5BF1-A7E4-4440-85E8-84772F5312D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{905D5BF1-A7E4-4440-85E8-84772F5312D5}.Debug|x64.ActiveCfg = Debug|x64
-		{905D5BF1-A7E4-4440-85E8-84772F5312D5}.Debug|x64.Build.0 = Debug|x64
+		{905D5BF1-A7E4-4440-85E8-84772F5312D5}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{905D5BF1-A7E4-4440-85E8-84772F5312D5}.Debug|x64.Build.0 = Debug|Any CPU
 		{905D5BF1-A7E4-4440-85E8-84772F5312D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{905D5BF1-A7E4-4440-85E8-84772F5312D5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{905D5BF1-A7E4-4440-85E8-84772F5312D5}.Release|x64.ActiveCfg = Release|x64
@@ -31,6 +33,14 @@ Global
 		{EA1DE595-8230-423F-B2F4-B90FBC3C4382}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EA1DE595-8230-423F-B2F4-B90FBC3C4382}.Release|x64.ActiveCfg = Release|Any CPU
 		{EA1DE595-8230-423F-B2F4-B90FBC3C4382}.Release|x64.Build.0 = Release|Any CPU
+		{F842BD51-CC08-4AA6-8CAC-1C0AAAF4C50D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F842BD51-CC08-4AA6-8CAC-1C0AAAF4C50D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F842BD51-CC08-4AA6-8CAC-1C0AAAF4C50D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F842BD51-CC08-4AA6-8CAC-1C0AAAF4C50D}.Debug|x64.Build.0 = Debug|Any CPU
+		{F842BD51-CC08-4AA6-8CAC-1C0AAAF4C50D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F842BD51-CC08-4AA6-8CAC-1C0AAAF4C50D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F842BD51-CC08-4AA6-8CAC-1C0AAAF4C50D}.Release|x64.ActiveCfg = Release|Any CPU
+		{F842BD51-CC08-4AA6-8CAC-1C0AAAF4C50D}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BasicFacebookFeatures.Exceptions
+namespace FacebookExceptions
 {
     public class NotSupportedFormTypeException : Exception
     {

@@ -22,7 +22,7 @@ namespace FacebookWinFormsApp.Forms
         {
             listBoxPosts.Text = Name;
 
-            foreach (Post post in r_LoggedInUser.LoginResult.LoggedInUser.Posts)
+            foreach (Post post in r_LoggedInUser.User.Posts)
             {
                 listBoxPosts.Items.Add(post);
             }
