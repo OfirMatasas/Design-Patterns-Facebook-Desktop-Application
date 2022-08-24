@@ -206,6 +206,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="FacebookWrapper.ObjectModel.Group.datasource" />
+    <None Include="FacebookWrapper.ObjectModel.Page.datasource" />
     <None Include="FacebookWrapper.ObjectModel.User.datasource" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

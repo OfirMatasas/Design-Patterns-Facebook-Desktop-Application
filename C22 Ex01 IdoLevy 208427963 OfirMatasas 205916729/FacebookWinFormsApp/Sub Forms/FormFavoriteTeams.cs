@@ -19,14 +19,13 @@ namespace FacebookWinFormsApp.Forms
 
         private void fetchFavoriteTeams()
         {
-            listBoxFavoriteTeams.Text = Name;
-
-            if (r_FavoriteTeams != null)
+            if (!listBoxFavoriteTeams.InvokeRequired)
             {
-                foreach (Page favoriteTeam in r_FavoriteTeams)
-                {
-                    listBoxFavoriteTeams.Items.Add(favoriteTeam);
-                }
+                pageBindingSource.DataSource = r_FavoriteTeams;
+            }
+            else
+            {
+                listBoxFavoriteTeams.Invoke(new Action(() => pageBindingSource.DataSource = r_FavoriteTeams));
             }
         }
 
@@ -37,40 +36,6 @@ namespace FacebookWinFormsApp.Forms
             {
                 MessageDisplayer.NoItemsAppearOnForm("favorite teams");
             }
-        }
-
-        private void listBoxFavoriteTeams_SelectedIndexChanged(object i_Sender, EventArgs i_E)
-        {
-            Page selectedTeam = listBoxFavoriteTeams.SelectedItem as Page;
-
-            displaySelectedTeamPicture(selectedTeam);
-            displaySelectedTeamInformation(selectedTeam);
-        }
-
-        private void displaySelectedTeamPicture(Page i_SelectedTeam)
-        {
-            pictureBoxSelectedFavoriteTeam.LoadAsync(i_SelectedTeam.PictureNormalURL);
-        }
-
-        private void displaySelectedTeamInformation(Page i_SelectedTeam)
-        {
-            richTextBoxSelectedTeamInfo.Text = string.Format(
-@"Name: {0}
-Description: {1}
-Category: {2}
-Likes: {3}
-Phone number: {4}
-Location: {5}
-Website: {6}",
-i_SelectedTeam.Name,
-i_SelectedTeam.Description,
-i_SelectedTeam.Category,
-i_SelectedTeam.LikesCount,
-i_SelectedTeam.Phone,
-i_SelectedTeam.Location,
-i_SelectedTeam.Website);
-            richTextBoxSelectedTeamInfo.Visible = true;
-            labelTeamInformation.Visible = true;
         }
     }
 }
