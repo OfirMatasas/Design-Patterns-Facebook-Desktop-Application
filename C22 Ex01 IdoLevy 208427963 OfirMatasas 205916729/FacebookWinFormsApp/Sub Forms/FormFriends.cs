@@ -19,11 +19,13 @@ namespace FacebookWinFormsApp.Forms
 
         private void fetchFriends()
         {
-            listBoxFriends.Text = Name;
-
-            foreach (User friend in r_Friends)
+            if (!listBoxFriends.InvokeRequired)
             {
-                listBoxFriends.Items.Add(friend);
+                userBindingSource.DataSource = r_Friends;
+            }
+            else
+            {
+                listBoxFriends.Invoke(new Action(() => userBindingSource.DataSource = r_Friends));
             }
         }
 
@@ -34,26 +36,6 @@ namespace FacebookWinFormsApp.Forms
             {
                 MessageDisplayer.NoItemsAppearOnForm("friends");
             }
-        }
-
-        private void listBoxFriends_SelectedIndexChanged(object i_Sender, EventArgs i_E)
-        {
-            User selectedFriend = listBoxFriends.SelectedItem as User;
-
-            displaySelectedFriendProfilePicture(selectedFriend);
-            displaySelectedFriendAbout(selectedFriend);
-        }
-
-        private void displaySelectedFriendProfilePicture(User i_SelectedFriend)
-        {
-            pictureBoxFriendProfilePicture.Image = i_SelectedFriend.ImageNormal;
-        }
-
-        private void displaySelectedFriendAbout(User i_SelectedFriend)
-        {
-            richTextBoxFriendAbout.Text = i_SelectedFriend.About;
-            richTextBoxFriendAbout.Visible = true;
-            labelFriendsInformation.Visible = true;
         }
     }
 }
