@@ -1,4 +1,5 @@
 ﻿using BasicFacebookFeatures;
+using FacebookWinFormsLogic;
 using FacebookWrapper.ObjectModel;
 using System;
 using System.Windows.Forms;
@@ -9,10 +10,10 @@ namespace FacebookWinFormsApp.Forms
     {
         private readonly FacebookObjectCollection<User> r_Friends;
 
-        public FormFriends(FacebookObjectCollection<User> i_Friends)
+        public FormFriends()
         {
             InitializeComponent();
-            r_Friends = i_Friends;
+            r_Friends = FacebookAccountManager.Instance.User.Friends;
             fetchFriends();
         }
 

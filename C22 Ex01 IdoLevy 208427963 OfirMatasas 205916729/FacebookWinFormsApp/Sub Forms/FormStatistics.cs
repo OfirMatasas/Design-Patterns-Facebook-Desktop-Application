@@ -1,6 +1,5 @@
 ﻿using BasicFacebookFeatures;
 using FacebookWinFormsLogic;
-using FacebookWrapper.ObjectModel;
 using System;
 using System.Windows.Forms;
 
@@ -10,10 +9,10 @@ namespace FacebookWinFormsApp.Forms
     {
         private readonly StatisticsLogic r_StatisticsLogic;
 
-        public FormStatistics(User i_LoggedInUser)
+        public FormStatistics()
         {
             InitializeComponent();
-            r_StatisticsLogic = new StatisticsLogic(i_LoggedInUser);
+            r_StatisticsLogic = new StatisticsLogic();
         }
 
         private void fetchStatistics()

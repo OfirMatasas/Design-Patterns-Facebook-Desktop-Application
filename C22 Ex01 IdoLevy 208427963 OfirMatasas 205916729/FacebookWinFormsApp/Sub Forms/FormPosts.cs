@@ -9,12 +9,12 @@ namespace FacebookWinFormsApp.Forms
 {
     internal partial class FormPosts : Form
     {
-        private readonly FacebookAccountManager r_LoggedInUser;
+        private readonly FacebookObjectCollection<Post> r_Posts;
 
-        public FormPosts(FacebookAccountManager i_LoggedInUser)
+        public FormPosts()
         {
-            r_LoggedInUser = i_LoggedInUser;
             InitializeComponent();
+            r_Posts = FacebookAccountManager.Instance.User.Posts;
             fetchPosts();
         }
 
@@ -22,7 +22,7 @@ namespace FacebookWinFormsApp.Forms
         {
             listBoxPosts.Text = Name;
 
-            foreach (Post post in r_LoggedInUser.User.Posts)
+            foreach (Post post in r_Posts)
             {
                 listBoxPosts.Items.Add(post);
             }
@@ -77,7 +77,7 @@ namespace FacebookWinFormsApp.Forms
             {
                 try
                 {
-                    postedStatus = r_LoggedInUser.Post(richTextBoxNewPost.Text);
+                    postedStatus = FacebookAccountManager.Instance.Post(richTextBoxNewPost.Text);
                     MessageDisplayer.ActionSucceeded(postedStatus.Message);
                 }
                 catch

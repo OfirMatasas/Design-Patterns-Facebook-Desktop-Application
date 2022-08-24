@@ -5,11 +5,13 @@ namespace FacebookWinFormsLogic
 {
     public class StatisticsLogic
     {
-        public User LoggedInUser { get; }
+        private readonly FacebookObjectCollection<Album> r_Albums;
+        private readonly FacebookObjectCollection<Post> r_Posts;
 
-        public StatisticsLogic(User i_LoggedInUser)
+        public StatisticsLogic()
         {
-            LoggedInUser = i_LoggedInUser;
+            r_Albums = FacebookAccountManager.Instance.User.Albums;
+            r_Posts = FacebookAccountManager.Instance.User.Posts;
         }
 
         private bool CheckIfDatesHasTheSameYearAndMonth(DateTime i_ChosenDate, DateTime i_PostedDate)
@@ -27,7 +29,7 @@ namespace FacebookWinFormsLogic
             o_NumberOfAlbumsCreatedOnChosenDate = 0;
             o_NumberOfPhotosCreatedOnChosenDate = 0;
 
-            foreach (Album album in LoggedInUser.Albums)
+            foreach (Album album in r_Albums)
             {
                 if (CheckIfDatesHasTheSameYearAndMonth(i_ChosenDate, album.CreatedTime.Value))
                 {
@@ -49,7 +51,7 @@ namespace FacebookWinFormsLogic
         {
             int numberOfPostsCreatedOnChosenDate = 0;
 
-            foreach (Post post in LoggedInUser.Posts)
+            foreach (Post post in r_Posts)
             {
                 if (CheckIfDatesHasTheSameYearAndMonth(i_ChosenDate, post.CreatedTime.Value))
                 {

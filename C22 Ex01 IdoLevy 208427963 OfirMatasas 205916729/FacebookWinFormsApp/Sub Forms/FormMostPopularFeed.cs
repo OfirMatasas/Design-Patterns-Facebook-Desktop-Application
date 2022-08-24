@@ -11,10 +11,10 @@ namespace FacebookWinFormsApp.Forms
     {
         private readonly MostPopularFeedLogic r_MostPopularFeedLogic;
 
-        public FormMostPopularFeed(User i_LoggedInUser)
+        public FormMostPopularFeed()
         {
             InitializeComponent();
-            r_MostPopularFeedLogic = new MostPopularFeedLogic(i_LoggedInUser);
+            r_MostPopularFeedLogic = new MostPopularFeedLogic();
         }
 
         private void fetchMostPopularFeed()

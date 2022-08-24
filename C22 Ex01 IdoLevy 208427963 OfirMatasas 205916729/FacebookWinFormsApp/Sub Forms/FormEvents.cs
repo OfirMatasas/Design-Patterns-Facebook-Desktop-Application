@@ -1,4 +1,5 @@
 ﻿using BasicFacebookFeatures;
+using FacebookWinFormsLogic;
 using FacebookWrapper.ObjectModel;
 using System;
 using System.Windows.Forms;
@@ -9,10 +10,10 @@ namespace FacebookWinFormsApp.Forms
     {
         private readonly FacebookObjectCollection<Event> r_Events;
 
-        public FormEvents(FacebookObjectCollection<Event> i_Events)
+        public FormEvents()
         {
             InitializeComponent();
-            r_Events = i_Events;
+            r_Events = FacebookAccountManager.Instance.User.Events;
             fetchEvents();
         }
 

@@ -4,7 +4,7 @@ namespace FacebookExceptions
 {
     public class NotSupportedFormTypeException : Exception
     {
-        public NotSupportedFormTypeException(string i_Message) : base(i_Message)
+        public NotSupportedFormTypeException() : base("This form type is not manufactored in this factory.")
         {
         }
     }

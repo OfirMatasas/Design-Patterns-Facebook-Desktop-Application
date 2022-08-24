@@ -1,4 +1,5 @@
 ﻿using BasicFacebookFeatures;
+using FacebookWinFormsLogic;
 using FacebookWrapper.ObjectModel;
 using System;
 using System.Windows.Forms;
@@ -9,10 +10,10 @@ namespace FacebookWinFormsApp.Forms
     {
         private readonly Page[] r_FavoriteTeams;
 
-        public FormFavoriteTeams(Page[] i_FavoriteTeams)
+        public FormFavoriteTeams()
         {
             InitializeComponent();
-            r_FavoriteTeams = i_FavoriteTeams;
+            r_FavoriteTeams = FacebookAccountManager.Instance.User.FavofriteTeams;
             fetchFavoriteTeams();
         }
 

@@ -2,6 +2,7 @@
 using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
 using System;
+using System.Collections.Generic;
 
 namespace FacebookWinFormsLogic
 {

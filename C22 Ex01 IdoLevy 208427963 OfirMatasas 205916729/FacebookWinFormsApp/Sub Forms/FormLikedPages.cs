@@ -1,4 +1,5 @@
 ﻿using BasicFacebookFeatures;
+using FacebookWinFormsLogic;
 using FacebookWrapper.ObjectModel;
 using System;
 using System.Windows.Forms;
@@ -9,10 +10,10 @@ namespace FacebookWinFormsApp.Forms
     {
         private readonly FacebookObjectCollection<Page> r_LikedPages;
 
-        public FormLikedPages(FacebookObjectCollection<Page> i_LikedPages)
+        public FormLikedPages()
         {
             InitializeComponent();
-            r_LikedPages = i_LikedPages;
+            r_LikedPages = FacebookAccountManager.Instance.User.LikedPages;
             fetchLikedPages();
         }
 

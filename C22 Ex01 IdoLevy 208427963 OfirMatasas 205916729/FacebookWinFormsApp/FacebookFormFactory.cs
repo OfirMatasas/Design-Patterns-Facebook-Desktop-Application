@@ -48,37 +48,37 @@ namespace BasicFacebookFeatures
             switch (i_FormType)
             {
                 case eFormTypes.Profile:
-                    requestedForm = new FormProfile(accountManager.User);
+                    requestedForm = new FormProfile();
                     break;
                 case eFormTypes.Albums:
-                    requestedForm = new FormAlbums(accountManager.User.Albums);
+                    requestedForm = new FormAlbums();
                     break;
                 case eFormTypes.Events:
-                    requestedForm = new FormEvents(accountManager.User.Events);
+                    requestedForm = new FormEvents();
                     break;
                 case eFormTypes.Posts:
-                    requestedForm = new FormPosts(accountManager);
+                    requestedForm = new FormPosts();
                     break;
                 case eFormTypes.LikedPages:
-                    requestedForm = new FormLikedPages(accountManager.User.LikedPages);
+                    requestedForm = new FormLikedPages();
                     break;
                 case eFormTypes.FavoriteTeams:
-                    requestedForm = new FormFavoriteTeams(accountManager.User.FavofriteTeams);
+                    requestedForm = new FormFavoriteTeams();
                     break;
                 case eFormTypes.Friends:
-                    requestedForm = new FormFriends(accountManager.User.Friends);
+                    requestedForm = new FormFriends();
                     break;
                 case eFormTypes.Groups:
-                    requestedForm = new FormGroups(accountManager.User.Groups);
+                    requestedForm = new FormGroups();
                     break;
                 case eFormTypes.Statistics:
-                    requestedForm = new FormStatistics(accountManager.User);
+                    requestedForm = new FormStatistics();
                     break;
                 case eFormTypes.MostPopularFeed:
-                    requestedForm = new FormMostPopularFeed(accountManager.User);
+                    requestedForm = new FormMostPopularFeed();
                     break;
                 default:
-                    throw new NotSupportedFormTypeException("This form type is not manufactored in this factory.");
+                    throw new NotSupportedFormTypeException();
             }
 
             return requestedForm;

@@ -5,18 +5,20 @@ namespace FacebookWinFormsLogic
 {
     public class MostPopularFeedLogic
     {
-        public User LoggedInUser { get; }
+        private readonly FacebookObjectCollection<Post> r_Posts;
+        private readonly FacebookObjectCollection<Album> r_Albums;
 
-        public MostPopularFeedLogic(User i_LoggedInUser)
+        public MostPopularFeedLogic()
         {
-            LoggedInUser = i_LoggedInUser;
+            r_Albums = FacebookAccountManager.Instance.User.Albums;
+            r_Posts = FacebookAccountManager.Instance.User.Posts;
         }
 
         public Post FindMostPopularPost(DateTime i_ChosenDate)
         {
             Post mostPopularPost = null;
 
-            foreach (Post post in LoggedInUser.Posts)
+            foreach (Post post in r_Posts)
             {
                 if (post.CreatedTime.Value.Year == i_ChosenDate.Year)
                 {
@@ -34,7 +36,7 @@ namespace FacebookWinFormsLogic
         {
             Photo mostPopularPhoto = null;
 
-            foreach (Album album in LoggedInUser.Albums)
+            foreach (Album album in r_Albums)
             {
                 foreach (Photo photo in album.Photos)
                 {

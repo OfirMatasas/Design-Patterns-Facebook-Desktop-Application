@@ -1,4 +1,5 @@
 ﻿using BasicFacebookFeatures;
+using FacebookWinFormsLogic;
 using FacebookWrapper.ObjectModel;
 using System;
 using System.Windows.Forms;
@@ -9,10 +10,10 @@ namespace FacebookWinFormsApp.Forms
     {
         private readonly FacebookObjectCollection<Group> r_Groups;
 
-        public FormGroups(FacebookObjectCollection<Group> i_Groups)
+        public FormGroups()
         {
             InitializeComponent();
-            r_Groups = i_Groups;
+            r_Groups = FacebookAccountManager.Instance.User.Groups;
             fetchGroups();
         }
 

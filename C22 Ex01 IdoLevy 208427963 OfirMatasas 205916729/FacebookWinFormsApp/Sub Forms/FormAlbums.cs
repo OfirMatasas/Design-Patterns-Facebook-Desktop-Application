@@ -1,4 +1,5 @@
 ﻿using BasicFacebookFeatures;
+using FacebookWinFormsLogic;
 using FacebookWrapper.ObjectModel;
 using System;
 using System.Drawing;
@@ -10,10 +11,10 @@ namespace FacebookWinFormsApp.Forms
     {
         private readonly FacebookObjectCollection<Album> r_Albums;
 
-        public FormAlbums(FacebookObjectCollection<Album> i_Albums)
+        public FormAlbums()
         {
             InitializeComponent();
-            r_Albums = i_Albums;
+            r_Albums = FacebookAccountManager.Instance.User.Albums;
             fetchAlbums();
         }
 
