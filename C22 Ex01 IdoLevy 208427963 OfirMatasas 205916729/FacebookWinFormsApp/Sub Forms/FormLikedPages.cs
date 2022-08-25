@@ -19,11 +19,13 @@ namespace FacebookWinFormsApp.Forms
 
         private void fetchLikedPages()
         {
-            listBoxLikedPages.Text = Name;
-
-            foreach (Page likedPage in r_LikedPages)
+            if (!listBoxLikedPages.InvokeRequired)
             {
-                listBoxLikedPages.Items.Add(likedPage);
+                pageBindingSource.DataSource = r_LikedPages;
+            }
+            else
+            {
+                listBoxLikedPages.Invoke(new Action(() => pageBindingSource.DataSource = r_LikedPages));
             }
         }
 
@@ -34,13 +36,6 @@ namespace FacebookWinFormsApp.Forms
             {
                 MessageDisplayer.NoItemsAppearOnForm("liked pages");
             }
-        }
-
-        private void listBoxLikedPages_SelectedIndexChanged(object i_Sender, EventArgs i_E)
-        {
-            Page selectedPage = listBoxLikedPages.SelectedItem as Page;
-
-            pictureBoxSelectedLikedPage.LoadAsync(selectedPage.PictureNormalURL);
         }
     }
 }
