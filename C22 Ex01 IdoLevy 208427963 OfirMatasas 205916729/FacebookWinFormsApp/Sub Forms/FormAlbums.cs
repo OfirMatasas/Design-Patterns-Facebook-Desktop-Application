@@ -15,24 +15,18 @@ namespace FacebookWinFormsApp.Forms
         {
             InitializeComponent();
             r_Albums = FacebookAccountManager.Instance.User.Albums;
-            fetchAlbums();
+            
         }
 
         private void fetchAlbums()
         {
-            if (!listBoxAlbums.InvokeRequired)
-            {
-                albumBindingSource.DataSource = r_Albums;
-            }
-            else
-            {
-                listBoxAlbums.Invoke(new Action(() => albumBindingSource.DataSource = r_Albums));
-            }
+            listBoxAlbums.Invoke(new Action(() => albumBindingSource.DataSource = r_Albums));
         }
 
         protected override void OnShown(EventArgs i_E)
         {
             base.OnShown(i_E);
+            fetchAlbums();
             if (listBoxAlbums.Items.Count == 0)
             {
                 MessageDisplayer.NoItemsAppearOnForm("albums");

@@ -14,24 +14,17 @@ namespace FacebookWinFormsApp.Forms
         {
             InitializeComponent();
             r_Friends = FacebookAccountManager.Instance.User.Friends;
-            fetchFriends();
         }
 
         private void fetchFriends()
         {
-            if (!listBoxFriends.InvokeRequired)
-            {
-                userBindingSource.DataSource = r_Friends;
-            }
-            else
-            {
-                listBoxFriends.Invoke(new Action(() => userBindingSource.DataSource = r_Friends));
-            }
+            listBoxFriends.Invoke(new Action(() => userBindingSource.DataSource = r_Friends));
         }
 
         protected override void OnShown(EventArgs i_E)
         {
             base.OnShown(i_E);
+            fetchFriends();
             if (listBoxFriends.Items.Count == 0)
             {
                 MessageDisplayer.NoItemsAppearOnForm("friends");

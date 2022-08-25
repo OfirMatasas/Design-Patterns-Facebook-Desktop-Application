@@ -3,6 +3,7 @@ using FacebookExceptions;
 using FacebookWinFormsLogic;
 using FacebookWrapper;
 using System;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace FacebookWinFormsApp

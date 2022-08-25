@@ -14,24 +14,17 @@ namespace FacebookWinFormsApp.Forms
         {
             InitializeComponent();
             r_LikedPages = FacebookAccountManager.Instance.User.LikedPages;
-            fetchLikedPages();
         }
 
         private void fetchLikedPages()
         {
-            if (!listBoxLikedPages.InvokeRequired)
-            {
-                pageBindingSource.DataSource = r_LikedPages;
-            }
-            else
-            {
-                listBoxLikedPages.Invoke(new Action(() => pageBindingSource.DataSource = r_LikedPages));
-            }
+            listBoxLikedPages.Invoke(new Action(() => pageBindingSource.DataSource = r_LikedPages));
         }
 
         protected override void OnShown(EventArgs i_E)
         {
             base.OnShown(i_E);
+            fetchLikedPages();
             if (listBoxLikedPages.Items.Count == 0)
             {
                 MessageDisplayer.NoItemsAppearOnForm("liked pages");

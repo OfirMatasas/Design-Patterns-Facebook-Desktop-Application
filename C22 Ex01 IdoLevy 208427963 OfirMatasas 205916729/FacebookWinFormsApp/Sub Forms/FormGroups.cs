@@ -14,24 +14,17 @@ namespace FacebookWinFormsApp.Forms
         {
             InitializeComponent();
             r_Groups = FacebookAccountManager.Instance.User.Groups;
-            fetchGroups();
         }
 
         private void fetchGroups()
         {
-            if (!listBoxGroups.InvokeRequired)
-            {
-                groupBindingSource.DataSource = r_Groups;
-            }
-            else
-            {
-                listBoxGroups.Invoke(new Action(() => groupBindingSource.DataSource = r_Groups));
-            }
+            listBoxGroups.Invoke(new Action(() => groupBindingSource.DataSource = r_Groups));
         }
 
         protected override void OnShown(EventArgs i_E)
         {
             base.OnShown(i_E);
+            fetchGroups();
             if (listBoxGroups.Items.Count == 0)
             {
                 MessageDisplayer.NoItemsAppearOnForm("groups");

@@ -14,24 +14,17 @@ namespace FacebookWinFormsApp.Forms
         {
             InitializeComponent();
             r_FavoriteTeams = FacebookAccountManager.Instance.User.FavofriteTeams;
-            fetchFavoriteTeams();
         }
 
         private void fetchFavoriteTeams()
         {
-            if (!listBoxFavoriteTeams.InvokeRequired)
-            {
-                pageBindingSource.DataSource = r_FavoriteTeams;
-            }
-            else
-            {
-                listBoxFavoriteTeams.Invoke(new Action(() => pageBindingSource.DataSource = r_FavoriteTeams));
-            }
+            listBoxFavoriteTeams.Invoke(new Action(() => pageBindingSource.DataSource = r_FavoriteTeams));
         }
 
         protected override void OnShown(EventArgs i_E)
         {
             base.OnShown(i_E);
+            fetchFavoriteTeams();
             if (listBoxFavoriteTeams.Items.Count == 0)
             {
                 MessageDisplayer.NoItemsAppearOnForm("favorite teams");

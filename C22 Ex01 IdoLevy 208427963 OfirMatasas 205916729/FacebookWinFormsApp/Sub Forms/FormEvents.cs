@@ -14,24 +14,17 @@ namespace FacebookWinFormsApp.Forms
         {
             InitializeComponent();
             r_Events = FacebookAccountManager.Instance.User.Events;
-            fetchEvents();
         }
 
         private void fetchEvents()
         {
-            if (!listBoxEvents.InvokeRequired)
-            {
-                eventBindingSource.DataSource = r_Events;
-            }
-            else
-            {
-                listBoxEvents.Invoke(new Action(() => eventBindingSource.DataSource = r_Events));
-            }
+            listBoxEvents.Invoke(new Action(() => eventBindingSource.DataSource = r_Events));
         }
 
         protected override void OnShown(EventArgs i_E)
         {
             base.OnShown(i_E);
+            fetchEvents();
             if (listBoxEvents.Items.Count == 0)
             {
                 MessageDisplayer.NoItemsAppearOnForm("events");
