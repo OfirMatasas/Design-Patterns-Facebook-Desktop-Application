@@ -34,11 +34,11 @@
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelFriendsInformation = new System.Windows.Forms.Label();
             this.labelFriends = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelDataBindings = new System.Windows.Forms.Panel();
             this.imageNormalPictureBox = new System.Windows.Forms.PictureBox();
             this.aboutRichTextBox = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.panelDataBindings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageNormalPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,15 +82,15 @@
             this.labelFriends.TabIndex = 15;
             this.labelFriends.Text = "Friends";
             // 
-            // panel1
+            // panelDataBindings
             // 
-            this.panel1.Controls.Add(this.imageNormalPictureBox);
-            this.panel1.Controls.Add(this.aboutRichTextBox);
-            this.panel1.Controls.Add(this.labelFriendsInformation);
-            this.panel1.Location = new System.Drawing.Point(271, 88);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(216, 284);
-            this.panel1.TabIndex = 16;
+            this.panelDataBindings.Controls.Add(this.imageNormalPictureBox);
+            this.panelDataBindings.Controls.Add(this.aboutRichTextBox);
+            this.panelDataBindings.Controls.Add(this.labelFriendsInformation);
+            this.panelDataBindings.Location = new System.Drawing.Point(271, 70);
+            this.panelDataBindings.Name = "panelDataBindings";
+            this.panelDataBindings.Size = new System.Drawing.Size(216, 284);
+            this.panelDataBindings.TabIndex = 16;
             // 
             // imageNormalPictureBox
             // 
@@ -118,13 +118,13 @@
             this.ClientSize = new System.Drawing.Size(621, 510);
             this.Controls.Add(this.labelFriends);
             this.Controls.Add(this.listBoxFriends);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelDataBindings);
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "FormFriends";
             this.Text = "FormFriends";
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelDataBindings.ResumeLayout(false);
+            this.panelDataBindings.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageNormalPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -136,7 +136,7 @@
         private System.Windows.Forms.ListBox listBoxFriends;
         private System.Windows.Forms.Label labelFriendsInformation;
         private System.Windows.Forms.Label labelFriends;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelDataBindings;
         private System.Windows.Forms.BindingSource userBindingSource;
         private System.Windows.Forms.PictureBox imageNormalPictureBox;
         private System.Windows.Forms.RichTextBox aboutRichTextBox;

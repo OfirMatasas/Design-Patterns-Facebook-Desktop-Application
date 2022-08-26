@@ -31,16 +31,16 @@
         {
             this.components = new System.ComponentModel.Container();
             this.eventBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.imageNormalPictureBox = new System.Windows.Forms.PictureBox();
-            this.descriptionRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.panelDataBindings = new System.Windows.Forms.Panel();
             this.labelDescription = new System.Windows.Forms.Label();
+            this.descriptionRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.imageNormalPictureBox = new System.Windows.Forms.PictureBox();
             this.listBoxEvents = new System.Windows.Forms.ListBox();
             this.labelPicture = new System.Windows.Forms.Label();
             this.labelEvent = new System.Windows.Forms.Label();
             this.panelEventsSection = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.eventBindingSource)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.panelDataBindings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageNormalPictureBox)).BeginInit();
             this.panelEventsSection.SuspendLayout();
             this.SuspendLayout();
@@ -49,33 +49,15 @@
             // 
             this.eventBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Event);
             // 
-            // panel1
+            // panelDataBindings
             // 
-            this.panel1.Controls.Add(this.labelDescription);
-            this.panel1.Controls.Add(this.descriptionRichTextBox);
-            this.panel1.Controls.Add(this.imageNormalPictureBox);
-            this.panel1.Location = new System.Drawing.Point(282, 68);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(224, 285);
-            this.panel1.TabIndex = 13;
-            // 
-            // imageNormalPictureBox
-            // 
-            this.imageNormalPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.eventBindingSource, "ImageNormal", true));
-            this.imageNormalPictureBox.Location = new System.Drawing.Point(64, 183);
-            this.imageNormalPictureBox.Name = "imageNormalPictureBox";
-            this.imageNormalPictureBox.Size = new System.Drawing.Size(100, 101);
-            this.imageNormalPictureBox.TabIndex = 16;
-            this.imageNormalPictureBox.TabStop = false;
-            // 
-            // descriptionRichTextBox
-            // 
-            this.descriptionRichTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Description", true));
-            this.descriptionRichTextBox.Location = new System.Drawing.Point(0, 31);
-            this.descriptionRichTextBox.Name = "descriptionRichTextBox";
-            this.descriptionRichTextBox.Size = new System.Drawing.Size(224, 126);
-            this.descriptionRichTextBox.TabIndex = 14;
-            this.descriptionRichTextBox.Text = "";
+            this.panelDataBindings.Controls.Add(this.labelDescription);
+            this.panelDataBindings.Controls.Add(this.descriptionRichTextBox);
+            this.panelDataBindings.Controls.Add(this.imageNormalPictureBox);
+            this.panelDataBindings.Location = new System.Drawing.Point(282, 68);
+            this.panelDataBindings.Name = "panelDataBindings";
+            this.panelDataBindings.Size = new System.Drawing.Size(224, 285);
+            this.panelDataBindings.TabIndex = 13;
             // 
             // labelDescription
             // 
@@ -88,6 +70,24 @@
             this.labelDescription.TabIndex = 7;
             this.labelDescription.Text = "Description";
             this.labelDescription.Visible = false;
+            // 
+            // descriptionRichTextBox
+            // 
+            this.descriptionRichTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Description", true));
+            this.descriptionRichTextBox.Location = new System.Drawing.Point(0, 31);
+            this.descriptionRichTextBox.Name = "descriptionRichTextBox";
+            this.descriptionRichTextBox.Size = new System.Drawing.Size(224, 126);
+            this.descriptionRichTextBox.TabIndex = 14;
+            this.descriptionRichTextBox.Text = "";
+            // 
+            // imageNormalPictureBox
+            // 
+            this.imageNormalPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.eventBindingSource, "ImageNormal", true));
+            this.imageNormalPictureBox.Location = new System.Drawing.Point(64, 183);
+            this.imageNormalPictureBox.Name = "imageNormalPictureBox";
+            this.imageNormalPictureBox.Size = new System.Drawing.Size(100, 101);
+            this.imageNormalPictureBox.TabIndex = 16;
+            this.imageNormalPictureBox.TabStop = false;
             // 
             // listBoxEvents
             // 
@@ -128,7 +128,7 @@
             this.panelEventsSection.Controls.Add(this.labelEvent);
             this.panelEventsSection.Controls.Add(this.labelPicture);
             this.panelEventsSection.Controls.Add(this.listBoxEvents);
-            this.panelEventsSection.Controls.Add(this.panel1);
+            this.panelEventsSection.Controls.Add(this.panelDataBindings);
             this.panelEventsSection.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEventsSection.Location = new System.Drawing.Point(0, 0);
             this.panelEventsSection.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -146,8 +146,8 @@
             this.Name = "FormEvents";
             this.Text = "FormEvents";
             ((System.ComponentModel.ISupportInitialize)(this.eventBindingSource)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelDataBindings.ResumeLayout(false);
+            this.panelDataBindings.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageNormalPictureBox)).EndInit();
             this.panelEventsSection.ResumeLayout(false);
             this.panelEventsSection.PerformLayout();
@@ -158,7 +158,7 @@
         #endregion
 
         private System.Windows.Forms.BindingSource eventBindingSource;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelDataBindings;
         private System.Windows.Forms.Label labelDescription;
         private System.Windows.Forms.RichTextBox descriptionRichTextBox;
         private System.Windows.Forms.PictureBox imageNormalPictureBox;

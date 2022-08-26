@@ -37,27 +37,81 @@
             System.Windows.Forms.Label websiteLabel;
             System.Windows.Forms.Label cityLabel;
             this.listBoxFavoriteTeams = new System.Windows.Forms.ListBox();
+            this.pageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelTeamInformation = new System.Windows.Forms.Label();
             this.labelFavoriteTeams = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pageBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.categoryTextBox = new System.Windows.Forms.TextBox();
-            this.descriptionRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.panelDataBindings = new System.Windows.Forms.Panel();
             this.imageNormalPictureBox = new System.Windows.Forms.PictureBox();
+            this.cityTextBox = new System.Windows.Forms.TextBox();
             this.likesCountTextBox = new System.Windows.Forms.TextBox();
+            this.descriptionRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.categoryTextBox = new System.Windows.Forms.TextBox();
             this.phoneTextBox = new System.Windows.Forms.TextBox();
             this.websiteTextBox = new System.Windows.Forms.TextBox();
-            this.cityTextBox = new System.Windows.Forms.TextBox();
             categoryLabel = new System.Windows.Forms.Label();
             descriptionLabel = new System.Windows.Forms.Label();
             likesCountLabel = new System.Windows.Forms.Label();
             phoneLabel = new System.Windows.Forms.Label();
             websiteLabel = new System.Windows.Forms.Label();
             cityLabel = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pageBindingSource)).BeginInit();
+            this.panelDataBindings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageNormalPictureBox)).BeginInit();
             this.SuspendLayout();
+            // 
+            // categoryLabel
+            // 
+            categoryLabel.AutoSize = true;
+            categoryLabel.Location = new System.Drawing.Point(18, 129);
+            categoryLabel.Name = "categoryLabel";
+            categoryLabel.Size = new System.Drawing.Size(86, 20);
+            categoryLabel.TabIndex = 16;
+            categoryLabel.Text = "Category:";
+            // 
+            // descriptionLabel
+            // 
+            descriptionLabel.AutoSize = true;
+            descriptionLabel.Location = new System.Drawing.Point(18, 161);
+            descriptionLabel.Name = "descriptionLabel";
+            descriptionLabel.Size = new System.Drawing.Size(105, 20);
+            descriptionLabel.TabIndex = 18;
+            descriptionLabel.Text = "Description:";
+            // 
+            // likesCountLabel
+            // 
+            likesCountLabel.AutoSize = true;
+            likesCountLabel.Location = new System.Drawing.Point(18, 262);
+            likesCountLabel.Name = "likesCountLabel";
+            likesCountLabel.Size = new System.Drawing.Size(109, 20);
+            likesCountLabel.TabIndex = 22;
+            likesCountLabel.Text = "Likes Count:";
+            // 
+            // phoneLabel
+            // 
+            phoneLabel.AutoSize = true;
+            phoneLabel.Location = new System.Drawing.Point(18, 294);
+            phoneLabel.Name = "phoneLabel";
+            phoneLabel.Size = new System.Drawing.Size(65, 20);
+            phoneLabel.TabIndex = 24;
+            phoneLabel.Text = "Phone:";
+            // 
+            // websiteLabel
+            // 
+            websiteLabel.AutoSize = true;
+            websiteLabel.Location = new System.Drawing.Point(18, 326);
+            websiteLabel.Name = "websiteLabel";
+            websiteLabel.Size = new System.Drawing.Size(79, 20);
+            websiteLabel.TabIndex = 26;
+            websiteLabel.Text = "Website:";
+            // 
+            // cityLabel
+            // 
+            cityLabel.AutoSize = true;
+            cityLabel.Location = new System.Drawing.Point(21, 355);
+            cityLabel.Name = "cityLabel";
+            cityLabel.Size = new System.Drawing.Size(44, 20);
+            cityLabel.TabIndex = 27;
+            cityLabel.Text = "City:";
             // 
             // listBoxFavoriteTeams
             // 
@@ -66,16 +120,20 @@
             this.listBoxFavoriteTeams.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.listBoxFavoriteTeams.FormattingEnabled = true;
             this.listBoxFavoriteTeams.ItemHeight = 17;
-            this.listBoxFavoriteTeams.Location = new System.Drawing.Point(44, 108);
+            this.listBoxFavoriteTeams.Location = new System.Drawing.Point(44, 64);
             this.listBoxFavoriteTeams.Name = "listBoxFavoriteTeams";
             this.listBoxFavoriteTeams.Size = new System.Drawing.Size(221, 446);
             this.listBoxFavoriteTeams.TabIndex = 0;
+            // 
+            // pageBindingSource
+            // 
+            this.pageBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Page);
             // 
             // labelTeamInformation
             // 
             this.labelTeamInformation.AutoSize = true;
             this.labelTeamInformation.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelTeamInformation.Location = new System.Drawing.Point(396, 95);
+            this.labelTeamInformation.Location = new System.Drawing.Point(396, 65);
             this.labelTeamInformation.Name = "labelTeamInformation";
             this.labelTeamInformation.Size = new System.Drawing.Size(139, 21);
             this.labelTeamInformation.TabIndex = 13;
@@ -92,64 +150,25 @@
             this.labelFavoriteTeams.TabIndex = 14;
             this.labelFavoriteTeams.Text = "Favorite Teams";
             // 
-            // panel1
+            // panelDataBindings
             // 
-            this.panel1.Controls.Add(cityLabel);
-            this.panel1.Controls.Add(this.imageNormalPictureBox);
-            this.panel1.Controls.Add(this.cityTextBox);
-            this.panel1.Controls.Add(descriptionLabel);
-            this.panel1.Controls.Add(likesCountLabel);
-            this.panel1.Controls.Add(categoryLabel);
-            this.panel1.Controls.Add(this.likesCountTextBox);
-            this.panel1.Controls.Add(this.descriptionRichTextBox);
-            this.panel1.Controls.Add(phoneLabel);
-            this.panel1.Controls.Add(this.categoryTextBox);
-            this.panel1.Controls.Add(this.phoneTextBox);
-            this.panel1.Controls.Add(websiteLabel);
-            this.panel1.Controls.Add(this.websiteTextBox);
-            this.panel1.Location = new System.Drawing.Point(306, 119);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(278, 406);
-            this.panel1.TabIndex = 15;
-            // 
-            // pageBindingSource
-            // 
-            this.pageBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Page);
-            // 
-            // categoryLabel
-            // 
-            categoryLabel.AutoSize = true;
-            categoryLabel.Location = new System.Drawing.Point(18, 129);
-            categoryLabel.Name = "categoryLabel";
-            categoryLabel.Size = new System.Drawing.Size(86, 20);
-            categoryLabel.TabIndex = 16;
-            categoryLabel.Text = "Category:";
-            // 
-            // categoryTextBox
-            // 
-            this.categoryTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pageBindingSource, "Category", true));
-            this.categoryTextBox.Location = new System.Drawing.Point(149, 126);
-            this.categoryTextBox.Name = "categoryTextBox";
-            this.categoryTextBox.Size = new System.Drawing.Size(126, 26);
-            this.categoryTextBox.TabIndex = 17;
-            // 
-            // descriptionLabel
-            // 
-            descriptionLabel.AutoSize = true;
-            descriptionLabel.Location = new System.Drawing.Point(18, 161);
-            descriptionLabel.Name = "descriptionLabel";
-            descriptionLabel.Size = new System.Drawing.Size(105, 20);
-            descriptionLabel.TabIndex = 18;
-            descriptionLabel.Text = "Description:";
-            // 
-            // descriptionRichTextBox
-            // 
-            this.descriptionRichTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pageBindingSource, "Description", true));
-            this.descriptionRichTextBox.Location = new System.Drawing.Point(149, 158);
-            this.descriptionRichTextBox.Name = "descriptionRichTextBox";
-            this.descriptionRichTextBox.Size = new System.Drawing.Size(126, 96);
-            this.descriptionRichTextBox.TabIndex = 19;
-            this.descriptionRichTextBox.Text = "";
+            this.panelDataBindings.Controls.Add(cityLabel);
+            this.panelDataBindings.Controls.Add(this.imageNormalPictureBox);
+            this.panelDataBindings.Controls.Add(this.cityTextBox);
+            this.panelDataBindings.Controls.Add(descriptionLabel);
+            this.panelDataBindings.Controls.Add(likesCountLabel);
+            this.panelDataBindings.Controls.Add(categoryLabel);
+            this.panelDataBindings.Controls.Add(this.likesCountTextBox);
+            this.panelDataBindings.Controls.Add(this.descriptionRichTextBox);
+            this.panelDataBindings.Controls.Add(phoneLabel);
+            this.panelDataBindings.Controls.Add(this.categoryTextBox);
+            this.panelDataBindings.Controls.Add(this.phoneTextBox);
+            this.panelDataBindings.Controls.Add(websiteLabel);
+            this.panelDataBindings.Controls.Add(this.websiteTextBox);
+            this.panelDataBindings.Location = new System.Drawing.Point(306, 89);
+            this.panelDataBindings.Name = "panelDataBindings";
+            this.panelDataBindings.Size = new System.Drawing.Size(278, 406);
+            this.panelDataBindings.TabIndex = 15;
             // 
             // imageNormalPictureBox
             // 
@@ -160,14 +179,13 @@
             this.imageNormalPictureBox.TabIndex = 21;
             this.imageNormalPictureBox.TabStop = false;
             // 
-            // likesCountLabel
+            // cityTextBox
             // 
-            likesCountLabel.AutoSize = true;
-            likesCountLabel.Location = new System.Drawing.Point(18, 262);
-            likesCountLabel.Name = "likesCountLabel";
-            likesCountLabel.Size = new System.Drawing.Size(109, 20);
-            likesCountLabel.TabIndex = 22;
-            likesCountLabel.Text = "Likes Count:";
+            this.cityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pageBindingSource, "Location.City", true));
+            this.cityTextBox.Location = new System.Drawing.Point(149, 355);
+            this.cityTextBox.Name = "cityTextBox";
+            this.cityTextBox.Size = new System.Drawing.Size(126, 26);
+            this.cityTextBox.TabIndex = 28;
             // 
             // likesCountTextBox
             // 
@@ -177,14 +195,22 @@
             this.likesCountTextBox.Size = new System.Drawing.Size(126, 26);
             this.likesCountTextBox.TabIndex = 23;
             // 
-            // phoneLabel
+            // descriptionRichTextBox
             // 
-            phoneLabel.AutoSize = true;
-            phoneLabel.Location = new System.Drawing.Point(18, 294);
-            phoneLabel.Name = "phoneLabel";
-            phoneLabel.Size = new System.Drawing.Size(65, 20);
-            phoneLabel.TabIndex = 24;
-            phoneLabel.Text = "Phone:";
+            this.descriptionRichTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pageBindingSource, "Description", true));
+            this.descriptionRichTextBox.Location = new System.Drawing.Point(149, 158);
+            this.descriptionRichTextBox.Name = "descriptionRichTextBox";
+            this.descriptionRichTextBox.Size = new System.Drawing.Size(126, 96);
+            this.descriptionRichTextBox.TabIndex = 19;
+            this.descriptionRichTextBox.Text = "";
+            // 
+            // categoryTextBox
+            // 
+            this.categoryTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pageBindingSource, "Category", true));
+            this.categoryTextBox.Location = new System.Drawing.Point(149, 126);
+            this.categoryTextBox.Name = "categoryTextBox";
+            this.categoryTextBox.Size = new System.Drawing.Size(126, 26);
+            this.categoryTextBox.TabIndex = 17;
             // 
             // phoneTextBox
             // 
@@ -194,15 +220,6 @@
             this.phoneTextBox.Size = new System.Drawing.Size(126, 26);
             this.phoneTextBox.TabIndex = 25;
             // 
-            // websiteLabel
-            // 
-            websiteLabel.AutoSize = true;
-            websiteLabel.Location = new System.Drawing.Point(18, 326);
-            websiteLabel.Name = "websiteLabel";
-            websiteLabel.Size = new System.Drawing.Size(79, 20);
-            websiteLabel.TabIndex = 26;
-            websiteLabel.Text = "Website:";
-            // 
             // websiteTextBox
             // 
             this.websiteTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pageBindingSource, "Website", true));
@@ -210,23 +227,6 @@
             this.websiteTextBox.Name = "websiteTextBox";
             this.websiteTextBox.Size = new System.Drawing.Size(126, 26);
             this.websiteTextBox.TabIndex = 27;
-            // 
-            // cityLabel
-            // 
-            cityLabel.AutoSize = true;
-            cityLabel.Location = new System.Drawing.Point(21, 355);
-            cityLabel.Name = "cityLabel";
-            cityLabel.Size = new System.Drawing.Size(44, 20);
-            cityLabel.TabIndex = 27;
-            cityLabel.Text = "City:";
-            // 
-            // cityTextBox
-            // 
-            this.cityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pageBindingSource, "Location.City", true));
-            this.cityTextBox.Location = new System.Drawing.Point(149, 355);
-            this.cityTextBox.Name = "cityTextBox";
-            this.cityTextBox.Size = new System.Drawing.Size(126, 26);
-            this.cityTextBox.TabIndex = 28;
             // 
             // FormFavoriteTeams
             // 
@@ -238,14 +238,14 @@
             this.Controls.Add(this.labelFavoriteTeams);
             this.Controls.Add(this.labelTeamInformation);
             this.Controls.Add(this.listBoxFavoriteTeams);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelDataBindings);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)), true);
             this.Name = "FormFavoriteTeams";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Favorite Teams";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pageBindingSource)).EndInit();
+            this.panelDataBindings.ResumeLayout(false);
+            this.panelDataBindings.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageNormalPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -257,7 +257,7 @@
         private System.Windows.Forms.ListBox listBoxFavoriteTeams;
         private System.Windows.Forms.Label labelTeamInformation;
         private System.Windows.Forms.Label labelFavoriteTeams;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelDataBindings;
         private System.Windows.Forms.BindingSource pageBindingSource;
         private System.Windows.Forms.PictureBox imageNormalPictureBox;
         private System.Windows.Forms.TextBox cityTextBox;

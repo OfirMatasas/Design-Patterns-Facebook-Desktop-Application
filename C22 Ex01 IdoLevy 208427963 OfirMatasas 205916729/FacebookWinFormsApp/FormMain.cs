@@ -88,29 +88,38 @@ namespace FacebookWinFormsApp
         {
             FacebookAccountManager accountManager = FacebookAccountManager.Instance;
 
-            pictureBoxProfilePicture.Image = accountManager.User.ImageNormal;
-            labelProfileName.Text = accountManager.User.Name;
-            labelProfileName.Visible = true;
+            pictureBoxProfilePicture.Invoke(new Action(() => pictureBoxProfilePicture.Image = accountManager.User.ImageNormal));
+            labelProfileName.Invoke(new Action(() => labelProfileName.Text = accountManager.User.Name));
+            labelProfileName.Invoke(new Action(() => labelProfileName.Visible = true));
         }
 
         private void enableAllSidebarButtons()
         {
             foreach (Control control in panelSidebarButtons.Controls)
             {
-                control.Enabled = true;
+                control.Invoke(new Action(() => control.Enabled = true));
             }
         }
 
         private void openSubForm(Form i_SubForm)
         {
+            //m_ActivateForm.Invoke(new Action(() => m_ActivateForm?.Hide()));
+            //m_ActivateForm.Invoke(new Action(() => m_ActivateForm = i_SubForm));
+            //i_SubForm.Invoke(new Action(() => i_SubForm.TopLevel = false));
+            //i_SubForm.Invoke(new Action(() => i_SubForm.FormBorderStyle = FormBorderStyle.None));
+            //i_SubForm.Invoke(new Action(() => i_SubForm.Dock = DockStyle.Fill));
+            //panelLogin.Invoke(new Action(() => panelLogin.Controls.Add(i_SubForm)));
+            //i_SubForm.Invoke(new Action(() => i_SubForm.BringToFront()));
+            //i_SubForm.Invoke(new Action(() => i_SubForm.Show()));
+
             m_ActivateForm?.Hide();
             m_ActivateForm = i_SubForm;
             i_SubForm.TopLevel = false;
             i_SubForm.FormBorderStyle = FormBorderStyle.None;
             i_SubForm.Dock = DockStyle.Fill;
-            panelLogin.Controls.Add(i_SubForm);
+            panelLogin.Invoke(new Action(() => panelLogin.Controls.Add(i_SubForm)));
             i_SubForm.BringToFront();
-            i_SubForm.Show();
+            i_SubForm.Invoke(new Action(() => i_SubForm.Show()));
         }
 
         private void showUsersProfileForm(object i_Sender, EventArgs i_E)

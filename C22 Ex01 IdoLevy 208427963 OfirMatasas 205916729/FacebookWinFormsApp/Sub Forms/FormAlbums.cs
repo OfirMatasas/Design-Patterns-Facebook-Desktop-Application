@@ -36,9 +36,11 @@ namespace FacebookWinFormsApp.Forms
         private void listBoxAlbums_SelectedIndexChanged(object i_Sender, EventArgs i_E)
         {
             Album album = listBoxAlbums.SelectedItem as Album;
-
-            showSelectedAlbumsPhotos(album);
-            showSelectedAlbumsName(album);
+            if (album != null)
+            {
+                showSelectedAlbumsPhotos(album);
+                showSelectedAlbumsName(album);
+            }
         }
 
         private void showSelectedAlbumsPhotos(Album i_Album)

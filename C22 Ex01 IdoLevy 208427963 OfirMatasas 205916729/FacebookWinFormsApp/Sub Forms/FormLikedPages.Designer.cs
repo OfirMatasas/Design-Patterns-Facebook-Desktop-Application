@@ -31,13 +31,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.listBoxLikedPages = new System.Windows.Forms.ListBox();
+            this.pageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelPageSelectedPicture = new System.Windows.Forms.Label();
             this.labelLikedPages = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.imageLargePictureBox = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pageBindingSource)).BeginInit();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageLargePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,10 +48,14 @@
             this.listBoxLikedPages.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.listBoxLikedPages.FormattingEnabled = true;
             this.listBoxLikedPages.ItemHeight = 21;
-            this.listBoxLikedPages.Location = new System.Drawing.Point(69, 90);
+            this.listBoxLikedPages.Location = new System.Drawing.Point(62, 66);
             this.listBoxLikedPages.Name = "listBoxLikedPages";
             this.listBoxLikedPages.Size = new System.Drawing.Size(224, 466);
             this.listBoxLikedPages.TabIndex = 3;
+            // 
+            // pageBindingSource
+            // 
+            this.pageBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Page);
             // 
             // labelPageSelectedPicture
             // 
@@ -74,14 +78,10 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.imageLargePictureBox);
-            this.panel1.Location = new System.Drawing.Point(360, 178);
+            this.panel1.Location = new System.Drawing.Point(336, 116);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(246, 237);
             this.panel1.TabIndex = 18;
-            // 
-            // pageBindingSource
-            // 
-            this.pageBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Page);
             // 
             // imageLargePictureBox
             // 
@@ -99,7 +99,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(835, 591);
+            this.ClientSize = new System.Drawing.Size(706, 555);
             this.Controls.Add(this.labelLikedPages);
             this.Controls.Add(this.labelPageSelectedPicture);
             this.Controls.Add(this.listBoxLikedPages);
@@ -109,8 +109,8 @@
             this.Name = "FormLikedPages";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Liked Pages";
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pageBindingSource)).EndInit();
+            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imageLargePictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
