@@ -32,15 +32,17 @@ namespace FacebookWinFormsApp
 
         protected override void OnShown(EventArgs i_E)
         {
-            FacebookAccountManager accountManager = FacebookAccountManager.Instance;
-
             base.OnShown(i_E);
             checkBoxRememberMe.Checked = r_AppSetting.RememberUserInfo;
             displayLoginControllers(!r_AppSetting.RememberUserInfo);
             if (r_AppSetting.RememberUserInfo && !string.IsNullOrEmpty(r_AppSetting.LastAccessToken))
             {
-                accountManager.Connect(r_AppSetting.LastAccessToken);
-                populateUI();
+                Thread thread = new Thread(() =>
+                {
+                    FacebookAccountManager.Instance.Connect(r_AppSetting.LastAccessToken);
+                    populateUI();
+                });
+                thread.Start();
             }
         }
 
@@ -48,7 +50,7 @@ namespace FacebookWinFormsApp
         {
             foreach (Control control in panelLogin.Controls)
             {
-                control.Visible = i_ToDisplay;
+                control.Invoke(new Action(() => control.Visible = i_ToDisplay));
             }
         }
 
@@ -56,13 +58,11 @@ namespace FacebookWinFormsApp
         {
             try
             {
-                FacebookAccountManager accountManager = FacebookAccountManager.Instance;
-
-                accountManager.Login();
+                FacebookAccountManager.Instance.Login();
                 populateUI();
                 if (checkBoxRememberMe.Checked)
                 {
-                    r_AppSetting.RememberUser(accountManager.AccessToken);
+                    r_AppSetting.RememberUser(FacebookAccountManager.Instance.AccessToken);
                 }
             }
             catch(LoginFailureException)
@@ -86,10 +86,8 @@ namespace FacebookWinFormsApp
 
         private void displayUsersProfileInfoOnSidebar()
         {
-            FacebookAccountManager accountManager = FacebookAccountManager.Instance;
-
-            pictureBoxProfilePicture.Invoke(new Action(() => pictureBoxProfilePicture.Image = accountManager.User.ImageNormal));
-            labelProfileName.Invoke(new Action(() => labelProfileName.Text = accountManager.User.Name));
+            pictureBoxProfilePicture.Invoke(new Action(() => pictureBoxProfilePicture.Image = FacebookAccountManager.Instance.User.ImageNormal));
+            labelProfileName.Invoke(new Action(() => labelProfileName.Text = FacebookAccountManager.Instance.User.Name));
             labelProfileName.Invoke(new Action(() => labelProfileName.Visible = true));
         }
 
@@ -184,12 +182,10 @@ namespace FacebookWinFormsApp
 
         protected override void OnFormClosing(FormClosingEventArgs i_E)
         { 
-            FacebookAccountManager accountManager = FacebookAccountManager.Instance;
-
             base.OnFormClosing(i_E);
             if (r_AppSetting.RememberUserInfo)
             {
-                r_AppSetting.RememberUser(accountManager.AccessToken);
+                r_AppSetting.RememberUser(FacebookAccountManager.Instance.AccessToken);
             }
             else
             {

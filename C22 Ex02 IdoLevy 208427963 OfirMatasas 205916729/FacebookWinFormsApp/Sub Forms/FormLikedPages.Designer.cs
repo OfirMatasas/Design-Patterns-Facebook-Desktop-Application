@@ -50,7 +50,7 @@
             this.listBoxLikedPages.ItemHeight = 21;
             this.listBoxLikedPages.Location = new System.Drawing.Point(62, 66);
             this.listBoxLikedPages.Name = "listBoxLikedPages";
-            this.listBoxLikedPages.Size = new System.Drawing.Size(224, 466);
+            this.listBoxLikedPages.Size = new System.Drawing.Size(254, 466);
             this.listBoxLikedPages.TabIndex = 3;
             // 
             // pageBindingSource
