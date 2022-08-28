@@ -13,7 +13,7 @@ namespace FacebookWinFormsApp.Forms
         public FormGroups()
         {
             InitializeComponent();
-            r_Groups = FacebookAccountManager.Instance.User.Groups;
+            r_Groups = FacebookAccountManager.Instance.Groups;
         }
 
         private void fetchGroups()

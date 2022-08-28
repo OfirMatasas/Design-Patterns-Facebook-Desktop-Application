@@ -14,7 +14,7 @@ namespace FacebookWinFormsApp.Forms
         public FormPosts()
         {
             InitializeComponent();
-            r_Posts = FacebookAccountManager.Instance.User.Posts;
+            r_Posts = FacebookAccountManager.Instance.Posts;
             fetchPosts();
         }
 

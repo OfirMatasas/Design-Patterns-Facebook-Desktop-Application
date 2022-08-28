@@ -10,8 +10,8 @@ namespace FacebookWinFormsLogic
 
         public StatisticsLogic()
         {
-            r_Albums = FacebookAccountManager.Instance.User.Albums;
-            r_Posts = FacebookAccountManager.Instance.User.Posts;
+            r_Albums = FacebookAccountManager.Instance.Albums;
+            r_Posts = FacebookAccountManager.Instance.Posts;
         }
 
         private bool CheckIfDatesHasTheSameYearAndMonth(DateTime i_ChosenDate, DateTime i_PostedDate)

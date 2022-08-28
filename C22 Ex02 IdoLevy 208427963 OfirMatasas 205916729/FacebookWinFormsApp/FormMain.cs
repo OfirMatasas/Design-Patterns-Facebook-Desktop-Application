@@ -32,12 +32,13 @@ namespace FacebookWinFormsApp
 
         protected override void OnShown(EventArgs i_E)
         {
+            Thread thread;
+
             base.OnShown(i_E);
-            checkBoxRememberMe.Checked = r_AppSetting.RememberUserInfo;
             displayLoginControllers(!r_AppSetting.RememberUserInfo);
             if (r_AppSetting.RememberUserInfo && !string.IsNullOrEmpty(r_AppSetting.LastAccessToken))
             {
-                Thread thread = new Thread(() =>
+                thread = new Thread(() =>
                 {
                     FacebookAccountManager.Instance.Connect(r_AppSetting.LastAccessToken);
                     populateUI();
@@ -86,8 +87,8 @@ namespace FacebookWinFormsApp
 
         private void displayUsersProfileInfoOnSidebar()
         {
-            pictureBoxProfilePicture.Invoke(new Action(() => pictureBoxProfilePicture.Image = FacebookAccountManager.Instance.User.ImageNormal));
-            labelProfileName.Invoke(new Action(() => labelProfileName.Text = FacebookAccountManager.Instance.User.Name));
+            pictureBoxProfilePicture.Invoke(new Action(() => pictureBoxProfilePicture.Image = FacebookAccountManager.Instance.ProfilePicture));
+            labelProfileName.Invoke(new Action(() => labelProfileName.Text = FacebookAccountManager.Instance.Name));
             labelProfileName.Invoke(new Action(() => labelProfileName.Visible = true));
         }
 
@@ -178,21 +179,6 @@ namespace FacebookWinFormsApp
             FacebookAccountManager.Instance.Logout();
             r_AppSetting.ForgetUser();
             Close();
-        }
-
-        protected override void OnFormClosing(FormClosingEventArgs i_E)
-        { 
-            base.OnFormClosing(i_E);
-            if (r_AppSetting.RememberUserInfo)
-            {
-                r_AppSetting.RememberUser(FacebookAccountManager.Instance.AccessToken);
-            }
-            else
-            {
-                r_AppSetting.ForgetUser();
-            }
-
-            r_AppSetting.SaveToFile();
         }
 
         private void loadingFormProcessStarted()

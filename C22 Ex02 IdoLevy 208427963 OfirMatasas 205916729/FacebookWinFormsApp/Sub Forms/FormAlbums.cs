@@ -14,7 +14,7 @@ namespace FacebookWinFormsApp.Forms
         public FormAlbums()
         {
             InitializeComponent();
-            r_Albums = FacebookAccountManager.Instance.User.Albums;
+            r_Albums = FacebookAccountManager.Instance.Albums;
             
         }
 

@@ -15,23 +15,23 @@ namespace FacebookWinFormsApp.Forms
 
         private void fetchProfileInfo()
         {
-            User user = FacebookAccountManager.Instance.User;
+            FacebookAccountManager accountManager = FacebookAccountManager.Instance;
 
-            labelProfileName.Text = user.Name;
-            pictureBoxProfilePicture.Image = user.ImageLarge;
-            setUsersCoverPicture(user);
-            labelBirthday.Text += user.Birthday;
-            labelGender.Text += user.Gender;
-            labelFriendsCount.Text += user.Friends.Count;
-            labelHometown.Text += user.Hometown;
-            labelLocation.Text += user.Location.Name;
-            labelWallPosts.Text += user.WallPosts.Count;
+            labelProfileName.Text = accountManager.Name;
+            pictureBoxProfilePicture.Image = accountManager.ProfilePicture;
+            setUsersCoverPicture(accountManager);
+            labelBirthday.Text += accountManager.Birthday;
+            labelGender.Text += accountManager.Gender;
+            labelFriendsCount.Text += accountManager.Friends.Count;
+            labelHometown.Text += accountManager.Hometown;
+            labelLocation.Text += accountManager.Location.Name;
+            labelWallPosts.Text += accountManager.WallPosts.Count;
         }
 
-        private void setUsersCoverPicture(User i_User)
+        private void setUsersCoverPicture(FacebookAccountManager i_AccountManager)
         {
             List<string> possibleCoverAlbumNames = getCoversPhotosNamesPossibleNames();
-            Album coversAlbum = i_User.Albums.Find(album => possibleCoverAlbumNames.Contains(album.Name));
+            Album coversAlbum = i_AccountManager.Albums.Find(album => possibleCoverAlbumNames.Contains(album.Name));
 
             pictureBoxCoverPicture.Image = coversAlbum?.Photos[0].ImageNormal;
         }

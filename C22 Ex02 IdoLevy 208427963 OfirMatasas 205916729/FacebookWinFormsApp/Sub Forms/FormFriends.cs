@@ -13,7 +13,7 @@ namespace FacebookWinFormsApp.Forms
         public FormFriends()
         {
             InitializeComponent();
-            r_Friends = FacebookAccountManager.Instance.User.Friends;
+            r_Friends = FacebookAccountManager.Instance.Friends;
         }
 
         private void fetchFriends()

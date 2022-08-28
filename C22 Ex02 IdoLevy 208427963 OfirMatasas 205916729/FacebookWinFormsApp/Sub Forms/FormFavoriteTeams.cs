@@ -13,7 +13,7 @@ namespace FacebookWinFormsApp.Forms
         public FormFavoriteTeams()
         {
             InitializeComponent();
-            r_FavoriteTeams = FacebookAccountManager.Instance.User.FavofriteTeams;
+            r_FavoriteTeams = FacebookAccountManager.Instance.FavoriteTeams;
         }
 
         private void fetchFavoriteTeams()

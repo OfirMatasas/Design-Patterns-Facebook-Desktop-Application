@@ -10,8 +10,8 @@ namespace FacebookWinFormsLogic
 
         public MostPopularFeedLogic()
         {
-            r_Albums = FacebookAccountManager.Instance.User.Albums;
-            r_Posts = FacebookAccountManager.Instance.User.Posts;
+            r_Albums = FacebookAccountManager.Instance.Albums;
+            r_Posts = FacebookAccountManager.Instance.Posts;
         }
 
         public Post FindMostPopularPost(DateTime i_ChosenDate)

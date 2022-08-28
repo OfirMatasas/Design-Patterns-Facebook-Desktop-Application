@@ -13,7 +13,7 @@ namespace FacebookWinFormsApp.Forms
         public FormEvents()
         {
             InitializeComponent();
-            r_Events = FacebookAccountManager.Instance.User.Events;
+            r_Events = FacebookAccountManager.Instance.Events;
         }
 
         private void fetchEvents()

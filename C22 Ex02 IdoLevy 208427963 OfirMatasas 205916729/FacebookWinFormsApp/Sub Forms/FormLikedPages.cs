@@ -13,7 +13,7 @@ namespace FacebookWinFormsApp.Forms
         public FormLikedPages()
         {
             InitializeComponent();
-            r_LikedPages = FacebookAccountManager.Instance.User.LikedPages;
+            r_LikedPages = FacebookAccountManager.Instance.LikedPages;
         }
 
         private void fetchLikedPages()

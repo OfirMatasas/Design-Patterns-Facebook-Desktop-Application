@@ -51,12 +51,14 @@ namespace FacebookWinFormsLogic
         {
             RememberUserInfo = true;
             LastAccessToken = i_AccessToken;
+            SaveToFile();
         }
 
         public void ForgetUser()
         {
             RememberUserInfo = false;
             LastAccessToken = null;
+            SaveToFile();
         }
     }
 }
