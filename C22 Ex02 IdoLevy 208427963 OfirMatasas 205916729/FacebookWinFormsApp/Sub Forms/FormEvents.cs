@@ -26,7 +26,7 @@ namespace FacebookWinFormsApp.Forms
         {
             base.OnShown(i_E);
             new Thread(fetchEvents).Start();
-            if (r_Events == null)
+            if (r_Events.Count == 0)
             {
                 MessageDisplayer.NoItemsAppearOnForm("events");
             }

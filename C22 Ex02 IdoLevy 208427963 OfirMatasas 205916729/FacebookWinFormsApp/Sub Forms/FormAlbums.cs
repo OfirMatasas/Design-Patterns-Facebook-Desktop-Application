@@ -26,7 +26,7 @@ namespace FacebookWinFormsApp.Forms
         protected override void OnShown(EventArgs i_E)
         {
             base.OnShown(i_E);
-            new Thread(fetchAlbums);
+            new Thread(fetchAlbums).Start();
             if (r_Albums == null)
             {
                 MessageDisplayer.NoItemsAppearOnForm("albums");

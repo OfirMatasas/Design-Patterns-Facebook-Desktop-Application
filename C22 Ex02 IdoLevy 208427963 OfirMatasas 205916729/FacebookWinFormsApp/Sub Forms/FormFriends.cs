@@ -25,8 +25,8 @@ namespace FacebookWinFormsApp.Forms
         protected override void OnShown(EventArgs i_E)
         {
             base.OnShown(i_E);
-            new Thread(fetchFriends);
-            if (r_Friends == null)
+            new Thread(fetchFriends).Start();
+            if (r_Friends.Count == 0)
             {
                 MessageDisplayer.NoItemsAppearOnForm("friends");
             }

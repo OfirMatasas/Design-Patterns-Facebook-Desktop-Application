@@ -25,7 +25,7 @@ namespace FacebookWinFormsApp.Forms
         protected override void OnShown(EventArgs i_E)
         {
             base.OnShown(i_E);
-            new Thread(fetchLikedPages);
+            new Thread(fetchLikedPages).Start();
             if (r_LikedPages == null)
             {
                 MessageDisplayer.NoItemsAppearOnForm("liked pages");

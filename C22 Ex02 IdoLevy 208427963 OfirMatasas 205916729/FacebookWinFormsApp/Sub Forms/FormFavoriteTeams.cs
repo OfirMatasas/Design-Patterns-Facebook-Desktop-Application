@@ -25,7 +25,7 @@ namespace FacebookWinFormsApp.Forms
         protected override void OnShown(EventArgs i_E)
         {
             base.OnShown(i_E);
-            new Thread(fetchFavoriteTeams);
+            new Thread(fetchFavoriteTeams).Start();
             if (r_FavoriteTeams == null)
             {
                 MessageDisplayer.NoItemsAppearOnForm("favorite teams");

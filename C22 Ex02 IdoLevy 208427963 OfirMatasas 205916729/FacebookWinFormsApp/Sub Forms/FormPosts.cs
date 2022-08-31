@@ -2,6 +2,7 @@
 using FacebookWinFormsLogic;
 using FacebookWrapper.ObjectModel;
 using System;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace FacebookWinFormsApp.Forms
@@ -16,10 +17,14 @@ namespace FacebookWinFormsApp.Forms
             r_Posts = FacebookAccountManager.Instance.Posts;
         }
 
-        protected override void OnShown(EventArgs e)
+        protected override void OnShown(EventArgs i_E)
         {
-            fetchPosts();
-            base.OnShown(e);
+            base.OnShown(i_E);
+            new Thread(fetchPosts).Start();
+            if (r_Posts == null)
+            {
+                MessageDisplayer.NoItemsAppearOnForm("posts");
+            }
         }
 
         private void fetchPosts()
