@@ -14,8 +14,7 @@ namespace FacebookWinFormsApp.Forms
         public FormAlbums()
         {
             InitializeComponent();
-            r_Albums = FacebookAccountManager.Instance.Albums;
-            
+            r_Albums = FacebookAccountManager.Instance.Albums;            
         }
 
         private void fetchAlbums()
@@ -45,20 +44,20 @@ namespace FacebookWinFormsApp.Forms
 
         private void showSelectedAlbumsPhotos(Album i_Album)
         {
-            PictureBox pictureBox;
+            LazyPictureBox pictureBox;
             Size pictureBoxSize = new Size(200, 200);
             Padding pictureBoxPadding = new Padding(10);
 
             flowLayoutPanelSelectedAlbumPhotos.Controls.Clear();
             foreach (Photo photo in i_Album.Photos)
             {
-                pictureBox = new PictureBox()
+                pictureBox = new LazyPictureBox()
                 {
-                    Image = photo.ImageNormal,
                     Padding = pictureBoxPadding,
                     Size = pictureBoxSize,
                     SizeMode = PictureBoxSizeMode.StretchImage
                 };
+                pictureBox.Load(photo.PictureNormalURL);
                 flowLayoutPanelSelectedAlbumPhotos.Controls.Add(pictureBox);
             }
 

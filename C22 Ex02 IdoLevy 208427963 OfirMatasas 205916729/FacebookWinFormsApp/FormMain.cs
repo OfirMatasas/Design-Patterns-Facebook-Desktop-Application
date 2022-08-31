@@ -30,11 +30,11 @@ namespace FacebookWinFormsApp
             r_AppSetting = AppSetting.LoadFromFile();
         }
 
-        protected override void OnShown(EventArgs i_E)
+        protected override void OnLoad(EventArgs i_E)
         {
             Thread thread;
 
-            base.OnShown(i_E);
+            base.OnLoad(i_E);
             displayLoginControllers(!r_AppSetting.RememberUserInfo);
             if (r_AppSetting.RememberUserInfo && !string.IsNullOrEmpty(r_AppSetting.LastAccessToken))
             {
