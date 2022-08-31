@@ -41,7 +41,7 @@
             this.labelMostPopularPostDate = new System.Windows.Forms.Label();
             this.labelMostPopularPostCommentsNumber = new System.Windows.Forms.Label();
             this.labelMostPopularFeed = new System.Windows.Forms.Label();
-            this.richTextBoxMostPopularPost = new System.Windows.Forms.RichTextBox();
+            this.listBoxMostPopularPost = new System.Windows.Forms.ListBox();
             this.panelMostPopular.SuspendLayout();
             this.panelPhoto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMostPopularPhoto)).BeginInit();
@@ -52,7 +52,7 @@
             // 
             this.buttonShowMostPopularFeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.buttonShowMostPopularFeed.Location = new System.Drawing.Point(359, 57);
-            this.buttonShowMostPopularFeed.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonShowMostPopularFeed.Margin = new System.Windows.Forms.Padding(2);
             this.buttonShowMostPopularFeed.Name = "buttonShowMostPopularFeed";
             this.buttonShowMostPopularFeed.Size = new System.Drawing.Size(193, 36);
             this.buttonShowMostPopularFeed.TabIndex = 18;
@@ -77,7 +77,7 @@
             this.dateTimePickerChosenDate.CustomFormat = "yyyy";
             this.dateTimePickerChosenDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerChosenDate.Location = new System.Drawing.Point(279, 67);
-            this.dateTimePickerChosenDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePickerChosenDate.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerChosenDate.Name = "dateTimePickerChosenDate";
             this.dateTimePickerChosenDate.ShowUpDown = true;
             this.dateTimePickerChosenDate.Size = new System.Drawing.Size(69, 20);
@@ -88,7 +88,7 @@
             this.panelMostPopular.Controls.Add(this.panelPhoto);
             this.panelMostPopular.Controls.Add(this.panelPost);
             this.panelMostPopular.Location = new System.Drawing.Point(165, 105);
-            this.panelMostPopular.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelMostPopular.Margin = new System.Windows.Forms.Padding(2);
             this.panelMostPopular.Name = "panelMostPopular";
             this.panelMostPopular.Size = new System.Drawing.Size(284, 249);
             this.panelMostPopular.TabIndex = 19;
@@ -101,7 +101,7 @@
             this.panelPhoto.Controls.Add(this.labelMostPopularPhotoCommentsNumber);
             this.panelPhoto.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelPhoto.Location = new System.Drawing.Point(0, 127);
-            this.panelPhoto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelPhoto.Margin = new System.Windows.Forms.Padding(2);
             this.panelPhoto.Name = "panelPhoto";
             this.panelPhoto.Size = new System.Drawing.Size(284, 122);
             this.panelPhoto.TabIndex = 14;
@@ -120,7 +120,7 @@
             this.pictureBoxMostPopularPhoto.BackColor = System.Drawing.Color.White;
             this.pictureBoxMostPopularPhoto.ErrorImage = null;
             this.pictureBoxMostPopularPhoto.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxMostPopularPhoto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxMostPopularPhoto.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxMostPopularPhoto.Name = "pictureBoxMostPopularPhoto";
             this.pictureBoxMostPopularPhoto.Size = new System.Drawing.Size(70, 70);
             this.pictureBoxMostPopularPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -138,12 +138,12 @@
             // 
             // panelPost
             // 
-            this.panelPost.Controls.Add(this.richTextBoxMostPopularPost);
+            this.panelPost.Controls.Add(this.listBoxMostPopularPost);
             this.panelPost.Controls.Add(this.labelMostPopularPostDate);
             this.panelPost.Controls.Add(this.labelMostPopularPostCommentsNumber);
             this.panelPost.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelPost.Location = new System.Drawing.Point(0, 0);
-            this.panelPost.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelPost.Margin = new System.Windows.Forms.Padding(2);
             this.panelPost.Name = "panelPost";
             this.panelPost.Size = new System.Drawing.Size(284, 122);
             this.panelPost.TabIndex = 12;
@@ -177,13 +177,13 @@
             this.labelMostPopularFeed.TabIndex = 20;
             this.labelMostPopularFeed.Text = "Most Popular Feed";
             // 
-            // richTextBoxMostPopularPost
+            // listBoxMostPopularPost
             // 
-            this.richTextBoxMostPopularPost.Location = new System.Drawing.Point(0, 0);
-            this.richTextBoxMostPopularPost.Name = "richTextBoxMostPopularPost";
-            this.richTextBoxMostPopularPost.Size = new System.Drawing.Size(284, 58);
-            this.richTextBoxMostPopularPost.TabIndex = 3;
-            this.richTextBoxMostPopularPost.Text = "";
+            this.listBoxMostPopularPost.FormattingEnabled = true;
+            this.listBoxMostPopularPost.Location = new System.Drawing.Point(0, 0);
+            this.listBoxMostPopularPost.Name = "listBoxMostPopularPost";
+            this.listBoxMostPopularPost.Size = new System.Drawing.Size(284, 56);
+            this.listBoxMostPopularPost.TabIndex = 3;
             // 
             // FormMostPopularFeed
             // 
@@ -197,7 +197,7 @@
             this.Controls.Add(this.labelChooseDate);
             this.Controls.Add(this.dateTimePickerChosenDate);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormMostPopularFeed";
             this.Text = "FormMostPopularFeed";
             this.panelMostPopular.ResumeLayout(false);
@@ -225,6 +225,6 @@
         private System.Windows.Forms.Label labelMostPopularPostDate;
         private System.Windows.Forms.Label labelMostPopularPhotoDate;
         private System.Windows.Forms.Label labelMostPopularFeed;
-        private System.Windows.Forms.RichTextBox richTextBoxMostPopularPost;
+        private System.Windows.Forms.ListBox listBoxMostPopularPost;
     }
 }

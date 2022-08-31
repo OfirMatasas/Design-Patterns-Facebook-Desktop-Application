@@ -50,19 +50,26 @@ namespace FacebookWinFormsApp.Forms
             Padding pictureBoxPadding = new Padding(10);
 
             flowLayoutPanelSelectedAlbumPhotos.Controls.Clear();
-            foreach (Photo photo in i_Album.Photos)
+            if(i_Album.Count == 0)
             {
-                pictureBox = new LazyPictureBox()
-                {
-                    Padding = pictureBoxPadding,
-                    Size = pictureBoxSize,
-                    SizeMode = PictureBoxSizeMode.StretchImage
-                };
-                pictureBox.Load(photo.PictureNormalURL);
-                flowLayoutPanelSelectedAlbumPhotos.Controls.Add(pictureBox);
+                MessageDisplayer.NoItemsAppearOnForm("photos");
             }
+            else
+            {
+                foreach (Photo photo in i_Album.Photos)
+                {
+                    pictureBox = new LazyPictureBox()
+                    {
+                        Padding = pictureBoxPadding,
+                        Size = pictureBoxSize,
+                        SizeMode = PictureBoxSizeMode.StretchImage
+                    };
+                    pictureBox.Load(photo.PictureNormalURL);
+                    flowLayoutPanelSelectedAlbumPhotos.Controls.Add(pictureBox);
+                }
 
-            flowLayoutPanelSelectedAlbumPhotos.Show();
+                flowLayoutPanelSelectedAlbumPhotos.Show();
+            }
         }
 
         private void showSelectedAlbumsName(Album i_Album)

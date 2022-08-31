@@ -2,6 +2,7 @@
 using FacebookWrapper.ObjectModel;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace FacebookWinFormsApp.Forms
@@ -15,31 +16,29 @@ namespace FacebookWinFormsApp.Forms
 
         protected override void OnShown(EventArgs e)
         {
-            fetchProfileInfo();
+            new Thread(fetchProfileInfo).Start();
             base.OnShown(e);
         }
 
         private void fetchProfileInfo()
         {
-            FacebookAccountManager accountManager = FacebookAccountManager.Instance;
-
-            labelProfileName.Text = accountManager.Name;
-            pictureBoxProfilePicture.Image = accountManager.ProfilePicture;
-            setUsersCoverPicture(accountManager);
-            labelBirthday.Text += accountManager.Birthday;
-            labelGender.Text += accountManager.Gender;
-            labelFriendsCount.Text += accountManager.Friends.Count;
-            labelHometown.Text += accountManager.Hometown;
-            labelLocation.Text += accountManager.Location.Name;
-            labelWallPosts.Text += accountManager.WallPosts.Count;
+            labelProfileName.Invoke(new Action(() => labelProfileName.Text = FacebookAccountManager.Instance.Name));
+            pictureBoxProfilePicture.Invoke(new Action(() => pictureBoxProfilePicture.Image = FacebookAccountManager.Instance.ProfilePicture));
+            setUsersCoverPicture();
+            labelBirthday.Invoke(new Action(() => labelBirthday.Text += FacebookAccountManager.Instance.Birthday));
+            labelGender.Invoke(new Action(() => labelGender.Text += FacebookAccountManager.Instance.Gender));
+            labelFriendsCount.Invoke(new Action(() => labelFriendsCount.Text += FacebookAccountManager.Instance.Friends.Count));
+            labelHometown.Invoke(new Action(() => labelHometown.Text += FacebookAccountManager.Instance.Hometown));
+            labelLocation.Invoke(new Action(() => labelLocation.Text += FacebookAccountManager.Instance.Location.Name));
+            labelWallPosts.Invoke(new Action(() => labelWallPosts.Text += FacebookAccountManager.Instance.WallPosts.Count));
         }
 
-        private void setUsersCoverPicture(FacebookAccountManager i_AccountManager)
+        private void setUsersCoverPicture()
         {
             List<string> possibleCoverAlbumNames = getCoversPhotosNamesPossibleNames();
-            Album coversAlbum = i_AccountManager.Albums.Find(album => possibleCoverAlbumNames.Contains(album.Name));
+            Album coversAlbum = FacebookAccountManager.Instance.Albums.Find(album => possibleCoverAlbumNames.Contains(album.Name));
 
-            pictureBoxCoverPicture.Image = coversAlbum?.Photos[0].ImageNormal;
+            pictureBoxCoverPicture.Invoke(new Action(() => pictureBoxCoverPicture.Image = coversAlbum?.Photos[0].ImageNormal));
         }
 
         private List<string> getCoversPhotosNamesPossibleNames()

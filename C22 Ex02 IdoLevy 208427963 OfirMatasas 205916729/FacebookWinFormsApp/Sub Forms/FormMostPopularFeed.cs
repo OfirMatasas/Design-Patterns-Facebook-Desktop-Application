@@ -29,19 +29,16 @@ namespace FacebookWinFormsApp.Forms
             else
             {
                 Cursor.Current = Cursors.WaitCursor;
-                try
+                new Thread(() =>
                 {
-                    new Thread(() => getMostPopularPost(chosenDateTime)).Start();
-                    new Thread(() => getMostPopularPhoto(chosenDateTime)).Start();
-                }
-                catch(Exception)
-                {
-                    notifyUserAboutNonExistedItemsOnSelectedYear();
-                }
-                finally
-                {
-                    Cursor.Current = Cursors.Default;
-                }
+                    getMostPopularPost(chosenDateTime);
+                    getMostPopularPhoto(chosenDateTime);
+                    if (listBoxMostPopularPost.Items.Count == 0 || pictureBoxMostPopularPhoto.Image == null)
+                    {
+                        notifyUserAboutNonExistedItemsOnSelectedYear();
+                    }
+                }).Start();
+                Cursor.Current = Cursors.Default;
             }
         }
 
@@ -49,13 +46,13 @@ namespace FacebookWinFormsApp.Forms
         {
             string nonExistedItem;
 
-            if (richTextBoxMostPopularPost.Text == String.Empty && pictureBoxMostPopularPhoto.Image == null)
+            if (listBoxMostPopularPost.Items.Count == 0 && pictureBoxMostPopularPhoto.Image == null)
             {
                 nonExistedItem = "post / photo";
             }
             else
             {
-                nonExistedItem = richTextBoxMostPopularPost.Text == String.Empty ? "post" : "photo";
+                nonExistedItem = listBoxMostPopularPost.Items.Count == 0 ? "post" : "photo";
             }
 
             MessageDisplayer.NoItemsPublishedOnRelevantTime("This year", nonExistedItem);
@@ -65,17 +62,13 @@ namespace FacebookWinFormsApp.Forms
         {
             Post mostPopularPost = r_MostPopularFeedLogic.FindMostPopularPost(i_ChosenDateTime);
 
-            richTextBoxMostPopularPost.Invoke(new Action(() => richTextBoxMostPopularPost.Text = String.Empty));
+            listBoxMostPopularPost.Invoke(new Action(() => listBoxMostPopularPost.Items.Clear()));
             if (mostPopularPost != null)
             {
-                richTextBoxMostPopularPost.Invoke(new Action(() => richTextBoxMostPopularPost.Text = mostPopularPost.Message));
+                listBoxMostPopularPost.Invoke(new Action(() => listBoxMostPopularPost.Items.Add(mostPopularPost)));
                 labelMostPopularPostCommentsNumber.Invoke(
                     new Action(() => labelMostPopularPostCommentsNumber.Text = $"{mostPopularPost.Comments.Count} Comment{(mostPopularPost.Comments.Count == 1 ? string.Empty : "s")} on your post"));
                 labelMostPopularPostDate.Invoke(new Action(() => labelMostPopularPostDate.Text = $"Published At: {mostPopularPost.CreatedTime}"));
-            }
-            else
-            {
-                throw new Exception();
             }
         }
 
@@ -90,10 +83,6 @@ namespace FacebookWinFormsApp.Forms
                 labelMostPopularPhotoCommentsNumber.Invoke(
                     new Action(() => labelMostPopularPhotoCommentsNumber.Text = $"{mostPopularPhoto.Comments.Count} Comment{(mostPopularPhoto.Comments.Count == 1 ? string.Empty : "s")} on your photo"));
                 labelMostPopularPhotoDate.Invoke(new Action(() => labelMostPopularPhotoDate.Text = $"Published At: {mostPopularPhoto.CreatedTime}"));
-            }
-            else
-            {
-                throw new Exception();
             }
         }
 
