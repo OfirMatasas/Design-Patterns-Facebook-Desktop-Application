@@ -165,8 +165,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sub Forms\ThreadfetchFriends.cs" />
-    <Compile Include="Sub Forms\ThreadfetchLikedPages.cs" />
     <EmbeddedResource Include="Sub Forms\FormAlbums.resx">
       <DependentUpon>FormAlbums.cs</DependentUpon>
     </EmbeddedResource>
