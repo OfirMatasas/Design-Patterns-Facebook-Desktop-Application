@@ -2,6 +2,7 @@
 using FacebookWinFormsLogic;
 using FacebookWrapper.ObjectModel;
 using System;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace FacebookWinFormsApp.Forms
@@ -14,6 +15,7 @@ namespace FacebookWinFormsApp.Forms
         {
             InitializeComponent();
             r_Events = FacebookAccountManager.Instance.Events;
+            //new Thread(fetchEvents).Start();
         }
 
         private void fetchEvents()

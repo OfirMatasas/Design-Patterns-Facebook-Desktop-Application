@@ -102,9 +102,10 @@
             // imageNormalPictureBox
             // 
             this.imageNormalPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.groupBindingSource, "ImageNormal", true));
-            this.imageNormalPictureBox.Location = new System.Drawing.Point(103, 13);
+            this.imageNormalPictureBox.Location = new System.Drawing.Point(89, 13);
             this.imageNormalPictureBox.Name = "imageNormalPictureBox";
-            this.imageNormalPictureBox.Size = new System.Drawing.Size(110, 100);
+            this.imageNormalPictureBox.Size = new System.Drawing.Size(124, 114);
+            this.imageNormalPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imageNormalPictureBox.TabIndex = 3;
             this.imageNormalPictureBox.TabStop = false;
             // 

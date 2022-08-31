@@ -2,7 +2,6 @@
 using FacebookWinFormsLogic;
 using FacebookWrapper.ObjectModel;
 using System;
-using System.Text;
 using System.Windows.Forms;
 
 namespace FacebookWinFormsApp.Forms
@@ -15,45 +14,22 @@ namespace FacebookWinFormsApp.Forms
         {
             InitializeComponent();
             r_Posts = FacebookAccountManager.Instance.Posts;
+        }
+
+        protected override void OnShown(EventArgs e)
+        {
             fetchPosts();
+            base.OnShown(e);
         }
 
         private void fetchPosts()
         {
-            listBoxPosts.Text = Name;
-
-            foreach (Post post in r_Posts)
-            {
-                listBoxPosts.Items.Add(post);
-            }
+            listBoxPosts.Invoke(new Action(() => postBindingSource.DataSource = r_Posts));
         }
 
         private void buttonClearNewPostText_Click(object i_Sender, EventArgs i_E)
         {
             richTextBoxNewPost.Text = string.Empty;
-        }
-
-        private void listBoxPosts_SelectedIndexChanged(object i_Sender, EventArgs i_E)
-        {
-            Post selectedPost = listBoxPosts.SelectedItem as Post;
-
-            displaySelectedPostPicture(selectedPost);
-            displaySelectedPostInformation(selectedPost);
-        }
-
-        private void displaySelectedPostInformation(Post i_SelectedPost)
-        {
-            StringBuilder postInformation = new StringBuilder();
-
-            postInformation.AppendFormat("{0}{1}{1}", i_SelectedPost?.Message, Environment.NewLine);
-            postInformation.Append(i_SelectedPost?.CreatedTime);
-            richTextBoxSelectedPost.Text = postInformation.ToString();
-            richTextBoxSelectedPost.Visible = true;
-        }
-
-        private void displaySelectedPostPicture(Post i_SelectedPost)
-        {
-            pictureBoxSelectedPostPicture.ImageLocation = i_SelectedPost?.PictureURL;
         }
 
         private void richTextBoxNewPost_TextChanged(object i_Sender, EventArgs i_E)

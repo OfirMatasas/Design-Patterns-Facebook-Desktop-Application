@@ -1,5 +1,6 @@
 ﻿using FacebookWinFormsLogic;
 using FacebookWrapper.ObjectModel;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -10,7 +11,12 @@ namespace FacebookWinFormsApp.Forms
         public FormProfile()
         {
             InitializeComponent();
+        }
+
+        protected override void OnShown(EventArgs e)
+        {
             fetchProfileInfo();
+            base.OnShown(e);
         }
 
         private void fetchProfileInfo()
@@ -38,13 +44,11 @@ namespace FacebookWinFormsApp.Forms
 
         private List<string> getCoversPhotosNamesPossibleNames()
         {
-            List<string> possibleCoverAlbumNames = new List<string>
+            return new List<string>
             {
                 "Cover photos",
                 "תמונות נושא"
             };
-
-            return possibleCoverAlbumNames;
         }
     }
 }

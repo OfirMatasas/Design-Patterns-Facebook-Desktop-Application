@@ -32,18 +32,15 @@ namespace FacebookWinFormsApp
 
         protected override void OnLoad(EventArgs i_E)
         {
-            Thread thread;
-
             base.OnLoad(i_E);
             displayLoginControllers(!r_AppSetting.RememberUserInfo);
             if (r_AppSetting.RememberUserInfo && !string.IsNullOrEmpty(r_AppSetting.LastAccessToken))
             {
-                thread = new Thread(() =>
+                new Thread(() =>
                 {
                     FacebookAccountManager.Instance.Connect(r_AppSetting.LastAccessToken);
                     populateUI();
-                });
-                thread.Start();
+                }).Start();
             }
         }
 
@@ -51,7 +48,8 @@ namespace FacebookWinFormsApp
         {
             foreach (Control control in panelLogin.Controls)
             {
-                control.Invoke(new Action(() => control.Visible = i_ToDisplay));
+                control.Visible = i_ToDisplay;
+                //control.Invoke(new Action(() => control.Visible = i_ToDisplay));
             }
         }
 
@@ -102,11 +100,11 @@ namespace FacebookWinFormsApp
 
         private void openSubForm(Form i_SubForm)
         {
-            m_ActivateForm?.Hide();
+            m_ActivateForm.Invoke(new Action(() => m_ActivateForm?.Hide()));
             m_ActivateForm = i_SubForm;
-            i_SubForm.TopLevel = false;
-            i_SubForm.FormBorderStyle = FormBorderStyle.None;
-            i_SubForm.Dock = DockStyle.Fill;
+            i_SubForm.Invoke(new Action(() => i_SubForm.TopLevel = false));
+            i_SubForm.Invoke(new Action(() => i_SubForm.FormBorderStyle = FormBorderStyle.None)); 
+            i_SubForm.Invoke(new Action(() => i_SubForm.Dock = DockStyle.Fill));
             panelLogin.Invoke(new Action(() => panelLogin.Controls.Add(i_SubForm)));
             i_SubForm.BringToFront();
             i_SubForm.Invoke(new Action(() => i_SubForm.Show()));

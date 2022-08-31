@@ -2,6 +2,7 @@
 using FacebookWinFormsLogic;
 using FacebookWrapper.ObjectModel;
 using System;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace FacebookWinFormsApp.Forms
@@ -14,6 +15,7 @@ namespace FacebookWinFormsApp.Forms
         {
             InitializeComponent();
             r_Groups = FacebookAccountManager.Instance.Groups;
+            //new Thread(fetchGroups).Start();
         }
 
         private void fetchGroups()
