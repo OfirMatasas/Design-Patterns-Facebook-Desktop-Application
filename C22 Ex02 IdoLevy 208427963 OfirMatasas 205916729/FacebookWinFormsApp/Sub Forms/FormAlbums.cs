@@ -3,6 +3,7 @@ using FacebookWinFormsLogic;
 using FacebookWrapper.ObjectModel;
 using System;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace FacebookWinFormsApp.Forms
@@ -25,8 +26,8 @@ namespace FacebookWinFormsApp.Forms
         protected override void OnShown(EventArgs i_E)
         {
             base.OnShown(i_E);
-            fetchAlbums();
-            if (listBoxAlbums.Items.Count == 0)
+            new Thread(fetchAlbums);
+            if (r_Albums == null)
             {
                 MessageDisplayer.NoItemsAppearOnForm("albums");
             }

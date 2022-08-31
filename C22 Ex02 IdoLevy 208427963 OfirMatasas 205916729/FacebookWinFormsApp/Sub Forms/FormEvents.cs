@@ -15,7 +15,6 @@ namespace FacebookWinFormsApp.Forms
         {
             InitializeComponent();
             r_Events = FacebookAccountManager.Instance.Events;
-            //new Thread(fetchEvents).Start();
         }
 
         private void fetchEvents()
@@ -26,8 +25,8 @@ namespace FacebookWinFormsApp.Forms
         protected override void OnShown(EventArgs i_E)
         {
             base.OnShown(i_E);
-            fetchEvents();
-            if (listBoxEvents.Items.Count == 0)
+            new Thread(fetchEvents).Start();
+            if (r_Events == null)
             {
                 MessageDisplayer.NoItemsAppearOnForm("events");
             }

@@ -2,6 +2,7 @@
 using FacebookWinFormsLogic;
 using FacebookWrapper.ObjectModel;
 using System;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace FacebookWinFormsApp.Forms
@@ -24,8 +25,8 @@ namespace FacebookWinFormsApp.Forms
         protected override void OnShown(EventArgs i_E)
         {
             base.OnShown(i_E);
-            fetchFavoriteTeams();
-            if (listBoxFavoriteTeams.Items.Count == 0)
+            new Thread(fetchFavoriteTeams);
+            if (r_FavoriteTeams == null)
             {
                 MessageDisplayer.NoItemsAppearOnForm("favorite teams");
             }

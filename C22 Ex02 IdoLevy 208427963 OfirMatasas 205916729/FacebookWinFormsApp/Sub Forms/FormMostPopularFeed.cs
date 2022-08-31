@@ -63,16 +63,15 @@ namespace FacebookWinFormsApp.Forms
 
         private void getMostPopularPost(DateTime i_ChosenDateTime)
         {
-            int numberOfComments;
             Post mostPopularPost = r_MostPopularFeedLogic.FindMostPopularPost(i_ChosenDateTime);
 
             richTextBoxMostPopularPost.Invoke(new Action(() => richTextBoxMostPopularPost.Text = String.Empty));
             if (mostPopularPost != null)
             {
-                numberOfComments = mostPopularPost.Comments.Count;
                 richTextBoxMostPopularPost.Invoke(new Action(() => richTextBoxMostPopularPost.Text = mostPopularPost.Message));
-                labelMostPopularPostCommentsNumber.Text = $"{numberOfComments} Comment{(numberOfComments == 1 ? string.Empty : "s")} on your post";
-                labelMostPopularPostDate.Text = $"Published At: {mostPopularPost.CreatedTime}";
+                labelMostPopularPostCommentsNumber.Invoke(
+                    new Action(() => labelMostPopularPostCommentsNumber.Text = $"{mostPopularPost.Comments.Count} Comment{(mostPopularPost.Comments.Count == 1 ? string.Empty : "s")} on your post"));
+                labelMostPopularPostDate.Invoke(new Action(() => labelMostPopularPostDate.Text = $"Published At: {mostPopularPost.CreatedTime}"));
             }
             else
             {
@@ -83,15 +82,14 @@ namespace FacebookWinFormsApp.Forms
         private void getMostPopularPhoto(DateTime i_ChosenDateTime)
         {
             Photo mostPopularPhoto = r_MostPopularFeedLogic.FindMostPopularPhoto(i_ChosenDateTime);
-            int numberOfComments;
 
             pictureBoxMostPopularPhoto.Invoke(new Action(() => pictureBoxMostPopularPhoto.Image = null));
             if (mostPopularPhoto != null)
             {
-                numberOfComments = mostPopularPhoto.Comments.Count;
                 pictureBoxMostPopularPhoto.Invoke(new Action(() => pictureBoxMostPopularPhoto.Image = new Bitmap(mostPopularPhoto.ImageNormal, pictureBoxMostPopularPhoto.Size)));
-                labelMostPopularPhotoCommentsNumber.Text = $"{numberOfComments} Comment{(numberOfComments == 1 ? string.Empty : "s")} on your photo";
-                labelMostPopularPhotoDate.Text = $"Published At: {mostPopularPhoto.CreatedTime}";
+                labelMostPopularPhotoCommentsNumber.Invoke(
+                    new Action(() => labelMostPopularPhotoCommentsNumber.Text = $"{mostPopularPhoto.Comments.Count} Comment{(mostPopularPhoto.Comments.Count == 1 ? string.Empty : "s")} on your photo"));
+                labelMostPopularPhotoDate.Invoke(new Action(() => labelMostPopularPhotoDate.Text = $"Published At: {mostPopularPhoto.CreatedTime}"));
             }
             else
             {

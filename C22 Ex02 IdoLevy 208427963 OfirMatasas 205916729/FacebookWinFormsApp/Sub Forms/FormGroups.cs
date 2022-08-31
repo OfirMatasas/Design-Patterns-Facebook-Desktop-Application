@@ -15,7 +15,6 @@ namespace FacebookWinFormsApp.Forms
         {
             InitializeComponent();
             r_Groups = FacebookAccountManager.Instance.Groups;
-            //new Thread(fetchGroups).Start();
         }
 
         private void fetchGroups()
@@ -26,8 +25,8 @@ namespace FacebookWinFormsApp.Forms
         protected override void OnShown(EventArgs i_E)
         {
             base.OnShown(i_E);
-            fetchGroups();
-            if (listBoxGroups.Items.Count == 0)
+            new Thread(fetchGroups).Start();
+            if (r_Groups == null)
             {
                 MessageDisplayer.NoItemsAppearOnForm("groups");
             }

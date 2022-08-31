@@ -2,6 +2,7 @@
 using FacebookWinFormsLogic;
 using FacebookWrapper.ObjectModel;
 using System;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace FacebookWinFormsApp.Forms
@@ -24,8 +25,8 @@ namespace FacebookWinFormsApp.Forms
         protected override void OnShown(EventArgs i_E)
         {
             base.OnShown(i_E);
-            fetchLikedPages();
-            if (listBoxLikedPages.Items.Count == 0)
+            new Thread(fetchLikedPages);
+            if (r_LikedPages == null)
             {
                 MessageDisplayer.NoItemsAppearOnForm("liked pages");
             }
