@@ -35,58 +35,37 @@ namespace FacebookWinFormsLogic
 
         public FacebookObjectCollection<Event> Events
         {
-            get
-            {
-                return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_Events, ref m_EventsLock, () => m_Events = LoggedInUser.Events);
-            }
+            get { return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_Events, ref m_EventsLock, () => m_Events = LoggedInUser.Events); }
         }
 
         public FacebookObjectCollection<Group> Groups
         {
-            get
-            {
-                return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_Groups, ref m_GroupsLock, () => m_Groups = LoggedInUser.Groups);
-            }
+            get { return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_Groups, ref m_GroupsLock, () => m_Groups = LoggedInUser.Groups); }
         }
 
         public Page[] FavoriteTeams
         {
-            get
-            {
-                return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_FavoriteTeams, ref m_FavoriteTeamsLock, () => m_FavoriteTeams = LoggedInUser.FavofriteTeams);
-            }
+            get { return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_FavoriteTeams, ref m_FavoriteTeamsLock, () => m_FavoriteTeams = LoggedInUser.FavofriteTeams); }
         }
 
         public FacebookObjectCollection<Album> Albums
         {
-            get
-            {
-                return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_Albums, ref m_AlbumsLock, () => m_Albums = LoggedInUser.Albums);
-            }
+            get { return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_Albums, ref m_AlbumsLock, () => m_Albums = LoggedInUser.Albums); }
         }
 
         public FacebookObjectCollection<Page> LikedPages
         {
-            get
-            {
-                return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_LikedPages, ref m_LikedPagesLock, () => m_LikedPages = LoggedInUser.LikedPages);
-            }
+            get { return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_LikedPages, ref m_LikedPagesLock, () => m_LikedPages = LoggedInUser.LikedPages); }
         }
 
         public FacebookObjectCollection<Post> Posts
         {
-            get
-            {
-                return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_Posts, ref m_PostsLock, () => m_Posts = LoggedInUser.Posts);
-            }
+            get { return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_Posts, ref m_PostsLock, () => m_Posts = LoggedInUser.Posts); }
         }
 
         public FacebookObjectCollection<User> Friends
         {
-            get
-            {
-                return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_Friends, ref m_FriendsLock, () => m_Friends = LoggedInUser.Friends);
-            }
+            get { return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_Friends, ref m_FriendsLock, () => m_Friends = LoggedInUser.Friends); }
         }
 
         private T GetObjectFromCacheOrGetFromWebServiceForTheFirstTime<T>(ref T io_DesiredObject, ref object i_DesiredObjectLock, Func<T> i_GetTheDesiredObjectFromWebService)
@@ -107,29 +86,20 @@ namespace FacebookWinFormsLogic
 
         public Image ProfilePicture
         {
-            get
-            {
-                return LoggedInUser.ImageNormal;
-            }
+            get { return LoggedInUser.ImageNormal; }
         }
 
         public string Name
         {
-            get
-            {
-                return LoggedInUser.Name;
-            }
+            get { return LoggedInUser.Name; }
         }
 
         public string Birthday
         {
-            get
-            {
-                return LoggedInUser.Birthday;
-            }
+            get { return LoggedInUser.Birthday; }
         }
 
-        private FacebookAccountManager() 
+        private FacebookAccountManager()
         {
         }
 
@@ -154,42 +124,227 @@ namespace FacebookWinFormsLogic
 
         public static bool LoggedIn
         {
-            get
-            {
-                return AccountManager != null;
-            }
+            get { return AccountManager != null; }
         }
 
         public eGender? Gender
         {
-            get
-            {
-                return LoggedInUser.Gender;
-            }
+            get { return LoggedInUser.Gender; }
         }
 
         public City Hometown
         {
-            get
-            {
-                return LoggedInUser.Hometown;
-            }
+            get { return LoggedInUser.Hometown; }
         }
 
-        public City Location 
-        { 
-            get
-            {
-                return LoggedInUser.Location;
-            }
-        }
-
-        public FacebookObjectCollection<Post> WallPosts 
+        public City Location
         {
-            get
-            {
-                return LoggedInUser.WallPosts;
-            }
+            get { return LoggedInUser.Location; }
+        }
+
+        public FacebookObjectCollection<Post> WallPosts
+        {
+            get { return LoggedInUser.WallPosts; }
+        }
+
+        public string About
+        {
+            get { return LoggedInUser.About; }
+        }
+
+        public Education[] Education
+        {
+            get { return LoggedInUser.Educations; }
+        }
+
+        public FacebookObjectCollection<Event> EventsCreated
+        {
+            get { return LoggedInUser.EventsCreated; }
+        }
+        
+        public FacebookObjectCollection<Event> EventsDeclined
+        {
+            get { return LoggedInUser.EventsDeclined; }
+        }
+
+        public FacebookObjectCollection<Event> EventsMaybe
+        {
+            get { return LoggedInUser.EventsMaybe; }
+        }
+
+        public FacebookObjectCollection<Event> EventsNotYetReplied
+        {
+            get { return LoggedInUser.EventsNotYetReplied; }
+        }
+
+        public string Quotes
+        {
+            get { return LoggedInUser.Quotes; }
+        }
+
+        public FacebookObjectCollection<Checkin> Checkins
+        {
+            get { return LoggedInUser.Checkins; }
+        }
+
+        public void Checkin(Checkin i_Checkin)
+        {
+            LoggedInUser.Checkin(i_Checkin);
+        }
+
+        public Cover Cover
+        {
+            get { return LoggedInUser.Cover; }
+        }
+
+        public string Email
+        {
+            get { return LoggedInUser.Email; }
+        }
+
+        public Page[] Languages
+        {
+            get { return LoggedInUser.Languages; }
+        }
+
+        public string Locale
+        {
+            get { return LoggedInUser.Locale; }
+        }
+
+        public double? TimeZone
+        {
+            get { return LoggedInUser.TimeZone; }
+        }
+
+        public FacebookObjectCollection<FriendList> FriendLists
+        {
+            get { return LoggedInUser.FriendLists; }
+        }
+
+        public string Id
+        {
+            get { return LoggedInUser.Id; }
+        }
+
+        public eGender[] InterestedIn
+        {
+            get { return LoggedInUser.InterestedIn; }
+        }
+
+        public string Link
+        {
+            get { return LoggedInUser.Link; }
+        }
+
+        public string MiddleName
+        {
+            get { return LoggedInUser.MiddleName; }
+        }
+
+        public FacebookObjectCollection<Post> NewsFeed
+        {
+            get { return LoggedInUser.NewsFeed; }
+        }
+
+        public eOnlineStatus? OnlineStatus
+        {
+            get { return LoggedInUser.OnlineStatus; }
+        }
+
+        public eRelationshipStatus? RelationshipStatus
+        {
+            get { return LoggedInUser.RelationshipStatus; }
+        }
+
+        public FacebookObjectCollection<Status> Statuses
+        {
+            get { return LoggedInUser.Statuses; }
+        }
+
+        public FacebookObjectCollection<Photo> PhotosTaggedIn
+        {
+            get { return LoggedInUser.PhotosTaggedIn; }
+        }
+
+        public FacebookObjectCollection<Poke> Pokes
+        {
+            get { return LoggedInUser.Pokes; }
+        }
+
+        public FacebookObjectCollection<Link> PostedLinks
+        {
+            get { return LoggedInUser.PostedLinks; }
+        }
+
+        public FacebookObjectCollection<User> Subscribers
+        {
+            get { return LoggedInUser.Subscribers; }
+        }
+
+        public FacebookObjectCollection<User> SubscribedTo
+        {
+            get { return LoggedInUser.SubscribedTo; }
+        }
+
+        public PicturesColleciton Pictures
+        {
+            get { return LoggedInUser.Pictures; }
+        }
+
+        public FacebookObjectCollection<Message> MessageUpdates
+        {
+            get { return LoggedInUser.MessageUpdates; }
+        }
+
+        public string Religion
+        {
+            get { return LoggedInUser.Religion; }
+        }
+
+        public User SignificantOther
+        {
+            get { return LoggedInUser.SignificantOther; }
+        }
+
+        public string UserName
+        {
+            get { return LoggedInUser.UserName; }
+        }
+
+        public bool? Verfied
+        {
+            get { return LoggedInUser.Verfied; }
+        }
+
+        public FacebookObjectCollection<Video> Videos
+        {
+            get { return LoggedInUser.Videos; }
+        }
+
+        public WorkExperience[] WorkExperiences
+        {
+            get { return LoggedInUser.WorkExperiences; }
+        }
+
+        public FriendList CreateFriendList(string i_FriendList)
+        {
+            return LoggedInUser.CreateFriendList(i_FriendList);
+        }
+
+        public void PostPhoto(string i_PictureFilePath, string i_Title = null, string i_Caption = null, string i_PrivacyParameterValue = null)
+        {
+            LoggedInUser.PostPhoto(i_PictureFilePath, i_Title, i_Caption, i_PrivacyParameterValue);
+        }
+
+        public void PostLink(string i_Url, string i_Message = null, string i_PrivacyParameterValue = null)
+        {
+            LoggedInUser.PostLink(i_Url, i_Message, i_PrivacyParameterValue);
+        }
+
+        public void CreateEvent_DeprecatedSinceV2(string i_Name, DateTime i_StartTime, DateTime? i_EndTime = null, string i_Description = null, string i_Location = null, Event.ePrivacy? i_PrivacyType = null, string i_PlaceID = null)
+        {
+            LoggedInUser.CreateEvent_DeprecatedSinceV2(i_Name, i_StartTime, i_EndTime, i_Description, i_Location, i_PrivacyType, i_PlaceID);
         }
 
         public void Connect(string i_AccessToken)
