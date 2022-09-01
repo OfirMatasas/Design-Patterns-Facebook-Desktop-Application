@@ -1,8 +1,8 @@
-﻿using FacebookExceptions;
+﻿using System;
+using System.Drawing;
+using FacebookExceptions;
 using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
-using System;
-using System.Drawing;
 using static FacebookWrapper.ObjectModel.User;
 
 namespace FacebookWinFormsLogic
@@ -20,7 +20,9 @@ namespace FacebookWinFormsLogic
         private object m_EventsLock = new object();
 
         private static FacebookAccountManager AccountManager { get; set; }
+
         public string AccessToken { get; private set; }
+
         private User LoggedInUser { get; set; }
 
         private FacebookObjectCollection<Event> m_Events;
@@ -127,7 +129,9 @@ namespace FacebookWinFormsLogic
             }
         }
 
-        private FacebookAccountManager() {}
+        private FacebookAccountManager() 
+        {
+        }
 
         public static FacebookAccountManager Instance
         {
@@ -178,7 +182,6 @@ namespace FacebookWinFormsLogic
             {
                 return LoggedInUser.Location;
             }
-
         }
 
         public FacebookObjectCollection<Post> WallPosts 

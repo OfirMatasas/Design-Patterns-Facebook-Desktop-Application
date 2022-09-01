@@ -78,7 +78,7 @@
             this.descriptionRichTextBox.Name = "descriptionRichTextBox";
             this.descriptionRichTextBox.Size = new System.Drawing.Size(224, 126);
             this.descriptionRichTextBox.TabIndex = 14;
-            this.descriptionRichTextBox.Text = "";
+            this.descriptionRichTextBox.Text = string.Empty;
             // 
             // imageNormalPictureBox
             // 

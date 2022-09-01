@@ -184,6 +184,7 @@
             this.cityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pageBindingSource, "Location.City", true));
             this.cityTextBox.Location = new System.Drawing.Point(149, 355);
             this.cityTextBox.Name = "cityTextBox";
+            this.cityTextBox.ReadOnly = true;
             this.cityTextBox.Size = new System.Drawing.Size(126, 26);
             this.cityTextBox.TabIndex = 28;
             // 
@@ -192,6 +193,7 @@
             this.likesCountTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pageBindingSource, "LikesCount", true));
             this.likesCountTextBox.Location = new System.Drawing.Point(149, 259);
             this.likesCountTextBox.Name = "likesCountTextBox";
+            this.likesCountTextBox.ReadOnly = true;
             this.likesCountTextBox.Size = new System.Drawing.Size(126, 26);
             this.likesCountTextBox.TabIndex = 23;
             // 
@@ -200,15 +202,17 @@
             this.descriptionRichTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pageBindingSource, "Description", true));
             this.descriptionRichTextBox.Location = new System.Drawing.Point(149, 158);
             this.descriptionRichTextBox.Name = "descriptionRichTextBox";
+            this.descriptionRichTextBox.ReadOnly = true;
             this.descriptionRichTextBox.Size = new System.Drawing.Size(126, 96);
             this.descriptionRichTextBox.TabIndex = 19;
-            this.descriptionRichTextBox.Text = "";
+            this.descriptionRichTextBox.Text = string.Empty;
             // 
             // categoryTextBox
             // 
             this.categoryTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pageBindingSource, "Category", true));
             this.categoryTextBox.Location = new System.Drawing.Point(149, 126);
             this.categoryTextBox.Name = "categoryTextBox";
+            this.categoryTextBox.ReadOnly = true;
             this.categoryTextBox.Size = new System.Drawing.Size(126, 26);
             this.categoryTextBox.TabIndex = 17;
             // 
@@ -217,6 +221,7 @@
             this.phoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pageBindingSource, "Phone", true));
             this.phoneTextBox.Location = new System.Drawing.Point(149, 291);
             this.phoneTextBox.Name = "phoneTextBox";
+            this.phoneTextBox.ReadOnly = true;
             this.phoneTextBox.Size = new System.Drawing.Size(126, 26);
             this.phoneTextBox.TabIndex = 25;
             // 
@@ -225,6 +230,7 @@
             this.websiteTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pageBindingSource, "Website", true));
             this.websiteTextBox.Location = new System.Drawing.Point(149, 323);
             this.websiteTextBox.Name = "websiteTextBox";
+            this.websiteTextBox.ReadOnly = true;
             this.websiteTextBox.Size = new System.Drawing.Size(126, 26);
             this.websiteTextBox.TabIndex = 27;
             // 

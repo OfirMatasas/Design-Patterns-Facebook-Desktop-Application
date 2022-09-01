@@ -167,33 +167,41 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Sub Forms\FormAlbums.resx">
       <DependentUpon>FormAlbums.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Sub Forms\FormEvents.resx">
       <DependentUpon>FormEvents.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Sub Forms\FormFavoriteTeams.resx">
       <DependentUpon>FormFavoriteTeams.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Sub Forms\FormFriends.resx">
       <DependentUpon>FormFriends.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Sub Forms\FormGroups.resx">
       <DependentUpon>FormGroups.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sub Forms\FormLikedPages.resx">
       <DependentUpon>FormLikedPages.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Sub Forms\FormMostPopularFeed.resx">
       <DependentUpon>FormMostPopularFeed.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sub Forms\FormPosts.resx">
       <DependentUpon>FormPosts.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Sub Forms\FormProfile.resx">
       <DependentUpon>FormProfile.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Sub Forms\FormStatistics.resx">
       <DependentUpon>FormStatistics.cs</DependentUpon>
@@ -279,11 +287,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Statistics-Likes.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="AppSetting.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

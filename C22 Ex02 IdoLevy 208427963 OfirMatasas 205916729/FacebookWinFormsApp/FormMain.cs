@@ -1,10 +1,10 @@
-﻿using BasicFacebookFeatures;
+﻿using System;
+using System.Threading;
+using System.Windows.Forms;
+using BasicFacebookFeatures;
 using FacebookExceptions;
 using FacebookWinFormsLogic;
 using FacebookWrapper;
-using System;
-using System.Threading;
-using System.Windows.Forms;
 
 namespace FacebookWinFormsApp
 {
@@ -49,7 +49,6 @@ namespace FacebookWinFormsApp
             foreach (Control control in panelLogin.Controls)
             {
                 control.Visible = i_ToDisplay;
-                //control.Invoke(new Action(() => control.Visible = i_ToDisplay));
             }
         }
 
@@ -101,13 +100,9 @@ namespace FacebookWinFormsApp
         private void openSubForm(Form i_SubForm)
         {
             m_ActivateForm?.Hide();
-            //m_ActivateForm.Invoke(new Action(() => m_ActivateForm?.Hide()));
             m_ActivateForm = i_SubForm;
             i_SubForm.TopLevel = false;
-            //i_SubForm.Invoke(new Action(() => i_SubForm.TopLevel = false));
             i_SubForm.FormBorderStyle = FormBorderStyle.None;
-            //i_SubForm.Invoke(new Action(() => i_SubForm.FormBorderStyle = FormBorderStyle.None)); 
-            //i_SubForm.Invoke(new Action(() => i_SubForm.Dock = DockStyle.Fill));
             i_SubForm.Dock = DockStyle.Fill;
             panelLogin.Invoke(new Action(() => panelLogin.Controls.Add(i_SubForm)));
             i_SubForm.BringToFront();

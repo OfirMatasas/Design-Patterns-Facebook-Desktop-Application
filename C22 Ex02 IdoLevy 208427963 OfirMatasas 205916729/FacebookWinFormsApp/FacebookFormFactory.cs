@@ -1,8 +1,8 @@
-﻿using FacebookExceptions;
+﻿using System;
+using System.Windows.Forms;
+using FacebookExceptions;
 using FacebookWinFormsApp.Forms;
 using FacebookWinFormsLogic;
-using System;
-using System.Windows.Forms;
 
 namespace BasicFacebookFeatures
 {

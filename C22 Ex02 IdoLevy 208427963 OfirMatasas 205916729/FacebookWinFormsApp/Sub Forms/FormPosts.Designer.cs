@@ -37,6 +37,7 @@
             this.createdTimeTextBox = new System.Windows.Forms.TextBox();
             this.postBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.messageRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.pictureURLPictureBox = new System.Windows.Forms.PictureBox();
             this.listBoxPosts = new System.Windows.Forms.ListBox();
             this.labelViewPosts = new System.Windows.Forms.Label();
             this.labelCreateNewPost = new System.Windows.Forms.Label();
@@ -45,18 +46,17 @@
             this.buttonClearNewPostText = new System.Windows.Forms.Button();
             this.buttonPost = new System.Windows.Forms.Button();
             this.panelPostsSection = new System.Windows.Forms.Panel();
-            this.pictureURLPictureBox = new System.Windows.Forms.PictureBox();
             createdTimeLabel = new System.Windows.Forms.Label();
             messageLabel = new System.Windows.Forms.Label();
             this.PanelViewPosts.SuspendLayout();
             this.panelPostsDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureURLPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerUpper)).BeginInit();
             this.splitContainerUpper.Panel1.SuspendLayout();
             this.splitContainerUpper.Panel2.SuspendLayout();
             this.splitContainerUpper.SuspendLayout();
             this.panelPostsSection.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureURLPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // createdTimeLabel
@@ -110,6 +110,7 @@
             this.createdTimeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.postBindingSource, "CreatedTime", true));
             this.createdTimeTextBox.Location = new System.Drawing.Point(164, 121);
             this.createdTimeTextBox.Name = "createdTimeTextBox";
+            this.createdTimeTextBox.ReadOnly = true;
             this.createdTimeTextBox.Size = new System.Drawing.Size(122, 20);
             this.createdTimeTextBox.TabIndex = 1;
             // 
@@ -122,9 +123,21 @@
             this.messageRichTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.postBindingSource, "Message", true));
             this.messageRichTextBox.Location = new System.Drawing.Point(164, 147);
             this.messageRichTextBox.Name = "messageRichTextBox";
+            this.messageRichTextBox.ReadOnly = true;
             this.messageRichTextBox.Size = new System.Drawing.Size(122, 96);
             this.messageRichTextBox.TabIndex = 3;
-            this.messageRichTextBox.Text = "";
+            this.messageRichTextBox.Text = string.Empty;
+            // 
+            // pictureURLPictureBox
+            // 
+            this.pictureURLPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.postBindingSource, "PictureURL", true));
+            this.pictureURLPictureBox.ImageLocation = string.Empty;
+            this.pictureURLPictureBox.Location = new System.Drawing.Point(112, 3);
+            this.pictureURLPictureBox.Name = "pictureURLPictureBox";
+            this.pictureURLPictureBox.Size = new System.Drawing.Size(122, 90);
+            this.pictureURLPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureURLPictureBox.TabIndex = 5;
+            this.pictureURLPictureBox.TabStop = false;
             // 
             // listBoxPosts
             // 
@@ -198,7 +211,7 @@
             this.richTextBoxNewPost.Name = "richTextBoxNewPost";
             this.richTextBoxNewPost.Size = new System.Drawing.Size(520, 201);
             this.richTextBoxNewPost.TabIndex = 3;
-            this.richTextBoxNewPost.Text = "";
+            this.richTextBoxNewPost.Text = string.Empty;
             this.richTextBoxNewPost.TextChanged += new System.EventHandler(this.richTextBoxNewPost_TextChanged);
             // 
             // buttonClearNewPostText
@@ -244,17 +257,6 @@
             this.panelPostsSection.Size = new System.Drawing.Size(650, 560);
             this.panelPostsSection.TabIndex = 0;
             // 
-            // pictureURLPictureBox
-            // 
-            this.pictureURLPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.postBindingSource, "PictureURL", true));
-            this.pictureURLPictureBox.ImageLocation = "";
-            this.pictureURLPictureBox.Location = new System.Drawing.Point(112, 3);
-            this.pictureURLPictureBox.Name = "pictureURLPictureBox";
-            this.pictureURLPictureBox.Size = new System.Drawing.Size(122, 90);
-            this.pictureURLPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureURLPictureBox.TabIndex = 5;
-            this.pictureURLPictureBox.TabStop = false;
-            // 
             // FormPosts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -270,6 +272,7 @@
             this.panelPostsDetails.ResumeLayout(false);
             this.panelPostsDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureURLPictureBox)).EndInit();
             this.splitContainerUpper.Panel1.ResumeLayout(false);
             this.splitContainerUpper.Panel2.ResumeLayout(false);
             this.splitContainerUpper.Panel2.PerformLayout();
@@ -277,7 +280,6 @@
             this.splitContainerUpper.ResumeLayout(false);
             this.panelPostsSection.ResumeLayout(false);
             this.panelPostsSection.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureURLPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }

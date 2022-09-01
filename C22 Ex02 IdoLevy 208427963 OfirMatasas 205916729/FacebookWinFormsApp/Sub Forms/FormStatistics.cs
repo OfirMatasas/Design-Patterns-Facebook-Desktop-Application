@@ -1,7 +1,8 @@
-﻿using BasicFacebookFeatures;
-using FacebookWinFormsLogic;
-using System;
+﻿using System;
+using System.Threading;
 using System.Windows.Forms;
+using BasicFacebookFeatures;
+using FacebookWinFormsLogic;
 
 namespace FacebookWinFormsApp.Forms
 {
@@ -27,8 +28,11 @@ namespace FacebookWinFormsApp.Forms
             else
             {
                 Cursor.Current = Cursors.WaitCursor;
-                getAlbumsAndPhotosDataInChosenDate(chosenDate);
-                getNumberOfPostsInChosenDate(chosenDate);
+                new Thread(() =>
+                {
+                    getAlbumsAndPhotosDataInChosenDate(chosenDate);
+                    getNumberOfPostsInChosenDate(chosenDate);
+                }).Start();
                 Cursor.Current = Cursors.Default;
             }
         }
@@ -42,15 +46,19 @@ namespace FacebookWinFormsApp.Forms
                 out numberOfLikesOnPhotos,
                 out numberOfNewAlbums,
                 out numberOfNewPhotos);
-            labelNumberOfLikesOnPhotos.Text = $"{numberOfLikesOnPhotos} Like{(numberOfLikesOnPhotos == 1 ? string.Empty : "s")}{Environment.NewLine}on photos";
-            labelNumberOfNewAlbums.Text = $"{numberOfNewAlbums} new{Environment.NewLine}album{(numberOfNewAlbums == 1 ? string.Empty : "s")}";
-            labelNumberOfNewPhotos.Text = $"{numberOfNewPhotos} new{Environment.NewLine}photo{(numberOfNewPhotos == 1 ? string.Empty : "s")}";
+            labelNumberOfLikesOnPhotos.Invoke(
+                new Action(() => labelNumberOfLikesOnPhotos.Text = $"{numberOfLikesOnPhotos} Like{(numberOfLikesOnPhotos == 1 ? string.Empty : "s")}{Environment.NewLine}on photos"));
+            labelNumberOfNewAlbums.Invoke(
+                new Action(() => labelNumberOfNewAlbums.Text = $"{numberOfNewAlbums} new{Environment.NewLine}album{(numberOfNewAlbums == 1 ? string.Empty : "s")}"));
+            labelNumberOfNewPhotos.Invoke(
+                new Action(() => labelNumberOfNewPhotos.Text = $"{numberOfNewPhotos} new{Environment.NewLine}photo{(numberOfNewPhotos == 1 ? string.Empty : "s")}"));
         }
 
         private void getNumberOfPostsInChosenDate(DateTime i_ChosenDate)
         {
             int numberOfPosts = r_StatisticsLogic.GetTheNumberOfPostsCreatedOnChosenDate(i_ChosenDate);
-            labelNumberOfPosts.Text = $"{numberOfPosts} post{(numberOfPosts == 1 ? string.Empty : "s")}{Environment.NewLine}published";
+            labelNumberOfPosts.Invoke(
+                new Action(() => labelNumberOfPosts.Text = $"{numberOfPosts} post{(numberOfPosts == 1 ? string.Empty : "s")}{Environment.NewLine}published"));
         }
 
         private void buttonShowStatistics_Click(object i_Sender, EventArgs i_E)

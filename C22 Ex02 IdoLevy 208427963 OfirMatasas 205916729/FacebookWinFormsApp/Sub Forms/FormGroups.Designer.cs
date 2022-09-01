@@ -115,9 +115,10 @@
             this.descriptionRichTextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.descriptionRichTextBox.Location = new System.Drawing.Point(0, 183);
             this.descriptionRichTextBox.Name = "descriptionRichTextBox";
+            this.descriptionRichTextBox.ReadOnly = true;
             this.descriptionRichTextBox.Size = new System.Drawing.Size(306, 201);
             this.descriptionRichTextBox.TabIndex = 1;
-            this.descriptionRichTextBox.Text = "";
+            this.descriptionRichTextBox.Text = string.Empty;
             // 
             // FormGroups
             // 

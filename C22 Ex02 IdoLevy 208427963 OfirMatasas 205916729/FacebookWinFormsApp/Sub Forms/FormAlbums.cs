@@ -1,10 +1,10 @@
-﻿using BasicFacebookFeatures;
-using FacebookWinFormsLogic;
-using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
+using BasicFacebookFeatures;
+using FacebookWinFormsLogic;
+using FacebookWrapper.ObjectModel;
 
 namespace FacebookWinFormsApp.Forms
 {
@@ -58,7 +58,7 @@ namespace FacebookWinFormsApp.Forms
             {
                 foreach (Photo photo in i_Album.Photos)
                 {
-                    pictureBox = new LazyPictureBox()
+                    pictureBox = new LazyPictureBox
                     {
                         Padding = pictureBoxPadding,
                         Size = pictureBoxSize,

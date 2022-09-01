@@ -108,7 +108,7 @@
             this.aboutRichTextBox.Name = "aboutRichTextBox";
             this.aboutRichTextBox.Size = new System.Drawing.Size(216, 126);
             this.aboutRichTextBox.TabIndex = 18;
-            this.aboutRichTextBox.Text = "";
+            this.aboutRichTextBox.Text = string.Empty;
             // 
             // FormFriends
             // 

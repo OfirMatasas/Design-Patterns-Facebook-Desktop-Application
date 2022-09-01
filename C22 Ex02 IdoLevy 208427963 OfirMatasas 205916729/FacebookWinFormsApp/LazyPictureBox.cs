@@ -13,9 +13,9 @@ namespace BasicFacebookFeatures
 
         protected override void OnPaint(PaintEventArgs pe)
         {
-            if(base.ImageLocation == null)
+            if(ImageLocation == null)
             {
-                base.ImageLocation = this.URL;
+                ImageLocation = URL;
             }
 
             base.OnPaint(pe);

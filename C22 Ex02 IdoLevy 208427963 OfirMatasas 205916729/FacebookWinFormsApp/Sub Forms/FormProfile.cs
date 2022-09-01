@@ -1,9 +1,9 @@
-﻿using FacebookWinFormsLogic;
-using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
+using FacebookWinFormsLogic;
+using FacebookWrapper.ObjectModel;
 
 namespace FacebookWinFormsApp.Forms
 {

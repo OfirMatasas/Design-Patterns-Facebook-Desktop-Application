@@ -6,7 +6,6 @@ namespace FacebookExceptions
     {
         public UserAlreadyLoggedInException() : base("User is already logged in to the system.")
         {
-
         }
     }
 }
