@@ -251,40 +251,40 @@ namespace FacebookWinFormsLogic
 
         public FacebookObjectCollection<Event> Events
         {
-            get { return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_Events, ref m_EventsLock, () => m_Events = LoggedInUser.Events); }
+            get { return getObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_Events, ref m_EventsLock, () => m_Events = LoggedInUser.Events); }
         }
 
         public FacebookObjectCollection<Group> Groups
         {
-            get { return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_Groups, ref m_GroupsLock, () => m_Groups = LoggedInUser.Groups); }
+            get { return getObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_Groups, ref m_GroupsLock, () => m_Groups = LoggedInUser.Groups); }
         }
 
         public Page[] FavoriteTeams
         {
-            get { return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_FavoriteTeams, ref m_FavoriteTeamsLock, () => m_FavoriteTeams = LoggedInUser.FavofriteTeams); }
+            get { return getObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_FavoriteTeams, ref m_FavoriteTeamsLock, () => m_FavoriteTeams = LoggedInUser.FavofriteTeams); }
         }
 
         public FacebookObjectCollection<Album> Albums
         {
-            get { return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_Albums, ref m_AlbumsLock, () => m_Albums = LoggedInUser.Albums); }
+            get { return getObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_Albums, ref m_AlbumsLock, () => m_Albums = LoggedInUser.Albums); }
         }
 
         public FacebookObjectCollection<Page> LikedPages
         {
-            get { return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_LikedPages, ref m_LikedPagesLock, () => m_LikedPages = LoggedInUser.LikedPages); }
+            get { return getObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_LikedPages, ref m_LikedPagesLock, () => m_LikedPages = LoggedInUser.LikedPages); }
         }
 
         public FacebookObjectCollection<Post> Posts
         {
-            get { return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_Posts, ref m_PostsLock, () => m_Posts = LoggedInUser.Posts); }
+            get { return getObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_Posts, ref m_PostsLock, () => m_Posts = LoggedInUser.Posts); }
         }
 
         public FacebookObjectCollection<User> Friends
         {
-            get { return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_Friends, ref m_FriendsLock, () => m_Friends = LoggedInUser.Friends); }
+            get { return getObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_Friends, ref m_FriendsLock, () => m_Friends = LoggedInUser.Friends); }
         }
 
-        private T GetObjectFromCacheOrGetFromWebServiceForTheFirstTime<T>(ref T io_DesiredObject, ref object i_DesiredObjectLock, Func<T> i_GetTheDesiredObjectFromWebService)
+        private T getObjectFromCacheOrGetFromWebServiceForTheFirstTime<T>(ref T io_DesiredObject, ref object i_DesiredObjectLock, Func<T> i_GetTheDesiredObjectFromWebService)
         {
             if (io_DesiredObject == null)
             {
