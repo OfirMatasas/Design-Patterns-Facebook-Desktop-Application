@@ -27,7 +27,7 @@ namespace FacebookWinFormsLogic
 
         public Image ProfilePicture
         {
-            get { return LoggedInUser.ImageNormal; }
+            get { return LoggedInUser.ImageLarge; }
         }
 
         public string Name

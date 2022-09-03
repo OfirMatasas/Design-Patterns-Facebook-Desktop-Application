@@ -1,0 +1,107 @@
+title Singleton Sequence Diagram
+
+actor User
+activate User
+
+User->FormMain:Click "Albums" on sidebar
+activate FormMain
+FormMain->FormMain:ButtonAlbums_Click()
+activate FormMain
+FormMain->FormMain:loadSelectedForm(m_AlbumsForm, eFormType)
+activate FormMain
+opt On first click (m_AlbumsForm == null)
+  FormMain->FacebookFormFactory:CreateForm(eFormType)
+  activate FacebookFormFactory
+  FacebookFormFactory->FacebookFormFactory:makeSureTheUserIsLoggedIn()
+  activate FacebookFormFactory
+  alt The user is not logged in
+  	FacebookFormFactory->FormMain:throw InvalidOperationException()
+    deactivateafter FacebookFormFactory
+    FormMain->User:Notify the user they're not logged in
+  else The user is logged in
+  	FacebookFormFactory->FacebookFormFactory:createTheFormRequested(eFormType)
+    activate FacebookFormFactory
+    FacebookFormFactory->FormAlbums:new FormAlbums()
+    activate FormAlbums
+
+ FormAlbums-->FacebookFormFactory:Instance of FormAlbums
+ 
+    deactivate FormAlbums
+	deactivate FacebookFormFactory
+    deactivate FacebookFormFactory
+    
+    FacebookFormFactory->FormMain:Instance of FormAlbums as Form
+    
+    note over FormMain:m_AlbumsForm = Instance of FormAlbums
+    
+    deactivate FormMain
+    deactivate FormMain
+
+FormMain->FormMain:switchDisplayedSubForm(m_FormStatistics)
+
+
+FormMain->FormAlbums:Show()
+
+activate FormAlbums
+
+FormAlbums->FormAlbums:OnShown()
+
+activate FormAlbums
+
+note over FormAlbums:The fetching action is being executed by another thread
+FormAlbums->FormAlbums:fetchAlbumsAndNotifyTheUserIfThereAreNoAlbumsToRecieve()
+
+activate FormAlbums
+
+FormAlbums->FormAlbums:fetchAlbums()
+
+activate FormAlbums
+
+FormAlbums->FacebookAccountManager:Instance
+
+activate FacebookAccountManager
+
+note over FacebookAccountManager:If it's the first demand for the instance,\nit will be created using double-check-lock
+FacebookAccountManager-->FormAlbums:Instance of FacebookAccountManager
+
+entity FacebookAccountManagerInstnace
+deactivate FacebookAccountManager
+
+FormAlbums->FacebookAccountManagerInstnace:Albums
+
+activate FacebookAccountManagerInstnace
+
+FacebookAccountManagerInstnace->FacebookAccountManagerInstnace:getObjectFromCacheOrGetFromWebServiceForTheFirstTime
+
+activate FacebookAccountManagerInstnace
+
+note over FacebookAccountManagerInstnace:If it's the first demand for albums,\nthe albums will be fetched from the\nFacebook web service using double-check-lock
+
+FacebookAccountManagerInstnace->FormAlbums:Albums
+
+deactivate FacebookAccountManagerInstnace
+deactivate FacebookAccountManagerInstnace
+
+note over FormAlbums:The list of albums will be \npopulated using another thread
+
+deactivateafter FormAlbums
+
+FormAlbums->FormAlbums:nofityTheUserIfThereAreNoAlbumsToReceive()
+
+activate FormAlbums
+
+opt There are no albums:
+	FormAlbums->MessageDisplayer:NoItemsAppearOnForm("albums")
+    
+	activate MessageDisplayer
+    
+    note over MessageDisplayer:The MessageDisplayer will present a\nMessageBox with a customized message
+    
+    deactivateafter MessageDisplayer
+end
+
+
+
+
+
+

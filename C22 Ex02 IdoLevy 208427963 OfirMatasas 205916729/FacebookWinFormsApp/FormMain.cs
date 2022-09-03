@@ -49,12 +49,6 @@ namespace FacebookWinFormsApp
             }
         }
 
-
-
-
-
-
-
         //----------------------------------------------- Login -----------------------------------------------//
         private void buttonLogin_Click(object i_Sender, EventArgs i_E)
         {
