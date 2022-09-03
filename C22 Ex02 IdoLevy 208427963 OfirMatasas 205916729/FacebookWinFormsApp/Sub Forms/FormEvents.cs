@@ -9,24 +9,39 @@ namespace FacebookWinFormsApp.Forms
 {
     internal partial class FormEvents : Form
     {
-        private readonly FacebookObjectCollection<Event> r_Events;
+        //---------------------------------------------- Members ----------------------------------------------//
+        private FacebookObjectCollection<Event> m_Events;
 
+        //-------------------------------------------- Constructor --------------------------------------------//
         public FormEvents()
         {
             InitializeComponent();
-            r_Events = FacebookAccountManager.Instance.Events;
         }
 
+        //--------------------------------------------- On Shown ----------------------------------------------//
         private void fetchEvents()
         {
-            listBoxEvents.Invoke(new Action(() => eventBindingSource.DataSource = r_Events));
+            m_Events = FacebookAccountManager.Instance.Events;
+            listBoxEvents.Invoke(new Action(() => eventBindingSource.DataSource = m_Events));
         }
 
         protected override void OnShown(EventArgs i_E)
         {
+            new Thread(fetchEventsAndNotifyTheUserIfThereAreNoEventsToRecieve).Start();
             base.OnShown(i_E);
-            new Thread(fetchEvents).Start();
-            if (r_Events.Count == 0)
+        }
+
+        private void fetchEventsAndNotifyTheUserIfThereAreNoEventsToRecieve()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            fetchEvents();
+            nofityTheUserIfThereAreNoEventsToReceive();
+            Cursor.Current = Cursors.Default;
+        }
+
+        private void nofityTheUserIfThereAreNoEventsToReceive()
+        {
+            if (m_Events.Count == 0)
             {
                 MessageDisplayer.NoItemsAppearOnForm("events");
             }

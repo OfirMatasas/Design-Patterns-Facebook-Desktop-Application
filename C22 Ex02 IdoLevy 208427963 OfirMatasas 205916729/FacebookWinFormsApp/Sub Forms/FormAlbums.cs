@@ -10,29 +10,45 @@ namespace FacebookWinFormsApp.Forms
 {
     internal partial class FormAlbums : Form
     {
-        private readonly FacebookObjectCollection<Album> r_Albums;
+        //---------------------------------------------- Members ----------------------------------------------//
+        private FacebookObjectCollection<Album> m_Albums;
 
+        //-------------------------------------------- Constructor --------------------------------------------//
         public FormAlbums()
         {
             InitializeComponent();
-            r_Albums = FacebookAccountManager.Instance.Albums;            
+        }
+
+        //--------------------------------------------- On Shown ----------------------------------------------//
+        protected override void OnShown(EventArgs i_E)
+        {
+            new Thread(fetchAlbumsAndNotifyTheUserIfThereAreNoAlbumsToRecieve).Start();
+            base.OnShown(i_E);
+        }
+
+        private void fetchAlbumsAndNotifyTheUserIfThereAreNoAlbumsToRecieve()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            fetchAlbums();
+            nofityTheUserIfThereAreNoAlbumsToReceive();
+            Cursor.Current = Cursors.Default;
         }
 
         private void fetchAlbums()
         {
-            listBoxAlbums.Invoke(new Action(() => albumBindingSource.DataSource = r_Albums));
+            m_Albums = FacebookAccountManager.Instance.Albums;
+            listBoxAlbums.Invoke(new Action(() => albumBindingSource.DataSource = m_Albums));
         }
 
-        protected override void OnShown(EventArgs i_E)
+        private void nofityTheUserIfThereAreNoAlbumsToReceive()
         {
-            base.OnShown(i_E);
-            new Thread(fetchAlbums).Start();
-            if (r_Albums == null)
+            if (m_Albums.Count == 0)
             {
                 MessageDisplayer.NoItemsAppearOnForm("albums");
             }
         }
 
+        //---------------------------------------------- Methods ----------------------------------------------//
         private void listBoxAlbums_SelectedIndexChanged(object i_Sender, EventArgs i_E)
         {
             Album album = listBoxAlbums.SelectedItem as Album;

@@ -9,6 +9,7 @@ namespace FacebookWinFormsLogic
 {
     public class FacebookAccountManager
     {
+        //----------------------------------------------- Locks -----------------------------------------------//
         private static object s_InstanceCreationLock = new object();
         private object m_ConnectToFacebookAccountLock = new object();
         private object m_PostsLock = new object();
@@ -19,70 +20,10 @@ namespace FacebookWinFormsLogic
         private object m_GroupsLock = new object();
         private object m_EventsLock = new object();
 
+        //----------------------------------------- Original Properties ---------------------------------------//
         private static FacebookAccountManager AccountManager { get; set; }
-
         public string AccessToken { get; private set; }
-
         private User LoggedInUser { get; set; }
-
-        private FacebookObjectCollection<Event> m_Events;
-        private FacebookObjectCollection<Group> m_Groups;
-        private Page[] m_FavoriteTeams;
-        private FacebookObjectCollection<Album> m_Albums;
-        private FacebookObjectCollection<Post> m_Posts;
-        private FacebookObjectCollection<Page> m_LikedPages;
-        private FacebookObjectCollection<User> m_Friends;
-
-        public FacebookObjectCollection<Event> Events
-        {
-            get { return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_Events, ref m_EventsLock, () => m_Events = LoggedInUser.Events); }
-        }
-
-        public FacebookObjectCollection<Group> Groups
-        {
-            get { return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_Groups, ref m_GroupsLock, () => m_Groups = LoggedInUser.Groups); }
-        }
-
-        public Page[] FavoriteTeams
-        {
-            get { return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_FavoriteTeams, ref m_FavoriteTeamsLock, () => m_FavoriteTeams = LoggedInUser.FavofriteTeams); }
-        }
-
-        public FacebookObjectCollection<Album> Albums
-        {
-            get { return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_Albums, ref m_AlbumsLock, () => m_Albums = LoggedInUser.Albums); }
-        }
-
-        public FacebookObjectCollection<Page> LikedPages
-        {
-            get { return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_LikedPages, ref m_LikedPagesLock, () => m_LikedPages = LoggedInUser.LikedPages); }
-        }
-
-        public FacebookObjectCollection<Post> Posts
-        {
-            get { return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_Posts, ref m_PostsLock, () => m_Posts = LoggedInUser.Posts); }
-        }
-
-        public FacebookObjectCollection<User> Friends
-        {
-            get { return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_Friends, ref m_FriendsLock, () => m_Friends = LoggedInUser.Friends); }
-        }
-
-        private T GetObjectFromCacheOrGetFromWebServiceForTheFirstTime<T>(ref T io_DesiredObject, ref object i_DesiredObjectLock, Func<T> i_GetTheDesiredObjectFromWebService)
-        {
-            if (io_DesiredObject == null)
-            {
-                lock (i_DesiredObjectLock)
-                {
-                    if (io_DesiredObject == null)
-                    {
-                        io_DesiredObject = i_GetTheDesiredObjectFromWebService.Invoke();
-                    }
-                }
-            }
-
-            return io_DesiredObject;
-        }
 
         public Image ProfilePicture
         {
@@ -97,29 +38,6 @@ namespace FacebookWinFormsLogic
         public string Birthday
         {
             get { return LoggedInUser.Birthday; }
-        }
-
-        private FacebookAccountManager()
-        {
-        }
-
-        public static FacebookAccountManager Instance
-        {
-            get
-            {
-                if (AccountManager == null)
-                {
-                    lock (s_InstanceCreationLock)
-                    {
-                        if (AccountManager == null)
-                        {
-                            AccountManager = new FacebookAccountManager();
-                        }
-                    }
-                }
-
-                return AccountManager;
-            }
         }
 
         public static bool LoggedIn
@@ -161,7 +79,7 @@ namespace FacebookWinFormsLogic
         {
             get { return LoggedInUser.EventsCreated; }
         }
-        
+
         public FacebookObjectCollection<Event> EventsDeclined
         {
             get { return LoggedInUser.EventsDeclined; }
@@ -185,11 +103,6 @@ namespace FacebookWinFormsLogic
         public FacebookObjectCollection<Checkin> Checkins
         {
             get { return LoggedInUser.Checkins; }
-        }
-
-        public void Checkin(Checkin i_Checkin)
-        {
-            LoggedInUser.Checkin(i_Checkin);
         }
 
         public Cover Cover
@@ -327,63 +240,92 @@ namespace FacebookWinFormsLogic
             get { return LoggedInUser.WorkExperiences; }
         }
 
-        public FriendList CreateFriendList(string i_FriendList)
+        //------------------------------------------ Cached Properties ----------------------------------------//
+        private FacebookObjectCollection<Event> m_Events;
+        private FacebookObjectCollection<Group> m_Groups;
+        private Page[] m_FavoriteTeams;
+        private FacebookObjectCollection<Album> m_Albums;
+        private FacebookObjectCollection<Post> m_Posts;
+        private FacebookObjectCollection<Page> m_LikedPages;
+        private FacebookObjectCollection<User> m_Friends;
+
+        public FacebookObjectCollection<Event> Events
         {
-            return LoggedInUser.CreateFriendList(i_FriendList);
+            get { return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_Events, ref m_EventsLock, () => m_Events = LoggedInUser.Events); }
         }
 
-        public void PostPhoto(string i_PictureFilePath, string i_Title = null, string i_Caption = null, string i_PrivacyParameterValue = null)
+        public FacebookObjectCollection<Group> Groups
         {
-            LoggedInUser.PostPhoto(i_PictureFilePath, i_Title, i_Caption, i_PrivacyParameterValue);
+            get { return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_Groups, ref m_GroupsLock, () => m_Groups = LoggedInUser.Groups); }
         }
 
-        public void PostLink(string i_Url, string i_Message = null, string i_PrivacyParameterValue = null)
+        public Page[] FavoriteTeams
         {
-            LoggedInUser.PostLink(i_Url, i_Message, i_PrivacyParameterValue);
+            get { return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_FavoriteTeams, ref m_FavoriteTeamsLock, () => m_FavoriteTeams = LoggedInUser.FavofriteTeams); }
         }
 
-        public void CreateEvent_DeprecatedSinceV2(string i_Name, DateTime i_StartTime, DateTime? i_EndTime = null, string i_Description = null, string i_Location = null, Event.ePrivacy? i_PrivacyType = null, string i_PlaceID = null)
+        public FacebookObjectCollection<Album> Albums
         {
-            LoggedInUser.CreateEvent_DeprecatedSinceV2(i_Name, i_StartTime, i_EndTime, i_Description, i_Location, i_PrivacyType, i_PlaceID);
+            get { return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_Albums, ref m_AlbumsLock, () => m_Albums = LoggedInUser.Albums); }
         }
 
-        public void Connect(string i_AccessToken)
+        public FacebookObjectCollection<Page> LikedPages
         {
-            LoginResult loginResult;
-            bool isExecuted = false;
+            get { return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_LikedPages, ref m_LikedPagesLock, () => m_LikedPages = LoggedInUser.LikedPages); }
+        }
 
-            if (LoggedInUser == null)
+        public FacebookObjectCollection<Post> Posts
+        {
+            get { return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_Posts, ref m_PostsLock, () => m_Posts = LoggedInUser.Posts); }
+        }
+
+        public FacebookObjectCollection<User> Friends
+        {
+            get { return GetObjectFromCacheOrGetFromWebServiceForTheFirstTime(ref m_Friends, ref m_FriendsLock, () => m_Friends = LoggedInUser.Friends); }
+        }
+
+        private T GetObjectFromCacheOrGetFromWebServiceForTheFirstTime<T>(ref T io_DesiredObject, ref object i_DesiredObjectLock, Func<T> i_GetTheDesiredObjectFromWebService)
+        {
+            if (io_DesiredObject == null)
             {
-                lock (m_ConnectToFacebookAccountLock)
+                lock (i_DesiredObjectLock)
                 {
-                    if (LoggedInUser == null)
+                    if (io_DesiredObject == null)
                     {
-                        loginResult = FacebookService.Connect(i_AccessToken);
-                        isExecuted = true;
-                        checkIfLoginWasSuccessful(loginResult);
+                        io_DesiredObject = i_GetTheDesiredObjectFromWebService.Invoke();
                     }
                 }
             }
 
-            if(!isExecuted)
-            {
-                throw new UserAlreadyLoggedInException();
-            }
+            return io_DesiredObject;
         }
 
-        private void checkIfLoginWasSuccessful(LoginResult loginResult)
+        //-------------------------------------------- Constructor --------------------------------------------//
+        private FacebookAccountManager()
         {
-            if (loginResult.AccessToken != null)
+        }
+
+        //---------------------------------------------- Instance ---------------------------------------------//
+        public static FacebookAccountManager Instance
+        {
+            get
             {
-                LoggedInUser = loginResult.LoggedInUser;
-                AccessToken = loginResult.AccessToken;
-            }
-            else
-            {
-                throw new LoginFailureException();
+                if (AccountManager == null)
+                {
+                    lock (s_InstanceCreationLock)
+                    {
+                        if (AccountManager == null)
+                        {
+                            AccountManager = new FacebookAccountManager();
+                        }
+                    }
+                }
+
+                return AccountManager;
             }
         }
 
+        //----------------------------------------------- Login -----------------------------------------------//
         public void Login()
         {
             LoginResult loginResult;
@@ -420,17 +362,73 @@ namespace FacebookWinFormsLogic
                 }
             }
 
-            if(!isExecuted)
+            if (!isExecuted)
             {
                 throw new UserAlreadyLoggedInException();
             }
         }
 
-        public void Logout()
+        public void Connect(string i_AccessToken)
         {
-            FacebookService.Logout();
-            AccessToken = null;
-            LoggedInUser = null;
+            LoginResult loginResult;
+            bool isExecuted = false;
+
+            if (LoggedInUser == null)
+            {
+                lock (m_ConnectToFacebookAccountLock)
+                {
+                    if (LoggedInUser == null)
+                    {
+                        loginResult = FacebookService.Connect(i_AccessToken);
+                        isExecuted = true;
+                        checkIfLoginWasSuccessful(loginResult);
+                    }
+                }
+            }
+
+            if (!isExecuted)
+            {
+                throw new UserAlreadyLoggedInException();
+            }
+        }
+
+        //---------------------------------------------- Methods ----------------------------------------------//
+        private void checkIfLoginWasSuccessful(LoginResult loginResult)
+        {
+            if (loginResult.AccessToken != null)
+            {
+                LoggedInUser = loginResult.LoggedInUser;
+                AccessToken = loginResult.AccessToken;
+            }
+            else
+            {
+                throw new LoginFailureException();
+            }
+        }
+
+        public void Checkin(Checkin i_Checkin)
+        {
+            LoggedInUser.Checkin(i_Checkin);
+        }
+
+        public FriendList CreateFriendList(string i_FriendList)
+        {
+            return LoggedInUser.CreateFriendList(i_FriendList);
+        }
+
+        public void PostPhoto(string i_PictureFilePath, string i_Title = null, string i_Caption = null, string i_PrivacyParameterValue = null)
+        {
+            LoggedInUser.PostPhoto(i_PictureFilePath, i_Title, i_Caption, i_PrivacyParameterValue);
+        }
+
+        public void PostLink(string i_Url, string i_Message = null, string i_PrivacyParameterValue = null)
+        {
+            LoggedInUser.PostLink(i_Url, i_Message, i_PrivacyParameterValue);
+        }
+
+        public void CreateEvent_DeprecatedSinceV2(string i_Name, DateTime i_StartTime, DateTime? i_EndTime = null, string i_Description = null, string i_Location = null, Event.ePrivacy? i_PrivacyType = null, string i_PlaceID = null)
+        {
+            LoggedInUser.CreateEvent_DeprecatedSinceV2(i_Name, i_StartTime, i_EndTime, i_Description, i_Location, i_PrivacyType, i_PlaceID);
         }
 
         public Status Post(string i_NewPost)
@@ -452,6 +450,14 @@ namespace FacebookWinFormsLogic
             }
 
             return postedStatus;
+        }
+
+        //---------------------------------------------- Logout -----------------------------------------------//
+        public void Logout()
+        {
+            FacebookService.Logout();
+            AccessToken = null;
+            LoggedInUser = null;
         }
     }
 }

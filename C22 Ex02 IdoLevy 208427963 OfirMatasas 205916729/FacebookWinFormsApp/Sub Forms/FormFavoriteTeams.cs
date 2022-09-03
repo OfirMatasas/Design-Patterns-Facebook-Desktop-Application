@@ -9,24 +9,39 @@ namespace FacebookWinFormsApp.Forms
 {
     internal partial class FormFavoriteTeams : Form
     {
-        private readonly Page[] r_FavoriteTeams;
+        //---------------------------------------------- Members ----------------------------------------------//
+        private Page[] m_FavoriteTeams;
 
+        //-------------------------------------------- Constructor --------------------------------------------//
         public FormFavoriteTeams()
         {
             InitializeComponent();
-            r_FavoriteTeams = FacebookAccountManager.Instance.FavoriteTeams;
+        }
+
+        //--------------------------------------------- On Shown ----------------------------------------------//
+        protected override void OnShown(EventArgs i_E)
+        {
+            new Thread(fetchEventsAndNotifyTheUserIfThereAreNoFavoriteTeamsToRecieve).Start();
+            base.OnShown(i_E);
+        }
+
+        private void fetchEventsAndNotifyTheUserIfThereAreNoFavoriteTeamsToRecieve()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            fetchFavoriteTeams();
+            nofityTheUserIfThereAreNoFavoriteTeamsToReceive();
+            Cursor.Current = Cursors.Default;
         }
 
         private void fetchFavoriteTeams()
         {
-            listBoxFavoriteTeams.Invoke(new Action(() => pageBindingSource.DataSource = r_FavoriteTeams));
+            m_FavoriteTeams = FacebookAccountManager.Instance.FavoriteTeams;
+            listBoxFavoriteTeams.Invoke(new Action(() => pageBindingSource.DataSource = m_FavoriteTeams));
         }
 
-        protected override void OnShown(EventArgs i_E)
+        private void nofityTheUserIfThereAreNoFavoriteTeamsToReceive()
         {
-            base.OnShown(i_E);
-            new Thread(fetchFavoriteTeams).Start();
-            if (r_FavoriteTeams == null)
+            if (m_FavoriteTeams == null)
             {
                 MessageDisplayer.NoItemsAppearOnForm("favorite teams");
             }

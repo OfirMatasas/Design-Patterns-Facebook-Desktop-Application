@@ -8,6 +8,7 @@ namespace BasicFacebookFeatures
 {
     public class FacebookFormFactory
     {
+        //----------------------------------------------- Enums -----------------------------------------------//
         public enum eFormTypes
         {
             Albums,
@@ -22,6 +23,7 @@ namespace BasicFacebookFeatures
             Statistics
         }
 
+        //---------------------------------------------- Methods ----------------------------------------------//
         public static Form CreateForm(eFormTypes i_FormType)
         {
             Form requestedForm;
@@ -42,7 +44,6 @@ namespace BasicFacebookFeatures
 
         private static Form createTheFormRequested(eFormTypes i_FormType)
         {
-            FacebookAccountManager accountManager = FacebookAccountManager.Instance;
             Form requestedForm;
 
             switch (i_FormType)

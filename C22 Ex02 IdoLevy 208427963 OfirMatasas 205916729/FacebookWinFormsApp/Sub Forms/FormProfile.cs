@@ -9,15 +9,17 @@ namespace FacebookWinFormsApp.Forms
 {
     internal partial class FormProfile : Form
     {
+        //-------------------------------------------- Constructor --------------------------------------------//
         public FormProfile()
         {
             InitializeComponent();
         }
 
-        protected override void OnShown(EventArgs e)
+        //--------------------------------------------- On Shown ----------------------------------------------//
+        protected override void OnShown(EventArgs i_E)
         {
             new Thread(fetchProfileInfo).Start();
-            base.OnShown(e);
+            base.OnShown(i_E);
         }
 
         private void fetchProfileInfo()

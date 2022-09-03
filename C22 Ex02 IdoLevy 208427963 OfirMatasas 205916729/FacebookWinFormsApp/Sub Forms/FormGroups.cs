@@ -9,24 +9,39 @@ namespace FacebookWinFormsApp.Forms
 {
     internal partial class FormGroups : Form
     {
-        private readonly FacebookObjectCollection<Group> r_Groups;
+        //---------------------------------------------- Members ----------------------------------------------//
+        private FacebookObjectCollection<Group> m_Groups;
 
+        //-------------------------------------------- Constructor --------------------------------------------//
         public FormGroups()
         {
             InitializeComponent();
-            r_Groups = FacebookAccountManager.Instance.Groups;
+        }
+
+        //--------------------------------------------- On Shown ----------------------------------------------//
+        protected override void OnShown(EventArgs i_E)
+        {
+            new Thread(fetchEventsAndNotifyTheUserIfThereAreNoGroupsToRecieve).Start();
+            base.OnShown(i_E);
+        }
+
+        private void fetchEventsAndNotifyTheUserIfThereAreNoGroupsToRecieve()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            fetchGroups();
+            nofityTheUserIfThereAreNoGroupsToReceive();
+            Cursor.Current = Cursors.Default;
         }
 
         private void fetchGroups()
         {
-            listBoxGroups.Invoke(new Action(() => groupBindingSource.DataSource = r_Groups));
+            m_Groups = FacebookAccountManager.Instance.Groups;
+            listBoxGroups.Invoke(new Action(() => groupBindingSource.DataSource = m_Groups));
         }
 
-        protected override void OnShown(EventArgs i_E)
+        private void nofityTheUserIfThereAreNoGroupsToReceive()
         {
-            base.OnShown(i_E);
-            new Thread(fetchGroups).Start();
-            if (r_Groups == null)
+            if (m_Groups.Count == 0)
             {
                 MessageDisplayer.NoItemsAppearOnForm("groups");
             }

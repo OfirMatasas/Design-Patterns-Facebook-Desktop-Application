@@ -9,24 +9,39 @@ namespace FacebookWinFormsApp.Forms
 {
     internal partial class FormFriends : Form
     {
-        private readonly FacebookObjectCollection<User> r_Friends;
+        //---------------------------------------------- Members ----------------------------------------------//
+        private FacebookObjectCollection<User> m_Friends;
 
+        //-------------------------------------------- Constructor --------------------------------------------//
         public FormFriends()
         {
             InitializeComponent();
-            r_Friends = FacebookAccountManager.Instance.Friends;
+        }
+
+        //--------------------------------------------- On Shown ----------------------------------------------//
+        protected override void OnShown(EventArgs i_E)
+        {
+            new Thread(fetchEventsAndNotifyTheUserIfThereAreNoFriendsToRecieve).Start();
+            base.OnShown(i_E);
+        }
+
+        private void fetchEventsAndNotifyTheUserIfThereAreNoFriendsToRecieve()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            fetchFriends();
+            nofityTheUserIfThereAreNoFriendsToReceive();
+            Cursor.Current = Cursors.Default;
         }
 
         private void fetchFriends()
         {
-            listBoxFriends.Invoke(new Action(() => userBindingSource.DataSource = r_Friends));
+            m_Friends = FacebookAccountManager.Instance.Friends;
+            listBoxFriends.Invoke(new Action(() => userBindingSource.DataSource = m_Friends));
         }
 
-        protected override void OnShown(EventArgs i_E)
+        private void nofityTheUserIfThereAreNoFriendsToReceive()
         {
-            base.OnShown(i_E);
-            new Thread(fetchFriends).Start();
-            if (r_Friends.Count == 0)
+            if (m_Friends.Count == 0)
             {
                 MessageDisplayer.NoItemsAppearOnForm("friends");
             }

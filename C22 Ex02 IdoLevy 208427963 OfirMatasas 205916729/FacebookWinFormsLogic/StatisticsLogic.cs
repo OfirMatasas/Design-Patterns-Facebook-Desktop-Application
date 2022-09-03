@@ -5,21 +5,24 @@ namespace FacebookWinFormsLogic
 {
     public class StatisticsLogic
     {
+        //---------------------------------------------- Members ----------------------------------------------//
         private readonly FacebookObjectCollection<Album> r_Albums;
         private readonly FacebookObjectCollection<Post> r_Posts;
 
+        //-------------------------------------------- Constructor --------------------------------------------//
         public StatisticsLogic()
         {
             r_Albums = FacebookAccountManager.Instance.Albums;
             r_Posts = FacebookAccountManager.Instance.Posts;
         }
 
+        //---------------------------------------------- Methods ----------------------------------------------//
         private bool CheckIfDatesHasTheSameYearAndMonth(DateTime i_ChosenDate, DateTime i_PostedDate)
         {
             return i_PostedDate.Month == i_ChosenDate.Month && i_PostedDate.Year == i_ChosenDate.Year;
         }
 
-        public void AnalyzeDataOnAlbumsAndPhotosInChosenDate(
+        public void AnalyzeDataOnAlbumsAndPhotosOnChosenDate(
             DateTime i_ChosenDate,
             out int o_NumberOfLikesOnPhotosCreatedOnChosenDate,
             out int o_NumberOfAlbumsCreatedOnChosenDate,

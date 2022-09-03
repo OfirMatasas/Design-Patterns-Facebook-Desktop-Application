@@ -5,18 +5,19 @@ namespace FacebookWinFormsLogic
 {
     public class AppSetting
     {
+        //--------------------------------------------- Properties --------------------------------------------//
         private const string k_XMLFileName = "AppSetting.xml";
-
         public bool RememberUserInfo { get; set; }
-
         public string LastAccessToken { get; set; }
 
+        //--------------------------------------------- Constructor -------------------------------------------//
         private AppSetting()
         {
             RememberUserInfo = false;
             LastAccessToken = null;
         }
 
+        //------------------------------------------- Serialization -------------------------------------------//
         public static AppSetting LoadFromFile()
         {
             AppSetting appSetting;
@@ -47,6 +48,7 @@ namespace FacebookWinFormsLogic
             }
         }
 
+        //---------------------------------------------- Methods ----------------------------------------------//
         public void RememberUser(string i_AccessToken)
         {
             RememberUserInfo = true;

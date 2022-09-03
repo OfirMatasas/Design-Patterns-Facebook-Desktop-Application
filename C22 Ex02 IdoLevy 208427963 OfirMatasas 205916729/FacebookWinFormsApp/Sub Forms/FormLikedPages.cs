@@ -9,24 +9,39 @@ namespace FacebookWinFormsApp.Forms
 {
     internal partial class FormLikedPages : Form
     {
-        private readonly FacebookObjectCollection<Page> r_LikedPages;
+        //---------------------------------------------- Members ----------------------------------------------//
+        private FacebookObjectCollection<Page> m_LikedPages;
 
+        //-------------------------------------------- Constructor --------------------------------------------//
         public FormLikedPages()
         {
             InitializeComponent();
-            r_LikedPages = FacebookAccountManager.Instance.LikedPages;
+        }
+
+        //--------------------------------------------- On Shown ----------------------------------------------//
+        protected override void OnShown(EventArgs i_E)
+        {
+            new Thread(fetchEventsAndNotifyTheUserIfThereAreNoLikedPagesToRecieve).Start();
+            base.OnShown(i_E);
+        }
+
+        private void fetchEventsAndNotifyTheUserIfThereAreNoLikedPagesToRecieve()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            fetchLikedPages();
+            nofityTheUserIfThereAreNoLikedPagesToReceive();
+            Cursor.Current = Cursors.Default;
         }
 
         private void fetchLikedPages()
         {
-            listBoxLikedPages.Invoke(new Action(() => pageBindingSource.DataSource = r_LikedPages));
+            m_LikedPages = FacebookAccountManager.Instance.LikedPages;
+            listBoxLikedPages.Invoke(new Action(() => pageBindingSource.DataSource = m_LikedPages));
         }
 
-        protected override void OnShown(EventArgs i_E)
+        private void nofityTheUserIfThereAreNoLikedPagesToReceive()
         {
-            base.OnShown(i_E);
-            new Thread(fetchLikedPages).Start();
-            if (r_LikedPages == null)
+            if (m_LikedPages.Count == 0)
             {
                 MessageDisplayer.NoItemsAppearOnForm("liked pages");
             }

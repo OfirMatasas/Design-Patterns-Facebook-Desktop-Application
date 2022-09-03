@@ -5,15 +5,18 @@ namespace FacebookWinFormsLogic
 {
     public class MostPopularFeedLogic
     {
+        //---------------------------------------------- Members ----------------------------------------------//
         private readonly FacebookObjectCollection<Post> r_Posts;
         private readonly FacebookObjectCollection<Album> r_Albums;
 
+        //-------------------------------------------- Constructor --------------------------------------------//
         public MostPopularFeedLogic()
         {
             r_Albums = FacebookAccountManager.Instance.Albums;
             r_Posts = FacebookAccountManager.Instance.Posts;
         }
 
+        //---------------------------------------------- Methods ----------------------------------------------//
         public Post FindMostPopularPost(DateTime i_ChosenDate)
         {
             Post mostPopularPost = null;

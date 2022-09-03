@@ -10,12 +10,22 @@ namespace FacebookWinFormsApp.Forms
 {
     internal partial class FormMostPopularFeed : Form
     {
+        //---------------------------------------------- Members ----------------------------------------------//
         private readonly MostPopularFeedLogic r_MostPopularFeedLogic;
 
+        //-------------------------------------------- Constructor --------------------------------------------//
         public FormMostPopularFeed()
         {
             InitializeComponent();
             r_MostPopularFeedLogic = new MostPopularFeedLogic();
+        }
+
+        //---------------------------------------------- Methods ----------------------------------------------//
+        private void buttonShowPhotosAndPosts_Click(object i_Sender, EventArgs i_E)
+        {
+            fetchMostPopularFeed();
+            panelMostPopular.Visible = true;
+            labelMostPopularFeed.Visible = true;
         }
 
         private void fetchMostPopularFeed()
@@ -28,17 +38,17 @@ namespace FacebookWinFormsApp.Forms
             }
             else
             {
-                Cursor.Current = Cursors.WaitCursor;
                 new Thread(() =>
                 {
+                    Cursor.Current = Cursors.WaitCursor;
                     getMostPopularPost(chosenDateTime);
                     getMostPopularPhoto(chosenDateTime);
+                    Cursor.Current = Cursors.Default;
                     if (listBoxMostPopularPost.Items.Count == 0 || pictureBoxMostPopularPhoto.Image == null)
                     {
                         notifyUserAboutNonExistedItemsOnSelectedYear();
                     }
                 }).Start();
-                Cursor.Current = Cursors.Default;
             }
         }
 
@@ -86,6 +96,7 @@ namespace FacebookWinFormsApp.Forms
             }
         }
 
+        //---------------------------------------------- Resets -----------------------------------------------//
         private void resetMostPopularPost()
         {
             listBoxMostPopularPost.Invoke(new Action(() => listBoxMostPopularPost.Items.Clear()));
@@ -98,13 +109,6 @@ namespace FacebookWinFormsApp.Forms
             pictureBoxMostPopularPhoto.Invoke(new Action(() => pictureBoxMostPopularPhoto.Image = null));
             labelMostPopularPhotoCommentsNumber.Invoke(new Action(() => labelMostPopularPhotoCommentsNumber.Text = string.Empty)); 
             labelMostPopularPhotoDate.Invoke(new Action(() => labelMostPopularPhotoDate.Text = string.Empty)); 
-        }
-
-        private void buttonShowPhotosAndPosts_Click(object i_Sender, EventArgs i_E)
-        {
-            fetchMostPopularFeed();
-            panelMostPopular.Visible = true;
-            labelMostPopularFeed.Visible = true;
         }
     }
 }

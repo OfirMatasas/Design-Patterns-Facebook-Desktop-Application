@@ -9,29 +9,45 @@ namespace FacebookWinFormsApp.Forms
 {
     internal partial class FormPosts : Form
     {
-        private readonly FacebookObjectCollection<Post> r_Posts;
+        //---------------------------------------------- Members ----------------------------------------------//
+        private FacebookObjectCollection<Post> m_Posts;
 
+        //-------------------------------------------- Constructor --------------------------------------------//
         public FormPosts()
         {
             InitializeComponent();
-            r_Posts = FacebookAccountManager.Instance.Posts;
         }
 
+        //--------------------------------------------- On Shown ----------------------------------------------//
         protected override void OnShown(EventArgs i_E)
         {
+            new Thread(fetchEventsAndNotifyTheUserIfThereAreNoPostsToRecieve).Start();
             base.OnShown(i_E);
-            new Thread(fetchPosts).Start();
-            if (r_Posts == null)
+        }
+
+        private void fetchEventsAndNotifyTheUserIfThereAreNoPostsToRecieve()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            fetchPosts();
+            nofityTheUserIfThereAreNoPostsToReceive();
+            Cursor.Current = Cursors.Default;
+        }
+
+        private void fetchPosts()
+        {
+            m_Posts = FacebookAccountManager.Instance.Posts;
+            listBoxPosts.Invoke(new Action(() => postBindingSource.DataSource = m_Posts));
+        }
+
+        private void nofityTheUserIfThereAreNoPostsToReceive()
+        {
+            if (m_Posts.Count == 0)
             {
                 MessageDisplayer.NoItemsAppearOnForm("posts");
             }
         }
 
-        private void fetchPosts()
-        {
-            listBoxPosts.Invoke(new Action(() => postBindingSource.DataSource = r_Posts));
-        }
-
+        //---------------------------------------------- Methods ----------------------------------------------//
         private void buttonClearNewPostText_Click(object i_Sender, EventArgs i_E)
         {
             richTextBoxNewPost.Text = string.Empty;
