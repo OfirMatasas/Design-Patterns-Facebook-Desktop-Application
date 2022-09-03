@@ -1,0 +1,47 @@
+title FactoryMethod Sequence Diagram
+
+actor User
+
+activate User
+User->FormMain:Click on "Statistics" on sidebar
+activate FormMain
+FormMain->FormMain:loadSelectedForm(m_FormStatistics, eFormType)
+activate FormMain
+opt On first click (m_FormStatistics == null)
+  FormMain->FacebookFormFactory:CreateForm(eFormType)
+  activate FacebookFormFactory
+  FacebookFormFactory->FacebookFormFactory:makeSureTheUserIsLoggedIn()
+  activate FacebookFormFactory
+  alt The user is not logged in
+  	FacebookFormFactory->FormMain:throw InvalidOperationException()
+    deactivateafter FacebookFormFactory
+    FormMain->User:Notify the user they're not logged in
+  else The user is logged in
+  	FacebookFormFactory->FacebookFormFactory:createTheFormRequested(eFormType)
+    activate FacebookFormFactory
+    FacebookFormFactory->FormStatistics:new FormStatistics()
+    activate FormStatistics
+    FormStatistics->StatisticsLogic: new StatisticsLogic()
+    activate StatisticsLogic
+    StatisticsLogic->FacebookAccountManager:Get albums
+    activate FacebookAccountManager
+    FacebookAccountManager-->StatisticsLogic:Albums
+    note over StatisticsLogic:r_Albums = Albums
+    StatisticsLogic->FacebookAccountManager:Get posts
+    FacebookAccountManager-->StatisticsLogic:Posts
+    deactivate FacebookAccountManager
+    note over StatisticsLogic:r_Posts = Posts
+    StatisticsLogic-->FormStatistics:Instance of StatisticsLogic
+    deactivate StatisticsLogic
+    note over FormStatistics:m_Statistics = instance of StatisticsLogic
+    FormStatistics-->FacebookFormFactory:Instance of FormStatistics
+    deactivate FormStatistics
+    FacebookFormFactory-->FormMain:Instance of FormStatistics as Form
+    deactivate FacebookFormFactory
+    deactivate FacebookFormFactory
+    note over FormMain:m_FormStatistics = instance of FormStatistics
+  end
+end
+
+FormMain->FormMain:switchDisplayedSubForm(m_FormStatistics)
+deactivateafter FormMain

@@ -10,6 +10,7 @@ namespace FacebookWinFormsApp
 {
     internal partial class FormMain : Form
     {
+        //---------------------------------------------- Members ----------------------------------------------//
         private readonly AppSetting r_AppSetting;
         private Form m_ActivateForm;
         private Form m_ProfileForm;
@@ -23,6 +24,7 @@ namespace FacebookWinFormsApp
         private Form m_StatisticsForm;
         private Form m_MostPopularFeedForm;
 
+        //-------------------------------------------- Constructor --------------------------------------------//
         public FormMain()
         {
             InitializeComponent();
@@ -30,6 +32,7 @@ namespace FacebookWinFormsApp
             r_AppSetting = AppSetting.LoadFromFile();
         }
 
+        //---------------------------------------------- Start Up ---------------------------------------------//
         protected override void OnLoad(EventArgs i_E)
         {
             base.OnLoad(i_E);
@@ -38,20 +41,21 @@ namespace FacebookWinFormsApp
             {
                 new Thread(() =>
                 {
+                    loadingFormProcessStarted();
                     FacebookAccountManager.Instance.Connect(r_AppSetting.LastAccessToken);
                     populateUI();
+                    loadingFormProcessDone();
                 }).Start();
             }
         }
 
-        private void displayLoginControllers(bool i_ToDisplay)
-        {
-            foreach (Control control in panelLogin.Controls)
-            {
-                control.Visible = i_ToDisplay;
-            }
-        }
 
+
+
+
+
+
+        //----------------------------------------------- Login -----------------------------------------------//
         private void buttonLogin_Click(object i_Sender, EventArgs i_E)
         {
             try
@@ -63,7 +67,7 @@ namespace FacebookWinFormsApp
                     r_AppSetting.RememberUser(FacebookAccountManager.Instance.AccessToken);
                 }
             }
-            catch(LoginFailureException)
+            catch (LoginFailureException)
             {
                 MessageDisplayer.ActionFailed("login");
             }
@@ -73,15 +77,22 @@ namespace FacebookWinFormsApp
             }
         }
 
+        private void displayLoginControllers(bool i_ToDisplay)
+        {
+            foreach (Control control in panelLogin.Controls)
+            {
+                control.Visible = i_ToDisplay;
+            }
+        }
+
         private void populateUI()
         {
-            Cursor.Current = Cursors.WaitCursor;
             displayUsersProfileInfoOnSidebar();
             enableAllSidebarButtons();
             showUsersProfileForm(null, null);
-            Cursor.Current = Cursors.WaitCursor;
         }
 
+        //---------------------------------------------- Sidebar ----------------------------------------------//
         private void displayUsersProfileInfoOnSidebar()
         {
             pictureBoxProfilePicture.Invoke(new Action(() => pictureBoxProfilePicture.Image = FacebookAccountManager.Instance.ProfilePicture));
@@ -97,18 +108,7 @@ namespace FacebookWinFormsApp
             }
         }
 
-        private void openSubForm(Form i_SubForm)
-        {
-            m_ActivateForm?.Hide();
-            m_ActivateForm = i_SubForm;
-            i_SubForm.TopLevel = false;
-            i_SubForm.FormBorderStyle = FormBorderStyle.None;
-            i_SubForm.Dock = DockStyle.Fill;
-            panelLogin.Invoke(new Action(() => panelLogin.Controls.Add(i_SubForm)));
-            i_SubForm.BringToFront();
-            i_SubForm.Invoke(new Action(() => i_SubForm.Show()));
-        }
-
+        //--------------------------------------------- Sub Forms ---------------------------------------------//
         private void showUsersProfileForm(object i_Sender, EventArgs i_E)
         {
             loadSelectedForm(ref m_ProfileForm, FacebookFormFactory.eFormTypes.Profile);
@@ -167,10 +167,23 @@ namespace FacebookWinFormsApp
                 io_SelectedForm = FacebookFormFactory.CreateForm(i_SelectedFormType);
             }
 
-            openSubForm(io_SelectedForm);
+            switchDisplayedSubForm(io_SelectedForm);
             loadingFormProcessDone();
         }
 
+        private void switchDisplayedSubForm(Form i_SubForm)
+        {
+            m_ActivateForm?.Hide();
+            m_ActivateForm = i_SubForm;
+            i_SubForm.TopLevel = false;
+            i_SubForm.FormBorderStyle = FormBorderStyle.None;
+            i_SubForm.Dock = DockStyle.Fill;
+            panelLogin.Invoke(new Action(() => panelLogin.Controls.Add(i_SubForm)));
+            i_SubForm.BringToFront();
+            i_SubForm.Invoke(new Action(() => i_SubForm.Show()));
+        }
+
+        //---------------------------------------------- Logout -----------------------------------------------//
         private void buttonLogout_Click(object i_Sender, EventArgs i_E)
         {
             FacebookAccountManager.Instance.Logout();
@@ -178,6 +191,7 @@ namespace FacebookWinFormsApp
             Close();
         }
 
+        //---------------------------------------------- Methods ----------------------------------------------//
         private void loadingFormProcessStarted()
         {
             Cursor.Current = Cursors.WaitCursor;
