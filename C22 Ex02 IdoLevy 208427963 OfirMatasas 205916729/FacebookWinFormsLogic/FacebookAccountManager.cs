@@ -7,7 +7,7 @@ using static FacebookWrapper.ObjectModel.User;
 
 namespace FacebookWinFormsLogic
 {
-    public class FacebookAccountManager
+    sealed public class FacebookAccountManager
     {
         //----------------------------------------------- Locks -----------------------------------------------//
         private static object s_InstanceCreationLock = new object();
