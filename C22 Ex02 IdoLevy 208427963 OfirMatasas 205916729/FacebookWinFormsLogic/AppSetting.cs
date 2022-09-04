@@ -7,7 +7,9 @@ namespace FacebookWinFormsLogic
     {
         //--------------------------------------------- Properties --------------------------------------------//
         private const string k_XMLFileName = "AppSetting.xml";
+
         public bool RememberUserInfo { get; set; }
+
         public string LastAccessToken { get; set; }
 
         //--------------------------------------------- Constructor -------------------------------------------//

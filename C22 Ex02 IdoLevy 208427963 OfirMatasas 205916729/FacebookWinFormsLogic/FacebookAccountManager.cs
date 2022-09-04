@@ -7,7 +7,7 @@ using static FacebookWrapper.ObjectModel.User;
 
 namespace FacebookWinFormsLogic
 {
-    sealed public class FacebookAccountManager
+    public sealed class FacebookAccountManager
     {
         //----------------------------------------------- Locks -----------------------------------------------//
         private static object s_InstanceCreationLock = new object();
@@ -22,7 +22,9 @@ namespace FacebookWinFormsLogic
 
         //----------------------------------------- Original Properties ---------------------------------------//
         private static FacebookAccountManager AccountManager { get; set; }
+
         public string AccessToken { get; private set; }
+
         private User LoggedInUser { get; set; }
 
         public Image ProfilePicture
