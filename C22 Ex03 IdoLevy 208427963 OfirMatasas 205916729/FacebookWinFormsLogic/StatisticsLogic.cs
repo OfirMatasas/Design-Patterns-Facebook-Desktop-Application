@@ -8,6 +8,7 @@ namespace FacebookWinFormsLogic
         //---------------------------------------------- Members ----------------------------------------------//
         private readonly FacebookObjectCollection<Album> r_Albums;
         private readonly FacebookObjectCollection<Post> r_Posts;
+        public Func<DateTime, DateTime, bool> SameYearAndMonth { get; set; }
 
         //-------------------------------------------- Constructor --------------------------------------------//
         public StatisticsLogic()
@@ -17,11 +18,6 @@ namespace FacebookWinFormsLogic
         }
 
         //---------------------------------------------- Methods ----------------------------------------------//
-        private bool CheckIfDatesHasTheSameYearAndMonth(DateTime i_ChosenDate, DateTime i_PostedDate)
-        {
-            return i_PostedDate.Month == i_ChosenDate.Month && i_PostedDate.Year == i_ChosenDate.Year;
-        }
-
         public void AnalyzeDataOnAlbumsAndPhotosOnChosenDate(
             DateTime i_ChosenDate,
             out int o_NumberOfLikesOnPhotosCreatedOnChosenDate,
@@ -34,14 +30,14 @@ namespace FacebookWinFormsLogic
 
             foreach (Album album in r_Albums)
             {
-                if (CheckIfDatesHasTheSameYearAndMonth(i_ChosenDate, album.CreatedTime.Value))
+                if (SameYearAndMonth.Invoke(i_ChosenDate, album.CreatedTime.Value))
                 {
                     o_NumberOfAlbumsCreatedOnChosenDate += 1;
                 }
 
                 foreach (Photo photo in album.Photos)
                 {
-                    if (CheckIfDatesHasTheSameYearAndMonth(i_ChosenDate, photo.CreatedTime.Value))
+                    if (SameYearAndMonth.Invoke(i_ChosenDate, photo.CreatedTime.Value))
                     {
                         o_NumberOfLikesOnPhotosCreatedOnChosenDate += photo.LikedBy.Count;
                         o_NumberOfPhotosCreatedOnChosenDate += 1;
@@ -56,7 +52,7 @@ namespace FacebookWinFormsLogic
 
             foreach (Post post in r_Posts)
             {
-                if (CheckIfDatesHasTheSameYearAndMonth(i_ChosenDate, post.CreatedTime.Value))
+                if (SameYearAndMonth.Invoke(i_ChosenDate, post.CreatedTime.Value))
                 {
                     numberOfPostsCreatedOnChosenDate++;
                 }

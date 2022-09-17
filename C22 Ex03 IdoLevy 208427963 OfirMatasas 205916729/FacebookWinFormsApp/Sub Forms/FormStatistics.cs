@@ -39,6 +39,7 @@ namespace FacebookWinFormsApp.Forms
             {
                 new Thread(() =>
                 {
+                    r_StatisticsLogic.SameYearAndMonth = (firstDate, secondDate) => firstDate.Month == secondDate.Month && firstDate.Year == secondDate.Year;
                     Cursor.Current = Cursors.WaitCursor;
                     getAlbumsAndPhotosDataOnChosenDate(chosenDate);
                     getNumberOfPostsOnChosenDate(chosenDate);
