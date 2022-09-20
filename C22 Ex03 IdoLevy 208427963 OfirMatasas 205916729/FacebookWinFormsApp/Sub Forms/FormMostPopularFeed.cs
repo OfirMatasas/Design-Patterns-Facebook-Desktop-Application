@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
@@ -30,9 +31,9 @@ namespace FacebookWinFormsApp.Forms
 
         private void fetchMostPopularFeed()
         {
-            DateTime chosenDateTime = new DateTime(dateTimePickerChosenDate.Value.Year, DateTime.Today.Month, DateTime.Today.Day);
+            r_MostPopularFeedLogic.ChosenDate = new DateTime(dateTimePickerChosenDate.Value.Year, DateTime.Today.Month, DateTime.Today.Day);
 
-            if (chosenDateTime > DateTime.Today)
+            if (r_MostPopularFeedLogic.ChosenDate > DateTime.Today)
             {
                 MessageDisplayer.InvalidTimePeriod("future");
             }
@@ -41,8 +42,8 @@ namespace FacebookWinFormsApp.Forms
                 new Thread(() =>
                 {
                     Cursor.Current = Cursors.WaitCursor;
-                    getMostPopularPost(chosenDateTime);
-                    getMostPopularPhoto(chosenDateTime);
+                    updateMostPopularPost();
+                    updateMostPopularPhoto();
                     Cursor.Current = Cursors.Default;
                     if (listBoxMostPopularPost.Items.Count == 0 || pictureBoxMostPopularPhoto.Image == null)
                     {
@@ -68,9 +69,24 @@ namespace FacebookWinFormsApp.Forms
             MessageDisplayer.NoItemsPublishedOnRelevantTime("This year", nonExistedItem);
         }
 
-        private void getMostPopularPost(DateTime i_ChosenDateTime)
+        private Post getMostPopularPost()
         {
-            Post mostPopularPost = r_MostPopularFeedLogic.FindMostPopularPost(i_ChosenDateTime);
+            Post mostPopularPost = null;
+
+            foreach (Post post in r_MostPopularFeedLogic)
+            {
+                if (mostPopularPost == null || (post.Comments.Count > mostPopularPost.Comments.Count))
+                {
+                    mostPopularPost = post;
+                }
+            }
+
+            return mostPopularPost;
+        }
+
+        private void updateMostPopularPost()
+        {
+            Post mostPopularPost = getMostPopularPost();
 
             resetMostPopularPost();
             if (mostPopularPost != null)
@@ -82,9 +98,9 @@ namespace FacebookWinFormsApp.Forms
             }
         }
 
-        private void getMostPopularPhoto(DateTime i_ChosenDateTime)
+        private void updateMostPopularPhoto()
         {
-            Photo mostPopularPhoto = r_MostPopularFeedLogic.FindMostPopularPhoto(i_ChosenDateTime);
+            Photo mostPopularPhoto = r_MostPopularFeedLogic.FindMostPopularPhoto();
 
             resetMostPopularPhoto();
             if (mostPopularPhoto != null)
