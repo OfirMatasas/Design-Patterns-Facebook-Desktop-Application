@@ -1,0 +1,129 @@
+title Singleton Sequence Diagram
+
+actor User
+participant "<link:http://example.com>:FormMain</link>" as FormMain
+participant FacebookFormFactory
+participant "<link:http://example.com>:FormAlbums</link>" as FormAlbums
+participant FacebookAccountManager
+participant "<link:http://example.com>:FacebookAccountManager</link>" as FacebookAccountManagerInstance
+participant "<link:http://example.com>:FormMain</link>" as FormMain
+participant MessageDisplayer
+participant "<link:http://example.com>LoggedInUser:User</link>" as loggedInUser
+
+activate User
+
+User->FormMain:Click "Albums" button on sidebar
+activate FormMain
+FormMain->FormMain:ButtonAlbums_Click()
+activate FormMain
+FormMain->FormMain:loadSelectedForm(m_AlbumsForm, eFormType.Albums)
+activate FormMain
+
+alt m_AlbumsForm != null
+	FormMain->FormMain:switchDisplayedSubForm(m_AlbumsForm)
+
+else m_AlbumsForm == null (on first click)
+  FormMain->FacebookFormFactory:CreateForm(eFormType.Albums)
+  activate FacebookFormFactory
+    
+    note over FacebookFormFactory:See "Factory Method Sequence Diagram"\nfor more information about creation process
+    
+    FacebookFormFactory-->FormMain:Instance of FormAlbums as Form
+    
+    deactivate FacebookFormFactory
+    
+    note over FormMain:m_AlbumsForm = returned instance of FormAlbums
+    
+    deactivate FormMain
+    deactivate FormMain
+
+FormMain->FormMain:switchDisplayedSubForm(m_AlbumsForm)
+
+activate FormMain
+
+FormMain->FormAlbums:Show()
+
+activate FormAlbums
+
+FormAlbums->FormAlbums:OnShown()
+
+activate FormAlbums
+
+note over FormAlbums:The fetching action is being executed by another thread
+FormAlbums->FormAlbums:fetchAlbumsAndNotifyTheUserIfThereAreNoAlbumsToRecieve()
+
+activate FormAlbums
+
+FormAlbums->FormAlbums:fetchAlbums()
+
+activate FormAlbums
+
+FormAlbums->FacebookAccountManager:Instance
+
+activate FacebookAccountManager
+
+note over FacebookAccountManager:If it's the first demand for the instance,\nit will be created using double-check-lock
+FacebookAccountManager-->FormAlbums:Instance of FacebookAccountManager
+
+deactivate FacebookAccountManager
+
+FormAlbums->FacebookAccountManagerInstance:Albums
+
+activate FacebookAccountManagerInstance
+
+FacebookAccountManagerInstance->FacebookAccountManagerInstance:getObjectFromCacheOrGetFromWebServiceForTheFirstTime
+
+activate FacebookAccountManagerInstance
+
+opt m_Albums == null
+	note over FacebookAccountManagerInstance:Using double-check-lock
+    
+    FacebookAccountManagerInstance->(4)loggedInUser:Albums
+    
+    activate loggedInUser
+   
+   note over loggedInUser:The albums will be fetched\nfrom Facebook's web service
+    
+    loggedInUser-->FacebookAccountManagerInstance:Albums
+    
+    deactivate loggedInUser
+
+	note over FacebookAccountManagerInstance: m_Albums = returned albums from LoggedInUser
+
+	deactivateafter FacebookAccountManagerInstance
+end
+
+FacebookAccountManagerInstance-->FormAlbums:Albums
+
+deactivate FacebookAccountManagerInstance
+
+note over FormAlbums:The list of albums is being populated
+
+deactivateafter FormAlbums
+
+FormAlbums->FormAlbums:nofityTheUserIfThereAreNoAlbumsToReceive()
+
+activate FormAlbums
+
+opt There are no albums
+	FormAlbums->MessageDisplayer:NoItemsAppearOnForm("albums")
+    
+	activate MessageDisplayer
+    
+    note over MessageDisplayer:The MessageDisplayer will present a\nMessageBox with a customized message
+    
+    MessageDisplayer-->FormAlbums:
+    
+    deactivate MessageDisplayer
+end
+deactivate FormAlbums
+deactivate FormAlbums
+deactivate FormAlbums
+
+FormAlbums-->FormMain:
+
+deactivate FormAlbums
+
+end
+
+FormMain-->User:

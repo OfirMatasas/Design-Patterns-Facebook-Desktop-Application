@@ -1,0 +1,51 @@
+title FactoryMethod Sequence Diagram
+
+actor User
+participant "<link:http://example.com>:FormMain</link>" as FormMain
+participant FacebookFormFactory
+participant "<link:http://example.com>:FormAlbums</link>" as FormAlbums
+
+activate User
+User->FormMain:Click on "Albums" button on sidebar
+activate FormMain
+FormMain->FormMain:loadSelectedForm(m_AlbumsForm, eFormType.Albums)
+activate FormMain
+
+alt m_AlbumsForm != null
+  		FormMain->FormMain:switchDisplayedSubForm(m_AlbumsForm)
+else m_AlbumsForm == null
+  FormMain->FacebookFormFactory:CreateForm(eFormType.Albums)
+  activate FacebookFormFactory
+  FacebookFormFactory->FacebookFormFactory:makeSureTheUserIsLoggedIn()
+  activate FacebookFormFactory
+  alt The user is not logged in
+  	FacebookFormFactory-->FormMain:throw new InvalidOperationException()
+    deactivate FacebookFormFactory
+    FormMain->MessageDisplayer:InvalidOperation()
+    
+    note over MessageDisplayer:The MessageDisplayer will present a\nMessageBox with a customized message
+        
+  else The user is logged in
+  	FacebookFormFactory->FacebookFormFactory:createRequestedForm(eFormType.Albums)
+
+	activate FacebookFormFactory
+
+    note over FacebookFormFactory:The form will be created using switch expression
+    
+    FacebookFormFactory->FormAlbums:new FormAlbums()
+    
+	activate FormAlbums
+    
+    FormAlbums-->FacebookFormFactory:Instance of FormAlbums
+    
+    deactivate FormAlbums
+
+    FacebookFormFactory-->FormMain:Instance of FormAlbums as Form
+
+    deactivate FacebookFormFactory
+    deactivate FacebookFormFactory
+    note over FormMain:m_FormStatistics = returned instance of FormAlbums
+	FormMain->FormMain:switchDisplayedSubForm(m_AlbumsForm)
+
+  end 
+end

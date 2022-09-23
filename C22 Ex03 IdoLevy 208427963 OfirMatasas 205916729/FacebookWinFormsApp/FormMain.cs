@@ -155,14 +155,21 @@ namespace FacebookWinFormsApp
 
         private void loadSelectedForm(ref Form io_SelectedForm, FacebookFormFactory.eFormTypes i_SelectedFormType)
         {
-            loadingFormProcessStarted();
-            if (io_SelectedForm == null)
+            try
             {
-                io_SelectedForm = FacebookFormFactory.CreateForm(i_SelectedFormType);
-            }
+                loadingFormProcessStarted();
+                if (io_SelectedForm == null)
+                {
+                    io_SelectedForm = FacebookFormFactory.CreateForm(i_SelectedFormType);
+                }
 
-            switchDisplayedSubForm(io_SelectedForm);
-            loadingFormProcessDone();
+                switchDisplayedSubForm(io_SelectedForm);
+                loadingFormProcessDone();
+            }
+            catch (Exception ex)
+            {
+                MessageDisplayer.InvalidOperation(ex.Message);
+            }
         }
 
         private void switchDisplayedSubForm(Form i_SubForm)

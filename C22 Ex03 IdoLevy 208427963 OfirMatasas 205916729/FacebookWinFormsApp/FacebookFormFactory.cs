@@ -29,7 +29,7 @@ namespace BasicFacebookFeatures
             Form requestedForm;
 
             makeSureTheUserIsLoggedIn();
-            requestedForm = createTheFormRequested(i_FormType);
+            requestedForm = createRequestedForm(i_FormType);
 
             return requestedForm;
         }
@@ -42,7 +42,7 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private static Form createTheFormRequested(eFormTypes i_FormType)
+        private static Form createRequestedForm(eFormTypes i_FormType)
         {
             Form requestedForm;
 
