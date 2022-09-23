@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using FacebookWinFormsLogic.DateComparatiorStrategies;
 using FacebookWrapper.ObjectModel;
 
 namespace FacebookWinFormsLogic
@@ -11,6 +12,7 @@ namespace FacebookWinFormsLogic
         private readonly FacebookObjectCollection<Post> r_Posts;
         private readonly FacebookObjectCollection<Album> r_Albums;
         public DateTime ChosenDate { get; set; }
+        public ICompareDateStrategy CompareDateStrategy { get; set; }
 
         //-------------------------------------------- Constructor --------------------------------------------//
         public MostPopularFeedLogic()
@@ -28,7 +30,7 @@ namespace FacebookWinFormsLogic
             {
                 foreach (Photo photo in album.Photos)
                 {
-                    if (photo.CreatedTime.Value.Year == ChosenDate.Year)
+                    if (CompareDateStrategy.Compare(photo.CreatedTime.Value, ChosenDate))
                     {
                         if (mostPopularPhoto == null || (photo.Comments.Count > mostPopularPhoto.Comments.Count))
                         {
@@ -50,7 +52,7 @@ namespace FacebookWinFormsLogic
         {
             foreach (Post post in r_Posts)
             {
-                if (post.CreatedTime.Value.Year == ChosenDate.Year)
+                if (CompareDateStrategy.Compare(post.CreatedTime.Value, ChosenDate))
                 {
                     yield return post;
                 }

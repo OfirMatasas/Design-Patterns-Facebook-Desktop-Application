@@ -1,4 +1,5 @@
 ﻿using System;
+using FacebookWinFormsLogic.DateComparatiorStrategies;
 using FacebookWrapper.ObjectModel;
 
 namespace FacebookWinFormsLogic
@@ -8,7 +9,7 @@ namespace FacebookWinFormsLogic
         //---------------------------------------------- Members ----------------------------------------------//
         private readonly FacebookObjectCollection<Album> r_Albums;
         private readonly FacebookObjectCollection<Post> r_Posts;
-        public Func<DateTime, DateTime, bool> SameYearAndMonth { get; set; }
+        public ICompareDateStrategy CompareDateStrategy { get; set; }
 
         //-------------------------------------------- Constructor --------------------------------------------//
         public StatisticsLogic()
@@ -30,14 +31,14 @@ namespace FacebookWinFormsLogic
 
             foreach (Album album in r_Albums)
             {
-                if (SameYearAndMonth.Invoke(i_ChosenDate, album.CreatedTime.Value))
+                if (CompareDateStrategy.Compare(i_ChosenDate, album.CreatedTime.Value))
                 {
                     o_NumberOfAlbumsCreatedOnChosenDate += 1;
                 }
 
                 foreach (Photo photo in album.Photos)
                 {
-                    if (SameYearAndMonth.Invoke(i_ChosenDate, photo.CreatedTime.Value))
+                    if (CompareDateStrategy.Compare(i_ChosenDate, photo.CreatedTime.Value))
                     {
                         o_NumberOfLikesOnPhotosCreatedOnChosenDate += photo.LikedBy.Count;
                         o_NumberOfPhotosCreatedOnChosenDate += 1;
@@ -52,7 +53,7 @@ namespace FacebookWinFormsLogic
 
             foreach (Post post in r_Posts)
             {
-                if (SameYearAndMonth.Invoke(i_ChosenDate, post.CreatedTime.Value))
+                if (CompareDateStrategy.Compare(i_ChosenDate, post.CreatedTime.Value))
                 {
                     numberOfPostsCreatedOnChosenDate++;
                 }

@@ -30,6 +30,7 @@ namespace FacebookWinFormsApp
             InitializeComponent();
             FacebookService.s_CollectionLimit = 100;
             r_AppSetting = AppSetting.LoadFromFile();
+            setListeners();
         }
 
         //---------------------------------------------- Start Up ---------------------------------------------//
@@ -47,6 +48,13 @@ namespace FacebookWinFormsApp
                     loadingFormProcessDone();
                 }).Start();
             }
+        }
+
+        private void setListeners()
+        {
+            FacebookAccountManager accountManager = FacebookAccountManager.Instance;
+
+            accountManager.LoggedInOrOut += enableAllSidebarButtons;
         }
 
         //----------------------------------------------- Login -----------------------------------------------//
@@ -82,7 +90,7 @@ namespace FacebookWinFormsApp
         private void populateUI()
         {
             displayUsersProfileInfoOnSidebar();
-            enableAllSidebarButtons();
+            enableAllSidebarButtons(true);
             showUsersProfileForm(null, null);
         }
 
@@ -94,11 +102,11 @@ namespace FacebookWinFormsApp
             labelProfileName.Invoke(new Action(() => labelProfileName.Visible = true));
         }
 
-        private void enableAllSidebarButtons()
+        private void enableAllSidebarButtons(bool i_ToEnable)
         {
             foreach (Control control in panelSidebarButtons.Controls)
             {
-                control.Invoke(new Action(() => control.Enabled = true));
+                control.Invoke(new Action(() => control.Enabled = i_ToEnable));
             }
         }
 

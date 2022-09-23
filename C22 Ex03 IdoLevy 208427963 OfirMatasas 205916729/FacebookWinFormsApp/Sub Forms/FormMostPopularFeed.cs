@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
 using BasicFacebookFeatures;
 using FacebookWinFormsLogic;
 using FacebookWrapper.ObjectModel;
+using FacebookWinFormsLogic.DateComparatiorStrategies;
 
 namespace FacebookWinFormsApp.Forms
 {
@@ -32,6 +32,7 @@ namespace FacebookWinFormsApp.Forms
         private void fetchMostPopularFeed()
         {
             r_MostPopularFeedLogic.ChosenDate = new DateTime(dateTimePickerChosenDate.Value.Year, DateTime.Today.Month, DateTime.Today.Day);
+            r_MostPopularFeedLogic.CompareDateStrategy = new YearCompareStrategy();
 
             if (r_MostPopularFeedLogic.ChosenDate > DateTime.Today)
             {

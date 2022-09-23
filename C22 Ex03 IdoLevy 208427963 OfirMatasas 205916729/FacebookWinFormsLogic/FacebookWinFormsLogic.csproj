@@ -41,6 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppSetting.cs" />
+    <Compile Include="DateCompareStrategies\ICompareDateStrategy.cs" />
+    <Compile Include="DateCompareStrategies\MonthYearDateComparatorStrategy.cs" />
+    <Compile Include="DateCompareStrategies\YearDateComparatorStrategy.cs" />
     <Compile Include="FacebookAccountManager.cs" />
     <Compile Include="MostPopularFeedLogic.cs" />
     <Compile Include="StatisticsLogic.cs" />

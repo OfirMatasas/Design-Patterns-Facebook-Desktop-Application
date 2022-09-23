@@ -3,6 +3,7 @@ using System.Threading;
 using System.Windows.Forms;
 using BasicFacebookFeatures;
 using FacebookWinFormsLogic;
+using FacebookWinFormsLogic.DateComparatiorStrategies;
 
 namespace FacebookWinFormsApp.Forms
 {
@@ -39,7 +40,7 @@ namespace FacebookWinFormsApp.Forms
             {
                 new Thread(() =>
                 {
-                    r_StatisticsLogic.SameYearAndMonth = (firstDate, secondDate) => firstDate.Month == secondDate.Month && firstDate.Year == secondDate.Year;
+                    r_StatisticsLogic.CompareDateStrategy = new MonthYearCompareStrategy();
                     Cursor.Current = Cursors.WaitCursor;
                     getAlbumsAndPhotosDataOnChosenDate(chosenDate);
                     getNumberOfPostsOnChosenDate(chosenDate);

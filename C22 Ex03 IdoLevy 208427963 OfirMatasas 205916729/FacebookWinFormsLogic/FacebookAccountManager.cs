@@ -26,6 +26,7 @@ namespace FacebookWinFormsLogic
         public string AccessToken { get; private set; }
 
         private User LoggedInUser { get; set; }
+        public event Action<bool> LoggedInOrOut;
 
         public Image ProfilePicture
         {
@@ -401,11 +402,17 @@ namespace FacebookWinFormsLogic
             {
                 LoggedInUser = loginResult.LoggedInUser;
                 AccessToken = loginResult.AccessToken;
+                OnLoggedIn();
             }
             else
             {
                 throw new LoginFailureException();
             }
+        }
+
+        private void OnLoggedIn()
+        {
+                LoggedInOrOut.Invoke(true);
         }
 
         public void Checkin(Checkin i_Checkin)
@@ -460,6 +467,12 @@ namespace FacebookWinFormsLogic
             FacebookService.Logout();
             AccessToken = null;
             LoggedInUser = null;
+            OnLoggedOut();
+        }
+
+        private void OnLoggedOut()
+        {
+            LoggedInOrOut.Invoke(false);
         }
     }
 }
