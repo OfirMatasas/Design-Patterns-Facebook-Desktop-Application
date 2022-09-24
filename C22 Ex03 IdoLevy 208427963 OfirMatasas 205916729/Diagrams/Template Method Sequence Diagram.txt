@@ -1,0 +1,91 @@
+title Template Method Sequence Diagram
+
+actor User
+participant "<link:facebook.com>:FormMostPopularFeed </link>" as FormMostPopularFeed
+participant "<link:facebook.com>:MostPopularFeedLogic</link>" as MostPopularFeedLogic
+participant "<link:facebook.com>:MostPopularPost</link>" as MostPopularPost
+participant "<link:facebook.com>:MostPopularPhoto</link>" as MostPopularPhoto
+
+activate User
+
+User->FormMostPopularFeed: Chooses a date of most popular feed and\nclick on "Show Most Popular Feed" button
+
+activate FormMostPopularFeed
+
+FormMostPopularFeed->FormMostPopularFeed:fetchMostPopularFeed()
+
+activate FormMostPopularFeed
+
+note over FormMostPopularFeed:The client chooses to compare the\nyear of each post/photo, for getting\nthe most popular feed of the year,\nusing the YearCompareStrategy
+
+alt chosen date is in the future
+	FormMostPopularFeed->MessageDisplayer:MessageDisplayer.InvalidTimePeriod("future")
+    
+    activate MessageDisplayer
+    
+    	note over MessageDisplayer:A MessageBox will pop up and notify\nthe user about invalid date choice
+        
+    MessageDisplayer-->FormMostPopularFeed:
+    
+    deactivate MessageDisplayer
+    deactivate FormMostPopularFeed
+	
+    FormMostPopularFeed-->User:
+
+else chosen date is not in the future
+	activate FormMostPopularFeed
+	note over FormMostPopularFeed:The caculating and populating\nthe most popular feed is being\nexecuted by another thread
+	FormMostPopularFeed->FormMostPopularFeed:updateMostPopularPost()
+
+	activate FormMostPopularFeed
+
+	FormMostPopularFeed->MostPopularFeedLogic:MostPopularPost()
+
+	activate MostPopularFeedLogic
+
+	MostPopularFeedLogic->MostPopularPost:FindMostPopularItem(ChosenDate, DateComparationStrategy) 
+
+	activate MostPopularPost
+
+	note over MostPopularPost:Comparing each post's creation date,\nusing the chosen date comparation strategy,\nand returning the post with the maximum\nnumber of likes - the most popular post.
+
+	MostPopularPost-->MostPopularFeedLogic:The most popular post
+
+	deactivate MostPopularPost
+
+	MostPopularFeedLogic-->FormMostPopularFeed:The most popular post
+
+	deactivate MostPopularFeedLogic
+    
+    note over FormMostPopularFeed:The most popular post will be\ndisplayed in FormMostPopularFeed
+
+	FormMostPopularFeed->MostPopularFeedLogic:MostPopularPhoto()
+
+	activate MostPopularFeedLogic
+
+	MostPopularFeedLogic->MostPopularPhoto:FindMostPopularItem(ChosenDate, DateComparationStrategy) 
+
+	activate MostPopularPhoto
+
+	note over MostPopularPhoto:Comparing each photo's creation date,\nusing the chosen date comparation strategy,\nand returning the photo with the maximum\nnumber of likes - the most popular photo.
+
+	MostPopularPhoto-->MostPopularFeedLogic:The most popular photo
+
+	deactivate MostPopularPhoto
+
+	MostPopularFeedLogic-->FormMostPopularFeed:The most popular photo
+
+	deactivate MostPopularFeedLogic
+    
+    note over FormMostPopularFeed:The most popular photo will be\ndisplayed in FormMostPopularFeed
+    
+    note over FormMostPopularFeed:If there's a missing popular post/photo,\na MessageBox will pop up, notifying about\nit to the user, using the MessageDisplayer
+    
+    deactivateafter FormMostPopularFeed
+    deactivateafter FormMostPopularFeed
+
+    FormMostPopularFeed-->User:
+    
+    deactivate FormMostPopularFeed
+    deactivate User
+end
