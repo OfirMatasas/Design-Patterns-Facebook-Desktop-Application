@@ -1,64 +1,36 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using FacebookWinFormsLogic.DateComparatiorStrategies;
+using FacebookWinFormsLogic.MostPopularLogic;
 using FacebookWrapper.ObjectModel;
 
 namespace FacebookWinFormsLogic
 {
-    public class MostPopularFeedLogic : IEnumerable<Post>
+    public class MostPopularFeedLogic
     {
         //---------------------------------------------- Members ----------------------------------------------//
-        private readonly FacebookObjectCollection<Post> r_Posts;
-        private readonly FacebookObjectCollection<Album> r_Albums;
-
         public DateTime ChosenDate { get; set; }
 
         public ICompareDateStrategy CompareDateStrategy { get; set; }
 
+        private readonly MostPopularPost r_MostPopularPost;
+        private readonly MostPopularPhoto r_MostPopularPhoto;
+
         //-------------------------------------------- Constructor --------------------------------------------//
         public MostPopularFeedLogic()
         {
-            r_Albums = FacebookAccountManager.Instance.Albums;
-            r_Posts = FacebookAccountManager.Instance.Posts;
+            r_MostPopularPost = new MostPopularPost();
+            r_MostPopularPhoto = new MostPopularPhoto();
         }
 
         //---------------------------------------------- Methods ----------------------------------------------//
-        public Photo FindMostPopularPhoto()
+        public Post MostPopularPost
         {
-            Photo mostPopularPhoto = null;
-
-            foreach (Album album in r_Albums)
-            {
-                foreach (Photo photo in album.Photos)
-                {
-                    if (CompareDateStrategy.Compare(photo.CreatedTime.Value, ChosenDate))
-                    {
-                        if (mostPopularPhoto == null || (photo.Comments.Count > mostPopularPhoto.Comments.Count))
-                        {
-                            mostPopularPhoto = photo;
-                        }
-                    }
-                }
-            }
-
-            return mostPopularPhoto;
+            get { return r_MostPopularPost.FindMostPopularItem(ChosenDate, CompareDateStrategy) as Post; }
         }
 
-        public IEnumerator GetEnumerator()
+        public Photo MostPopularPhoto
         {
-            return r_Posts.GetEnumerator();
-        }
-
-        IEnumerator<Post> IEnumerable<Post>.GetEnumerator()
-        {
-            foreach (Post post in r_Posts)
-            {
-                if (CompareDateStrategy.Compare(post.CreatedTime.Value, ChosenDate))
-                {
-                    yield return post;
-                }
-            }
+            get { return r_MostPopularPhoto.FindMostPopularItem(ChosenDate, CompareDateStrategy) as Photo; }
         }
     }
 }

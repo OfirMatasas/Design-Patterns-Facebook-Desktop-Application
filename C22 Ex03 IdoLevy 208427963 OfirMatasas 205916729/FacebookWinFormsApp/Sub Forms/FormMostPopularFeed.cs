@@ -70,24 +70,9 @@ namespace FacebookWinFormsApp.Forms
             MessageDisplayer.NoItemsPublishedOnRelevantTime("This year", nonExistedItem);
         }
 
-        private Post getMostPopularPost()
-        {
-            Post mostPopularPost = null;
-
-            foreach (Post post in r_MostPopularFeedLogic)
-            {
-                if (mostPopularPost == null || (post.Comments.Count > mostPopularPost.Comments.Count))
-                {
-                    mostPopularPost = post;
-                }
-            }
-
-            return mostPopularPost;
-        }
-
         private void updateMostPopularPost()
         {
-            Post mostPopularPost = getMostPopularPost();
+            Post mostPopularPost = r_MostPopularFeedLogic.MostPopularPost;
 
             resetMostPopularPost();
             if (mostPopularPost != null)
@@ -101,7 +86,7 @@ namespace FacebookWinFormsApp.Forms
 
         private void updateMostPopularPhoto()
         {
-            Photo mostPopularPhoto = r_MostPopularFeedLogic.FindMostPopularPhoto();
+            Photo mostPopularPhoto = r_MostPopularFeedLogic.MostPopularPhoto;
 
             resetMostPopularPhoto();
             if (mostPopularPhoto != null)

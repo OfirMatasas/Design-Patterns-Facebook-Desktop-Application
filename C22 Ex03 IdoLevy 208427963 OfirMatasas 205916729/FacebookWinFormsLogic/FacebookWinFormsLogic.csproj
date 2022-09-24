@@ -46,6 +46,9 @@
     <Compile Include="DateCompareStrategies\YearDateComparatorStrategy.cs" />
     <Compile Include="FacebookAccountManager.cs" />
     <Compile Include="MostPopularFeedLogic.cs" />
+    <Compile Include="MostPopularLogic\MostPopularItem.cs" />
+    <Compile Include="MostPopularLogic\MostPopularPhoto.cs" />
+    <Compile Include="MostPopularLogic\MostPopularPost.cs" />
     <Compile Include="StatisticsLogic.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -67,5 +70,6 @@
       <Name>FacebookExceptions</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
