@@ -1,0 +1,64 @@
+title Observer Sequence Diagram
+
+actor User
+participant "<link:facebook.com>:FormMain </link>" as FormMain
+participant FacebookAccountManager
+participant "<link:facebook.com>:FacebookAccountManager </link>" as FacebookAccountManagerInstance
+
+activate User
+activate FormMain
+
+User->FormMain: Click on login button
+FormMain->FacebookAccountManager: FacebookUserManager.Instance
+
+activate FacebookAccountManager
+
+FacebookAccountManager-->FormMain: Returns FacebookAccountManager's instance
+
+deactivate FacebookAccountManager
+activate FacebookAccountManagerInstance
+
+FormMain->FacebookAccountManagerInstance: Login to Facebook
+alt Successful login
+
+  FacebookAccountManagerInstance-> FacebookAccountManagerInstance: OnLoggingIn()
+
+  activate FacebookAccountManagerInstance
+
+  FacebookAccountManagerInstance->FacebookAccountManagerInstance: LoggedInOrOut.Invoke(true)
+
+  note over FacebookAccountManagerInstance:This action will enable all the\nbuttons on FormMain sidebar,\nor any other listeners
+
+  deactivate FacebookAccountManagerInstance
+
+  FacebookAccountManagerInstance-->FormMain: Notify about successful login to listeners
+
+  deactivate FacebookAccountManagerInstance
+
+  FormMain->FormMain:Enable sidebar buttons
+
+  FormMain->FormMain:Display FormProfile
+
+  FormMain-->User:
+
+  deactivate FormMain
+  deactivate User
+else Unsuccessful login
+  activate User
+  
+  FacebookAccountManagerInstance-->FormMain:throw new LoginFailureException()
+  
+    activate FormMain
+    
+  FormMain->MessageDisplayer:MessageDisplayer.ActionFailed("login")
+
+  deactivate FormMain
+  activate MessageDisplayer
+
+  note over MessageDisplayer:A MessageBox will pop up and\nnotify the user about login failure
+
+  MessageDisplayer-->User:
+
+  deactivate MessageDisplayer
+  deactivate User
+end
