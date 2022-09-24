@@ -413,7 +413,7 @@ namespace FacebookWinFormsLogic
 
         private void OnLoggedIn()
         {
-                LoggedInOrOut.Invoke(true);
+            LoggedInOrOut.Invoke(true);
         }
 
         public void Checkin(Checkin i_Checkin)
