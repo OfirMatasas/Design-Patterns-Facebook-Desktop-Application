@@ -9,6 +9,7 @@ namespace FacebookWinFormsLogic
         //---------------------------------------------- Members ----------------------------------------------//
         private readonly FacebookObjectCollection<Album> r_Albums;
         private readonly FacebookObjectCollection<Post> r_Posts;
+
         public ICompareDateStrategy CompareDateStrategy { get; set; }
 
         //-------------------------------------------- Constructor --------------------------------------------//

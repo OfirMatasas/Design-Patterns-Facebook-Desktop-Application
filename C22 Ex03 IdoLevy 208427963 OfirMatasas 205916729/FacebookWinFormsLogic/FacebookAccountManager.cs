@@ -26,6 +26,7 @@ namespace FacebookWinFormsLogic
         public string AccessToken { get; private set; }
 
         private User LoggedInUser { get; set; }
+
         public event Action<bool> LoggedInOrOut;
 
         public Image ProfilePicture
