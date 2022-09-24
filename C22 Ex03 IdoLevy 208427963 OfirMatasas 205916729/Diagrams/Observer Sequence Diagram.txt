@@ -6,19 +6,25 @@ participant FacebookAccountManager
 participant "<link:facebook.com>:FacebookAccountManager </link>" as FacebookAccountManagerInstance
 
 activate User
-activate FormMain
 
 User->FormMain: Click on login button
+
+activate FormMain
+
 FormMain->FacebookAccountManager: FacebookUserManager.Instance
 
 activate FacebookAccountManager
 
+note over FacebookAccountManager:If it's the first request for an\ninstance, it will be created\nusing a double-check-lock,\nas it's a Singleton class
+
 FacebookAccountManager-->FormMain: Returns FacebookAccountManager's instance
 
 deactivate FacebookAccountManager
-activate FacebookAccountManagerInstance
 
 FormMain->FacebookAccountManagerInstance: Login to Facebook
+
+activate FacebookAccountManagerInstance
+
 alt Successful login
 
   FacebookAccountManagerInstance-> FacebookAccountManagerInstance: OnLoggingIn()
@@ -45,9 +51,11 @@ alt Successful login
   deactivate User
 else Unsuccessful login
   activate User
+  activate FacebookAccountManagerInstance
   
   FacebookAccountManagerInstance-->FormMain:throw new LoginFailureException()
   
+    deactivate FacebookAccountManagerInstance
     activate FormMain
     
   FormMain->MessageDisplayer:MessageDisplayer.ActionFailed("login")
